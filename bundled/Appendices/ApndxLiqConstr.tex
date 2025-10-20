@@ -4,12 +4,11 @@
 
 \newcommand{\subname}{ApndxLiqConstr}
 %\input{\econtexRoot/@local/dir-paths} % get directory macros
-\usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\usepackage{econark-ifsubfile}        % allow conditional execution of code
+
+\xrsetup{\econtexRoot/\texname}
 
 \begin{document}
 \let\TableWidth\relax
@@ -300,7 +299,7 @@ Given failure of \FHWC,~\eqref{eq:bToInfty} requires
 \end{aligned}\end{gathered}\end{equation}
 \hypertarget{PFGICHoldsFHWCFailsRICFailsDiscuss}{}
 
-\noindent {\bf If \RIC~Holds}.
+\noindent \textbf{If \RIC~Holds}.
 When the \RIC~holds, rearranging~\eqref{eq:FHWCfails} gives
 \begin{eqnarray*}
   \lim_{n \rightarrow \infty} \left(\frac{\GPFacRaw^{-n}}{1-\RPFac}\right)-\RNrmByGRnd^{-n}\left(\frac{\RPFac}{1-\RPFac}+\frac{\RNrmByGRnd^{-1}}{\RNrmByGRnd^{-1}-1}\right)  & = \infty
@@ -327,7 +326,7 @@ which with a bit of algebra\footnote{
   \lim_{m \rightarrow \infty} \cnstr{\pmb{\MPC}}(\mNrm)  & = 1-\RPFac.
 \end{aligned}\end{gathered}\end{equation}
 
-\noindent {\bf If \RIC~Fails}.
+\noindent \textbf{If \RIC~Fails}.
 Consider now the \cncl{\RIC} case, $\RPFac > 1$.
 We can rearrange~\eqref{eq:FHWCfails}~as
 \begin{eqnarray}
@@ -445,8 +444,7 @@ If the upper bound of the MPC in the perfect foresight case is zero, it is not p
 
 \cite{maTodaRich} characterize the limits of the MPC in a more general framework that allows for capital and labor income risks in a Markovian setting with liquidity constraints, and find that in that much more general framework the limiting MPC is also zero.% chktex 2
 
-% \compilingasstandalone{\pagebreak\bibliographystyle{plainnat}\econarkmultibib{\texname}}
-\compilingasstandalone{\bibstandalone{\subname}}
+\ifSubfilesClassLoaded{\bibliography{\econtexRoot/\texname}}{}
 
 \end{document}\endinput
 

@@ -3,21 +3,18 @@
 \input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 
 \newcommand{\subname}{ApndxConcaveCFunc}
-%\input{\econtexRoot/@local/dir-paths} % get directory macros
+\input{\econtexRoot/@local/dir-paths} % get directory macros
 \usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
 
 % \begin{document}
 % The first panel of Table~\ref{table:Required} summarizes: The PF-Unconstrained model has a non-degenerate limiting solution if we impose the {\RIC} and {\FHWC} (these conditions are necessary as well as sufficient).
 % Together the {\PFFVAC} and the {\FHWC} imply the {\RIC}.
 
 % \cite{carroll:death}
-
-% \bibstandalone{\subname}
 
 % \end{document}
 
@@ -29,7 +26,7 @@
 \subsection{Recovering the Non-Normalized Problem}\label{sec:recoverLevels}
 Letting nonbold variables be the boldface counterpart normalized by $\permLvl_{t}$ (as with $\mNrm=\mLvl/\permLvl$), consider the problem in the second-to-last period:
 \begin{equation}\labelsafe{eq:vBold}
-  \begin{split}
+  \begin{aligned}
     \vFuncLvl_{T-1}(\mLvl_{T-1},\permLvl_{T-1})
     & =  \max_{0< \cNrm_{T-1}< \mNrm_{T-1}}~
     \uFunc(\permLvl_{T-1}\cNrm_{T-1}) + \DiscFac  \Ex_{t}[\uFunc(\permLvl_{T}{\mNrm}
@@ -37,7 +34,7 @@ Letting nonbold variables be the boldface counterpart normalized by $\permLvl_{t
     & = \permLvl_{T-1}^{1-\CRRA}
     \left\{\max_{0<\cNrm_{T-1}\leq \mNrm_{T-1}}~ \uFunc(\cNrm_{T-1}) + \DiscFac \Ex_{t}[ \uFunc( {\PermGroFacRnd}_{T}
       {\mNrm}_{T}) ] \right\}.
-  \end{split}
+  \end{aligned}
 \end{equation}
 
 \hypertarget{The-Related-Problem}{}
@@ -56,14 +53,14 @@ This logic induces to earlier periods; if we solve the normalized one-state-vari
 \subsection{Perfect Foresight Benchmarks}\label{subsec:PFBProofs}\hypertarget{PFBProofs}{}
 
 \begin{proof}[\textbf{Proof of Claim \ref{claim:PFConspC}}]
-First we show that if \hyperlink{FHWC}{finite limiting human wealth} (Assumption \ref{ass:FHWC}) and \hyperlink{GIC}{growth impatience} (Assumption \ref{ass:GICRaw}) are both satisfied, \hyperlink{PFFVAC}{perfect foresight finite value of autarky} (Equation \eqref{eq:PFFVAC}).
+First we show that if \hyperlink{FHWC}{finite limiting human wealth} (Assumption \ref{ass:FHWC}) and \hyperlink{GIC}{growth impatience} (Assumption \ref{ass:GICRaw}) are both satisfied, \hyperlink{PFFVAC}{perfect foresight finite value of autarky} (Equation \eqref{eq:PFFVAC}) holds.
 In particular, note that:
   
 \begin{equation}\label{eq:GICandFHWCimplyPFFVAC}
-  \begin{split}
+  \begin{aligned}
     \APFac & < \PermGroFac < \Rfree
     \\   \RPFac & < \PermGroFac/\Rfree < {(\PermGroFac/\Rfree)}^{1-1/\CRRA} < 1.
-  \end{split}
+  \end{aligned}
 \end{equation}
 
 The last line above holds because \hyperlink{FHWC}{finite human wealth} implies $0 \leq (\PermGroFac/\Rfree) < 1$ and $\CRRA > 1 \Rightarrow 0 < 1-1/\CRRA < 1$.
@@ -502,7 +499,7 @@ $\TMap^{\MPCminInf, \MPCmaxInf} \mathbf{0}(\mNrm_{t}) = \uFunc(\MPCmaxInf \mNrm_
 Thus, Condition (2)
 will hold if ${(\MPCmaxInf \mNrm_{t})}^{1-\CRRA}$ is $\boundFunc$-bounded, which it is if we use the
 bounding function
-\input{Equations/boundFunc}
+\input{\EqDir/boundFunc}
 defined in Remark \ref{rem:shnkrdef}.
 
 
@@ -590,10 +587,10 @@ Since $\cFunc_{t_{n(i)}}(\mNrm)$ solves the time $t_{n(i)}$ finite horizon probl
 
 \begin{samepage}
 \begin{equation}
-\begin{split}
+\begin{aligned}
 \uFunc(\cFunc_{t_{n(i)}}(\mNrm)) + & \DiscFac \Ex \left[ {\PermGroFacRnd}^{1 - \CRRA} \vFunc_{t_{n(i)+1}}(\mNrm_{t_{n(i)+1}}) \right] \\ 
 & \geq \uFunc(\cNrm) + \DiscFac \Ex \left[ {\PermGroFacRnd}^{1 - \CRRA} \vFunc_{t_{n(i)}+1}(\hat{\mNrm}^{\nxt}) \right], 
-\end{split}
+\end{aligned}
 \end{equation}
 \end{samepage}
 for any $\cNrm \in (0, \MPCmax \mNrm]$, where $\mNrm_{t_{n(i)}+1} = \RNrmByGRnd(\mNrm - \cFunc_{t_{n(i)}}(\mNrm)) + \tranShkAll_{t_{n(i)}+1}$ and $\hat{\mNrm}^{\nxt} = \RNrmByGRnd(\mNrm - \cNrm) + \tranShkAll_{t_{n(i)}+1}$.
@@ -796,12 +793,13 @@ Note finally that another intuitive confirmation of the equivalence between the 
 \end{eqnarray*}
 which makes sense because the marginal propensity to consume for a constrained restrained consumer is 1 by our definitions of `constrained' and `restrained.'
 
+\ifSubfilesClassLoaded{\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}}{}
 
-% \compilingasstandalone{\bibstandalone{\econtexRoot/\texname}}
-\compilingasstandalone{\bibstandalone{ApndxConcaveCFunc}}
-
+\sloppy\end{document}\endinput
 
 \end{document}
+
+
 \endinput
 
 % Local Variables:

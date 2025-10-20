@@ -4,12 +4,11 @@
 
 \newcommand{\subname}{ApndxConcaveCFunc}
 %\input{\econtexRoot/@local/dir-paths} % get directory macros
-\usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\usepackage{econark-ifsubfile}        % allow conditional execution of code
+
+\xrsetup{\econtexRoot/\texname}
 
 \begin{document}
 \newcommand{\tnow}{t}
@@ -117,10 +116,7 @@ We want a notation that will allow us to break up
 Consider a consumer who has arrived at the beginning of a terminal {\stge} of life $T$, with a stock of capital $\KLvl_{T} \in \mathcal{K} \subset \mathcal{R}_{++}$.
 That is, $\KLvl_{T}$ is a real number.
 
-
-
-
-\compilingasstandalone{\bibstandalone{ApndxNotation}}
+\ifSubfilesClassLoaded{\bibliography{\econtexRoot/\texname}}{}
 
 \end{document}
 \endinput

@@ -1,8 +1,8 @@
 % -*- mode: LaTeX; TeX-PDF-mode: t; -*-
 \input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
-%\input{\econtexRoot/@local/dir-paths}\usepackage{econark-ifsubfile}\usepackage{econark-xrsetup}
+\input{\econtexRoot/@local/dir-paths}\usepackage{econark-ifsubfile}\usepackage{econark-xrsetup}
 
-\compilingasstandalone{\xrsetup{\econtexRoot/\texname}}
+\xrsetup{\econtexRoot/\texname}
 
 \begin{document}
 \section{Convergence in Euclidian Space}
@@ -48,9 +48,9 @@ $\left\{\cFunc_{T-n+1}(\mNrm)\right\} _{n=1}^{\infty }$.
 Consider any convergent subsequence $\left\{\cFunc_{T-n(i)}(\mNrm)\right\}$ of $\left\{\cFunc_{T-n+1}(\mNrm)\right\} _{n=1}^{\infty }$ converging to $c^*$.
 By the definition of $\cFunc_{T-n}(\mNrm)$, we have
 \begin{align}
-  \begin{split}
+  \begin{aligned}
     \uFunc(c_{T - n(i)}(\mNrm)) + & \DiscFac \Ex_{T - n(i)}[{\PermGroFac}_{T-n(i)+1}^{1 - \CRRA}\vFunc_{T-n(i)+1}(\mNrm)]  \\ & \geq  \uFunc(c_{T - n(i)}) + \DiscFac \Ex_{T - n(i)}[{\PermGroFac}_{T-n(i)+1}^{1 - \CRRA}\vFunc_{T-n(i)+1}(\mNrm)], 
-    \end{split}
+    \end{aligned}
 \end{align}
 for any $\cNrm_{T - n(i)} \in [\MPCminmin \mNrm,\MPCmax \mNrm]$.
 Now letting $n(i)$ go to infinity, it follows that the left hand side converges to $\uFunc(\cNrm^*) + \DiscFac \Ex_{t}[{\PermGroFac}_{t}^{1 - \CRRA}\vFunc(\mNrm)]$, and the right hand side converges to $\uFunc(\cNrm_{T - n(i)}) + \DiscFac \Ex_{t}[{\PermGroFac}_{t}^{1 - \CRRA}\vFunc(\mNrm)]$.

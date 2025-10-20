@@ -602,20 +602,20 @@ z
     </g>
    </g>
    <g id="text_5">
-    <!-- $\hat{m}~$ -->
+    <!-- $\check{m}~$ -->
     <g transform="translate(628.623121 288.552267)scale(0.22 -0.22)">
      <defs>
-      <path d="M 1466 4421 
-L 678 3555 
-L 755 3478 
-L 1466 4166 
-L 2176 3478 
-L 2253 3555 
-L 1466 4421 
+      <path d="M 1466 3561 
+L 749 4045 
+L 685 3956 
+L 1466 3306 
+L 2246 3956 
+L 2182 4045 
+L 1466 3561 
 z
-" id="CMR17-5e" transform="scale(0.015625)"/>
+" id="CMR17-14" transform="scale(0.015625)"/>
      </defs>
-     <use transform="translate(19.818381 0.006461)scale(0.996264)" xlink:href="#CMR17-5e"/>
+     <use transform="translate(19.818381 0.006461)scale(0.996264)" xlink:href="#CMR17-14"/>
      <use transform="scale(0.996264)" xlink:href="#CMMI12-6d"/>
     </g>
    </g>

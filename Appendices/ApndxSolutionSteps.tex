@@ -1,8 +1,8 @@
 % -*- mode: LaTeX; TeX-PDF-mode: t; -*-
 % (setq TeX-parse-self t)
 \input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
-%\input{\econtexRoot/@local/dir-paths}\usepackage{econark-ifsubfile}\usepackage{econark-xrsetup}
-\compilingasstandalone{\xrsetup{\econtexRoot/\texname}}
+\input{\econtexRoot/@local/dir-paths}\usepackage{econark-ifsubfile}\usepackage{econark-xrsetup}
+\xrsetup{\econtexRoot/\texname}
 
 % \renewcommand{\LtxDir}{}
 \notinsubfile{\renewcommand{\LtxDir}{}}
@@ -41,7 +41,7 @@ We start by assuming we are solving a problem exactly like the one in the \href{
 %\end{document}\endinput
 
 \begin{equation*}\label{eq:veqn}
-  \begin{split}
+  \begin{aligned}
     % \begin{align*}
     \vFunc_{t}(\mNrm_{t})  & = \max_{{\{\cFunc\}}_{t}^{T}}~  \uFunc(\cFunc_{t}) +\DiscFac \Ex_{t}[\PermGroFac_{t+1}^{1-\CRRA}\vFunc_{t+1}({\mNrm}_{t+1})]  \\
     & \mbox{s.t.}
@@ -50,7 +50,7 @@ We start by assuming we are solving a problem exactly like the one in the \href{
     \\ {\bNrm}_{t+1}  & = {\kNrm}_{t+1}\Rfree = (\Rfree/\PermGroFac_{t+1})\aNrm_{t}  ~ = ~ \RNrmByGRnd_{t+1}\aNrm_{t}
     \\ \mNrm_{t+1}  & = \bNrm_{t+1}+\tranShkAll_{t+1}  ,
                       %       \end{align*}
-  \end{split}
+  \end{aligned}
 \end{equation*}
 where $\RNrmByGRnd_{t+1}\equiv (\Rfree/\PermGroFac_{t+1})$ is a `permanent-income-growth-normalized' return factor.
 

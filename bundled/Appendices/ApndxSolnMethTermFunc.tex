@@ -7,13 +7,11 @@
 \usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
 
 \begin{document}
 
-%\begin{verbatimwrite}{\LaTeXGenerated/ApndxSolnMethTermFunc.tex}
+%\begin{verbatimwrite}{ApndxSolnMethTermFunc.tex}
 \section{The Terminal/Limiting Consumption Function}\label{sec:ApndxSolnMethTermFunc}
 
 For any set of parameter values that satisfy the conditions required for convergence, the problem can be solved by setting the terminal consumption function to $\cFunc_{T}(\mNrm) = \mNrm$ and constructing $\{\cFunc_{T-1}, \cFunc_{T-2}, \cdots \}$ by time iteration (a method that will converge to $\cFunc(m)$ by standard theorems).  But $\cFunc_{T}(\mNrm)=\mNrm$ is very far from the final converged consumption rule $\cFunc(\mNrm)$,\footnote{Unless $\DiscFacRaw \approx +0$.} and thus many periods of iteration will likely be required to obtain a candidate rule that even remotely resembles the converged function.

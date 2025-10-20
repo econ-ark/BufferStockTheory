@@ -5,17 +5,20 @@
    
 
 \input{./.econtexRoot}
+
+% \usepackage{econark-ifsubfile} is in main preamble
+% where it sets macros indicating that the doc being
+% compiled is NOT a subfile.
+% \usepackage{econark-ifsubfile} in the subfile preamble
+% is NOT EXECUTED when the content is read in by main
+% so this correctly defines what is needed
 \usepackage{econark-ifsubfile}
-\usepackage{econark-xrsetup}
 
-\compilingasstandalone{
-  \xrsetup{\LaTeXGenerated/BufferStockTheory}
-  \providecommand{\texname}{}\renewcommand{\texname}{Introduction}
-} % Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
-
+% Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
+\xrsetup{BufferStockTheory}
+\externaldocument{BufferStockTheory}
+  
 \begin{document}
-\compilingasstandalone{standalone}
-\compilingassubfile{subfile}
 
 \hypertarget{The-Problem}{}
 \section{Theoretical Foundations}\label{sec:Theory}
@@ -49,7 +52,7 @@ For $t<T$, the finite-horizon value functions are recursively defined by:
   \end{align}
 \end{verbatimwrite}
 \input{Equations/supfn}
-where i) $\cLvl_{t}$ is the level of consumption at time $t$, ii) $\Ex_{t}$ is the expectation operator over the shocks $\permShk_{t+1}$ and $\tranShkAll_{t+1}$\hypertarget{checkRestrictions}{}\hypertarget{DBCparts}{}, and iii) $\mLvl_{t+1}$ is determined from this period's $\mLvl_{t}$ and choice of $\cLvl_{t}$ as follows:\footnote{For maximal clarity, we have separately described every step in the dynamic budget evolution.
+\noindent where i) $\cLvl_{t}$ is the level of consumption at time $t$, ii) $\Ex_{t}$ is the expectation operator over the shocks $\permShk_{t+1}$ and $\tranShkAll_{t+1}$\hypertarget{checkRestrictions}{}\hypertarget{DBCparts}{}, and iii) $\mLvl_{t+1}$ is determined from this period's $\mLvl_{t}$ and choice of $\cLvl_{t}$ as follows:\footnote{For maximal clarity, we have separately described every step in the dynamic budget evolution.
 The steps are broken down also so that the notation of the paper will correspond exactly to the variable names in the \href{https://github.com/econ-ark/HARK} toolkit, because it is required for solving life cycle problems.}%$^{,}$\footnote{Allowing a stochastic interest factor would complicate the notation but not affect the points we want to address; however, see~\cite{benhabibWealth},~\cite{maTodaRich}, and~\cite{mstIncFluct} for the implications of capital income risk for the distribution of wealth and other interesting questions not considered here.}
 %
 \begin{verbatimwrite}{Equations/DBCparts}
@@ -1584,39 +1587,23 @@ The main use of infinite-horizon versions of such models is in heterogeneous-age
 The paper articulates intuitive `Growth Impatience Conditions' under which populations of such agents, with Blanchardian (tighter) or Modiglianian (looser) mortality will exhibit balanced growth.
 Finally, the paper provides the analytical basis for many results about buffer-stock saving models that are so well understood that even without analytical foundations researchers uncontroversially use them as explanations of real-world phenomena like the cross-sectional pattern of consumption dynamics in the Great Recession.
 
-% % The paper's results are all easily reproducible \href{https://econ-ark.org/_materials/BufferStockTheory?launch}{interactively on the web} or \href{https://github.com/econ-ark/BufferStockTheory}{on any standard computer system}.  Such reproducibility reflects the paper's use of the open-source {\ARKurl} toolkit, which is used to generate all of the quantitative results of the paper, and which integrally incorporates all of the analytical insights of the paper.
 
-% % The Dummy equation below sems to be needed to get the equation numbering in the appendix
-% % reliably to start at the next number after the last actual equation number used in the paper
 
-% \clearpage\vfill\eject
-% \begin{equation*}
-%   \label{eq:Dummy}
-% \end{equation*}
 
-% \notinsubfile{\bibliography{
-% \texname, % subfile inherits texname from preamble of parent
-% \econtexBib % Default bib database is in Resources/LaTeXInputs
-% }}
 
-% \makeatletter
-% \@ifundefined{subfiles@main}{%
-%   % Standalone mode
-%   \econarkmultibib{BufferStockTheory}
-% }{%
-%   % Included in main document
-%   \renewcommand{\bibdata}[1]{\@input@{\jobname.bbl}}
-%   \econarkmultibib{BufferStockTheory}
-% }
-% \makeatother
 
-\compilingasstandalone{\bibliographystyle{plainnat}\econarkmultibib{\texname}}
-\end{document}
+% documentclass is {article} or something else when main is compiling 
+\ifSubfilesClassLoaded{ 
+    % Content you want to compile only when standalone.
+    \bibliography{\econtexRoot/\texname}
+}{} % end ifSubfilesClassLoaded
+
+
 % Do not include appendix figures and tables in ToC unless for Web version
 \ifthenelse{\boolean{Web}}{}{
-\notinsubfile{\captionsetup[figure]{list=no}}
-\notinsubfile{\captionsetup[table]{list=no}}
-}
+\notinsubfile{\captionsetup[figure]{list=no}} % Web 
+\notinsubfile{\captionsetup[table]{list=no}}  % Web
+} % end Web
 \end{document}\endinput
 
 % If you are editing in Emacs-AucTeX, modify the lines below for your system (otherwise ignore)

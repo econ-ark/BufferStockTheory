@@ -26,9 +26,10 @@ texmf-local_private_sync.sh
 
 ## Build tool auxiliary files:
 *.fdb_latexmk
-*.synctex
+*.synctex*
 *.synctex.gz
 *.synctex.gz(busy)
+*.synctex.(busy)
 *.pdfsync
 
 ## Auxiliary and intermediate files from other packages:
@@ -368,3 +369,4 @@ requirements.out # Ensures that fresh install will insist on new HARK
 Old/
 HarKmenberg/
 cuts/
+*~

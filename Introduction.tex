@@ -1,37 +1,22 @@
 \input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
 % -*- mode: LaTeX; TeX-PDF-mode: t; -*-
 \input{./.econtexRoot}\documentclass[BufferStockTheory]{subfiles}
-   
+
 
 \newcommand{\subname}{Introduction}   % Needed for generic bib to work
-%\input{\econtexRoot/@local/dir-paths} % get directory macros
+\input{\econtexRoot/@local/dir-paths} % get directory macros
 \usepackage{econark-ifsubfile}
 \usepackage{econark-xrsetup}
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
 
-% if it's being compiled standalone, set up identity of the external
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
-
-% \begin{document}
-
-% Section~\ref{subsubsec:deatonIsLimit})
-
-% The first panel of Table~\ref{table:Required} summarizes: The PF-Unconstrained model has a nondegenerate limiting solution if we impose the {\RIC} and {\FHWC} (these conditions are necessary as well as sufficient).
-% Together the {\PFFVAC} and the {\FHWC} imply the {\RIC}.
-
-% \cite{carroll:death}
-
-% \compilingasstandalone{
-%   \bibliography{Introduction}
-%   }
-% \end{document}\endinput
+% set up identity of the external source of refs and bibs
+\xrsetup{\econtexRoot/\texname}
 
 \newcommand{\thankstext}{
   The paper's results \href{https://\owner.github.io/nbreproduce}{can be automatically reproduced} using the {\ARKurl} toolkit, which can be cited per our references (\cite{carroll_et_al-proc-scipy-2018}); for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging}{Acknowledging Econ-ARK}.
-Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the {\ARKurl} toolkit; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive åfurther development} that brought it to the point where it could be used for this project.
-The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.
-Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Alexis Akira Toda, Metin Uyanik, Mateo Vel\'asquez-Giraldo, Weifeng Wu,  Jiaxiong Yao, and Xudong Zheng for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji  Hiraguchi for extraordinary mathematical insight that improved the  paper greatly, David Zervos for early guidance to the literature, and participants in a seminar at the Johns Hopkins University, a presentation at the 2009 meetings of the Society of Economic Dynamics for their insights, and at a presentation at the Australian National University.}
+  Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the {\ARKurl} toolkit; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive åfurther development} that brought it to the point where it could be used for this project.
+  The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.
+  Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Alexis Akira Toda, Metin Uyanik, Mateo Vel\'asquez-Giraldo, Weifeng Wu,  Jiaxiong Yao, and Xudong Zheng for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji  Hiraguchi for extraordinary mathematical insight that improved the  paper greatly, David Zervos for early guidance to the literature, and participants in a seminar at the Johns Hopkins University, a presentation at the 2009 meetings of the Society of Economic Dynamics for their insights, and at a presentation at the Australian National University.}
 
 % \newcommand{\inframe}{https://\owner.github.io/BufferStockTheory/BufferStockTheory3.html}
 
@@ -56,7 +41,8 @@ Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, 
 
 \title{Theoretical Foundations of \\ Buffer Stock Saving}
 
-\author{Christopher D Carroll\authNum ~and Akshay Shanker\authNum}
+%\author{Christopher D Carroll\authNum ~and Akshay Shanker\authNum}
+\author{Christopher D Carroll         ~and Akshay Shanker}
 
 \keywords{Precautionary saving, buffer stock saving, marginal propensity to consume, permanent income hypothesis, income fluctuation problem}
 
@@ -70,7 +56,9 @@ Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, 
 \maketitle
 \hypertarget{abstract}{}
 \begin{abstract}
-  This paper builds the foundations for a rigorous and intuitive understanding of `buffer stock' saving, behaviour that emerges in \cite{bewleyPIH}-like economies with a wealth target, pairing each theoretical result with quantitative illustrations.  After describing conditions under which a consumption function exists, the paper articulates stricter `Growth Impatience' conditions that guarantee alternative forms of `target' saving --- either at the population level, or for individual consumers.  Together, the numerical tools and analytical results constitute a comprehensive toolkit for understanding buffer stock models.
+  This paper builds foundations for rigorous and intuitive understanding of `buffer stock' saving behaviour that can emerge in \cite{bewleyPIH}-like economies.
+  After describing conditions under which a consumption function exists, the paper articulates stricter `Growth Impatience' conditions sufficient to guarantee the existence of a buffer-stock target --- either at the population level, or for individual consumers.
+  Together, these analytical results, along with the inlcuded numerical illustrations, constitute a comprehensive toolkit for understanding buffer stock saving.
 \end{abstract}
 
 % Various resources
@@ -93,24 +81,24 @@ Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, 
   } % end \parbox{\textwidth}
 \end{footnotesize}
 
-\begin{authorsinfo}
-  \name{Contact: \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD 21218, \url{https://www.econ2.jhu.edu/people/ccarroll}, and National Bureau of Economic Research.}\name{Contact: \href{mailto:akshay.shanker@unsw.edu.au}{\texttt{akshay.shanker@unsw.edu.au}}, Department of Economics, University of New South Wales, Sydney, Australia and Australian Research Council (ARC) Center for Excellence in Population and Ageing Research (CEPAR).}
-\end{authorsinfo}
+% \begin{authorsinfo}
+%   \name{Contact: \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD 21218, \url{https://www.econ2.jhu.edu/people/ccarroll}, and National Bureau of Economic Research.}\name{Contact: \href{mailto:akshay.shanker@unsw.edu.au}{\texttt{akshay.shanker@unsw.edu.au}}, Department of Economics, University of New South Wales, Sydney, Australia and Australian Research Council (ARC) Center for Excellence in Population and Ageing Research (CEPAR).}
+% \end{authorsinfo}
 
 \pagenumbering{gobble} % Prevent numbering for pages including the TOC and title page
 \hypersetup{pageanchor=false}  % https://tex.stackexchange.com/questions/18924/pdftex-warning-ext4-destination-with-the-same-identifier-nam-epage-1-has
-\ifthenelse{\boolean{Web}}{
-}{
-  \begin{minipage}{0.9\textwidth}
-    \footnotesize The paper's results \href{https://\owner.github.io/nbreproduce}{can be automatically reproduced} using the {\ARKurl} toolkit by executing the \href{https://econ-ark.org/materials/bufferstocktheory}{notebook}; for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging}{Acknowleding Econ-ARK}.  Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the {\ARKurl} toolkit; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive further development} that brought it to the point where it could be used for this project.  The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{https://doi.org/10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.  Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, David Stern, Adam Szeidl, Alexis Akira Toda, Metin Uyanik, Mateo Vel\'asquez-Giraldo, Weifeng Wu,  Jiaxiong Yao, and Xudong Zheng for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji  Hiraguchi for extraordinary mathematical insight that improved the  paper greatly, David Zervos for early guidance to the literature, and participants in a seminar at the Johns Hopkins University, a presentation at the 2009 meetings of the Society of Economic Dynamics for their insights, and at a presentation at the Australian National University. Shanker gratefully acknowledges research support from the Australian Research Council (ARC LP190100732) and ARC Centre of Excellence in Population Ageing Research (CE17010005).
-  \end{minipage}
+% \ifthenelse{\boolean{Web}}{ % Web 
+% }{ % Web 
+  \begin{minipage}{0.9\textwidth} 
+    \footnotesize The paper's results \href{https://\owner.github.io/nbreproduce}{can be automatically reproduced} using the {\ARKurl} toolkit by executing the \href{https://econ-ark.org/materials/bufferstocktheory}{notebook}; for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging}{Acknowleding Econ-ARK}.  Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the {\ARKurl} toolkit; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive further development} that brought it to the point where it could be used for this project.  The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{https://doi.org/10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.  Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, David Stern, Adam Szeidl, Alexis Akira Toda, Metin Uyanik, Mateo Vel\'asquez-Giraldo, Weifeng Wu,  Jiaxiong Yao, and Xudong Zheng for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji  Hiraguchi for extraordinary mathematical insight that improved the  paper greatly, David Zervos for early guidance to the literature, and participants in a seminar at the Johns Hopkins University, a presentation at the 2009 meetings of the Society of Economic Dynamics for their insights, and at a presentation at the Australian National University. Shanker gratefully acknowledges research support from the Australian Research Council (ARC LP190100732) and ARC Centre of Excellence in Population Ageing Research (CE17010005). 
+  \end{minipage} 
 
   \titlepagefinish\pagebreak
   \let\LaTeXStandardContentsName\contentsname
   \renewcommand{\contentsname}{}
   \tableofcontents
   \pagebreak
-
+  \typeout{after \\tableofcontents}
   \medskip\medskip
   \begin{minipage}{0.9\textwidth}
     \listoffigures 
@@ -120,7 +108,7 @@ Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, 
   \begin{minipage}{0.9\textwidth}
     \listoftables
   \end{minipage}
-} % {Web}
+%} % Web
 
 \hypersetup{pageanchor=true}  % https://tex.stackexchange.com/questions/18924/pdftex-warning-ext4-destination-with-the-same-identifier-nam-epage-1-has
 
@@ -129,105 +117,85 @@ Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, 
 \section{Introduction}\label{sec:intro}
 \setcounter{page}{0}\pagenumbering{arabic}
 
-The precautionary motive to save springs from the fact that extra resources increase a consumer's ability to buffer spending against income shocks.\footnote{\cite{CarrollKimballPSPW}.}
-A consumer who, in the absence of shocks, would be `impatient' enough to want to spend down resources, will (when there are shocks to worry about) experience an intensifying precautionary motive as their buffering capacity shrinks.
-If resources fall far enough, the consequence may be to make `prudence' (\cite{kimball:standardra}) strong enough to counterbalance impatience.
-A consumer whose behavior is governed by this competition between impatience and prudence has been described, starting with \cite{deatonLiqConstr}, as engaging in `buffer stock saving.'
-
+The precautionary motive to save springs from the fact that extra resources improve a consumer's ability to buffer spending against shocks.
+A consumer who, in the absence of shocks, would be impatient enough to plan to spend down their resources, will (when shocks are present) experience an intensifying precautionary motive as their buffering capacity shrinks.
+The result of this competition between impatience and `prudence' \citep{kimball:smallandlarge} has been described, starting with \cite{deatonLiqConstr}, as `buffer stock saving,' with a `target' defined\footnote{In \cite{carroll:brookings}.} as the point where the precautionary motive to accumulate becomes exactly strong enough to counter the impatience motive to decumulate.
 
 The logic of buffer stock saving underpins key findings in heterogeneous-agent (HA) macroeconomics.
 For example, it can explain why, during the Great Recession, middle-class consumers cut spending more than the poor or the rich~\citep{kmpHandbook}.
-Buffer stock saving also can explain why consumption growth tracks income growth over much of the life cycle \citep{carrollBSLCPIH}, rather than being determined solely by preferences and interest rates as Irving~\cite{fisherInterestTheory} proposed (and as log-linearized Euler equations erroneously suggest (\cite{carroll:death}).
+Buffer stock saving also can explain why consumption growth tracks income growth over much of the life cycle,\footnote{\cite{carrollBSLCPIH}, \cite{gpLifeCycle}} rather than being determined solely by preferences and interest rates as Irving~\cite{fisherInterestTheory} proposed.
+
+Buffer stock saving models are neither a subset nor a superset of the closely-related class of \cite{bewleyPIH} models (or, more generically, \cite{schectman:fluctuation} `income fluctuation' problems; we will use the terms `Bewley model' and `income fluctuation problem' interchangeably).
+That is, not all Bewley models with fluctuating income exhibit buffer stock saving, and not all models that exhibit buffer stock saving satisfy the mathematical assumptions that guarantee boundedness of marginal marginal utility imposed by Schectman or Bewley (and inherited by almost all of the subsequent literature through to the recent contributions of \cite{mstIncFluct,maUnboundedDP}). %
+
+The purpose of this paper is to provide a comprehensive statement and explanation of the conditions under which buffer stock saving arises in a class of problems broader in important respects than Bewley models. Specifically, we consider the problem of an agent who is subject to a Friedman-Muth(-Zeldes) income process incorporating permanent shocks to noncapital income~\citep{friedmanATheory, muthOptimal, zeldesStochastic} in addition to the transitory shocks traditionally examined in the income fluctuation literature,\footnote{It is our view that the principal reason much of the literature has incorporated extremely `persistent' but not completely permanent shocks is that the theoretical foundations for the case with permanent shocks have not previously been available.}
+and who does not face an `artificial' borrowing constraint (a constraint that prohibits borrowing even when the loan could certainly be repaid).
+
+In the course of proving our main theoretical results, we define a variety of alternative measures of `patience' -- an intuitive term that nonetheless has had multiple interpretations in the literature. Different measures of impatience guarantee two kinds of results: The existence of a nondegenerate limiting consumption function, and the existence of a buffer stock `target.'
+
+\paragraph{Patience Requirements for Nondegeneracy}
+% define (non)degeneracy
+We will define the `limiting' consumption function as the limit of the sequence of consumption rules constructed by iterating backward from a terminal period $T$, and we will say that this limiting function is `nondegenerate' if it exists, is real-valued, and is strictly positive for every reachable circumstance the consumer could be in.
 
 
-Despite the central role that buffer stock saving plays in HA-macro, the literature lacks a formal theory mapping the conditions under which such behavior emerges.
-This paper establishes the required foundations by explaining the circumstances under which preferences, income growth, uncertainty, and the interest rate imply the existence of buffer-stock saving `targets' both at the individual level and in the aggregate.
+%For example, we will define a perfect foresight consumer as exhibiting `growth impatience' if they would always like to spend more than their current income.
+%This can occur even if their time preference factor is $\DiscFac=1$.
+%The key insight is that the existence of non-degenerate limiting solutions and buffer stock targets depends on the relation between the consumer's preferences (both time preference and risk aversion) and the exogenous features of their environment (the income process and the interest factor $\Rfree$).
 
-We formalize buffer stock saving using the Friedman-Muth(-Zeldes) income fluctuation model, incorporating realistic transitory and permanent shocks~\citep{friedmanATheory, muthOptimal, zeldesStochastic},\footnote{By which we mean, calibrated to micro empirical evidence.}
-constant relative risk aversion (CRRA) utility, and a `natural borrowing constraint' of the kind first employed by \cite{zeldesStochastic}.\footnote{A natural borrowing constraint is the maximum amount a consumer will be willing to borrow under any circumstances.
-See~\cite{carrollBSLCPIH} or~\cite{gpLifeCycle} for arguments that models with only `natural' constraints (see below) match a wide variety of facts; for a model with explicit constraints that produces very similar results, see, e.g.~\cite{Cagetti}.
-They are analytically convenient as the consumption function becomes twice continuously differentiable and also becomes arbitrarily close (cf.\ Section~\ref{subsubsec:deatonIsLimit}) to less tractable models with artificial liquidity constraints.}\textsuperscript{,}\footnote{The model permits separate transitory and permanent shocks (\textit{a la}~\cite{muthOptimal}) and permanent growth in income, which a large empirical literature finds to be of dominant importance in microdata.
-For example, MaCurdy~\citeyearpar{macurdyTimeseries}; Abowd and Card~\citeyearpar{acCovariance}; Carroll and Samwick~\citeyearpar{csNature}; Jappelli and Pistaferri~\citeyear{jpCins}; et.
-seq.
-Much of the literature instead incorporates highly `persistent' but not completely permanent shocks, but~\cite{dhmImproving} show that when measurement problems are handled correctly, admin data yield serial correlation coefficients $0.98-1.00$; and~\cite{dmHowMuch} suggests that survey data support the same conclusion.}
-In an infinite-horizon (or a \cite{blanchardFinite} perpetual youth) version of this framework, we establish and explain the economic implications of two main results.
+%in relation to the rate of return ($\Rfree$) and stochastic rate of permanent income growth ($\PermGroFacRnd$).
+%However, while the discount factor, $\DiscFac$, has been known to represent the consumer's `pure' rate of time preference, reflecting the relative weight of utility over time, `patience' lacks a similarly clear understanding in the literature.
 
+%To grasp the notion of consumer patience, consider a perfect foresight scenario with no borrowing constraints.
+%In this setting, a consumer optimally balances current wealth between present and future consumption, resulting in a positive marginal propensity to consume.
+%For example, in the unconstrained perfect foresight model the growth factor for consumption is $\cLvl_{t+1}/\cLvl_{t} = (\Rfree \DiscFac)^{1/\CRRA}$. 
 
-Our first result identifies conditions under which a real-valued and strictly positive consumption function -- a `non-degenerate limiting solution' -- exists as the terminal period of a finite horizon consumer problem becomes arbitrarily distant.
-If it exists, a non-degenerate limiting solution corresponds to an infinite horizon solution found in the literature studying income fluctuation problems.
-This literature, starting from \cite{bewleyPIH} and proceeding through to recent contributions by \cite{mstIncFluct,maUnboundedDP}, has imposed an artificial constraint strictly greater than the natural liquidity constraint to guarantee that the dynamic programming problem can be defined by a `compact' stationary functional operator (in the sense \hyperlink{challengesDP}{articulated below}), permitting the use of contraction mapping arguments to show existence (\cite{maUnboundedDP, stachurski2022}).
-However, a natural liquidity constraint with a realistic CRRA parameter greater than one implies that value functions are unbounded below, which prevents us from characterizing a general form of the consumer's problem using a compact stationary Bellman operator.
-In this context, our results establish the existence of a non-degenerate solution without the need for an artificial constraint.
-We further demonstrate that the artificial case emerges as a limiting version of the natural case, bridging the two approaches.
+\newcommand{\APFacRaw}{(\Rfree\DiscFac)^{1/\CRRA}}
+% When is it same as Bewley?
+When an artificial borrowing constraint is imposed and noncapital income is stationary -- it is subject to no permanent shocks and exhibits no long-term growth %($\PermGroFac = 1$ in our notation)
+-- our problem coincides with a standard `income fluctuation problem.' But our new proof methods allow us also to solve models where permanent income is unbounded above and below and there is no artificial constraint.
 
-Once we have established the existence of a non-degenerate solution, the second (and most important) result of the paper is to identify conditions under which buffer stock `targets' exist, for individual consumers or in the aggregate.
+% In PF model:
+% - FHWC
+% - RIC
 
+In the unconstrained perfect foresight version of our problem, one type of degeneracy arises if permanent income perpetually grows faster than the rate at which it is discounted: With no limiting upper bound to the PDV of future income and no borrowing constraint, there is no upper bound to limiting consumption. Imposition of a `Finite Human Wealth' condition ($\PermGroFac < \Rfree$) is required to prevent this. Another type of degeneracy arises if preferences fail the `return impatience' condition: $\APFacRaw/\Rfree < 1$.  Without return impatience, the limiting consumption function is zero everywhere.
 
-\paragraph{Consumer Patience}
+% Add FM uncertainty?
+% - WRIC
+% - NBS eliminates need for FHWC
+% - 
+Intuition would suggest that, by activating the precautionary saving motive, introduction of the Friedman-Muth stochastic income process might necessitate a stronger degree of impatience to avoid degeneracy. In fact, we show that the required impatience condition is \textit{weaker}, for reasons that follow from the lack of an artificial borrowing constraint and the presence of a `natural' borrowing constraint,\footnote{The `natural' constraint arises as a consequence of the budget constraint and the CRRA utility function which implies that the utility of consuming zero is negative infinity.  Its implications were first explored by \cite{zeldesStochastic} in a life cycle context. \cite{carroll:brookings} analyzed the infinite horizon case, and \cite{aiyagari:ge} coined the term `natural borrowing constraint.'} (which has the additional effect of eliminating the need to impose the Finite Human Wealth condition). We further demonstrate that the artificial constraint emerges as the limit, as a certain parameter goes to zero, of the natural constraint. This provides an intuitive conceptual bridge between the two.
 
-In establishing our main theoretical results, an additional contribution of the paper is to formalize the relationship between consumer patience and consumer behaviour.
-A key insight is that the existence of non-degenerate limiting solutions and buffer stock targets depends on the consumer's patience in relation to the rate of return ($\Rfree$) and stochastic rate of permanent income growth ($\PermGroFacRnd$).
-However, while the discount factor, $\DiscFac$, has been known to represent the consumer's `pure' rate of time preference, reflecting the relative weight of utility over time, `patience' lacks a similarly clear understanding in the literature.
+In the existing literature going all the way back to \cite{fisherInterestTheory},\footnote{\cite{fisherInterestTheory} in Ch. IV, Section 3 states "I shall treat the two terms (impatience and time preference) as synonymous".}, time preference `$\DiscFac$' and patience have often been treated as synonymous. %
 
+We show that, in the presence of nonstationary permanent income, the corresponding generalized mathematical steps yield a \hyperlink{FVAC}{`finite value of autarky'} condition that incorporates characteristics of the growth process. The fact that the generalized condition involves terms other than $\DiscFac$ undermines the temptation to identify `patience' solely with the pure time preference factor.  We therefore propose that henceforth the literature should deprecate use of the term `patience' unadorned with any adjective identifying precisely which \textit{kind} of patience is under consideration. 
 
-To grasp the notion of consumer patience, consider a perfect foresight scenario with no borrowing constraints.
-In this setting, a consumer optimally balances current wealth between present and future consumption, resulting in a positive marginal propensity to consume.
-For a consumer with relative risk aversion of $\CRRA$, we show the marginal propensity to save (and consume) depends on the term $\APFac\colon =(\Rfree \DiscFac)^{1/\CRRA}$, which we introduce as the consumer's \hyperlink{APFAC}{absolute patience factor}.
-The \hyperlink{APFAC}{absolute patience factor} is central to understanding consumption and saving behaviour and can also be understood as the rate of consumption growth for a perfect foresight consumer with relative risk aversion of $\CRRA$.
+The final section shows that for a consumer to have a non-degenerate value function in the limit as the planning horizon recedes, \hyperlink{APF}{absolute patience} cannot exceed \textit{both} the market return factor $\Rfree$ and the income growth factor $\PermGroFac.$
+(Growth impatience must hold if return impatience fails and vice-versa.)
+When both growth impatience and return impatience fail, the limiting consumption function is either $\cFunc=0$ or $\cFunc=\infty$. 
 
+\paragraph{Patience Requirements and the Existence of Buffer Stock Targets}%Turning to our results on the buffer stock target, t
 
-A consumer exhibits `absolute impatience' when, absent any precautionary motives, they prefer to shift future resources to the present to increase current consumption.
-This occurs when their pure rate of time preference leads them to discount the future more heavily than the interest rate incentivizes saving, specifically when $\APFac < 1$ and $(\Rfree \DiscFac) < 1$.
-However, as noted by \cite{szeidlInvariant} and \cite{maUnboundedDP}, the condition $(\Rfree \DiscFac) < 1$ commonly used in the literature to guarantee stability of asset distributions, is neither necessary nor sufficient for ensuring a non-degenerate limiting solution.
-In the perfect foresight case without borrowing constraints, what we show is necessary for a non-degenerate limiting solution is `return impatience': $\APFac < \Rfree$.
-This condition guarantees that the consumer is not so patient that they will allocate all their wealth to the future (consuming nothing now).\footnote{This condition is \textit{not} required for a non-degenerate limiting solution when there is an artificial borrowing constraint, so long as the consumer would wish to bring future resources to the present by borrowing -- which occurs if income growth exceeds the interest rate.}
+Once we have established the existence of a non-degenerate solution, the second (and more important) main result of the paper is to identify conditions under which buffer stock `targets' exist, for individual consumers or in the aggregate.
 
+As noted by \cite{szeidlInvariant} and \cite{maUnboundedDP}, the impatience condition $(\Rfree \DiscFac) < 1$ is commonly imposed in Bewley models to guarantee existence and stability of the stochastic distributions of wealth and other variables.  % We show that $(\Rfree\DiscFac)<1$ is neither necessary nor sufficient to ensure the existence of a non-degenerate limiting consumption function. %AS to look into. 
 
-\paragraph{Solution Under Uncertainty}
-
-The first main result of the paper shows how for a consumer facing stochastic income shocks, the condition required for nondegeneracy is (surprisingly) \textit{weaker} than the condition required for a non-degenerate solution in the perfect foresight case.
-What is needed is \hyperlink{WRIC}{`weak return impatience.'}: $\pZero \APFac < \Rfree$, where $\pZero $ is the probability of a zero income shock.
-If a consumer is weak return impatient, then even if their wealth barely exceeds the limits imposed by the natural borrowing constraint, they will consume enough to make their expected resources fall.
-In addition to weak return impatience, we show that in the presence of permanent growth, the standard `$\DiscFac<1$' requirement must be modified to take account of income growth uncertainty; we describe the new requirement as requiring \hyperlink{FVAC}{`finite value of autarky'} (where here we think of autarky as perpetual consumption of your permanent income).
-If weak return impatience and finite value of autarky are satisfied, then we show that a non-degenerate limiting solution exists.
-
-Our method of proof uses a novel argument utilizing the upper and lower bounds of consumers' marginal propensities of consume (MPCs).
-We first show the sequence of Bellman operators associated with a finite horizon problem for a given terminal period are a sequence of well-defined contraction maps.
-\hyperlink{WRIC}{Weak return impatience} prevents the upper bound on the MPC from converging to zero as the terminal period recedes, which allows us to show the finite horizon value functions converge to a non-degenerate solution.
-
-
-The introduction of uncertainty brings a precautionary motive that enhances the consumer's preference for saving.
-So it is a surprise that in the stochastic setting, the `patience' condition required for nondegeneracy is weaker than that required for the perfect foresight unconstrained case.
-The reason has to do with the other aspect of the introduction of uncertainty, which is the natural borrowing constraint imposed by the requirement that debts be repaid.
-Just as in the perfect foresight case, if the consumer would want to borrow against future income that is growing faster than the rate at which it is discounted, the natural borrowing constraint does what the artificial borrowing constraint does in the perfect foresight case: It prevents too much borrowing.
-
-\paragraph{Buffer Stock Targets}
-
-Turning to our results on the buffer stock target, the requirement for the existence of an individual target is \hyperlink{GICMod}{`strong growth impatience,'} which prevents `normalized market resources' (the ratio of market resources to permanent income), $\mNrm$, from growing without bound.
-In particular, strong growth impatience requires that as a consumer's resources grow, eventually a point will come at which the expected ratio of a consumer's \hyperlink{APFAC}{absolute patience} to the uncertainty-adjusted growth of permanent income is less than one ($\mathbb{E}\frac{\APFac}{\PermGroFacRnd}<1$).
-Under the condition, as a consumer's normalized market resources approach infinity, the \textit{expected ratio} of market resources--incorporating optimal saving--to the uncertain permanent income growth factor, must eventually becomes less than one.
-That is, normalized market resources eventually revert back toward a target.
+The appropriate definition of a buffer stock `target' turns out to depend on whether we are interested in the microeconomic behavior of individual consumers, or the aggregate behavior of the entire population of consumers.
+The requirement for the existence of an individual target is \hyperlink{GICMod}{`strong growth impatience,'} ($\Ex[\APFacRaw/\PermGroFacRnd] < 1$) which prevents the household's `normalized market resources' $\mNrm = \mLvl/\pLvl$ from growing without bound.
+Specifically, strong growth impatience guarantees that at some large-enough value $\mNrm = \acute{\mNrm}$ it must be the case that the expectation of next period's $\mNrm$ is less than this period's: (if $\mNrm_{t} > \acute{m}$, then $\Ex_{t}[\mNrm_{t+1}] < \mNrm_{t}]$). 
+This turns out to guarantee that normalized market resources eventually revert back toward a target.
 
 A weaker requirement, \hyperlink{GIC}{`growth impatience,'} ensures the existence of an aggregate buffer stock target even when individual target ratios are unbounded.
-Growth impatience requires the \textit{ratio} of \hyperlink{APFacDefn}{absolute patience} to the \textit{expected} growth factor of permanent income to be less than one ($\frac{\APFac}{\mathbb{E}\PermGroFacRnd}<1$).
-But recall that at the individual level, the ratio of market resources to permanent income might grow either as a result of an increase in resources or as the result of a decrease in permanent income.
-Idiosyncratic uncertainty in permanent income means that in any given year there will be a portion of consumers whose permanent income has declined.
-Such consumers will experience an increase  in the ratio of market resources to permanent income, even if their level of market resources  has stagnated or even fallen (but by less than the decline in permanent income).
-
-Nonetheless, under \hyperlink{GIC}{`growth impatience'}, the ratio of average market resources to average permanent income converges back to a target.
-As \cite{harmenbergInvariant} points out, a stationary distribution of market resources, weighted by permanent income still exists under growth impatience.
-We develop the insight by \cite{harmenbergInvariant} and demonstrate that the contribution to aggregate consumption of consumers who accumulate unbounded resources diminishes as they receive a smaller and smaller measure of permanent income.
-Thus in the aggregate, even with a fixed aggregate interest rate that differs from the time preference rate, a small open economy populated by buffer stock consumers has a balanced growth path in which growth rates of consumption, income, and market resources match the exogenous growth rate of permanent income (equivalent, here, to productivity growth).
-In the terms of~\cite{schmitt2003closing}, buffer stock saving is an appealing method of `closing' a small open economy, because it requires no \textit{ad-hoc} assumptions.
-Not even liquidity constraints.
+Growth impatience requires the ratio of \hyperlink{APFacDefn}{absolute patience} to the \textit{expected} growth factor of permanent income to be less than one: $\APFacRaw/\PermGroFac < 1$.
 
 
-An interesting implication is that a non-degenerate limiting consumption function exists even when the (exogenous) growth rate of income exceeds the (exogenous) interest rate.
-Many economic models impose an interest rate greater than the growth rate because if this condition does not hold then the risk-neutral present discounted value of future income is infinite.
-The presence of the precautionary motive short-circuits this logic, and implies that even if \textit{in a risk-neutral sense} human wealth is unbounded as the planning horizon recedes, the limiting solution is not $c = \infty$.
-Using this insight, the final section shows that for a consumer to have a non-degenerate value function in the limit as the planning horizon recedes, \hyperlink{APF}{absolute patience} cannot exceed \textit{both} market returns and the growth rate of income.
-Growth impatience must hold when return impatience fails and vice-versa.
-When both growth impatience and return impatience fail, the limiting consumption function is either $\cFunc(\mNrm)=0$ or $\cFunc(\mNrm)=\infty$ for all $\mNrm$.
+The trick to understanding how there can be an aggregate target even when there is no individual target is to realize that one reason that $\mLvl/\pLvl$ can grow is that individuals can have negative shocks to $\pLvl$.  But the people whose ratio grows because their $\pLvl$ shrinks by definition account for a smaller portion of the \textit{level} of aggregate permanent income. That is, even as their $\mNrm$ rises they become smaller contributors to the aggregate economy.  
+
+
+Thus in the aggregate, even with a fixed interest rate that differs from the time preference rate, a small open economy populated by buffer stock consumers has a balanced growth path in which growth rates of consumption, income, and market resources match the exogenous growth rate of aggregate permanent income (equivalent, here, to productivity growth).
+In the terms of~\cite{schmitt2003closing}, buffer stock saving is an appealing method of `closing' a small open economy model, because it requires no \textit{ad-hoc} assumptions.
+Not even borrowing constraints.
+
 
 \vspace{-1em}
 
@@ -235,43 +203,41 @@ When both growth impatience and return impatience fail, the limiting consumption
 \hypertarget{DiffFromLit}{} 
 \paragraph{Relationship to Literature}
 
-Buffer stock saving behaviour was recognized by \cite{friedmanATheory} and formally introduced by \cite{carrollBSLCPIH} to account for consumption and income patterns in the data.
-The class of models we use to study buffer stock saving, income fluctuation problems, are now pervasive, though the foundational contributions include \cite{bewleyPIH}, \cite{imrohorogluBusinessCycles}, \cite{zeldesStochastic}, \cite{deatonLiqConstr}, \cite{huggettRiskFreeRate} and \cite{aiyagari:ge}.
-Amongst this literature \cite{zeldesStochastic} was the first to calibrate a quantitatively plausible example of permanent and transitory shocks and argue that the natural borrowing constraint was a quantitatively plausible alternative to `artificial' or `ad hoc' borrowing constraints.\footnote{The same (numerical) point applies for infinite horizon models (calibrated to actual empirical data on household income dynamics); cf.~\cite{carrollBrookings}.} The natural borrowing limit was also described by \cite{aiyagari:ge}, but implications for existence not discussed.\footnote{Income fluctuation problems do not require existence of stable buffer stock targets, though such points will often exist.}
+
+Although the elements of buffer stock saving behavior were informally articulated by \cite{friedmanATheory}, the term was introduced to the literature by \cite{deatonLiqConstr} to describe the behavior of liquidity-constrained impatient consumers with transitory income shocks.\footnote{\cite{deatonLiqConstr} also showed that impatient consumers facing only permanent shocks would end up remaining on the borrowing constraint forever, an insight that informs the work of \cite{kvwWealthyH2m}.} \cite{carroll:brookings} showed (numerically) that buffer stock saving could arise even in the absence of borrowing constraints, and defined the individual buffer stock `target' as the point where a measure of normalized resources is expected to stay the same.
 
 
-On the technical front, traditional Bellman iteration approaches to showing existence rely on bounded pay-offs~\citep{slpMethods}.\footnote{The CRRA utility function does not satisfy Bewley's assumption that $\uFunc(0)$ is well-defined, or that $\uP(0)$ is well-defined and finite.
-Our framework differs from Schectman and Escudero~\citeyearpar{seIncFluct} in that they impose liquidity constraints and positive minimum income.
-It differs from Deaton~\citeyearpar{deatonLiqConstr} because liquidity constraints are absent; there are separate transitory and permanent shocks (\textit{a la}~\cite{muthOptimal}); and the transitory shocks here can occasionally cause income to reach zero.
-Similar restrictions are made in the well known papers by Scheinkman and Weiss~\citeyearpar{scheinkman&weiss:borrowing}, Clarida~\citep{claridaErgodic}, and others~\cite{cwcUnderUncert}.
-For a related continuous-$t$ model, see~\cite{tocheUrisk}.
-\cite{asHomogeneous} relaxed the bounds on the return function, but they address only the deterministic case with compact valued action sets.
-\cite{mnUnique} assume a framework with compact action sets, and real-valued pay-offs, which cannot handle CRRA utility unbounded below.
-See~\cite{yaoNote} for a detailed discussion of the reasons the existing literature up through~\cite{mnUnique} cannot handle the problem described here.
-\@~\cite{mvExistence} provide a correction to~\cite{rrExistence}, but only addresses the deterministic case.} Overcoming these restrictions to allow unbounded pay-offs, the literature on the one hand emphasized time iteration operators defined by Euler equations ~\citep{deatonLiqConstr, lsIncFluct, mstIncFluct} and, on the other hand, transformations of the Bellman equation  \citep{maUnboundedDP, rinconZapatero2024}.
-The results by \cite{mstIncFluct,maUnboundedDP} are the most general we are aware of that tackle income fluctuation problems, and can be specialized to show existence in a model with the rate of return and discount factor shock structure arising from permanent and transitory shocks (once the model is normalized).
-However, the cited approach impose an artificial liquidity constraint, which effectively bound utility from below, and thus cannot be applied here.
-While \cite{rinconZapatero2024} allows utility to be unbounded below, the Bellman operator's feasibility correspondence is assumed to be compact, which again would require us to impose an artificial liquidity constraint.
+Traditional Bellman approaches to showing existence rely on assumptions that guarantee the boundedness of utility and marginal utility~\citep{slpMethods}.\footnote{Our CRRA utility function does not satisfy Bewley's assumption that $\uFunc(0)$ is well-defined, or that $\uP(0)$ is bounded above. %
+  Our approach differs from that of Schectman and Escudero~\citeyearpar{seIncFluct} because they impose an artificial borrowing constraint and positive minimum income.
+  It differs from Deaton~\citeyearpar{deatonLiqConstr} because he imposes liquidity constraints; we accommodate separate transitory and permanent shocks; and our transitory shocks occasionally cause income to reach zero.
+  Papers by Scheinkman and Weiss~\citeyearpar{scheinkman&weiss:borrowing}, Clarida~\citep{claridaErgodic}, and others~\cite{cwcUnderUncert} all differ from ours for reasons resembling those articulated above.
+%  For a related continuous-$t$ model, see~\cite{tocheUrisk}.
+  \cite{asHomogeneous} relaxed boundedness of the utility function, but they address only the deterministic case; \cite{mvExistence}'s correction to~\cite{rrExistence} only addresses the deterministic case.
+  \cite{mnUnique} assume a framework with compact action sets and real-valued utility which cannot handle relative risk aversion greater than 1. %
+  
+  Two approaches do allow relative risk aversion greater than 1:  A literature employing time iteration operators defined by Euler equations~\citep{deatonLiqConstr, lsIncFluct, mstIncFluct}, and one that employs transformations of the Bellman equation \citep{rinconZapatero2024}, but in all of these cases an artificial borrowing constraint is present (or its moral equivalent, as in Bewley). %
+}.
+The results by \cite{mstIncFluct,maUnboundedDP} are the most general we are aware of that tackle income fluctuation problems, and can be specialized to show existence in a model one step away from our normalized model with a stochastic rate of return and stochastic effective discount factor. The discrepant step is that they impose an artificial constraint and positive minimum value of income; this bounds utility from below (it can never be lower than the marginal utility of consumption)d thus cannot be applied here.
 
-
-Our approach to constructing the weighted-norm space of value functions uses results on unbounded dynamic programming by  \citep{jboydWeighted}.\footnote{\cite{asHomogeneous} showed how the approach could be used to address the homogeneous case (of which CRRA is an example) in a deterministic framework; later,~\cite{duranDiscounting} showed how to extend the~\cite{jboydWeighted} approach to the stochastic case.
-See also exposition by \cite{stachurski2022}, Ch.
-12.} However, our use of marginal propensities to consume to construct per-period bounds on the Bellman operator is novel.
-Moreover, our  growth and return patience concern economic mechanisms (rather than general assumptions) that arise in the presence of permanent income uncertainty and growth.
+Our approach to constructing the weighted-norm space of value functions uses results on unbounded dynamic programming by \citep{jboydWeighted}.\footnote{\cite{asHomogeneous} showed how the approach could be used to address the homogeneous case (of which CRRA is an example) in a deterministic framework; later,~\cite{duranDiscounting} showed how to extend the~\cite{jboydWeighted} approach to the stochastic case.
+  See also the exposition by \cite{stachurski2022}, Ch 12.} Our approach differs from previous approaches in its use of limiting marginal propensities to consume to construct per-period bounds on the Bellman operator.
+Moreover, our patience restrictions are grounded in intuitive economic ideas (rather than abstract mathematical assumptions) that arise naturally in the presence of permanent income uncertainty and growth.
 To the best of our knowledge, these economic mechanisms have not been explored elsewhere.
 
-
-Finally, our discussion on aggregate growth rates builds on \cite{szeidlInvariant} and \cite{harmenbergInvariant} who give results on the existence and convergence of stationary wealth distributions for the model presented here.
-\cite{mstIncFluct} also give results on stationarity, under the restrictions mentioned above.
-While conditions for stationarity resemble \hyperlink{GIC}{growth impatience} and \hyperlink{GICMod}{strong growth impatience,} our objective is to establish existence of stable buffer stock targets, which has empirical relevance, rather than prove stochastic stability.
+Our discussion of aggregate results builds on \cite{szeidlInvariant} and \cite{harmenbergInvariant} who give results on the existence and convergence of stationary wealth distributions that apply to the model presented here.
+While their conditions for stationarity resemble \hyperlink{GIC}{growth impatience} and \hyperlink{GICMod}{strong growth impatience,} our objective is to establish existence of stable buffer stock targets, which is relatively easily tested empirically, rather than to establish stationarity of distributions, which is much harder to imagine testing with empirical data.
 
 
-\compilingasstandalone{
-  \econarkmultibib{Introduction}
-}
+% documentclass is {article} or something else when main is compiling 
+\ifSubfilesClassLoaded{ 
+    % Content you want to compile only when standalone.
+    \bibliography{\econtexRoot/\texname}
+  }{}
 
-\end{document}
+\end{document}\endinput
 
+
+% Local Variables:
 % TeX-master-file: t
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
@@ -280,3 +246,20 @@ While conditions for stationarity resemble \hyperlink{GIC}{growth impatience} an
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
 % TeX-debug-warnings: t
+% eval: (advice-add 'TeX-command-expand :filter-return (lambda (command) (replace-regexp-in-string " -interaction=nonstopmode" "" command)))
+% End:
+
+% Local Variables:
+% eval: (add-to-list 'TeX-expand-list '("mode" ""))
+% End:
+
+(defun my-tex-command-expand-options ()
+    (let ((opts (TeX-command-expand-options)))
+    (replace-regexp-in-string " -interaction=nonstopmode" "" opts)))
+
+(setq TeX-expand-list-builtin
+      (mapcar (lambda (item)
+                (if (equal (car item) "mode")
+                    '("mode" my-tex-command-expand-options)
+                  item))
+              TeX-expand-list-builtin))

@@ -9,6 +9,7 @@
 \providecommand{\texname}{BufferStockTheory-Slides}%
 \usepackage{econark-multibib}
 \usepackage{econark-shortcuts}
+%\input{@local/dir-paths}
 %\usepackage{\texname}
 
 % Can't read in BufferStockTheory.sty because some packages conflict with Beamer
@@ -17,13 +18,6 @@
 
 %\usepackage{natbib,amsmath,amssymb,rotating,subfigure}
 \usepackage{verbatim,moreverb,graphicx}
-%\renewcommand{Equations}{\econtexRoot/Equations}
-\providecommand{\FigsRaw}{\econtexRoot/Code/Python/Figures}
-\providecommand{\CodeDir}{\econtexRoot/Code}
-\providecommand{\CalibrationDir}{\econtexRoot/Calibration}
-\providecommand{Tables}{\econtexRoot/Tables}
-\providecommand{Appendices}{\econtexRoot/Appendices}
-\providecommand{\Ex}{\Ex}
 
 
 
@@ -393,7 +387,7 @@ Paper Proves:
 \tiny 
 
 
-\pagebreak\econarkmultibib{\texname}
+\pagebreak\bibliography{\texname}
 
 \end{frame}
 \end{document}\endinput

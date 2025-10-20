@@ -8,16 +8,16 @@
 
 Defines paths for subdirectories.
 
-Use of \\econtexRoot means paths are defined correctly for subfiles in subdirectories by using \texttt{%\input{@local/dir-paths}}
+Use of \\econtexRoot means paths are defined correctly for subfiles in subdirectories by using \texttt{\input{@local/dir-paths}}
 
 \begin{verbatimwrite}{@local/dir-paths.tex}
-\providecommand{Appendices}{}\renewcommand{Appendices}{\econtexRoot/Appendices}
-\providecommand{Equations}{}\renewcommand{Equations}{\econtexRoot/Equations}
-\providecommand{Tables}{}\renewcommand{Tables}{\econtexRoot/Tables}
-\providecommand{Figures}{}\renewcommand{Figures}{\econtexRoot/Figures}
+\providecommand{\ApndxDir}{}\renewcommand{\ApndxDir}{\econtexRoot/Appendices}
+\providecommand{\EqDir}{}\renewcommand{\EqDir}{\econtexRoot/Equations}
+\providecommand{\TableDir}{}\renewcommand{\TableDir}{\econtexRoot/Tables}
+\providecommand{\FigDir}{}\renewcommand{\FigDir}{\econtexRoot/Figures}
 \providecommand{\LaTeXInputs}{}\renewcommand{\LaTeXInputs}{\econtexRoot/@resources/texlive/texmf-local/tex/latex}
 \providecommand{\LaTeXGenerated}{}\renewcommand{\LaTeXGenerated}{\econtexRoot} % not worth trying to put generated files in a subdir
-\providecommand{}{}\renewcommand{}{\econtexRoot/@resources}
+\providecommand{\ResourcesDir}{}\renewcommand{\ResourcesDir}{\econtexRoot/@resources}
 \providecommand{\LtxDir}{}\renewcommand{\LtxDir}{}
 \end{verbatimwrite}
 

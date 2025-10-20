@@ -1,39 +1,13 @@
 \input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
 \input{./.econtexRoot}                   % Set path to root dir
 
+%\documentclass[titlepage,headings=normal,toc=listof]{scrartcl}
 \documentclass[titlepage, headings=optiontocandhead]{econark}
 
-\usepackage{econark-labelsafe}
-% \makeatletter
-% \newcommand{\labelsafe}[1]{%
-%   \ifdef{\r@#1}{%
-%     % Label exists, do nothing
-%   }{%
-%     \label{#1}%
-%     \typeout{Label #1 created}%
-%   }%
-% }
-% \makeatother
-% % \makeatletter
-% % \newcommand{\labelsafe}[1]{%
-% %   \@ifundefined{r@#1}{\label{#1}}{}%
-% % }
-% % \makeatother
-
-\usepackage{refcount}
-
-% \makeatletter
-% \newcommand{\labelsafe}[1]{%
-%   \ifnum\getrefnumber{#1}=0
-%     \label{#1}%
-%     \typeout{Label #1 created}%
-%   \else
-%     \typeout{Label #1 already exists}%
-%   \fi
-% }
-
+\usepackage{econark-ifsubfile}           % Set conditionals that think it is in main file
+\usepackage{econark-labelsafe}           % For labels that may be repeated 
+\usepackage{refcount}                    % allow resetting counters
 \usepackage{subfiles}                    % Allow appendices, tables, etc as standalone subfiles
-\usepackage{econark-ifsubfile}           % Define conditionals useful for standalone
 
 \newcommand{\texname}{BufferStockTheory} % Keyname for the paper
 %\input{@local/dir-paths}                 % macros for various subdirs
@@ -41,9 +15,11 @@
 
 \usepackage{econark}                     % custom packages and macros
 \usepackage{econark-theorems}            % theorems, corollarys, remarks, propositions, ...
-\usepackage{econark-multibib}            % Only use bib files that exist
-\usepackage{econark-bibstandalone}       % Allow compilation of subfiles with bib
-\usepackage{hyperref}
+\usepackage{econark-collectbibs}         % Find valid bibfiles
+%\usepackage{econark-multibib}            % Only use bib files that exist
+%\usepackage{econark-bibstandalone}       % Allow compilation of subfiles with bib
+\usepackage{hyperref}                    % allow hyperlinks 
+\usepackage{econark-xrsetup}
 
 \providecommand{\versn}{pdf}             % version -- pdf or Web
 \provideboolean{Web}\setboolean{Web}{false}
@@ -51,15 +27,14 @@
 % % boolean variable 'Web' true if making html not pdf
 \ifthenelse{\boolean{Web}}{ % then
   \setboolean{showPageHead}{false} % no pages, so no page head, on Web
-  \renewcommand{\versn}{html} % Web and html mean the same
+  \renewcommand{\versn}{html}      % Web and html mean the same
 }{ % else not for Web
   \usepackage{scrlayer-scrpage} % Package for page headers if PDF 
-  \usepackage{caption} % allow suppression of appendix figures in NoAppendix PDF
+  \usepackage{caption}          % allow suppression of appendix figures in NoAppendix PDF
 } % end of not for Web
 
 % Most variables and functions are defined in the
 % econark.sty package which has already been loaded
-% and has descriptions of everything
 
 % Materials we need that are NOT in econark.sty follow
 
@@ -67,15 +42,15 @@
 \usepackage{enumitem}    % roman lists in theorems 
 
 \newcommand{\statement}[1]{%
-  \vspace{1em} % Add some vertical space before the part
-  \textit{#1} % Make the part name bold (e.g., "Step 1", "Claim", "Case A")
-  \enspace % Add a little horizontal space
+  \vspace{1em}  % Add some vertical space before the part
+  \textit{#1}   % Make the part name bold (e.g., "Step 1", "Claim", "Case A")
+  \enspace      % Add a little horizontal space
   \ignorespaces % Ignore spaces at the beginning of the text
 }
 
 % --------------- Parameters ---------------
-%\renewcommand{\CRRA}{\gamma}                           % CRRA is usually gamma in the literature.
-\newcommand{\DiscGro}{\DiscFac\PermGroFac^{1-\CRRA}}               % For PF-FVAC
+\renewcommand{\CRRA}{\gamma}                                % CRRA is usually gamma in the literature.
+\newcommand{\DiscGro}{\DiscFac\PermGroFac^{1-\CRRA}}   % For PF-FVAC
 \renewcommand{\GPFacMod}{\GPFacRaw \Ex[\permShk^{-1}]} % Stochastically modified growth impatience factor
 
 \newcommand{\boundFunc}{\varphi}                % bounding function
@@ -95,10 +70,8 @@
 \renewcommand{\theassumptionS}{S.\arabic{assumptionS}}
 \renewcommand{\theassumptionI}{I.\arabic{assumptionI}}
 
-
 % -------------- Growth and Impatience Factors --------------
-\renewcommand{\RPFac}{\frac{\APFac}{\Rfree}}
-\renewcommand{\GPFacRaw}{\frac{\APFac}{\PermGroFac}}
+
 
 % showlabels puts ref names on left, numbers on right
 \provideboolean{draftmode}\setboolean{draftmode}{false}
@@ -111,24 +84,21 @@
 % so they will overwrite defaults
 \usepackage{@local/\texname} 
 
-% Redefine \notinsubfile command defined in \texname.sty:
-% Lets any subfile called from here know that it is a subdoc
-% (eg: if it is NOT called from here and IS standalone, knows it can make bib)
-%\renewcommand{\notinsubfile}[1]{}\renewcommand{\notinsubfile}[1]{#1}
-\bibliographystyle{plainnat}
+\bibliographystyle{econark}
 \begin{document}
-\subfile{Introduction} % Abstract, contents title and introduction
+
+\subfile{Introduction} % Abstract, contents, title, and introduction
 \subfile{BufferStockTheory-NoAppendix} % Main body of paper
 
 \pagebreak
-\appendix % Declare beginning of appendices
+\appendix                                  % Declare beginning of appendices
 \addcontentsline{toc}{section}{Appendices} % print label "Appendices"
 
-\hypertarget{Appendices}{}       % Creates link to [url-of-paper]#Appendices 
+\hypertarget{Appendices}{}                 % Creates link to [url-of-paper]#Appendices 
 
-\ifthenelse{\boolean{Web}}{}{    % Web version has no page headers
-  \chead[Appendices]{Appendices} % unlike {Web} PDF version does
-  \appendixpage                  % Reset formatting for appendices on Web
+\ifthenelse{\boolean{Web}}{}{              % Web version has no page headers
+  \chead[Appendices]{Appendices}           % unlike {Web} PDF version does
+  \appendixpage                            % Reset formatting for appendices on Web
 } % Web
 
 \subfile{Appendices/ApndxConcaveCFunc}
@@ -139,11 +109,9 @@
 \subfile{Appendices/ApndxSupportingAnalysis}
 
 \pagebreak
-\econarkmultibib{\texname}\end{document}
+\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}
+\bibliography{\bibfiles}\sloppy\end{document}\endinput
 
-\sloppy\endinput
-
-\end{document}
 
 % Local Variables:
 % TeX-master-file: t
@@ -167,6 +135,5 @@
 % eval: (prettify-symbols-mode 1)
 % eval: (setq prettify-symbols-unprettify-at-point 'right-edge)
 % eval: (setq debug-on-error t)
-% eval: (setenv "BIBINPUTS" (concat "./@resources/texlive/texmf-local/bibtex/bib:" (or (getenv "BIBINPUTS") "")))
-% eval: (setq TeX-command-list (mapcar (lambda (cmd) (if (string= (car cmd) "BibTeX") (list "BibTeX" (concat "BIBINPUTS=\"$BIBINPUTS\" bibtex %s") 'TeX-run-BibTeX nil t :help "Run BibTeX") cmd)) TeX-command-list))
+% TeX-command-extra-options: "-shell-escape"
 % End:

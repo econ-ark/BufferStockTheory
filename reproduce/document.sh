@@ -9,7 +9,7 @@ DIR=$(dirname $(realpath $0))
 [[ "$(which ~/.tlpkg)" == "" ]] && tlmgr init-usertree
 # DIR=/Volumes/Data/Papers/BufferStockTheory/BufferStockTheory-Latest/reproduce/
 texname=BufferStockTheory
-output_directory='LaTeX'
+output_directory='.'
 
 cd "$DIR/.."
 
@@ -95,6 +95,9 @@ if [[ -e "$output_directory/$texname.pdf" ]]; then
 else
     echo "Something went wrong and the paper is not in $output_directory/$texname.pdf"
 fi
+
+find . -name 'latexdefs.tex' -delete
+find . -name '_region_.tex'  -delete
 
 echo ''
 

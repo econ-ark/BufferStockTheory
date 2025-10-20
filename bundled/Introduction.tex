@@ -1,17 +1,16 @@
 \input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
 % -*- mode: LaTeX; TeX-PDF-mode: t; -*-
 \input{./.econtexRoot}\documentclass[BufferStockTheory]{subfiles}
-   
+
 
 \newcommand{\subname}{Introduction}   % Needed for generic bib to work
 %\input{\econtexRoot/@local/dir-paths} % get directory macros
 \usepackage{econark-ifsubfile}
 \usepackage{econark-xrsetup}
+\externaldocument{BufferStockTheory}
 
 % if it's being compiled standalone, set up identity of the external
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
 
 % \begin{document}
 
@@ -22,16 +21,11 @@
 
 % \cite{carroll:death}
 
-% \compilingasstandalone{
-%   \bibliography{Introduction}
-%   }
-% \end{document}\endinput
-
 \newcommand{\thankstext}{
   The paper's results \href{https://\owner.github.io/nbreproduce}{can be automatically reproduced} using the {\ARKurl} toolkit, which can be cited per our references (\cite{carroll_et_al-proc-scipy-2018}); for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging}{Acknowledging Econ-ARK}.
-Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the {\ARKurl} toolkit; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive åfurther development} that brought it to the point where it could be used for this project.
-The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.
-Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Alexis Akira Toda, Metin Uyanik, Mateo Vel\'asquez-Giraldo, Weifeng Wu,  Jiaxiong Yao, and Xudong Zheng for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji  Hiraguchi for extraordinary mathematical insight that improved the  paper greatly, David Zervos for early guidance to the literature, and participants in a seminar at the Johns Hopkins University, a presentation at the 2009 meetings of the Society of Economic Dynamics for their insights, and at a presentation at the Australian National University.}
+  Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the {\ARKurl} toolkit; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive åfurther development} that brought it to the point where it could be used for this project.
+  The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.
+  Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, Adam Szeidl, Alexis Akira Toda, Metin Uyanik, Mateo Vel\'asquez-Giraldo, Weifeng Wu,  Jiaxiong Yao, and Xudong Zheng for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji  Hiraguchi for extraordinary mathematical insight that improved the  paper greatly, David Zervos for early guidance to the literature, and participants in a seminar at the Johns Hopkins University, a presentation at the 2009 meetings of the Society of Economic Dynamics for their insights, and at a presentation at the Australian National University.}
 
 % \newcommand{\inframe}{https://\owner.github.io/BufferStockTheory/BufferStockTheory3.html}
 
@@ -56,7 +50,8 @@ Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, 
 
 \title{Theoretical Foundations of \\ Buffer Stock Saving}
 
-\author{Christopher D Carroll\authNum ~and Akshay Shanker\authNum}
+%\author{Christopher D Carroll\authNum ~and Akshay Shanker\authNum}
+\author{Christopher D Carroll         ~and Akshay Shanker}
 
 \keywords{Precautionary saving, buffer stock saving, marginal propensity to consume, permanent income hypothesis, income fluctuation problem}
 
@@ -93,24 +88,24 @@ Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, 
   } % end \parbox{\textwidth}
 \end{footnotesize}
 
-\begin{authorsinfo}
-  \name{Contact: \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD 21218, \url{https://www.econ2.jhu.edu/people/ccarroll}, and National Bureau of Economic Research.}\name{Contact: \href{mailto:akshay.shanker@unsw.edu.au}{\texttt{akshay.shanker@unsw.edu.au}}, Department of Economics, University of New South Wales, Sydney, Australia and Australian Research Council (ARC) Center for Excellence in Population and Ageing Research (CEPAR).}
-\end{authorsinfo}
+% \begin{authorsinfo}
+%   \name{Contact: \href{mailto:ccarroll@jhu.edu}{\texttt{ccarroll@jhu.edu}}, Department of Economics, 590 Wyman Hall, Johns Hopkins University, Baltimore, MD 21218, \url{https://www.econ2.jhu.edu/people/ccarroll}, and National Bureau of Economic Research.}\name{Contact: \href{mailto:akshay.shanker@unsw.edu.au}{\texttt{akshay.shanker@unsw.edu.au}}, Department of Economics, University of New South Wales, Sydney, Australia and Australian Research Council (ARC) Center for Excellence in Population and Ageing Research (CEPAR).}
+% \end{authorsinfo}
 
 \pagenumbering{gobble} % Prevent numbering for pages including the TOC and title page
 \hypersetup{pageanchor=false}  % https://tex.stackexchange.com/questions/18924/pdftex-warning-ext4-destination-with-the-same-identifier-nam-epage-1-has
-\ifthenelse{\boolean{Web}}{
-}{
-  \begin{minipage}{0.9\textwidth}
-    \footnotesize The paper's results \href{https://\owner.github.io/nbreproduce}{can be automatically reproduced} using the {\ARKurl} toolkit by executing the \href{https://econ-ark.org/materials/bufferstocktheory}{notebook}; for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging}{Acknowleding Econ-ARK}.  Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the {\ARKurl} toolkit; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive further development} that brought it to the point where it could be used for this project.  The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{https://doi.org/10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.  Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, David Stern, Adam Szeidl, Alexis Akira Toda, Metin Uyanik, Mateo Vel\'asquez-Giraldo, Weifeng Wu,  Jiaxiong Yao, and Xudong Zheng for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji  Hiraguchi for extraordinary mathematical insight that improved the  paper greatly, David Zervos for early guidance to the literature, and participants in a seminar at the Johns Hopkins University, a presentation at the 2009 meetings of the Society of Economic Dynamics for their insights, and at a presentation at the Australian National University. Shanker gratefully acknowledges research support from the Australian Research Council (ARC LP190100732) and ARC Centre of Excellence in Population Ageing Research (CE17010005).
-  \end{minipage}
+% \ifthenelse{\boolean{Web}}{ % Web 
+% }{ % Web 
+  \begin{minipage}{0.9\textwidth} 
+    \footnotesize The paper's results \href{https://\owner.github.io/nbreproduce}{can be automatically reproduced} using the {\ARKurl} toolkit by executing the \href{https://econ-ark.org/materials/bufferstocktheory}{notebook}; for reference to the toolkit itself see \href{https://econ-ark.org/acknowledging}{Acknowleding Econ-ARK}.  Thanks to the \href{https://consumerfinance.gov}{Consumer Financial Protection Bureau} for funding the original creation of the {\ARKurl} toolkit; and to the \href{https://sloan.org}{Sloan Foundation} for funding Econ-ARK's \href{https://sloan.org/grant-detail/8071}{extensive further development} that brought it to the point where it could be used for this project.  The toolkit can be cited with its digital object identifier, \href{https://doi.org/10.5281/zenodo.1001067}{https://doi.org/10.5281/zenodo.1001067}, as is done in the paper's own references as \cite{carroll_et_al-proc-scipy-2018}.  Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, Misuzu Otsuka, Damiano Sandri, John Stachurski, David Stern, Adam Szeidl, Alexis Akira Toda, Metin Uyanik, Mateo Vel\'asquez-Giraldo, Weifeng Wu,  Jiaxiong Yao, and Xudong Zheng for comments on earlier versions of this paper, John Boyd for help in applying his weighted contraction mapping theorem, Ryoji  Hiraguchi for extraordinary mathematical insight that improved the  paper greatly, David Zervos for early guidance to the literature, and participants in a seminar at the Johns Hopkins University, a presentation at the 2009 meetings of the Society of Economic Dynamics for their insights, and at a presentation at the Australian National University. Shanker gratefully acknowledges research support from the Australian Research Council (ARC LP190100732) and ARC Centre of Excellence in Population Ageing Research (CE17010005). 
+  \end{minipage} 
 
   \titlepagefinish\pagebreak
   \let\LaTeXStandardContentsName\contentsname
   \renewcommand{\contentsname}{}
   \tableofcontents
   \pagebreak
-
+  \typeout{after \\tableofcontents}
   \medskip\medskip
   \begin{minipage}{0.9\textwidth}
     \listoffigures 
@@ -120,7 +115,7 @@ Thanks to Will Du, James Feigenbaum, Joseph Kaboski, Miles Kimball, Qingyin Ma, 
   \begin{minipage}{0.9\textwidth}
     \listoftables
   \end{minipage}
-} % {Web}
+%} % Web
 
 \hypersetup{pageanchor=true}  % https://tex.stackexchange.com/questions/18924/pdftex-warning-ext4-destination-with-the-same-identifier-nam-epage-1-has
 
@@ -145,11 +140,11 @@ This paper establishes the required foundations by explaining the circumstances 
 
 We formalize buffer stock saving using the Friedman-Muth(-Zeldes) income fluctuation model, incorporating realistic transitory and permanent shocks~\citep{friedmanATheory, muthOptimal, zeldesStochastic},\footnote{By which we mean, calibrated to micro empirical evidence.}
 constant relative risk aversion (CRRA) utility, and a `natural borrowing constraint' of the kind first employed by \cite{zeldesStochastic}.\footnote{A natural borrowing constraint is the maximum amount a consumer will be willing to borrow under any circumstances.
-See~\cite{carrollBSLCPIH} or~\cite{gpLifeCycle} for arguments that models with only `natural' constraints (see below) match a wide variety of facts; for a model with explicit constraints that produces very similar results, see, e.g.~\cite{Cagetti}.
-They are analytically convenient as the consumption function becomes twice continuously differentiable and also becomes arbitrarily close (cf.\ Section~\ref{subsubsec:deatonIsLimit}) to less tractable models with artificial liquidity constraints.}\textsuperscript{,}\footnote{The model permits separate transitory and permanent shocks (\textit{a la}~\cite{muthOptimal}) and permanent growth in income, which a large empirical literature finds to be of dominant importance in microdata.
-For example, MaCurdy~\citeyearpar{macurdyTimeseries}; Abowd and Card~\citeyearpar{acCovariance}; Carroll and Samwick~\citeyearpar{csNature}; Jappelli and Pistaferri~\citeyear{jpCins}; et.
-seq.
-Much of the literature instead incorporates highly `persistent' but not completely permanent shocks, but~\cite{dhmImproving} show that when measurement problems are handled correctly, admin data yield serial correlation coefficients $0.98-1.00$; and~\cite{dmHowMuch} suggests that survey data support the same conclusion.}
+  See~\cite{carrollBSLCPIH} or~\cite{gpLifeCycle} for arguments that models with only `natural' constraints (see below) match a wide variety of facts; for a model with explicit constraints that produces very similar results, see, e.g.~\cite{Cagetti}.
+  They are analytically convenient as the consumption function becomes twice continuously differentiable and also becomes arbitrarily close (cf.\ Section~\ref{subsubsec:deatonIsLimit}) to less tractable models with artificial liquidity constraints.}\textsuperscript{,}\footnote{The model permits separate transitory and permanent shocks (\textit{a la}~\cite{muthOptimal}) and permanent growth in income, which a large empirical literature finds to be of dominant importance in microdata.
+  For example, MaCurdy~\citeyearpar{macurdyTimeseries}; Abowd and Card~\citeyearpar{acCovariance}; Carroll and Samwick~\citeyearpar{csNature}; Jappelli and Pistaferri~\citeyear{jpCins}; et.
+  seq.
+  Much of the literature instead incorporates highly `persistent' but not completely permanent shocks, but~\cite{dhmImproving} show that when measurement problems are handled correctly, admin data yield serial correlation coefficients $0.98-1.00$; and~\cite{dmHowMuch} suggests that survey data support the same conclusion.}
 In an infinite-horizon (or a \cite{blanchardFinite} perpetual youth) version of this framework, we establish and explain the economic implications of two main results.
 
 
@@ -241,22 +236,22 @@ Amongst this literature \cite{zeldesStochastic} was the first to calibrate a qua
 
 
 On the technical front, traditional Bellman iteration approaches to showing existence rely on bounded pay-offs~\citep{slpMethods}.\footnote{The CRRA utility function does not satisfy Bewley's assumption that $\uFunc(0)$ is well-defined, or that $\uP(0)$ is well-defined and finite.
-Our framework differs from Schectman and Escudero~\citeyearpar{seIncFluct} in that they impose liquidity constraints and positive minimum income.
-It differs from Deaton~\citeyearpar{deatonLiqConstr} because liquidity constraints are absent; there are separate transitory and permanent shocks (\textit{a la}~\cite{muthOptimal}); and the transitory shocks here can occasionally cause income to reach zero.
-Similar restrictions are made in the well known papers by Scheinkman and Weiss~\citeyearpar{scheinkman&weiss:borrowing}, Clarida~\citep{claridaErgodic}, and others~\cite{cwcUnderUncert}.
-For a related continuous-$t$ model, see~\cite{tocheUrisk}.
-\cite{asHomogeneous} relaxed the bounds on the return function, but they address only the deterministic case with compact valued action sets.
-\cite{mnUnique} assume a framework with compact action sets, and real-valued pay-offs, which cannot handle CRRA utility unbounded below.
-See~\cite{yaoNote} for a detailed discussion of the reasons the existing literature up through~\cite{mnUnique} cannot handle the problem described here.
-\@~\cite{mvExistence} provide a correction to~\cite{rrExistence}, but only addresses the deterministic case.} Overcoming these restrictions to allow unbounded pay-offs, the literature on the one hand emphasized time iteration operators defined by Euler equations ~\citep{deatonLiqConstr, lsIncFluct, mstIncFluct} and, on the other hand, transformations of the Bellman equation  \citep{maUnboundedDP, rinconZapatero2024}.
+  Our framework differs from Schectman and Escudero~\citeyearpar{seIncFluct} in that they impose liquidity constraints and positive minimum income.
+  It differs from Deaton~\citeyearpar{deatonLiqConstr} because liquidity constraints are absent; there are separate transitory and permanent shocks (\textit{a la}~\cite{muthOptimal}); and the transitory shocks here can occasionally cause income to reach zero.
+  Similar restrictions are made in the well known papers by Scheinkman and Weiss~\citeyearpar{scheinkman&weiss:borrowing}, Clarida~\citep{claridaErgodic}, and others~\cite{cwcUnderUncert}.
+  For a related continuous-$t$ model, see~\cite{tocheUrisk}.
+  \cite{asHomogeneous} relaxed the bounds on the return function, but they address only the deterministic case with compact valued action sets.
+  \cite{mnUnique} assume a framework with compact action sets, and real-valued pay-offs, which cannot handle CRRA utility unbounded below.
+  See~\cite{yaoNote} for a detailed discussion of the reasons the existing literature up through~\cite{mnUnique} cannot handle the problem described here.
+  \@~\cite{mvExistence} provide a correction to~\cite{rrExistence}, but only addresses the deterministic case.} Overcoming these restrictions to allow unbounded pay-offs, the literature on the one hand emphasized time iteration operators defined by Euler equations ~\citep{deatonLiqConstr, lsIncFluct, mstIncFluct} and, on the other hand, transformations of the Bellman equation  \citep{maUnboundedDP, rinconZapatero2024}.
 The results by \cite{mstIncFluct,maUnboundedDP} are the most general we are aware of that tackle income fluctuation problems, and can be specialized to show existence in a model with the rate of return and discount factor shock structure arising from permanent and transitory shocks (once the model is normalized).
 However, the cited approach impose an artificial liquidity constraint, which effectively bound utility from below, and thus cannot be applied here.
 While \cite{rinconZapatero2024} allows utility to be unbounded below, the Bellman operator's feasibility correspondence is assumed to be compact, which again would require us to impose an artificial liquidity constraint.
 
 
 Our approach to constructing the weighted-norm space of value functions uses results on unbounded dynamic programming by  \citep{jboydWeighted}.\footnote{\cite{asHomogeneous} showed how the approach could be used to address the homogeneous case (of which CRRA is an example) in a deterministic framework; later,~\cite{duranDiscounting} showed how to extend the~\cite{jboydWeighted} approach to the stochastic case.
-See also exposition by \cite{stachurski2022}, Ch.
-12.} However, our use of marginal propensities to consume to construct per-period bounds on the Bellman operator is novel.
+  See also exposition by \cite{stachurski2022}, Ch.
+  12.} However, our use of marginal propensities to consume to construct per-period bounds on the Bellman operator is novel.
 Moreover, our  growth and return patience concern economic mechanisms (rather than general assumptions) that arise in the presence of permanent income uncertainty and growth.
 To the best of our knowledge, these economic mechanisms have not been explored elsewhere.
 
@@ -266,12 +261,16 @@ Finally, our discussion on aggregate growth rates builds on \cite{szeidlInvarian
 While conditions for stationarity resemble \hyperlink{GIC}{growth impatience} and \hyperlink{GICMod}{strong growth impatience,} our objective is to establish existence of stable buffer stock targets, which has empirical relevance, rather than prove stochastic stability.
 
 
-\compilingasstandalone{
-  \econarkmultibib{Introduction}
-}
+% documentclass is {article} or something else when main is compiling 
+\ifSubfilesClassLoaded{ 
+    % Content you want to compile only when standalone.
+    \bibliography{\econtexRoot/\texname}
+  }{}
 
-\end{document}
+\end{document}\endinput
 
+
+% Local Variables:
 % TeX-master-file: t
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
@@ -280,3 +279,20 @@ While conditions for stationarity resemble \hyperlink{GIC}{growth impatience} an
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
 % TeX-debug-warnings: t
+% eval: (advice-add 'TeX-command-expand :filter-return (lambda (command) (replace-regexp-in-string " -interaction=nonstopmode" "" command)))
+% End:
+
+% Local Variables:
+% eval: (add-to-list 'TeX-expand-list '("mode" ""))
+% End:
+
+(defun my-tex-command-expand-options ()
+    (let ((opts (TeX-command-expand-options)))
+    (replace-regexp-in-string " -interaction=nonstopmode" "" opts)))
+
+(setq TeX-expand-list-builtin
+      (mapcar (lambda (item)
+                (if (equal (car item) "mode")
+                    '("mode" my-tex-command-expand-options)
+                  item))
+              TeX-expand-list-builtin))

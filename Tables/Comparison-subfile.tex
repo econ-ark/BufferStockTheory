@@ -11,13 +11,13 @@
 
 \renewcommand\theadalign{tl}
 
-\notinsubfile{\renewcommand{Tables}{./Tables}} % Not sure why this needs to be redefined here; if not, tries to write to ../../Tables
+\notinsubfile{\renewcommand{\TableDir}{./Tables}} % Not sure why this needs to be redefined here; if not, tries to write to ../../Tables
 
 \let\TableWidth\relax % Necessary to allow redefinition of tablewidth, which might already be defined
 
 \newlength\TableWidth
 
-\begin{verbatimwrite}{Tables/\TblName}
+\begin{verbatimwrite}{\TableDir/\TblName}
   \begin{table}[!th]
     \centering
 \caption{Definitions and Comparisons of Conditions}
@@ -87,7 +87,7 @@ equivalently $\APFac  < \Rfree^{1/\CRRA}\PermGroFac^{1-1/\CRRA}$ & \\
 
 \end{table}
 \end{verbatimwrite}
-\input{Tables/\TblName}
+\input{\TableDir/\TblName}
 
 \end{document}
 
@@ -103,11 +103,11 @@ equivalently $\APFac  < \Rfree^{1/\CRRA}\PermGroFac^{1-1/\CRRA}$ & \\
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
 % TeX-debug-warnings: t
-% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=.        %S%(PDFout)"))
 % TeX-source-correlate-mode: t
 % TeX-source-correlate-start-server: 0
 % TeX-parse-self: t
-% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n ../LaTeX/%o %b"))))))
-% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) ../LaTeX/%o"))))))
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n          %o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage)          %o"))))))
 % eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
 % End:

@@ -3,9 +3,8 @@
 \documentclass[BufferStockTheory]{subfiles}
 \usepackage{econark-ifsubfile}
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
 
 \begin{document}
 \appendix % Declare beginning of appendices
@@ -18,14 +17,15 @@
 } % Web
 
 Below are the paper's appendices referenced in the text.
-\subfile{Appendices/ApndxConcaveCFunc}
-\subfile{Appendices/ApndxMTargetIsStable}
-\subfile{Appendices/ApndxBalancedGrowthcNrmAndCov}
-\subfile{Appendices/ApndxLiqConstr}
-\subfile{Appendices/ApndxConditionDiagrams}
-\subfile{Appendices/ApndxSupportingAnalysis}
+\subfile{\ApndxDir/ApndxConcaveCFunc}
+\subfile{\ApndxDir/ApndxMTargetIsStable}
+\subfile{\ApndxDir/ApndxBalancedGrowthcNrmAndCov}
+\subfile{\ApndxDir/ApndxLiqConstr}
+\subfile{\ApndxDir/ApndxConditionDiagrams}
+\subfile{\ApndxDir/ApndxSupportingAnalysis}
 
 \pagebreak
-\econarkmultibib{\texname}\end{document}
+%\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}\end{document}
+\ifSubfilesClassLoaded{\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}}{}
 
 \end{document}

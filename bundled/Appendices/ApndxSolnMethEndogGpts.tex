@@ -4,20 +4,17 @@
 
 \newcommand{\subname}{ApndxSolnMethEndogGpts}
 %\input{\econtexRoot/@local/dir-paths} % get directory macros
-\usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\usepackage{econark-ifsubfile}        % allow conditional execution of code
+
+\xrsetup{\econtexRoot/\texname}
 
 \begin{document}
-%\begin{verbatimwrite}{\LaTeXGenerated/ApndxSolnMethEndogGpts.tex}
+%\begin{verbatimwrite}{ApndxSolnMethEndogGpts.tex}
 \section{Endogenous Gridpoints Solution Method}\label{sec:ApndxSolnMethEndogGpts}
 
 The model is solved using an extension of the method of endogenous gridpoints (\cite{carroll_EGM}): A grid of possible values of end-of-period assets $\vec{\aNrm}$ is defined, and at these points, marginal end-of-period-$t$ value is computed as the discounted next-period expected marginal utility of consumption (which the Envelope theorem says matches expected marginal value).  The results are then used to identify the corresponding levels of consumption at the beginning of the period:\footnote{The software can also solve a version of the model with explicit liquidity constraints, where the Envelope condition does not hold.}
-
-\compilingasstandalone{\bibstandalone{ApndxSolnMethEndogGpts}}\end{document}\endinput
 
 \begin{equation}\begin{gathered}\begin{aligned}
   \uP(\cEndFunc_{t}(\vec{\aNrm}))  & = \Rfree \beta \Ex_{t}[ \uP(\PermGroFac_{t+1}
@@ -26,8 +23,6 @@ The model is solved using an extension of the method of endogenous gridpoints (\
       \cFunc_{t+1}(\RNrmByGRnd_{t+1}\vec{\aNrm} +
       \tranShkAll_{t+1})\right)}^{-\CRRA}\right]\right)}^{-1/\CRRA}. \notag
 \end{aligned}\end{gathered}\end{equation}
-
-\end{document}
 
 The dynamic budget constraint can then be used to generate the corresponding $\mNrm$'s:
 \begin{eqnarray*}
@@ -103,7 +98,8 @@ evaluate the function is $\mNrm=0$ but $\log 0 = -\infty$ which is difficult for
 \end{comment}
 
 
-\compilingasstandalone{\bibstandalone{ApndxSolnMethEndogGpts}}\end{document}\endinput
+\ifSubfilesClassLoaded{\bibliography{\econtexRoot/\texname}}{}
+\end{document}\endinput
 
 % Local Variables:
 % eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))

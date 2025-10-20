@@ -7,9 +7,7 @@
 \usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
 
 \begin{document}
 
@@ -98,13 +96,10 @@ Finally, the next diagram substitutes the values of the various objects in the d
   \caption{Appendix: Numerical Relation of All Inequality Conditions}\label{fig:InequalitiesAppNumer}
 \end{figure}
 
-%\notinsubfile{\bibliography{\LaTeXGenerated/BufferStockTheory,\econtexBib}}
+%\notinsubfile{\bibliography{BufferStockTheory,\econtexBib}}
 %\notinsubfile{\pagebreak\bibliography{\econtexRoot/\texname,\econtexBib}}
-%\compilingasstandalone{\pagebreak\bibliographystyle{plainnat}\econarkmultibib{\texname}}
 
-\compilingasstandalone{
-  \bibstandalone{ApndxConditionDiagrams}
-}
+\ifSubfilesClassLoaded{\bibliography{\econtexRoot/\texname}}{}
 
 \end{document}
 \endinput

@@ -7,9 +7,7 @@
 \usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
 
 
 \begin{document}
@@ -96,27 +94,8 @@ Note finally that another intuitive confirmation of the equivalence between the 
 \end{eqnarray*}
 which makes sense because the marginal propensity to consume for a constrained restrained consumer is 1 by our definitions of `constrained' and `restrained.'
 
-\compilingasstandalone{\bibstandalone{ApndxLiqConstrAsLimit}}
+\ifSubfilesClassLoaded{\bibliography{\econtexRoot/\texname}}{}
 
 \end{document}
 \endinput
 
-% Local Variables:
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
-% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex.%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
-% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex.%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
-% TeX-PDF-mode: t
-% TeX-file-line-error: t
-% TeX-debug-warnings: t
-% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)"))
-% TeX-source-correlate-mode: t
-% TeX-parse-self: t
-% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
-% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage).%o"))))))
-% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
-% TeX-parse-all-errors: t
-% End:

@@ -3,13 +3,11 @@
 \input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 
 \newcommand{\subname}{ApndxConcaveCFunc}
-%\input{\econtexRoot/@local/dir-paths} % get directory macros
+\input{\econtexRoot/@local/dir-paths} % get directory macros
 \usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
 \providecommand{\koppa}{k}
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
 
   %\externaldocument{\LaTeXGenerated/BufferStockTheory}\providecommand{\texname}{}\renewcommand{\texname}{Introduction}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
 \begin{document}
@@ -207,9 +205,7 @@ where he second line follows because the summation of $\mpMat_{t}(\nmNrmVecNow,\
 The steps for the permanent-income-weighted version of the proposition are identical, with the substitution of weighted for unweighted versions of the various probability objects.
 
 
-
-%\compilingasstandalone{\pagebreak\bibliographystyle{plainnat}\econarkmultibib{\texname}}
-\compilingasstandalone{\econarkmultibib{ApndxHarKmenberg}}
+\ifSubfilesClassLoaded{\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{\econarkcollectbibs{\econtexRoot/\texname}}\bibliography{\bibfiles}}{}
 
 \end{document}
 

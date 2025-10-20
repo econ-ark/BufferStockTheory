@@ -3,9 +3,7 @@
 \documentclass[BufferStockTheory]{subfiles}
 \usepackage{econark-ifsubfile}
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
 
 \begin{document}
 \appendix % Declare beginning of appendices
@@ -26,6 +24,6 @@ Below are the paper's appendices referenced in the text.
 \subfile{Appendices/ApndxSupportingAnalysis}
 
 \pagebreak
-\econarkmultibib{\texname}\end{document}
+\bibliography{\texname}\end{document}
 
 \end{document}

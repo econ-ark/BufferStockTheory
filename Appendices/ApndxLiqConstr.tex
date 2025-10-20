@@ -3,13 +3,12 @@
 \input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 
 \newcommand{\subname}{ApndxLiqConstr}
-%\input{\econtexRoot/@local/dir-paths} % get directory macros
-\usepackage{econark-ifsubfile}        % allow conditional execution of code
+\input{\econtexRoot/@local/dir-paths} % get directory macros
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
+\usepackage{econark-ifsubfile}        % allow conditional execution of code
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
+\xrsetup{\econtexRoot/\texname}
 
 \begin{document}
 \let\TableWidth\relax
@@ -109,7 +108,7 @@ and so in order to rule out the degenerate limiting solution $\bar{\cFunc}(\mNrm
 
 Under perfect foresight in the presence of a liquidity constraint requiring $\bNrm \geq 0$, this appendix taxonomizes the varieties of the limiting consumption function $\cnstr{\cFunc}(\mNrm)$ that arise under various parametric conditions.
 
-\input{Tables/LiqConstrScenarios}
+\input{\TableDir/LiqConstrScenarios}
 
 Results are summarized in table~\ref{table:LiqConstrScenarios}.
 
@@ -300,7 +299,7 @@ Given failure of \FHWC,~\eqref{eq:bToInfty} requires
 \end{aligned}\end{gathered}\end{equation}
 \hypertarget{PFGICHoldsFHWCFailsRICFailsDiscuss}{}
 
-\noindent {\bf If \RIC~Holds}.
+\noindent \textbf{If \RIC~Holds}.
 When the \RIC~holds, rearranging~\eqref{eq:FHWCfails} gives
 \begin{eqnarray*}
   \lim_{n \rightarrow \infty} \left(\frac{\GPFacRaw^{-n}}{1-\RPFac}\right)-\RNrmByGRnd^{-n}\left(\frac{\RPFac}{1-\RPFac}+\frac{\RNrmByGRnd^{-1}}{\RNrmByGRnd^{-1}-1}\right)  & = \infty
@@ -327,7 +326,7 @@ which with a bit of algebra\footnote{
   \lim_{m \rightarrow \infty} \cnstr{\pmb{\MPC}}(\mNrm)  & = 1-\RPFac.
 \end{aligned}\end{gathered}\end{equation}
 
-\noindent {\bf If \RIC~Fails}.
+\noindent \textbf{If \RIC~Fails}.
 Consider now the \cncl{\RIC} case, $\RPFac > 1$.
 We can rearrange~\eqref{eq:FHWCfails}~as
 \begin{eqnarray}
@@ -372,7 +371,7 @@ but that limit is approached gradually, starting from a positive value, and cons
 (Figure~\ref{fig:PFGICHoldsFHWCFailsRICFails} presents an example for $\CRRA=2$, $\Rfree=0.98$, $\DiscFacRaw = 1.00$, $\PermGroFac = 0.99$; note that the horizontal axis is bank balances $\bNrm = \mNrm-1$; the part of the consumption function below the depicted points is uninteresting --- $\cNrm = \mNrm$ --- so not worth plotting).
 
 
-\input{Figures/PFGICHoldsFHWCFailsRICFails}
+\input{\FigDir/PFGICHoldsFHWCFailsRICFails}
 
 
 \begin{comment}
@@ -445,25 +444,8 @@ If the upper bound of the MPC in the perfect foresight case is zero, it is not p
 
 \cite{maTodaRich} characterize the limits of the MPC in a more general framework that allows for capital and labor income risks in a Markovian setting with liquidity constraints, and find that in that much more general framework the limiting MPC is also zero.% chktex 2
 
-% \compilingasstandalone{\pagebreak\bibliographystyle{plainnat}\econarkmultibib{\texname}}
-\compilingasstandalone{\bibstandalone{\subname}}
+\ifSubfilesClassLoaded{\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}}{}
+
 
 \end{document}\endinput
 
-% Local Variables:
-% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
-% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  t  :help "Run Biber") TeX-command-list))
-% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
-% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
-% tex-bibtex-command: "bibtex.*"
-% TeX-PDF-mode: t
-% TeX-file-line-error: t
-% TeX-debug-warnings: t
-% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)"))
-% TeX-source-correlate-mode: t
-% TeX-parse-self: t
-% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
-% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage).%o"))))))
-% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
-% TeX-parse-all-errors: t
-% End:

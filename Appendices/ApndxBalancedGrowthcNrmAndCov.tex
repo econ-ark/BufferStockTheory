@@ -3,13 +3,11 @@
 \input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 
 \newcommand{\subname}{ApndxBalancedGrowthcNrmAndCov}
-%\input{\econtexRoot/@local/dir-paths} % get directory macros
+\input{\econtexRoot/@local/dir-paths} % get directory macros
 \usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
 
 %\renewcommand{\LtxDir}{}
 \notinsubfile{\renewcommand{\LtxDir}{}}
@@ -32,14 +30,14 @@ Figures~\ref{fig:logcNrm} and~\ref{fig:logcov} plot the results of simulations o
 \pagebreak
 \begin{figure}[ht]
   \centerline{
-    \includegraphics[width=4in]{Figures/logcNrm}
+    \includegraphics[width=4in]{\FigDir/logcNrm}
   }
   \caption{Appendix: $\log ~\mathfrak{c}$ Appears to Grow Linearly}
   \label{fig:logcNrm}
 \end{figure}
 \begin{figure}[ht]
   \centerline{
-    \includegraphics[width=4in]{Figures/logcov}
+    \includegraphics[width=4in]{\FigDir/logcov}
   }
   \caption{Appendix: $\log ~(-\cov(\cNrm,\permLvl))$ Appears to Grow Linearly}
   \label{fig:logcov}

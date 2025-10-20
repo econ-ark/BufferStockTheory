@@ -6,11 +6,11 @@
 
 \begin{document}
 
-\notinsubfile{\renewcommand{Tables}{./Tables}} % Not sure why this needs to be redefined here; if not, tries to write to ../../Tables
+\notinsubfile{\renewcommand{\TableDir}{./Tables}} % Not sure why this needs to be redefined here; if not, tries to write to ../../Tables
 
   {\let\TableWidth\relax}
   \newlength\TableWidth
-\begin{verbatimwrite}{Tables/LiqConstrScenarios}
+\begin{verbatimwrite}{\TableDir/LiqConstrScenarios}
 \newsavebox{\LiqConstrScenarios}
 \begin{table}[b]
   \centering
@@ -46,7 +46,7 @@ Main Condition     &\multicolumn{3}{c|}{~}         & \\ % & Example \\
 
 \end{verbatimwrite}
 \clearpage
-\input{Tables/LiqConstrScenarios}
+\input{\TableDir/LiqConstrScenarios}
 
 \end{document}
 % Delete up to four existing variants of BibTeX 
@@ -61,9 +61,9 @@ Main Condition     &\multicolumn{3}{c|}{~}         & \\ % & Example \\
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
 % TeX-debug-warnings: t
-% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=.        %S%(PDFout)"))
 % TeX-source-correlate-mode: t
 % TeX-source-correlate-start-server: 0
 % TeX-parse-self: t
-% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n ../LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n          %o %b"))))))
 % End:

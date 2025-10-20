@@ -3,13 +3,11 @@
 \input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 
 \newcommand{\subname}{ApndxCconditionDiagrams}
-%\input{\econtexRoot/@local/dir-paths} % get directory macros
+\input{\econtexRoot/@local/dir-paths} % get directory macros
 \usepackage{econark-ifsubfile}        % allow conditional execution of code
 \usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
 
-\compilingasstandalone{
-  \xrsetup{\econtexRoot/\texname}
-}
+\xrsetup{\econtexRoot/\texname}
 
 \begin{document}
 
@@ -22,7 +20,7 @@ This appendix explains in detail the paper's `inequalities' diagrams (Figures~\r
 \hypertarget{InequalityPFGICFHWCRIC}{}
 \begin{figure}
 \centering
-\includegraphics[width=4in]{Figures/InequalityPFGICFHWCRIC}
+\includegraphics[width=4in]{\FigDir/InequalityPFGICFHWCRIC}
 \caption{Appendix: Inequality Conditions for Perfect Foresight Model}
 \centerline{ (Start at a node and follow arrows)}\label{fig:InequalityPFGICFHWCRIC}
 \end{figure}
@@ -85,7 +83,7 @@ After the warmup of constructing these conditions for the perfect foresight case
 
 \begin{figure}[ht]
   \centerline{
-    \includegraphics[width=6in]{Figures/Inequalities}
+    \includegraphics[width=6in]{\FigDir/Inequalities}
   }
   \caption{Appendix: Relation of All Inequality Conditions}\label{fig:InequalitiesApp}
 \end{figure}
@@ -93,41 +91,16 @@ After the warmup of constructing these conditions for the perfect foresight case
 Finally, the next diagram substitutes the values of the various objects in the diagram under the baseline parameter values and verifies that all of the asserted inequality conditions hold true.
 \begin{figure}[ht]
   \centerline{
-    \includegraphics[width=6in]{Figures/Inequalities-numer}
+    \includegraphics[width=6in]{\FigDir/Inequalities-numer}
   }
   \caption{Appendix: Numerical Relation of All Inequality Conditions}\label{fig:InequalitiesAppNumer}
 \end{figure}
 
 %\notinsubfile{\bibliography{\LaTeXGenerated/BufferStockTheory,\econtexBib}}
 %\notinsubfile{\pagebreak\bibliography{\econtexRoot/\texname,\econtexBib}}
-%\compilingasstandalone{\pagebreak\bibliographystyle{plainnat}\econarkmultibib{\texname}}
 
-\compilingasstandalone{
-  \bibstandalone{ApndxConditionDiagrams}
-}
+\ifSubfilesClassLoaded{\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}}{}
 
 \end{document}
 \endinput
 
-
-% Local Variables:
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
-% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
-% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
-% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
-% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex.%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
-% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex.%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
-% TeX-PDF-mode: t
-% TeX-file-line-error: t
-% TeX-debug-warnings: t
-% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)"))
-% TeX-source-correlate-mode: t
-% TeX-parse-self: t
-% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
-% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage).%o"))))))
-% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
-% TeX-parse-all-errors: t
-% End:
