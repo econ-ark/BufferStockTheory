@@ -1,3 +1,4 @@
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
 % -*- mode: LaTeX; TeX-PDF-mode: t; -*-
 % (setq TeX-parse-self t)
 \input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
@@ -46,8 +47,7 @@ We start by assuming we are solving a problem exactly like the one in the \href{
     \vFunc_{t}(\mNrm_{t})  & = \max_{{\{\cFunc\}}_{t}^{T}}~  \uFunc(\cFunc_{t}) +\DiscFac \Ex_{t}[\PermGroFac_{t+1}^{1-\CRRA}\vFunc_{t+1}({\mNrm}_{t+1})]  \\
     & \mbox{s.t.}
     \\ {\aNrm}_{t}  & = \mNrm_{t}-c_{t}
-    \\ {\kNrm}_{t+1} & = \aNrm_{t}/\PermGroFac_{t+1}
-    \\ {\bNrm}_{t+1}  & = {\kNrm}_{t+1}\Rfree = (\Rfree/\PermGroFac_{t+1})\aNrm_{t}  ~ = ~ \RNrmByGRnd_{t+1}\aNrm_{t}
+    \\ {\bNrm}_{t+1}  & = (\Rfree/\PermGroFac_{t+1})\aNrm_{t}  ~ = ~ \RNrmByGRnd_{t+1}\aNrm_{t}
     \\ \mNrm_{t+1}  & = \bNrm_{t+1}+\tranShkAll_{t+1}  ,
                       %       \end{align*}
   \end{aligned}

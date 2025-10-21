@@ -50,16 +50,16 @@ Consider a sequence of consumption $\{\cLvl_{T-n}\}_{n= t}^{T}$ and a sequence o
 The dynamic budget constraint, strictly positive marginal utility, and the can't-die-in-debt condition, Equation \eqref{eq:NoDebtAtDeath}, imply an exactly-holding intertemporal budget constraint (IBC):
 %
 %
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
   \mathrm{PDV}_{t}^{T}(\cLvl)  & = \overbrace{\mLvl_{t}-\permLvl_{t}}^{\bLvl_{t}}+\overbrace{\mathrm{PDV}_{t}^{T}(\permLvl)}^{\hLvl_{t}}, \labelsafe{eq:IBCFinite}
-\end{align} \hypertarget{FHWFacDefn}{}\hypertarget{PFRNrmByGRndDefn}{}
+\end{aligned}\end{gathered}\end{equation} \hypertarget{FHWFacDefn}{}\hypertarget{PFRNrmByGRndDefn}{}
 where $\bLvl$ is beginning-of-period `market' balances; with $\RNrmByGRnd \colon = \Rfree/\PermGroFac$ `human wealth' can be written as:
 %
 % 
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
   \hLvl_{t}  & = \permLvl_{t}+\RNrmByGRnd^{-1} \permLvl_{t} + \RNrmByGRnd^{-2} \permLvl_{t} + \cdots + \RNrmByGRnd^{t-T} \permLvl_{t} \notag
   \\  & = \underbrace{\left(\frac{1-\RNrmByGRnd^{-(T-t+1)}}{1-\RNrmByGRnd^{-1}}\right)}_{\equiv \hNrm_{t}}\permLvl_{t} \labelsafe{eq:HDefAppx}.
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 %
 %
 Let $\hNrm$ denote the limiting value of normalized human wealth as the planning horizon recedes, we have  $\hNrm \colon = \lim\limits_{n \rightarrow \infty} \hNrm_{t_{n}}$.
@@ -70,10 +70,10 @@ Next, since consumption is growing by $\APFac$ but discounted by $\Rfree$:
   \mathrm{PDV}_{t}^{T}(\cLvl)  & = \left(\frac{1-\RPFac^{T-t+1}}{1-\RPFac}\right)\cLvl_{t}
 \end{align*}
 from which the IBC~\eqref{eq:IBCFinite} implies
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
   \cLvl_{t}  & = \overbrace{\left(\frac{1-\RPFac}{1-\RPFac^{T-t+1}}\right)}^{\equiv \MPCmin_{t}}
                (\bLvl_{t}+\hLvl_{t})   \labelsafe{eq:WDef}
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 defining a normalized finite-horizon perfect foresight consumption function:\hypertarget{MPCminDefn}{}
 %
 %
@@ -97,9 +97,9 @@ The {\RIC} thus implies that the consumer cannot be so pathologically patient as
 %\subsubsection{Nondegenerate PF Unconstrained Solution Requires FHWC}\label{subsec:PFUncon}
 
 Given that the {\RIC}~holds, and (as before) defining limiting objects by the absence of a time subscript, the limiting upper bound consumption function will be
-\begin{align}\labelsafe{eq:cFuncPFUncAppx}
+\begin{equation}\begin{gathered}\begin{aligned}\labelsafe{eq:cFuncPFUncAppx}
   \bar{\cFunc}(\mNrm)  & = (\mNrm+\hNrm-1)\MPCmin,
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 and so in order to rule out the degenerate limiting solution $\bar{\cFunc}(\mNrm) = \infty$ we need $\hNrm$ to be finite; that is, we must impose the Finite Human Wealth Condition ({\FHWC}), Assumption \eqref{ass:FHWC}.
 
 \end{proof}
@@ -444,7 +444,7 @@ If the upper bound of the MPC in the perfect foresight case is zero, it is not p
 
 \cite{maTodaRich} characterize the limits of the MPC in a more general framework that allows for capital and labor income risks in a Markovian setting with liquidity constraints, and find that in that much more general framework the limiting MPC is also zero.% chktex 2
 
-\ifSubfilesClassLoaded{\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}}{}
+\ifSubfilesClassLoaded{\bibfilesfind{\texname}\bibliography{\bibfilesfound}}{}
 
 
 \end{document}\endinput

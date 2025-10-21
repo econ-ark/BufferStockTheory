@@ -20,7 +20,7 @@ $pdflatex="pdflatex -interaction=nonstopmode %O %S";
 $aux_out_dir_report = 1;
 $silent  = 0;
 $bibtex_use_original_exit_codes = 0;
-system("\@resources/shell/bibtool_extract-used-refs-from-system-bib-and-add-refs.sh . BufferStockTheory");
+#system("\@resources/shell/bibtool_extract-used-refs-from-system-bib-and-add-refs.sh . BufferStockTheory");
 system("find . -name '*.dep' ! -name 'BufferStockTheory.dep' -delete");
 
 # Create a wrapper shell script
@@ -32,7 +32,7 @@ perl -e '
 sub run_pdftotext {
     foreach my $file (@ARGV) {
         my $pdf_file = "$file.pdf";
-        my $txt_file = "$file.pdftotext";
+        my $txt_file = "$file.txt";
         
         if (-f $pdf_file) {
             print "Running pdftotext on $pdf_file...\n";
@@ -46,6 +46,20 @@ sub run_pdftotext {
 
 run_pdftotext(@ARGV);
 ' "$@"
+
+# Clean up auxiliary files after successful compilation (but preserve cross-ref files)
+echo "Cleaning up auxiliary files (preserving cross-reference and bibliography files)..."
+# Custom cleanup that excludes .xref, .bbl, and other files needed for cross-compilation
+find . -name "*.aux" -delete 2>/dev/null || true
+find . -name "*.log" -delete 2>/dev/null || true
+find . -name "*.fls" -delete 2>/dev/null || true
+find . -name "*.fdb_latexmk" -delete 2>/dev/null || true
+find . -name "*.synctex.gz" -delete 2>/dev/null || true
+# find . -name "*.out" -delete 2>/dev/null || true  # Preserve .out files for hyperlinks
+find . -name "*.toc" -delete 2>/dev/null || true
+find . -name "*.nav" -delete 2>/dev/null || true
+find . -name "*.snm" -delete 2>/dev/null || true
+echo "Selective cleanup complete (preserved .xref, .bbl files for cross-compilation)."
 END_SCRIPT
 close $fh;
 chmod 0755, $wrapper_script;

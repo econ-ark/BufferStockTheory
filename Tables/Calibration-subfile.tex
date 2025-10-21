@@ -1,7 +1,8 @@
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
 % -*- mode: LaTeX; TeX-PDF-mode: t; -*-
 \input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 \input{./.econtexRoot}\input{\econtexRoot/@resources/tex-add-search-paths}
-\input{./.econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile}
+\input{./.econtexRoot}\input{econtex_onlyinsubfile}
 \providecommand{\TblBox}{}\providecommand{\TblName}{}
 \renewcommand{\TblName}{Calibration}
 \onlyinsubfile{\externaldocument{\LaTeXGenerated/BufferStockTheory}}
@@ -15,8 +16,6 @@
 \notinsubfile{\renewcommand{\TableDir}{./Tables}} % Not sure why this needs to be redefined here; if not, tries to write to ../../Tables
 
 \let\TableWidth\relax % Necessary to allow redefinition of tablewidth, which might already be defined
-
-\let\TableWidth\relax
 \newlength\TableWidth
 \begin{verbatimwrite}{\TableDir/\TblName}
 
@@ -72,7 +71,7 @@
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
-% eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) ../LaTeX/%s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
+% eval: (add-to-list 'TeX-command-list	'("BibTeX" "%(bibtex) %s" TeX-run-BibTeX nil t :help "Run BibTeX") t)
 % TeX-PDF-mode: t
 % TeX-file-line-error: t
 % TeX-debug-warnings: t

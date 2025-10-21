@@ -204,6 +204,7 @@ BufferStockTheory.bib
 # Things marked _pri or private are kept locally only
 *_pri
 *private
+AI-priv/
 
 .ipynb_checkpoints
 .ipynb_checkpoints/*

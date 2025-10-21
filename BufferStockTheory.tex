@@ -12,12 +12,16 @@
 \usepackage{subfiles}                    % Allow appendices, tables, etc as standalone subfiles
 
 \newcommand{\texname}{BufferStockTheory} % Keyname for the paper
+
+\usepackage{econark-bibfilesfind}        % Package to find valid bibfiles
+\bibfilesfind{\texname}                  % find them
+
 \input{@local/dir-paths}                 % macros for various subdirs
 \usepackage{@local/owner}                % for urls that are constructed
 
 \usepackage{econark}                     % custom packages and macros
 \usepackage{econark-theorems}            % theorems, corollarys, remarks, propositions, ...
-\usepackage{econark-collectbibs}         % Find valid bibfiles
+%\usepackage{econark-collectbibs}         % Find valid bibfiles
 %\usepackage{econark-multibib}            % Only use bib files that exist
 %\usepackage{econark-bibstandalone}       % Allow compilation of subfiles with bib
 \usepackage{hyperref}                    % allow hyperlinks 
@@ -42,6 +46,7 @@
 
 % -------------- Packages --------------
 \usepackage{enumitem}    % roman lists in theorems 
+\usepackage{moreverb}    % provides verbatimwrite environment 
 
 \newcommand{\statement}[1]{%
   \vspace{1em}  % Add some vertical space before the part
@@ -51,11 +56,24 @@
 }
 
 % --------------- Parameters ---------------
+
+
+
 \renewcommand{\CRRA}{\gamma}                                % CRRA is usually gamma in the literature.
 \newcommand{\DiscGro}{\DiscFac\PermGroFac^{1-\CRRA}}   % For PF-FVAC
 \renewcommand{\GPFacMod}{\GPFacRaw \Ex[\permShk^{-1}]} % Stochastically modified growth impatience factor
 
-\newcommand{\boundFunc}{\varphi}                % bounding function
+% Define missing Thorn character (used by \APFac in econark-shortcuts.sty)
+\providecommand{\Thorn}{\pmb{\TH}}                     % Icelandic Thorn character (bold)
+
+
+
+
+
+
+
+
+\newcommand{\boundFunc}{\digamma}                % bounding function
 
 % Define custom counters for assumptions 
 \newcounter{assumptionL}  % assumptions for limiting proofs 
@@ -75,8 +93,21 @@
 % -------------- Growth and Impatience Factors --------------
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 % showlabels puts ref names on left, numbers on right
-\provideboolean{draftmode}\setboolean{draftmode}{true}
+\provideboolean{draftmode}\setboolean{draftmode}{false}
 \newcommand{\Draft}{\ifthenelse{\boolean{draftmode}}}
 \Draft{\usepackage{showlabels}
   \renewcommand{\showlabelsetlabel}[1]{\tiny #1}
@@ -111,7 +142,8 @@
 \subfile{\ApndxDir/ApndxSupportingAnalysis}
 
 \pagebreak
-\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}\sloppy\end{document}\endinput
+%\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}\sloppy\end{document}\endinput
+\bibliography{\bibfilesfound}\sloppy\end{document}\endinput
 
 
 % Local Variables:

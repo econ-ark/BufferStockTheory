@@ -1,14 +1,12 @@
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
 \input{./.econtexRoot}\documentclass[tikz,border=1mm]{standalone}
-\usepackage{cancel}
-\usepackage{/Volumes/Sync/GitHub/llorracc/SolvingMicroDSOPs/SolvingMicroDSOPs-Latest/.resources/texmf-local/tex/latex/econark}      % Mostly shortcuts defining variables (LaTeX macros)
-\usepackage{ulem}
-\usepackage[nointegrals]{wasysym}
+\usepackage{BufferStockTheory-tikz}
 \begin{document}
 \providecommand{\figName}{}
 \renewcommand{\figName}{RelatePFGICFHWCRICPFFVAC}
 \tikzset{node distance=6cm, auto, >=latex}
 \begin{tikzpicture}
-  \input{\figName.tikz}
+  \input{\FigDir/\figName.tikz}
 \end{tikzpicture}
 \end{document}\endinput
 

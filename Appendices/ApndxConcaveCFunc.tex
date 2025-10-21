@@ -69,9 +69,9 @@ The last line above holds because \hyperlink{FHWC}{finite human wealth} implies 
 Next, we show that if \hyperlink{FHWC}{finite limiting human wealth} is satisfied, \hyperlink{PFFVAC}{perfect foresight finite value of autarky} (Equation \eqref{eq:PFFVAC}) implies \hyperlink{RIC}{return impatience} (Assumption \ref{ass:RIC}).
 To see why, divide both sides of the second inequality in Equation~\eqref{eq:PFFVAC} by $\Rfree$, and after some straightforward algebra, arrive at:
 %
-  \begin{align}
+  \begin{equation}\begin{gathered}\begin{aligned}
     \APFac/\Rfree & < {(\PermGroFac/\Rfree)}^{1-1/\CRRA}  \label{eq:FHWCandPFFVACimplyRIC}.
-  \end{align}
+  \end{aligned}\end{gathered}\end{equation}
   Due to \hyperlink{FHWC}{finite limiting human wealth}, the RHS above is strictly less than $ 1$ because $(\PermGroFac/\Rfree) < 1$ (and the RHS is raised to a positive power (because $\CRRA>1$)).
 
 \end{proof}
@@ -93,6 +93,7 @@ For the following, a function with $k$ continuous derivatives is called a $\math
 Let $t<T$.
 If $\vFunc_{t}$ is strictly negative, strictly increasing, strictly concave, $\mathbf{C}^{3}$ and satisfies $\lim\limits_{\mNrm\rightarrow 0}~\vFunc_{t}(\mNrm) =-\infty $, then $\cFunc_{t}$ is $\mathbf{C}^{2}$.
 \end{lemma}
+
 
 
 \begin{proof}
@@ -121,7 +122,7 @@ Next, define $\underline{\vFunc}_{t}(\mNrm,\cNrm)$ as:
 Note that for fixed $\mNrm$, $\cNrm \mapsto \underline{\vFunc}_{t}(\mNrm,\cNrm)$ is $\mathbf{C}^{3}$ on $(0, \mNrm)$ since $\mathfrak{v}_{t}$ and $\uFunc$ are both
 $\mathbf{C}^{3}$.
 Observe that the value function defined
-by Problem~\eqref{\localorexternallabel{eq:veqnNrmRecBellman}} can be written as:
+by Problem~\eqref{eq:veqnNrmRecBellman} can be written as:
 %
 \begin{equation*}\begin{gathered}\begin{aligned}
       \vFunc_{t}(\mNrm) & =  \max_{0<\cNrm<\mNrm}~\underline{\vFunc}_{t}(\mNrm,\cNrm), \qquad \mNrm\in \Reals_{++}
@@ -230,10 +231,10 @@ The minimal MPC's are obtained by letting where $\mNrm_{t} \rightarrow \infty$.
 Note that $\lim\limits_{\mNrm_{t}\rightarrow \infty} \mNrm_{t+1} = \infty$ almost surely and thus $\lim\limits_{\mNrm_{t}\rightarrow \infty}\eFunc_{t+1}({\mNrm}_{t+1}) = \MPCmin_{t+1}$ almost surely.
 Turning to the second term inside the marginal utility on the RHS, we can write:
 
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
 \lim_{\mNrm_{t}\rightarrow \infty}\frac{\Rfree \aFunc_{t}(\mNrm_{t})+{\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}}{\mNrm_{t}} &  = \lim_{\mNrm_{t}\rightarrow \infty}\frac{\Rfree \aFunc_{t}(\mNrm_{t})}{\mNrm_{t}} + \lim_{\mNrm_{t}\rightarrow \infty}\frac{{\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}}{\mNrm_{t}} \\
 			& = \Rfree (1- \MPCmin_{t}) + 0, 
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 since ${\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}$ is bounded.
 Thus, we can assert:
 
@@ -384,10 +385,10 @@ If \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC}) holds, t
 
 By straightforward algebra and Equation \eqref{eq:MPCmaxDefn} from the main text, we have:
 
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
 \pZero \DiscFac {(\Rfree (1-\MPCmax))}^{1-\CRRA}  & = \pZero\DiscFac\Rfree^{1-\CRRA}{\left(\pZero^{1/\CRRA}\frac{{(\Rfree\DiscFac)}^{1/\CRRA}}{\Rfree}\right)}^{1-\CRRA} \\\notag
 & = \pZero^{1/\CRRA}\frac{{(\Rfree\DiscFac)}^{1/\CRRA}}{\Rfree} <1 \notag,
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 
 where the inequality holds by \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC}).
 Finally, the expression $\MPCmaxInf\mapsto \pZero \DiscFac {(\Rfree (1-\MPCmaxInf))}^{1-\CRRA} $ is continuous and increasing in $\MPCmaxInf$, and we have $1>\bar{\kappa}>0$ and $\MPCmax_{T-n} \rightarrow \MPCmax$ as $n\rightarrow\infty$.
@@ -428,13 +429,13 @@ If $\xFunc\in  \mathcal{C}_{\boundFunc }\left( S,Y\right)$, then $\TMap^{\MPCmin
 \begin{proof}
 By definition, we have
 %
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
   \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}(\mNrm_{t}) & = \underset{\cNrm_{t} \in
                                             [\MPCminInf \mNrm_{t}, \MPCmaxInf \mNrm_{t}]
                                             }\max \left\{
                                             \uFunc(c_{t})+\DiscFac \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\mathfrak{\xFunc}}
-                                            \left( {\mNrm}_{t+1}\right) \right] \right\}, \qquad \mNrm_{t}\in \Reals_{++}  %
-\end{align}
+                                            \left( {\mNrm}_{t+1}\right) \right] \right\}, \qquad \mNrm_{t}\in \Reals_{++}  
+\end{aligned}\end{gathered}\end{equation}
 %
 where ${\mNrm}_{t+1} = \RNrmByGRnd\left(\mNrm_{t} - \cNrm_{t}\right) + \tranShkAll$.
 
@@ -457,12 +458,12 @@ Finally, to show that $\Vert \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}\V
 We have:
 %
 %
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
 \Vert \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}\Vert_{\boundFunc} & = \sup_{\mNrm} \left\{\frac{\left| \uFunc(\cFunc(\mNrm)) + \DiscFac \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\mathfrak{\xFunc}} \left( {\mNrm^{\nxt}}\right) \right] \right|}{\zeta + \mNrm^{1-\CRRA}}\right\} \\
 & \leq  \sup_{\mNrm} \left\{\frac{\left| \frac{\mNrm^{1-\CRRA}}{1-\CRRA} + \DiscFac \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\mathfrak{\xFunc}} \left( {\mNrm^{\nxt}}\right) \right] \right|}{\zeta + \mNrm^{1-\CRRA}}\right\} \\ 
 & \leq \sup_{\mNrm} \left\{\frac{\frac{\mNrm^{1-\CRRA}}{1-\CRRA}}{\zeta + \mNrm^{1-\CRRA}}\right\} + \sup_{\mNrm} \left\{\frac{\DiscFac \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\vert \mathfrak{\xFunc}} \left( {\mNrm}\right)\vert  \right]}{\zeta + \mNrm^{1-\CRRA}}\right\}\\
 & <\infty, 
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 %
 where ${\mNrm}^{\nxt} = \RNrmByGRnd\left(\mNrm - \cNrm\right) + \tranShkAll$ and the final inequality follows from the triangle inequality and the fact that $\xFunc$ is $\boundFunc$-bounded.
 
@@ -476,13 +477,13 @@ We now verify conditions (1)-(3) of Boyd's Theorem (\ref{thm:Boyd}).
 
 
 \statement{Condition (1).} By definition of $\TMap^{\MPCminInf, \MPCmaxInf}$, we have: 
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
   \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}(\mNrm_{t}) & = \underset{\cNrm_{t} \in
                                             [\MPCminInf \mNrm_{t}, \MPCmaxInf \mNrm_{t}]
                                             }\max \left\{
                                             \uFunc(c_{t})+\DiscFac \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\mathfrak{\xFunc}}
                                             \left( {\mNrm}_{t+1}\right) \right] \right\},    \label{eq:condition1}
-\end{align}%
+\end{aligned}\end{gathered}\end{equation}%
 %
 where ${\mNrm}_{t+1} = \RNrmByGRnd\left(\mNrm_{t} - \cNrm_{t}\right) + \tranShkAll$.
 As such, ${\mathfrak{\xFunc}} \leq {\mathfrak{\yFunc}}$ implies $\TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}(\mNrm_{t}) \leq \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\yFunc}} (\mNrm_{t})$ by inspection.
@@ -528,12 +529,12 @@ That is,
 \end{align*}
 %
 Thus, condition (3.) will certainly hold under the stronger condition
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
   \uFunc\circ \hat{\cFunc} +\DiscFac \Ex\PermGroFacRnd^{1-\CRRA } (\zFunc+\lambda \boundFunc) \circ \hat{\mFunc}^{\nxt}  & \leq  \uFunc\circ \hat{\cFunc} + \DiscFac \Ex\PermGroFacRnd^{1-\CRRA } \zFunc\circ\hat{\mFunc}^{\nxt}  + \lambda \Shrinker \boundFunc \notag
   \\ \Leftrightarrow \DiscFac\Ex\PermGroFacRnd^{1-\CRRA }(\zFunc +\lambda \boundFunc) \circ\hat{\mFunc}^{\nxt}  & \leq  \DiscFac \Ex\PermGroFacRnd^{1-\CRRA }\zFunc\circ \hat{\mFunc}^{\nxt}  + \lambda \Shrinker \boundFunc \notag
   \\ \Leftrightarrow  \DiscFac\lambda \Ex\PermGroFacRnd^{1-\CRRA }\boundFunc\circ\hat{\mFunc^{\nxt}}  & \leq  \lambda \Shrinker \boundFunc \notag
   \\ \Leftrightarrow  \DiscFac \Ex\PermGroFacRnd^{1-\CRRA }\boundFunc \circ \hat{\mFunc}^{\nxt}  & \leq  \Shrinker \boundFunc \labelsafe{eq:reqCondWeak}     
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 
 To show \eqref{eq:reqCondWeak} holds, recall by Claim \ref{claim:MPCMAXKleq1} that $\pZero \DiscFac {(\Rfree (1-\MPCmax_{T-k}))}^{1-\CRRA}   < 1$ for $k$ large enough.
 As such, define $\Shrinker$ by Equation \eqref{eq:shnkrdef} and note that $\pZero \DiscFac {(\Rfree (1-\MPCmax_{k}))}^{1-\CRRA} < \alpha < 1$ and $\alpha\geq \beta\Ex\PermGroFacRnd^{1-\CRRA}$.
@@ -573,7 +574,7 @@ We can thus conclude that equation~\eqref{eq:KeyCondition} will hold since we ha
     \end{aligned}\end{gathered}\end{equation}
 
 The proof that $\TMap^{\MPCminInf, \MPCmaxInf}$ defines a contraction mapping under the
-conditions~\eqref{\localorexternallabel{ass:WRIC}} and~\eqref{\localorexternallabel{ass:FVAC}} is
+conditions~\eqref{ass:WRIC} and~\eqref{ass:FVAC} is
 now complete.
 \end{proof}
 
@@ -649,7 +650,7 @@ Since $\vFunc\in \mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$, we must have tha
 
 \end{proof}
 
-\subsection{Properties of the Converged Consumption Function}\label{sec:appxconvgC}
+\subsection{Properties of the Converged Consumption Function}\label{subsec:Properties}
 
 Let $\cFunc$ be the limiting non-degenerate consumption function.
 
@@ -689,14 +690,14 @@ The minimal MPC's are obtained by letting $\mNrm \rightarrow \infty$.
 Note that $\lim\limits_{\mNrm_{t}\rightarrow \infty} \mNrm^{\nxt} = \infty$ almost surely and thus $\lim\limits_{\mNrm_{t}\rightarrow \infty}\eFunc_{t+1}({\mNrm}_{t+1}) = \MPCminmin$ almost surely.
 Turning to the second term inside the marginal utility on the RHS, we can write
 
-\begin{align}
+\begin{equation}\begin{gathered}\begin{aligned}
 \lim_{\mNrm\rightarrow \infty}\frac{\Rfree \aFunc(\mNrm)+{\PermGroFacRnd}{\tranShkAll}}{\mNrm_{t}} &  = \lim_{\mNrm \rightarrow \infty}\frac{\Rfree \aFunc(\mNrm)}{\mNrm} + \lim_{\mNrm\rightarrow \infty}\frac{{\PermGroFacRnd}{\tranShkAll}}{\mNrm} \\
 			& = \Rfree (1- \MPCminmin) + 0, 
-\end{align}
+\end{aligned}\end{gathered}\end{equation}
 since ${\PermGroFacRnd}{\tranShkAll}$ is bounded.
 Thus, as $\mNrm$ tends to $\infty$, we have
 %
-\begin{equation}\begin{gathered}\begin{aligned} %
+\begin{equation}\begin{gathered}\begin{aligned} 
  \lim\limits_{\mNrm\rightarrow \infty}\eFunc{(\mNrm)}^{-\CRRA}  & =  \MPCminmin^{-\CRRA} = \beta\Rfree\MPCminmin^{-\CRRA}\Rfree^{-\CRRA} (1- \MPCminmin) ^{-\CRRA}. 
 \end{aligned}\end{gathered}\end{equation}
 %
@@ -793,7 +794,7 @@ Note finally that another intuitive confirmation of the equivalence between the 
 \end{eqnarray*}
 which makes sense because the marginal propensity to consume for a constrained restrained consumer is 1 by our definitions of `constrained' and `restrained.'
 
-\ifSubfilesClassLoaded{\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}}{}
+\ifSubfilesClassLoaded{\bibfilesfind{\texname}\bibliography{\bibfilesfound}}{}
 
 \sloppy\end{document}\endinput
 
@@ -819,6 +820,7 @@ which makes sense because the marginal propensity to consume for a constrained r
 % eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
 % TeX-parse-all-errors: t
 % End:
+
 
 
 

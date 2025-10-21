@@ -1,7 +1,16 @@
- % Store the tex for standalone compilation
+% Store the tex for standalone compilation
+\ifthenelse{\boolean{Web}}{
+\begin{figure}[tbp] % Web
+\centerline{\includegraphics[width=0.8\textwidth]{\FigDir/GICModFailsButGICRawHolds}}
+\caption{Convergence of the Consumption Rules} % Web 
+\label{fig:GICModFailsButGICRawHolds}
+\end{figure} % Web
+}{ % Web - no
 \begin{figure}[tbp]
 \centerline{\includegraphics[width=6in]{\FigDir/GICModFailsButGICRawHolds}}
-%\caption{\{{FVAC},{GIC},\cncl{GIC-Mod}\}: No $\TargetNrm{\mNrm}$ Exists But $\BalGroFac{\mNrm}$ Does}
-\caption{\{{FVAC},{GIC},\cncl{GIC-Mod}\}: No Target Exists But SS Does}
+\caption{}
+%\centering{\{{FVAC},{GIC},\cncl{GIC-Mod}\}: No $\TargetNrm{\mNrm}$ Exists But $\BalGroFac{\mNrm}$ Does}
+\caption{Finite value of autarky and growth impatience hold but strong growth impatience fails: No Individual Target Exists But Aggregate Target Does}
 \label{fig:GICModFailsButGICRawHolds}
 \end{figure}
+} % Web - no
