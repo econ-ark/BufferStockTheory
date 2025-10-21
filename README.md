@@ -1,9 +1,3 @@
-TODO:
-
-- [ ] Fix mhat in figure 
-- [ ] Update to HARK 15
-
-
 # Theoretical Foundations of Buffer Stock Theory - REMARK
 
 [![DOI](https://zenodo.org/badge/302430141.svg)](https://zenodo.org/badge/latestdoi/302430141)
