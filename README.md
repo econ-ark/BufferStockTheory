@@ -8,7 +8,7 @@ TODO:
 
 [![DOI](https://zenodo.org/badge/302430141.svg)](https://zenodo.org/badge/latestdoi/302430141)
 
-The BufferStockTheory directory contains code to reproduce the figures of the paper [Theoretical Foundations of Buffer Stock Saving](https://econ-ark.github.io/BufferStockTheory/) by Christopher Carroll, and the LaTeX source to produce the paper once the figures have been created.
+The BufferStockTheory directory contains code to reproduce the figures of the paper [Theoretical Foundations of Buffer Stock Saving](https://econ-ark.github.io/BufferStockTheory/BufferStockTheory.pdf) by Christopher Carroll, and the LaTeX source to produce the paper once the figures have been created.
 
 ## Code 
 
