@@ -1,1 +1,0 @@
-import{a}from"/BufferStockTheory/powerlaw-decay-theory/build/_shared/chunk-D2MV22QF.js";import"/BufferStockTheory/powerlaw-decay-theory/build/_shared/chunk-FPFMZRV6.js";import"/BufferStockTheory/powerlaw-decay-theory/build/_shared/chunk-OZE3FFNP.js";export default a();
