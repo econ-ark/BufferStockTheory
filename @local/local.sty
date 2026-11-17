@@ -1,0 +1,316 @@
+% @local/<texname>.sty (in this paper @local/BufferStockTheory.sty) is the
+% canonical home for ALL paper-specific LaTeX configuration: typography
+% helpers, economics-symbol overrides, theorem environments, body-text
+% vocabulary, figure scratchpads, and the per-paper hyperlink-style
+% named-condition macros. Material that is part of shared infrastructure
+% (e.g. econark-shortcuts.sty in @resources/) does NOT live here.
+%
+% New macros for this paper should be added to this file, not inline in
+% body .tex files. The pre-commit hook
+% (tools/git-hooks/lint-no-inline-defs.sh) enforces this for the
+% published body files.
+
+% ============================================================
+% --- BEGIN PhaseB2 conditional-content macros ---
+% ============================================================
+
+% PhaseB2: alias rewrites for \ifthenelse{\boolean{Web}}{...}{...} so the
+% MyST pipeline's bracket-balancer (phase 2) reduces to a substring scan.
+% Each macro expands to the original \ifthenelse form, so PDF output is
+% byte-identical.
+\providecommand{\PDFOnly}[1]{\ifthenelse{\boolean{Web}}{}{#1}}
+\providecommand{\WebOnly}[1]{\ifthenelse{\boolean{Web}}{#1}{}}
+\providecommand{\BothVersions}[2]{\ifthenelse{\boolean{Web}}{#1}{#2}}
+
+% \BSTcondref is the conditional fallback for the named-condition macros
+% (\GICRaw, \RIC, ...) formerly written as \hyperlink{X}{\textrm{Y}}.
+% The canonical definition lives in BufferStockTheory.tex:38-40 — the
+% \provideboolean{Web} + \providecommand pair below makes standalone
+% compiles (e.g. tikz figures via local-tikz.sty, which loads local.sty
+% without the master preamble) self-sufficient.
+\provideboolean{Web}
+\providecommand{\BSTcondref}[2]{%
+  \ifthenelse{\boolean{Web}}{\textsf{#2}}{\hyperlink{#1}{\textrm{#2}}}%
+}
+
+% --- END PhaseB2 conditional-content macros ---
+
+% ============================================================
+% --- BEGIN typography helpers (was bst-macros.sty / typography group) ---
+% ============================================================
+
+% \statement{<name>}: a bold/italic part-name introducer used by proofs and
+% case analyses (e.g. "Step 1", "Claim", "Case A").
+% from BufferStockTheory.tex:51-56 (pre-A1)
+\newcommand{\statement}[1]{%
+  \vspace{1em}  % Add some vertical space before the part
+  \textit{#1}   % Make the part name bold (e.g., "Step 1", "Claim", "Case A")
+  \enspace      % Add a little horizontal space
+  \ignorespaces % Ignore spaces at the beginning of the text
+}
+
+% \headmath{<formula>}: pads a formula with extra horizontal space on each
+% side, used in appendix headings.
+% from Appendices/ApndxBalancedGrowthcNrmAndCov.tex:18-21 (pre-A1)
+\newcommand{\headmath}[1]{%
+  \settowidth{\dimen0}{$#1$}%
+  \mbox{}\hspace{1.2\dimen0}$#1$\hspace{1.2\dimen0}\mbox{}%
+}
+
+% --- END typography helpers ---
+
+% ============================================================
+% --- BEGIN economics-symbol overrides (was bst-macros.sty / econ-overrides group) ---
+% ============================================================
+
+%% CDC-to-AS: With great regret I will accept that the profession has settled on $\gamma$
+%% this is an error in taste and decency
+%% because $\rho$ is the Greek R and satisfying choice for Relative Risk aveRsion
+% from BufferStockTheory.tex:62 (pre-A1)
+\renewcommand{\CRRA}{\gamma}                                % CRRA is usually gamma in the literature.
+
+% from BufferStockTheory.tex:63 (pre-A1)
+\newcommand{\DiscGro}{\DiscFac\PermGroFac^{1-\CRRA}}   % For PF-FVAC
+
+% from BufferStockTheory.tex:64 (pre-A1)
+\renewcommand{\GPFacMod}{\GPFacRaw \Ex[\permShk^{-1}]} % Stochastically modified growth impatience factor
+
+% Utility-CE-based adjusted permanent income growth factor.
+% \PermGroFacAdj  := \PermGroFac * (E[\permShk^{-1}])^{-1}    (harmonic-mean-based; used in return-factor algebra)
+% \PermGroFacAdjU := \PermGroFac * \uInvEuPermShk             (CRRA-CE-based; appears in utility computations)
+% These coincide only at \CRRA = 2, where \uInvEuPermShk happens to equal
+% (E[\permShk^{-1}])^{-1}; for any other \CRRA they are distinct objects.
+% See plans_private/20260501-1739h_fix-PermGroFacAdj-inequality-overload-terminology.md.
+\providecommand{\PermGroFacAdjU}{\PermGroFacAdj_{u}}
+
+% Define missing Thorn character (used by \APFac in econark-shortcuts.sty)
+% from BufferStockTheory.tex:67 (pre-A1)
+\providecommand{\Thorn}{\pmb{\TH}}                     % Icelandic Thorn character (bold)
+
+%% CDC-to-AS: You did not like \digamma for the bounding function, huh?
+%%% AS-to-CDC: digamma fine. Resolved.
+% from BufferStockTheory.tex:76 (pre-A1)
+% NOTE: declared as \newcommand here so the later \providecommand{\boundFunc}
+% lower in this file becomes a no-op (this is the historical load-order
+% behaviour from when bst-macros.sty was a separate file loaded first).
+\newcommand{\boundFunc}{\digamma}                % bounding function
+
+% --- END economics-symbol overrides ---
+
+% ============================================================
+% --- BEGIN figure-inclusion scratchpad (was bst-macros.sty / figure group) ---
+% ============================================================
+
+% Figure-name macros used by sections/*.tex via \renewcommand. The
+% subfiles package wraps each \subfile body in \begingroup..\endgroup,
+% so a \providecommand inside one section subfile would be scoped
+% locally and disappear before later sections (or the NoAppendix wrapper)
+% try to \renewcommand it. Pre-defining at the master level here makes
+% the macros visible to every standalone section compile and to the
+% integrated builds.
+% from BufferStockTheory.tex:127-128 (pre-A1)
+\providecommand{\figName}{}
+\providecommand{\figFile}{}
+
+% --- END figure-inclusion scratchpad ---
+
+% ============================================================
+% --- BEGIN body-text vocabulary (was bst-macros.sty / body-text-vocab group) ---
+% ============================================================
+
+% Macros that were previously declared inline inside paragraph bodies
+% (or between body elements). Canonical defs live here as
+% \providecommand so the body-side inline copies — which we deliberately
+% leave in place — are no-ops. We do NOT remove the body-side copies
+% because doing so subtly changes LaTeX's tokenization of the
+% surrounding prose (observed: math-mode binop spacing flips, paragraph
+% breaks shift). A future refactor can remove them once a
+% whitespace-/token-preserving replacement strategy is verified.
+
+% Difference function used in two stability proofs; body inline at
+% Appendices/ApndxMTargetIsStable.tex:149 and :250 (mid-paragraph
+% \providecommand — idempotent, so coexists with the entry below).
+\providecommand{\difFunc}{\pmb{\zeta}}
+
+% English vocabulary tag for the "growth patience factor"; body inline
+% at sections/TheoreticalFoundations.tex:297 (between \hypertarget and
+% prose). The body-side copy was originally \newcommand; A3-retry
+% changed it to \providecommand so it coexists with this entry.
+\providecommand{\GPFacRawName}{growth patience factor}
+
+% --- END body-text vocabulary ---
+
+% ============================================================
+% --- BEGIN custom theorem environments (was bst-theorems.sty) ---
+% ============================================================
+
+% Independent counters so each Assumption family numbers separately.
+\newcounter{assumptionL}  % assumptions for limiting proofs
+\newcounter{assumptionS}  % assumptions for stability proofs
+\newcounter{assumptionI}  % assumptions for income process
+
+\newtheorem{assumL}[assumptionL]{Assumption}
+\newtheorem{assumS}[assumptionS]{Assumption}
+\newtheorem{assumI}[assumptionI]{Assumption}
+
+% Adjust the representation of each counter so the printed label is
+% L.<n>, S.<n>, I.<n> (rather than the bare arabic value).
+\renewcommand{\theassumptionL}{L.\arabic{assumptionL}}
+\renewcommand{\theassumptionS}{S.\arabic{assumptionS}}
+\renewcommand{\theassumptionI}{I.\arabic{assumptionI}}
+
+% --- END custom theorem environments ---
+
+% ============================================================
+% --- BEGIN original BufferStockTheory.sty content (unchanged from pre-fold) ---
+% ============================================================
+
+% Define a few objects that are unique to the BST paper
+%\usepackage{owner} % Owned by llorracc (draft) or econ-ark (published) ?
+\usepackage{pdfsuppressruntime}
+\usepackage{ulem}
+\usepackage{multirow}
+%\usepackage{econark-titlepage}
+% Allow different actions depending on whether document is being processed as
+% subfile or being process as standalone
+\providecommand{\onlyinsubfile}{}\renewcommand{\onlyinsubfile}[1]{#1}
+\providecommand{\notinsubfile}{}\renewcommand{\notinsubfile}[1]{}
+
+% Create links to explanations in text
+\newcommand{\BSTpaperLink}{https://\owner.github.io/BufferStockTheory/BufferStockTheory3.html} % Frame 3
+
+% Suffix of Defn indicates reference to text name and source doc definition
+\newcommand{\FHWC}{\BSTcondref{FHWC}{FHWC}}
+\newcommand{\FHWFacDefn}{\BSTcondref{FHWFacDefn}{FHWF}}
+\newcommand{\GICRaw}{\BSTcondref{GICRaw}{GIC}}
+\newcommand{\GPFacRawDefn}{\BSTcondref{GPFacRawDefn}{GPF}}
+\newcommand{\GPFacModDefn}{\BSTcondref{GPFacModDefn}{GPF-Mod}}
+\newcommand{\GICMod}{\BSTcondref{GICMod}{GIC-Mod}}
+\newcommand{\GICHarm}{\BSTcondref{GICHarm}{GIC-Harm}}
+\newcommand{\RIC}{\BSTcondref{RIC}{RIC}}
+\newcommand{\PFFVAFacDefn}{\BSTcondref{PFVAFacDefn}{PF-VAF}}
+\newcommand{\FVAC}{\BSTcondref{FVAC}{FVAC}}
+\newcommand{\PFFVAC}{\BSTcondref{PFFVAC}{PFFVAC}}
+\newcommand{\VAFacDefn}{\BSTcondref{VAFacDefn}{VAF}}
+%\newcommand{\APFacDefn}{\BSTcondref{APFacDefn}{APF}}
+\newcommand{\RPFacDefn}{\BSTcondref{RPFacDefn}{RPF}}
+\newcommand{\AIC}{\BSTcondref{AIC}{AIC}}
+\newcommand{\WRPFacDefn}{\BSTcondref{WRPFacDefn}{WRPF}}
+\newcommand{\WRIC}{\BSTcondref{WRIC}{WRIC}}
+
+\newcommand{\MPCminInf}{\underline{\nu}}
+\newcommand{\MPCmaxInf}{\overline{\nu}}
+
+% Control whether subsection is displayed at top of page of PDF 
+\newboolean{showPageHead}
+\setboolean{showPageHead}{true}
+
+% Terms unique to BufferStockTheory paper 
+\newcommand{\usual}{}
+
+\newcommand{\BoydT}{\mathsf{T}} % Contraction mapping operator
+\newcommand{\Shrinker}{\alpha}  % Contraction mapping shrinker
+\providecommand{\boundFunc}{\ensuremath{\digamma}} % Boyd bounding function
+\providecommand{\AMPS}{}\renewcommand{\AMPS}{\avg{\aFunc}^{\prime}} % Average MPS
+\providecommand{\AMPSP}{{\avg{\aFunc}^{\prime\prime}}} % Average MPS prime
+
+\newcommand{\cNrmAvg}{\avg{c}}
+
+% Harmenberg items
+\newcommand{\Nvrnt}{F} % Invariant CDF
+\newcommand{\nvrnt}{f} % invariant PDF
+\newcommand{\Harm}{\tilde} % Harmenberg uses tilde 
+\newcommand{\HarmWide}{\widetilde}
+
+\providecommand{\pHarm}{p} % Probability density of permanent income
+
+% Declare registers for manipulation of tables (to fit page)
+\newsavebox{\TblBox}
+\newlength{\TblShrunk}
+\newsavebox{\TblShrunkBox}
+\usepackage{footmisc,datetime2,refcount,xr-hyper,hhline,rotating,subfigure,makecell}
+%\usepackage{datetime2,refcount,xr-hyper,hhline,rotating,subfigure,makecell}\usepackage[norule]{footmisc}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+\providecommand{\GroFac}{\Omega} % Generic for growth factor
+\providecommand{\GroRte}{\omega} % Generic for growth rate 
+
+
+\providecommand{\BalGroFac}{\check} % Balanced growth factor
+\providecommand{\BalGroRte}{\tilde} % Balanced growth rate (log change)
+\providecommand{\TargetNrm}{\hat}   % Target 
+\providecommand{\ABalLvl}{\BalGroFac{\ALvl}} % m where mLvl grows by PermGroFac
+\providecommand{\mBalLvl}{\BalGroFac{\mNrm}} % m where mLvl grows by PermGroFac
+\providecommand{\MBalLvl}{\BalGroFac{\MNrm}} % m where MLvl grows by PermGroFac
+\providecommand{\mBalLog}{\BalGroRte{\mNrm}} % m where mLog grows by PermGroRte
+\providecommand{\mTrgNrm}{\TargetNrm{\mNrm}} % m where E[m_{t+1}]=m_{t}
+
+% % Create links to explanations in text
+\providecommand{\BSTpaperLink}{https://\owner.github.io/BufferStockTheory/BufferStockTheory3.html} % Frame 3
+
+% % Suffix of Defn indicates reference to text name and source doc definition
+\providecommand{\FHWC}{\BSTcondref{FHWC}{FHWC}}
+% %\newcommand{\FHWFacDefn}{\BSTcondref{FHWFacDefn}{FHWF}}
+\providecommand{\FHWFacDefn}{\BSTcondref{FHWFacDefn}{FHWF}}
+\providecommand{\GICHarm}{\BSTcondref{GICHarm}{GIC-Harm}}
+\providecommand{\GICSdl}{\BSTcondref{GICSdl}{GIC-Szeidl}}
+\providecommand{\RIC}{\BSTcondref{RIC}{RIC}}
+\providecommand{\PFVAFacDefn}{\BSTcondref{PFVAFacDefn}{PF-VAF}}
+\providecommand{\FVAC}{\BSTcondref{FVAC}{FVAC}}
+\providecommand{\VAFacDefn}{\BSTcondref{VAFacDefn}{VAF}}
+\providecommand{\APFacDefn}{\BSTcondref{APFacDefn}{APF}}
+\providecommand{\RPFacDefn}{\BSTcondref{RPFacDefn}{RPF}}
+\providecommand{\AIC}{\BSTcondref{AIC}{AIC}}
+\providecommand{\WRPFacDefn}{\BSTcondref{WRPFacDefn}{WRPF}}
+\providecommand{\WRIC}{\BSTcondref{WRIC}{WRIC}}
+
+
+\renewcommand{\BalGroFac}{\check} % Balanced growth factor
+\renewcommand{\BalGroRte}{\tilde} % Balanced growth rate (log change)
+\renewcommand{\TargetNrm}{\hat}   % Target 
+\renewcommand{\ABalLvl}{\BalGroFac{\ALvl}} % m where mLvl grows by PermGroFac
+\renewcommand{\mBalLvl}{\BalGroFac{\mNrm}} % m where mLvl grows by PermGroFac
+\renewcommand{\MBalLvl}{\BalGroFac{\MNrm}} % m where MLvl grows by PermGroFac
+\renewcommand{\mBalLog}{\BalGroRte{\mNrm}} % m where mLog grows by PermGroRte
+\renewcommand{\mTrgNrm}{\TargetNrm{\mNrm}} % m where E[m_{t+1}]=m_{t}
+
+% Create links to explanations in text
+\renewcommand{\BSTpaperLink}{https://\owner.github.io/BufferStockTheory/BufferStockTheory3.html} % Frame 3
+
+% Suffix of Defn indicates reference to text name and source doc definition
+\renewcommand{\FHWC}{\BSTcondref{FHWC}{FHWC}}
+%\renewcommand{\FHWFacDefn}{\BSTcondref{FHWFacDefn}{FHWF}}
+\renewcommand{\FHWFacDefn}{\BSTcondref{FHWFacDefn}{FHWF}}
+%%%
+\renewcommand{\GICHarm}{\BSTcondref{GICHarm}{GIC-Harm}}
+\renewcommand{\GICSdl}{\BSTcondref{GICSdl}{GIC-Szeidl}}
+\renewcommand{\RIC}{\BSTcondref{RIC}{RIC}}
+\renewcommand{\PFVAFacDefn}{\BSTcondref{PFVAFacDefn}{PF-VAF}}
+\renewcommand{\FVAC}{\BSTcondref{FVAC}{FVAC}}
+\renewcommand{\VAFacDefn}{\BSTcondref{VAFacDefn}{VAF}}
+\renewcommand{\APFacDefn}{\BSTcondref{APFacDefn}{APF}}
+\renewcommand{\RPFacDefn}{\BSTcondref{RPFacDefn}{RPF}}
+\renewcommand{\AIC}{\BSTcondref{AIC}{AIC}}
+\renewcommand{\WRPFacDefn}{\BSTcondref{WRPFacDefn}{WRPF}}
+\renewcommand{\WRIC}{\BSTcondref{WRIC}{WRIC}}
+
+% Symbols of the appendix `Positive Minimum Income' (Appendices/ApndxPositiveMinimumIncome.tex)
+% Four objects the notation registry already names (v9.0.0, @resources/notation), written here in the
+% registry's forms because the paper loads econark-shortcuts.sty, which does not yet define them:
+\providecommand{\pWorst}{p_{\mathrm{worst}}}                  % worst-income-prob: probability of the worst income
+\providecommand{\hNrmPes}{\underline{h}}                      % human-wealth-pessimist: minimum human wealth
+\providecommand{\mNrmEx}{\ddot{m}}                            % resources-excess: market resources above the natural borrowing limit
+\providecommand{\mNrmMin}{\underline{m}}                      % resources-min: lowest resources from which consumption is feasible
+% Objects absent from the registry:
+\providecommand{\nbl}[1]{\ddot{#1}}                           % measured from the natural borrowing limit (the registry's `excess' accent)
+\providecommand{\IncEmpMin}{\underline{\xi}_{\mathrm{e}}}     % lowest income outside the unemployment event
+\providecommand{\tranShkAllMax}{\Max{\tranShkAll}}            % highest income
+\providecommand{\permShkNextMin}{\permShkIndMin_{+}}          % lowest value of the permanent shock above its minimum
+\providecommand{\pZeroPerm}{\pZero_{\permShk}}                % probability that the permanent shock is at its minimum
+\providecommand{\tranShkNbl}{\nbl{\tranShkAll}}               % income in excess of what the natural borrowing limit requires
+\providecommand{\tranShkNblMin}{\Min{\nbl{\tranShkAll}}}      % a lower bound on it outside the worst event
+\providecommand{\tranShkNblMax}{\Max{\nbl{\tranShkAll}}}      % its highest value
+\providecommand{\zetaNbl}{\nbl{\zeta}}                        % constant in the bounding function
+\providecommand{\TMapNbl}{\nbl{\TMap}}                        % Bellman operator in excess resources

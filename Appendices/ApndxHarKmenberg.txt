@@ -1,0 +1,527 @@
+1 Harmenberg’s Method
+Harmenberg defines a ‘density kernel’ describing the law of motion for the normalized
+state π(mt+1 , mt , ψt+1 ) and defines fψ as the density of the permanent shock distribution;
+we correspondingly define Fψ as the CDF of permanent shocks.
+The joint cumulative distribution boldface χ for mt+1 and pt+1 as a function of the
+stochastic variables and the joint marginal distributions (nonbold χ) in period t is:
+χt+1 (mt+1 , pt+1 ) =
+Z mt+1 Z pt+1 Z Z
+πt (mt+1 , mt , ψt+1 ) χt (mt , pt )dmt dpt dFψ(pt+1 ) dmt+1
+mt+1
+
+pt+1
+
+pt
+
+mt
+
+where
+ψt+1 = pt+1 /(Gpt )
+Z ψ(pt+1 )
+Fψ(pt+1 ) =
+fψ dψ
+ψ
+
+
+d(pt+1 /(Gpt ))
+fψ (ψt+1 )dpt+1
+dFψ(pt+1 ) =
+dpt+1
+
+
+1
+=
+fψ (ψt+1 )dpt+1
+Gpt
+
+
+Harmenberg (2021)’s first equation corresponds to the marginal density obtained by
+differentiating the above CDF with respect to mt+1 and pt+1 and says that the ‘Markov
+operator that maps a distribution χ ∈ D(m × p) to the next-period χ’ (that is, defines
+the dynamics of the joint marginal distribution of m and p) is given by
+
+
+
+
+ψt+1
+
+
+Z
+Z
+z}|{
+
+
+
+
+mt+1 , mt , pt+1  fψ ( pt+1 )χt (mt , pt ) 1 dmt  dpt
+
+π
+χt+1 (mt+1 , pt+1 ) =
+t
+
+
+
+Gpt 
+Gpt
+Gpt
+mt
+pt
+(1)
+A somewhat awkward notational scheme allows us to define an almost completely parallel
+representation of the corresponding discrete transition process:
+1. {i, j, k} index elements of vectors identifying possible values of ψt+1 , mt , and mt+1
+• We use the capital of the Roman letter to count the number of possible entries
+• e.g., there are K possible different values for m : {m0t , m1t , ..., mK
+t }
+2. n indexes the level of permanent income now: pt [n]
+3. Πt [k, j, i] indicates the probability of making a transition from value j of mt to
+value k of mt+1 given that the realization of ψt+1 is ψt+1 [i]
+
+4. 𭟋ψ [i] is the probability of drawing the i’th value of ψt+1
+then for a person whose location is described in period t as being at permanent income
+level pnt and market resources ratio mt [j], the elements of the matrix in the next period
+are given by:
+!
+X X
+Xt+1 [k, q] =
+Πt [k, j, ι(n, q)]𭟋ψ [ι(n, q)]Xt [j, n]
+(2)
+n
+
+j
+
+where mt+1 [k] is the k’th element of the vector mt+1 , pt+1 [q] is the q’th element of pt+1 ,
+and ι(n, q) is a function that calculates the index value of i that would achieve the
+transition from pnt to pt+1 [q].1 , 2 Harmenberg defines
+Z
+m
+χt (mt , pt )dpt
+χt (mt ) :=
+(3)
+pt
+
+which measures the population density of persons whose market resources are mt . In
+matrix terms, the corresponding representation is:
+X
+Xt [j, n]
+Xm
+t [j] =
+(4)
+n
+
+which makes it easy to see that Xm
+t [j] just measures the total probability mass associated
+with all possible levels of permanent income for agents at mjt . That is, it tells us how
+many agents have mt = mjt .
+In order to compute the absolute aggregate amount of market resources mt (boldface
+indicates levels) owned by people with a market resources ratio of mjt , we need to know
+the total amount of permanent income accruing to those people:
+X
+mt [j] = mjt
+pnt Xt [j, n]
+(5)
+}
+| n {z
+≡X̃m [j]Gt
+
+where X̃m [j] is what Harmenberg calls the Permanent Income Weighted measure. Under
+the assumption that aggregate permanent income was 1.0 in period 0 and has grown by
+the factor G thereafter, the following direct formula for X̃m can be seen to capture the
+proportion of aggregate permanent income earned by people at the given mt :
+X
+X̃m [j] = G−t
+pnt Xt [j, n]
+(6)
+n
+1
+
+Of course, unless the is highly unlikely that ι(n, q) would yield an integer unless the elements of q
+were chosen as the unique elements defined by all possible combinations of pt and 𭟋ψ ; one option is to
+allocate probabilities in proportion to distance to the nearest integer values of ι(n, q) above and below
+the current point. (There are other options, which may not be meaningfully better).
+2
+The 1/Gpt is present in the continuous version but not the discrete version because the latter
+captures masses and the former captures densities.
+
+2
+
+With this in hand, it is a simple matter to compute the total aggregate mass of M :
+X j
+mt X̃m [j]
+M t = Gt
+(7)
+j
+
+or for that matter consumption:
+C t = Gt
+
+X
+
+c(mjt )X̃m [j]
+
+j
+
+(8)
+
+Harmenberg formulates his corresponding propositions in the continuous description
+of the problem using probability measures, e.g.:
+Z
+m
+pt χ(mt , pt )dpt
+χ̃t (mt ) =
+pt
+Z
+(9)
+t
+m
+Ct = G
+c(mt )χ̃ (mt )dmt
+mt
+
+The point here is ‘that the permanent-income-weighted distribution is a sufficient
+statistic for computing aggregate consumption, aggregate savings, and similar aggregate
+variables’. Thus, rather than requiring us to keep track of the multidimensional joint
+distribution over m and p, we need only know the distribution of permanent-incomeweighted m.
+The crucial last step is to define the law of motion for the weighted system. In
+the continuous formulation, Harmenberg shows (his Theorem 1) that, if we define a
+‘permanent-income-shock-weighted’ version of the original permanent shock distribution3 as
+(10)
+f˜ψ (ψt+1 ) = ψt+1 fψ (ψt+1 )
+then the laws of motion are respectively given by
+Z Z
+m
+χt+1 (mt+1 ) =
+π(mt+1 , mt , ψt+1 )χm
+t (mt )fψ (ψt+1 )dψt+1 dmt
+mt ψt+1
+Z Z
+m
+˜
+π(mt+1 , mt , ψt+1 )χ̃m
+χ̃t+1 (mt+1 ) =
+t (mt )fψ (ψt+1 )dψt+1 dmt
+mt
+
+(11)
+
+ψt+1
+
+(where the difference between the two is the presence or absence of the ∼ accent in three
+places).
+The key steps in the proof are the change in variables in which ψt+1 = pt+1 /(Gpt ) and
+a change in the order of integration which is permitted by Fubini’s theorem.
+Omitting the G term (equivalently, setting it to G = 1), the discrete version of the
+
+3
+
+(Harmenberg calls this the ‘permanent-income-neutral measure,’ which is slightly confusing as it
+does not involve the level of permanent income but only the shocks thereto).
+
+3
+
+proof is
+X̃m [k] =
+
+X
+
+pqt+1 Xt+1 [k, q]
+
+q
+
+≈
+
+XXX
+q
+
+j
+
+˜ ψ (ι(n, q))Xt (j, n)
+pqt+1 Π(k, j, q)𭟋
+
+(12)
+
+n
+
+and the ≈ captures the fact that in the discrete context the necessity to allocate masses
+to points on the grid will lead to approximation error.
+The change of variables is accomplished by realizing that just as there was an ι that
+gave us the appropriate ψ required to get from pt to pt+1 , we can define a k(𭟋, i) that
+lets us approximate the q needed as an argument to Π and the index for pqt+1 . Now we
+can sum over the permanent shocks indexed by i:
+X X X k(𭟋,i)
+Xm [k] =
+pt+1 Π(k, j, k(𭟋, i))𭟋ψ (i)Xt (j, n)
+j
+
+=
+
+i
+
+XX
+j
+
+n
+k(𭟋,i)
+pt+1 Π(k, j, k(𭟋, i))𭟋ψ (i)Xm
+t (j)
+
+(13)
+
+i
+
+where he second line follows because the summation of Xt (j, n) is over n is exactly the
+step that yields Xm (mjt ).
+The steps for the permanent-income-weighted version of the proposition are identical,
+with the substitution of weighted for unweighted versions of the various probability
+objects.
+
+1.1 When the Joint Distribution Is Required
+The preceding results establish that the permanent-income-weighted distribution χ̃m is
+a sufficient statistic for computing aggregate levels of any variable f (m) whose level form
+is p · f (m):
+X
+X
+C t =t
+c(mjt )X̃m [j], At =t
+a(mjt )X̃m [j]
+(14)
+j
+
+j
+
+and analogously for aggregate income Y and market resources M . These are all linear
+in p, which is why Harmenberg’s dimensional reduction works.
+However, many economically important statistics are not linear in p. Computing such
+statistics requires the full joint distribution χ(m, p).
+Variance. The simplest inequality measure is the cross-sectional variance of wealth
+levels Ai = pi · a(mi ):
+Var(A) = E[(p · a)2 ] − (E[p · a])2
+(15)
+The second term can be computed from χ̃m (it is the square of a p-linear aggregate).
+But the first term involves E[p2 · a2 ], which is quadratic in p and cannot be factorized
+via the neutral measure.
+
+4
+
+Quantiles and the Gini coefficient. Similarly, the wealth share held by the top 10%
+requires sorting agents by the level Ai = pi · ai ; the rank ordering depends jointly on pi
+and mi . The Gini coefficient:
+Gini(A) =
+
+1
+E[|pi ai − pj aj |]
+2Ā
+
+(16)
+
+involves the absolute difference of two agents’ level wealth, which is a non-factorizable
+function of both agents’ (p, m) states.
+Claim 1. Let h : R+ → R be any function that is not affine. Then the statistic
+E[h(p · f (m))] generally cannot be computed from χ̃m and E[p] alone.
+Proof. By Jensen’s inequality, for non-affine h, E[h(p·f )] ̸= h(E[p]· Ẽ[f ]) in general. The
+Harmenberg factorization eliminates the covariance between p and f (m) for computing
+means, but does not eliminate the effect of the nonlinearity of h acting on the product
+p · f.
+Summary of p-linearity boundary.
+Statistic
+Mean consumption C
+Mean income Y
+Mean assets A
+Multiplier ∆C/∆Y
+Variance of consumption
+Gini of wealth
+Top 10% wealth share
+Welfare (CRRA utility)
+
+Depends on
+E[p · c]
+E[p · ξ]
+E[p · a]
+Ratio of linear quantities
+E[p2 c2 ]
+Sorting by p · a
+Quantiles of p · a
+E[p1−γ c1−γ ]
+
+χ̃m sufficient?
+Yes
+Yes
+Yes
+Yes
+No
+No
+No
+No
+
+When the joint distribution is needed, three approaches are available:
+1. Standard 2D transition matrix on the (m, p) grid, with cost O((K · Np )2 ).
+2. Standard Monte Carlo, which naturally produces the joint sample {(mi , pi )}.
+3. Harmenberg + reconstruction: compute aggregates via χ̃m , then reconstruct
+the p-dimension from the model’s known age-conditional lognormal structure.
+
+1.2 The Covariance Kernel and 1D Computability
+Although inequality statistics require the full joint distribution, the covariance between
+the consumption ratio c and permanent income p can be computed exactly from the
+1D weighted distribution χ̃m . This covariance appears in the aggregate consumption
+decomposition (cf. the body text, Section 4.2):
+C t = N (c̄t · p̄t + covt (c, p))
+
+5
+
+(17)
+
+where c̄t is the population mean consumption ratio and p̄t is the mean permanent income
+level.
+Law of total covariance. Conditioning on the pre-shock state (at−1 , pt−1 ):
+cov(pt , ct ) = E[cov(pt , ct | at−1 , pt−1 )] + cov(E[pt | ·], E[ct | ·])
+|
+{z
+} |
+{z
+}
+(A)
+
+(B)=0
+
+(18)
+
+Term (B) vanishes in the ergodic distribution because pt−1 and (at−1 ) are asymptotically
+independent in the normalized dynamics.
+The conditional covariance: p factors out. For an agent with pre-shock state (a, p)
+who transitions to permanent income p′ = p · ·ψ, the conditional covariance over shocks
+(ψ, ξ) is:
+
+
+
+Ra
+′ ′
++ξ
+(19)
+cov(p , c | a, p) = p · · covψ,ξ ψ, c
+ψ
+The key fact is that p factors out linearly. Averaging over the ergodic population and
+using asymptotic independence of p and a:
+(20)
+
+cov(pt , ct ) = p̄t · ·Ea [γ(a)]
+where γ(a) is the covariance kernel:
+
+
+
+Ra
+γ(a) := covψ,ξ ψ, c
++ξ
+ψ
+
+(21)
+
+γ is computable from 1D objects. The covariance kernel γ(a) depends on:
+1. The scalar end-of-period assets a
+2. The shock distribution {(ψs , ξs , fs )}
+3. The consumption function c(·)
+None of these depend on p. For each grid point ak , γ(ak ) is computed by direct
+summation over the discrete shock distribution:
+!
+
+!
+
+X  Rak
+X
+X
+Rak
+fs c
+γ(ak ) =
+fs · ψs · c
++ ξs −
+f s ψs
++ ξs
+ψs
+ψs
+(22)
+s
+s
+s
+|
+{z
+}|
+{z
+}
+=1
+
+E[c′ ]
+
+The expectation Ea [γ(a)] is then computed from the 1D distribution:
+X
+Ea [γ(a)] =
+X̃m [jk ] · γ(a(mkt ))
+k
+
+6
+
+(23)
+
+using X̃m (since γ is evaluated at the ergodic population).
+Complete formula. Assembling (20), (22), and (23):
+covt (c, p) = p̄t · ·
+
+X
+
+X̃m [jk ] · γ(a(mkt ))
+
+(24)
+
+k
+
+This is exact (up to grid discretization) and computed entirely from:
+1. X̃m : the 1D permanent-income-weighted distribution (a vector of length K)
+2. c(·): the consumption function
+3. a(·): the end-of-period asset function
+4. {(ψs , ξs , fs )}: the shock distribution
+5. p̄t : mean permanent income (available analytically)
+No 2D transition matrix or 2D distribution is needed.
+Computational cost. Evaluating (24) costs O(K · S) operations (where K is the
+number of m-grid points and S is the number of shock realizations). Constructing a 2D
+transition matrix costs O((K · Np )2 ). With typical values K = 200, S = 50, Np = 50:
+the 1D computation costs ∼ 10,000 operations versus ∼ 108 for the 2D TM.
+Connection to balanced growth. In the Szeidl-invariant economy (c̄ constant),
+covt+1 = · covt (see body text equation (41)). More generally, in a Harmenberginvariant economy with c̄ growth factor Ωc̄ , the covariance growth factor is Ωcov = Ωc̄ ·
+(equation (44)). The serial correlation of covt is exactly 1 in the invariant state: knowing
+covt determines covt+1 through a deterministic multiplicative factor. Formula (24)
+provides an independent way to verify this balanced-growth property numerically, using
+only the 1D distribution at each period.
+
+1.3 Higher-Order Moments from Analytical p-Structure
+For the inequality statistics in Section 1.1, the relevant objects involve E[pk · g(m)] for
+k ≥ 2. In the ergodic distribution, because p and m are approximately independent:
+E[pk · g(m)] ≈ E[pk ] · E[g(m)]
+
+(25)
+
+where the approximation error is O(cov(pk−1 , g(m))), which for k = 1 is exactly the
+covariance computed in Section 1.2.
+
+7
+
+The moments E[pk ] can be computed analytically from the model’s permanent income
+dynamics. Under Blanchard–Yaari perpetual youth with survival probability L and
+permanent growth factor , the second moment satisfies:
+E[p2 ] = E[p2init ] ·
+
+1−L
+1 − L · g2
+
+(26)
+
+where g2 =2 ·E[ψ 2 ] is the per-period growth factor for E[p2 ].
+This suggests an approximation strategy for Var(A): use 1D objects (χ̃m , c) for the
+m-dimension and analytical p-moments for the permanent income dimension. However,
+the approximation (25) is not exact for k ≥ 2 because the mixed terms cov(pk−1 , g(m))
+are not absorbed by the neutral measure.
+
+References
+Harmenberg, Karl (2021):
+“Aggregating heterogeneous-agent models with
+permanent income shocks,” Journal of Economic Dynamics and Control, 129, 104185.
+
+8
+

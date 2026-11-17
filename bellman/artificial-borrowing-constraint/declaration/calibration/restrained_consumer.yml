@@ -1,0 +1,32 @@
+# The restrained consumer of Theoretical Foundations of Buffer Stock Saving (subsubsection and appendix "The Liquidity
+# Constrained Solution as a Limit"), in the names of artificial.bl, at the paper's baseline: the table "Microeconomic
+# Model Calibration" (Tables/Parameters.tex), an annual period.
+# - The restrained consumer: no unemployment event (p_zero = 0; the unemployment income ξ_u = 0 is then never paid) and
+#   c ≤ m, that is the artificial limit a_Art = 0. The shocks' floors are positive, so the natural constraint lies
+#   below zero and a ≥ 0 is an artificial one.
+# - From the table: Γ 1.03 (𝒢), R 1.04, β 0.96, ρ 2 (ϱ); lives are infinite, so ℒ = 1.
+# - The shocks' laws, solved for exactly as in the baseline calibration of the problem with uncertainty
+#   (bellman/natural-borrowing-constraint/declaration/calibration/baseline.yml): lognormals of mean one truncated at
+#   three standard deviations of their logs, with a standard deviation of 0.1 after truncation.
+# - The same numbers as llorracc/wg1-buffer-stock's checker writes for its member bst-restrained of bst-artificial/1
+#   (check.py --bellman-calibration 0).
+# The problem with uncertainty converges to this consumer as the probability of zero income falls to zero, the
+# paper's experiment "The Liquidity Constrained Solution as a Limit". The derived parameters of artificial.bl
+# (ξ_u_sup, ξ_scale, μ_ξ, ξ_emp_min, ξ_emp_max) are computed when the stage is calibrated and are not given here.
+calibration:
+  β: 0.96
+  ℒ: 1.0
+  ϱ: 2.0
+  R: 1.04
+  𝒢: 1.03
+  a_Art: 0.0
+  μ_ψ: -0.004999286685676656
+  s_ψ: 0.10136041976422071
+  ψ_min: 0.7341216370993559
+  ψ_max: 1.3486201688530763
+  μ_θ: -0.004999286685676656
+  s_θ: 0.10136041976422071
+  θ_min: 0.7341216370993559
+  θ_max: 1.3486201688530763
+  p_zero: 0.0
+  ξ_u: 0.0

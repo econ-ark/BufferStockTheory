@@ -1,0 +1,140 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+
+\newcommand{\subname}{ApndxConcaveCFunc}
+\input{\econtexRoot/@local/dir-paths} % get directory macros
+\usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
+
+\usepackage{econark-ifsubfile}        % allow conditional execution of code
+
+\xrsetup{\econtexRoot/\texname}
+
+\begin{document}
+\newcommand{\tnow}{t}
+
+\centerline{\Large Notation}\label{sec:ontime}\hypertarget{ontime}{}
+
+\section{The Problem}\label{sec:ontime}\hypertarget{ontime}{}
+
+A core aim of the Econ-ARK toolkit is to try to bridge gaps between the computational (and conceptual) frameworks used by three audiences: microeconomists constructing finite-horizon structural models of individual agents' choices (e.g., life cycle models); macroeconomists who take structural microfoundations seriously and want to describe the evolution of economies populated by such agents; and mathematical theorists whose goal is to rigorously define the elements of systems like those being built by microeconomists and macroeconomists in order to derive sound mathematical results about them.
+
+David Hilbert is quoted as having said that every problem in mathematics is easy once you find the right notation.  (Well, for him anyway).  The converse of Hilbert's proposition applies for us: Anyone who has worked in the nexus of these fields will have spent quality time struggling to figure out what the authors of a paper mean by the notation they have chosen.
+
+%Each of these sets of scholars has developed notational conventions that make perfect sense in the context of their particular agendas, these conventions differ in subtle ways that lead to endless confusion and great difficulties in communication.
+
+The challenge
+\begin{itemize}
+\item 
+\end{itemize}
+
+So a toolkit that aims to appeal to all of these groups must find a notation that is mutually comprehensible, and in which any subtle differences in interpretation are eliminated by explicit definition of what is meant by each expression.
+Such explicitness is necessary anyway for representing the various modeling elements as well-defined computational objects.
+
+Hence this document.
+
+\section{On Time}
+
+Computation is elementally discrete.
+It is therefore natural for a computational toolkit to represent problems in discrete time - especially since a large proportion of the research on such problems has been couched in discrete time.
+
+But discrete-time models with any useful degree of sophistication face a problem captured by quote attributed variously to Albert Einstein, Mark Twain, and Saint Augustine: ``Time is nature's way to keep everything from happening all at once.''  Since the point of the discrete time formalism is to take a collection of events and to use a subscript like $_\tnow$ to signify that they are all to be thought of as happening `in $\tnow$.'
+So, we casually say that shocks are realized, decisions are made, or transitions occur `in $\tnow$.'
+
+However, containing all these events in something called $\tnow$ does not mean that they cannot or should not be put in some clear order inside $\tnow$, either for the purpose of analyzing them mathematically or for the purpose of performing computations on them.
+
+\newcommand{\stge}{{stage}}
+With all that as preamble, we proceed as follows.
+First, to eliminate (or at least minimize) preconceptions that otherwise might cloud our exposition, we will refer henceforth to the container that holds the events we are interested in as a `\stge' (rather than a `period' or a `date' or a `time' which might trigger unwanted associations).
+
+\renewcommand{\tnow}{s}
+Within any `\stge' $\tnow$ we will consider three vantage points (`perches') which are distinct from each other:
+\begin{itemize}
+\item[$-~\tnow$] `minus $\tnow$' is the perch upon entry into the {\stge}, before the values of any stochastic variables associated with that {\stge} have taken on their realized values, and before any decisions have been made
+\item[$\sim{\tnow}$] `tilde $\tnow$' is the next perch; this is the computational/mathematical/conceptual frame in which a decisionmaker has learned the realized values of any stochastic variables and is in possession of all of the information required to make a decision (e.g., how much to consume);
+\item[+~\tnow] `plus $\tnow$' is the final perch, which reflects the situation after the decision has been computed and any associated transitions have been executed
+\end{itemize}
+
+We will say that one has defined a {\stge} in a stochastic process when one has completely and rigorously defined:
+\begin{itemize}
+\item All of the elements that are present before anything happens
+  \begin{itemize}
+  \item These can include state variables, reward functions, transition equations, etc
+  \end{itemize}
+\item At least one event (realization of a random shock, say, or choice of a control variable, or a state transition), or a series of events that occur in a well-defined order
+  \item A final state of the system once all events have occurred
+\end{itemize}
+
+A random variable is defined as something which, \textit{prior to the moment in time at which it is realized}, can only properly be mathematically represented (and hence manipulated) by specifying all of the mathematical properties that define it  (say, the PDF, with all the appropriate apparatus of measure theory (Hilbert spaces, sigma algebras, whatever).
+
+%With these conceptual definitions in mind, we now have an unambiguous notation to represent what we need to represent.
+
+We introduce one further notational convention, to handle the fact that any given object in the system whose value can be affected by the realization of a stochastic shock will have a fundamentally different character depending on the vantage point from which it is being considered.
+That is, from the perspective of the 
+
+\begin{enumerate}
+\item The consumer arrives in the {\stge} with capital $\kLvl_{-\tnow}$
+  \begin{itemize}
+    \item From the vantage point of this perch it 
+    \end{itemize}
+  \end{enumerate}
+\end{document}
+
+    
+  
+
+
+
+key source of confusion stems from ambiguities in the standard notation about the vantage point from which stochastic objects involved are being viewed.
+At any date $\tnow $
+
+From any particular perch on the timeline, there will be variables that are in the past (their values have been `realized'), and 
+
+\end{document}\endinput
+
+
+We will illustrate our notational choices by defining them sequentially as we lay out elements of our problem.
+Consider a consumer who will enter a {\stge} $\nowt$ with a certain amount of capital $\kLvl_{t} \in \mathcal{K}_{\nowt} \subset \Reals_{++}$, and will then learn the values of two shocks:
+\begin{itemize}
+\item $\theta_{\nowt} \in \Theta \subset \Reals_{++}$ is a mean-one iid transitory shock
+\item $\mathfrak{R} \in \mathcal{R} \subset \Reals_{++}$ is a stochastic return factor (required to be strictly positive)
+\end{itemize}
+
+
+
+The consumer begins {\stge} $\nowt$ with a stock of capital $\kLvl_{\nowt} \in \mathcal{K}_{\nowt} \subset \Reals_{++}$, an instant before the stochastic shocks have been realized.
+We will designate this moment using a minus sign before the time subscript, and whenever we take expectations we will be careful to designate the location in the sequence of occurances 
+
+
+\end{document}
+will make a choice of how much to consume $\CLvl_{T}$, leading to a final circumstance in which the consumer has some amount of remaining assets $\ALvl_{T}$ 
+
+We want a notation that will allow us to break up 
+
+
+
+Consider a consumer who has arrived at the beginning of a terminal {\stge} of life $T$, with a stock of capital $\KLvl_{T} \in \mathcal{K} \subset \mathcal{R}_{++}$.
+That is, $\KLvl_{T}$ is a real number.
+
+\ifSubfilesClassLoaded{\bibfilesfind{\texname}\bibliography{\bibfilesfound}}{}
+
+\end{document}
+\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  t  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% tex-bibtex-command: "bibtex.*"
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage).%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:

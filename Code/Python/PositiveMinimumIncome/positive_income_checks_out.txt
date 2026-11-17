@@ -1,0 +1,75 @@
+HARK 0.17.2 | APF=0.999200 RPF=0.960769 GPF=0.970097 R/G=1.009709
+
+================ p=0.005  income in the event mu=0.0  points=7 ================
+psi_min=0.85043  xi_min=0.00000 (lowest employed xi=0.85470)  P(worst)=0.005000 (p/n=0.000714)  x=G psi_min/R=0.84225  h_min=0.00000
+E[xi]=1.000000 E[psi]=1.000000
+transformed income: min=0 (only at the worst event: True); smallest positive value=0.85470; mean=1.00000 (formula 1 - xi_min + (xi_min+h)(1-psi_min E[1/psi]) = 1.00000); corr with psi=0.000
+finite horizon  n : h_min(n) vs -HARK mNrmMin | max MPC: solver, recursion, HARK | min MPC: solver, recursion | max |c - c_HARK|
+               1 : 0.000000 -0.000000 | 0.936385 0.936385 0.936385 | 0.510004 0.510004 | 1.33e-05
+               2 : 0.000000 -0.000000 | 0.932356 0.932356 0.932356 | 0.346759 0.346759 | 1.48e-05
+               3 : 0.000000 -0.000000 | 0.932083 0.932083 0.932083 | 0.265203 0.265202 | 1.89e-05
+               4 : 0.000000 -0.000000 | 0.932065 0.932065 0.932065 | 0.216321 0.216320 | 1.86e-05
+               5 : 0.000000 -0.000000 | 0.932063 0.932063 0.932063 | 0.183777 0.183775 | 1.79e-05
+               6 : 0.000000 -0.000000 | 0.932063 0.932063 0.932063 | 0.160568 0.160566 | 1.89e-05
+limit: solver iterations=355; -HARK mNrmMin=-0.000000 vs h_min=0.000000; max |c - c_HARK| on resources-above-limit in [0.02,30] = 1.01e-04
+max MPC: c(m)/m at m=1e-7 above the limit = 0.932063; 1 - P(worst)^(1/rho) RPF = 0.932063; HARK MPCmax=0.932063; with p instead of P(worst): 0.932063
+min MPC: slope at the top = 0.040090; 1 - RPF = 0.039231
+bounds: min c/m~ = 0.046867 >= 0.039231: True;  max c/m~ = 0.932063 <= 0.932063: True; c/m~ nonincreasing: True
+perfect-foresight upper bound c <= (m - 1 + h) k_min holds on grid: True
+E[m']-m: value just above the limit=1.00000 (= E[transformed income] 1.00000); strictly decreasing=True; roots=[1.39113]
+E[psi m']-m: value just above the limit=1.00000 (= E[psi * transformed income] 1.00000); strictly decreasing=True; roots=[1.37743]
+target m=1.39113 (assets 0.38377); pseudo-target m=1.37743 (assets 0.37380); c(1)=0.85277
+order: target > pseudo-target is True; c(1) < 1 is True; pseudo-target > 1 is True; target > 1 is True
+HARK: mNrmTrg=1.39107 mNrmStE=1.37736
+
+================ p=0.005  income in the event mu=0.05  points=7 ================
+psi_min=0.85043  xi_min=0.05000 (lowest employed xi=0.85449)  P(worst)=0.000714 (p/n=0.000714)  x=G psi_min/R=0.84225  h_min=0.26696
+E[xi]=1.000000 E[psi]=1.000000
+transformed income: min=0 (only at the worst event: True); smallest positive value=0.02353; mean=0.99488 (formula 1 - xi_min + (xi_min+h)(1-psi_min E[1/psi]) = 0.99488); corr with psi=0.216
+finite horizon  n : h_min(n) vs -HARK mNrmMin | max MPC: solver, recursion, HARK | min MPC: solver, recursion | max |c - c_HARK|
+               1 : 0.042113 0.042113 | 0.974965 0.974965 0.974965 | 0.510004 0.510004 | 1.28e-04
+               2 : 0.077582 0.077582 | 0.974339 0.974339 0.974339 | 0.346759 0.346759 | 1.59e-04
+               3 : 0.107456 0.107456 | 0.974323 0.974323 0.974323 | 0.265203 0.265202 | 9.27e-05
+               4 : 0.132618 0.132618 | 0.974322 0.974322 0.974322 | 0.216321 0.216320 | 7.55e-05
+               5 : 0.153811 0.153811 | 0.974322 0.974322 0.974322 | 0.183777 0.183775 | 6.95e-05
+               6 : 0.171660 0.171660 | 0.974322 0.974322 0.974322 | 0.160568 0.160566 | 6.38e-05
+limit: solver iterations=355; -HARK mNrmMin=0.266963 vs h_min=0.266963; max |c - c_HARK| on resources-above-limit in [0.02,30] = 9.61e-05
+max MPC: c(m)/m at m=1e-7 above the limit = 0.974322; 1 - P(worst)^(1/rho) RPF = 0.974322; HARK MPCmax=0.974322; with p instead of P(worst): 0.932063
+min MPC: slope at the top = 0.040090; 1 - RPF = 0.039231
+bounds: min c/m~ = 0.046836 >= 0.039231: True;  max c/m~ = 0.974322 <= 0.974322: True; c/m~ nonincreasing: True
+perfect-foresight upper bound c <= (m - 1 + h) k_min holds on grid: True
+E[m']-m: value just above the limit=0.99488 (= E[transformed income] 0.99488); strictly decreasing=True; roots=[1.06917]
+E[psi m']-m: value just above the limit=0.99741 (= E[psi * transformed income] 0.99741); strictly decreasing=True; roots=[1.06672]
+target m=1.06917 (assets 0.06787); pseudo-target m=1.06672 (assets 0.06608); c(1)=0.98165
+order: target > pseudo-target is True; c(1) < 1 is True; pseudo-target > 1 is True; target > 1 is True
+HARK: mNrmTrg=1.06916 mNrmStE=1.06670
+
+================ p=0.005  income in the event mu=0.3  points=7 ================
+psi_min=0.85043  xi_min=0.30000 (lowest employed xi=0.85342)  P(worst)=0.000714 (p/n=0.000714)  x=G psi_min/R=0.84225  h_min=1.60178
+E[xi]=1.000000 E[psi]=1.000000
+transformed income: min=0 (only at the worst event: True); smallest positive value=0.14118; mean=0.96927 (formula 1 - xi_min + (xi_min+h)(1-psi_min E[1/psi]) = 0.96927); corr with psi=0.819
+finite horizon  n : h_min(n) vs -HARK mNrmMin | max MPC: solver, recursion, HARK | min MPC: solver, recursion | max |c - c_HARK|
+               1 : 0.252676 0.252676 | 0.974965 0.974965 0.974965 | 0.510004 0.510004 | 6.63e-05
+               2 : 0.465493 0.465493 | 0.974339 0.974339 0.974339 | 0.346759 0.346759 | 7.10e-05
+               3 : 0.644739 0.644739 | 0.974323 0.974323 0.974323 | 0.265203 0.265202 | 6.30e-05
+               4 : 0.795709 0.795709 | 0.974322 0.974322 0.974322 | 0.216321 0.216320 | 6.23e-05
+               5 : 0.922864 0.922864 | 0.974322 0.974322 0.974322 | 0.183777 0.183775 | 6.09e-05
+               6 : 1.029961 1.029961 | 0.974322 0.974322 0.974322 | 0.160568 0.160566 | 6.70e-05
+limit: solver iterations=356; -HARK mNrmMin=1.601779 vs h_min=1.601779; max |c - c_HARK| on resources-above-limit in [0.02,30] = 8.92e-05
+max MPC: c(m)/m at m=1e-7 above the limit = 0.974322; 1 - P(worst)^(1/rho) RPF = 0.974322; HARK MPCmax=0.974322; with p instead of P(worst): 0.932063
+min MPC: slope at the top = 0.040089; 1 - RPF = 0.039231
+bounds: min c/m~ = 0.046671 >= 0.039231: True;  max c/m~ = 0.974322 <= 0.974322: True; c/m~ nonincreasing: True
+perfect-foresight upper bound c <= (m - 1 + h) k_min holds on grid: True
+E[m']-m: value just above the limit=0.96927 (= E[transformed income] 0.96927); strictly decreasing=True; roots=[-0.25869]
+E[psi m']-m: value just above the limit=0.98445 (= E[psi * transformed income] 0.98445); strictly decreasing=True; roots=[-0.20499]
+target m=-0.25869 (assets -1.23500); pseudo-target m=-0.20499 (assets -1.19340); c(1)=1.16173
+order: target > pseudo-target is False; c(1) < 1 is False; pseudo-target > 1 is False; target > 1 is False
+HARK: mNrmTrg=-0.25873 mNrmStE=-0.20502
+
+================ limit as the event's probability goes to zero (mu=0.3, points=7) ================
+limit consumer: borrowing limit h=1.60178; constraint binds below resources-above-limit 0.84501
+  p=   5e-02: P(worst)=7.14e-03  h_min=1.60178  max |c(.;p) - c_limit| = 1.446e-01  max MPC=0.91880
+  p=   5e-03: P(worst)=7.14e-04  h_min=1.60178  max |c(.;p) - c_limit| = 5.796e-02  max MPC=0.97432
+  p=   5e-04: P(worst)=7.14e-05  h_min=1.60178  max |c(.;p) - c_limit| = 2.410e-02  max MPC=0.99188
+  p=   5e-05: P(worst)=7.14e-06  h_min=1.60178  max |c(.;p) - c_limit| = 1.031e-02  max MPC=0.99743
+  p=   5e-06: P(worst)=7.14e-07  h_min=1.60178  max |c(.;p) - c_limit| = 4.345e-03  max MPC=0.99919

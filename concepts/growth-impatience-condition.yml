@@ -1,0 +1,46 @@
+id: growth-impatience-condition
+name: Growth Impatience Condition (GIC)
+short: GIC
+defining_equation:
+  anchor: ass-GICRaw
+  latex: \GPFacRaw < 1
+  english: 'The absolute patience factor falls short of the permanent income growth factor.'
+gloss: |
+  GIC says the absolute patience factor $\APFac := (\Rfree\DiscFac)^{1/\CRRA}$ is smaller than the expected permanent income growth factor $\PermGroFac$, so that the ratio $\GPFacRaw := \APFac/\PermGroFac$ is below 1.
+
+  In a perfect-foresight setting GIC implies that consumption growth is slower than permanent income growth, so the consumer's consumption-to-permanent-income ratio falls over time. (The analogous statement for the *market-resources*-to-permanent-income ratio is a consequence of the stronger GIC-Mod, not of plain GIC under uncertainty.) Together with finite human wealth (FHWC), GIC is sufficient for the perfect-foresight finite value of autarky (PF-FVAC), which in turn implies return impatience (RIC); see the implication chain established in the proof of the perfect-foresight benchmarks.
+
+  GIC is the weaker of the two patience conditions used in the existence theorems for the stochastic problem. The stronger sibling, "strong growth impatience" (GIC-Mod), additionally takes the expectation over the permanent shock and is required for existence of an *individual* buffer-stock target. GIC alone is sufficient for the *aggregate* "pseudo-target" (`pseudo-target-existence`, theorem `thm-MSSBalExists`).
+relations:
+  - kind: requires
+    target: growth-patience-factor
+    note: 'GIC is exactly the inequality $\GPFacRaw < 1$.'
+  - kind: requires
+    target: absolute-patience-factor
+    note: 'Transitively: $\GPFacRaw = \APFac/\PermGroFac$ is built from $\APFac$.'
+  - kind: contrasts-with
+    target: return-impatience-condition
+    note: 'GIC is about growth (ratio of patience factor to growth factor); RIC is about return (ratio of patience factor to interest factor).'
+  - kind: implies
+    target: finite-value-of-autarky
+    note: 'Under FHWC, GIC implies the perfect-foresight finite value of autarky PF-FVAC (claim-PFConspC, concept pf-consumption-function-properties).'
+  - kind: assumed-by
+    target: pf-consumption-function-properties
+    note: 'Reciprocal edge: GICRaw ($\APFac<\PermGroFac$) is the antecedent of the first implication in the perfect-foresight patience chain (claim-PFConspC); combined with FHWC it makes growth impatience sufficient for non-degeneracy.'
+  - kind: assumed-by
+    target: pseudo-target
+    note: 'The pseudo-target existence theorem requires GIC (together with WRIC and FVAC).'
+  - kind: assumed-by
+    target: pseudo-target-existence
+    note: 'Reciprocal edge: the pseudo-target existence theorem (thm-MSSBalExists) requires GIC; it relies on the ordinary GIC rather than the stronger GIC-Mod.'
+  - kind: implied-by
+    target: strong-growth-impatience-condition
+    note: 'GIC-Mod is a strengthened sibling adding an expectation over the permanent shock; by Jensen, GIC-Mod implies GIC.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: GICRaw
+  - file: BufferStockTheory.md
+    anchor: ass-GICRaw
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

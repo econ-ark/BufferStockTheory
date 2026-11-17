@@ -1,0 +1,43 @@
+# YAML frontmatter skeleton. Phase 10 (10_assemble_frontmatter.py) reads this
+# template and fills in `title`, `authors`, `abstract` etc. from the source
+# TeX. Fields with `null` here are filled at build time; fields with literal
+# values are emitted as-is.
+
+title:        null   # filled from \title{}
+short_title:  Buffer Stock Theory
+authors:      null   # filled from \author{}; supports name+affiliation+email
+date:         null   # filled from \date{} (or \today)
+keywords:     null   # filled from \keywords{}
+jel:          null   # filled from \jelclass{}
+abstract:     null   # filled from \begin{abstract}...\end{abstract}
+license:      null   # not specified by source; left blank
+math:                # KaTeX-friendly macro shortcuts; mirrors econark-math-macros.tex
+  '\Rfree':        'R'
+  '\DiscFac':      '\beta'
+  '\CRRA':         '\rho'
+  '\PermGroFac':   '\Gamma'
+  '\PermGroFacRnd': '\boldsymbol{\Gamma}'
+  '\TranShkFac':   '\theta'
+  '\PermShkFac':   '\psi'
+  '\Ex':           '\mathbb{E}'
+  '\mLvl':         '\mathbf{m}'
+  '\pLvl':         '\mathbf{p}'
+  '\cLvl':         '\mathbf{c}'
+  '\mNrm':         'm'
+  '\cNrm':         'c'
+  '\aNrm':         'a'
+  '\vFunc':        'v'
+  '\cFunc':        'c'
+  '\vFuncLvl':     '\mathbf{v}'
+  '\uFunc':        'u'
+  '\APFac':        'Ϸ'
+  '\APFacRaw':     '(R\beta)^{1/\rho}'
+  '\Thorn':        'Ϸ'
+  '\GIC':          '\textsf{GIC}'
+  '\GICMod':       '\textsf{GIC-Mod}'
+  '\GICNrm':       '\textsf{GIC-Nrm}'
+  '\PFGIC':        '\textsf{PF\text{-}GIC}'
+  '\FHWC':         '\textsf{FHWC}'
+  '\FVAC':         '\textsf{FVAC}'
+  '\RIC':          '\textsf{RIC}'
+  '\WRIC':         '\textsf{WRIC}'

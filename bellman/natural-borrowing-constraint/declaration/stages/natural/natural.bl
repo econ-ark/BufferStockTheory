@@ -1,0 +1,95 @@
+# The problem with uncertainty of Theoretical Foundations of Buffer Stock Saving (subsection "Model with
+# Uncertainty"), under its natural borrowing constraint: the paper's own model, with its zero-income event.
+# Every line of this file but its comments is the stage file of the family bst-natural/1 of llorracc/wg1-buffer-stock
+# at 8976a31 (schemas/bst/natural/bellman/natural.bl), so that a comparator reading this file reads its family's own
+# stage, with the same ids and the same free parameters; only the comments are written for the paper. Written again
+# on 2026-11-16, it takes in the natural borrowing limit as a field, minimum human wealth from the next period as
+# h_min[>]. The stage is a family at least as wide as the paper's model, and the paper's model is its calibration in
+# declaration/calibration/baseline.yml.
+#
+# The shocks' laws are bounded, with strictly positive lower and finite upper bounds, as the paper's assumption on the
+# shocks requires, and the unemployment event, with probability ℘ = p_zero > 0, pays nothing. The natural borrowing
+# constraint is minus minimum human wealth, h_min, the present value of the least future income on the path on which
+# every permanent shock takes its lowest value (the paper's appendix "Positive Minimum Income"): the stage takes it in
+# from the next period as h_min[>], bounds consumption below m + h_min[>], so that a > −h_min[>], and sends back the
+# period's, (𝒢*ψ_min/R)*(least income + h_min[>]); it is zero in the last period, supplied with the value there. The
+# worst income is the unemployment event, a point mass paying nothing, so h_min is 0 in every period and the
+# constraint is a > 0. No consumer ever ends a period at it: zero income next period would leave no positive
+# consumption. So the Euler equation holds with equality and needs no complementarity clause. A positive income in
+# the unemployment event, the appendix "Positive Minimum Income", needs a point mass in ψ at its floor and has no
+# stage file yet (bellman/README.md). ξ is transitory income, drawn from a mixture: nothing with the event's
+# probability, else the employed draw θ scaled by 1/(1 − ℘), so that E[ξ] = 1. θ's law is stated by its own
+# parameters and ξ's employed component is derived from them, the same law: θ·scale, θ truncated lognormal, is
+# truncated lognormal with location μ_θ + log scale and bounds θ_min·scale and θ_max·scale. ξ is drawn whole, and not
+# as θ and an event's label with a line defining ξ, so that what a toolkit holds, the nodes of ξ, is what the stage
+# draws. ϱ > 1, the paper's coefficient of relative risk aversion ρ, which this family requires to exceed one.
+# Survivors only: newborns, types and their shares, and the stationary population have no spelling in a stage file.
+#
+# The paper writes Γ for the growth factor, ρ for relative risk aversion and ℘ for the probability of zero income; the
+# stage writes 𝒢, ϱ and p_zero, the comparator's names, which its methods files and its checks read.
+
+@stage: natural
+
+Xm := ℝ
+Xa := ℝ
+
+β     : ℝ₊₊          :: ["discount factor of the type"]
+ℒ     : (0,1]        :: ["probability of surviving into the next period, perpetual youth"]
+ϱ     : (1, inf)     :: ["coefficient of relative risk aversion, greater than one as in Buffer Stock Theory"]
+R     : ℝ₊₊          :: ["gross return on assets, earned by survivors, with no annuity market"]
+𝒢     : ℝ₊₊          :: ["growth factor of permanent income"]
+μ_ψ   : ℝ            :: ["location of log ψ before truncation, set so that E[ψ] = 1"]
+s_ψ   : ℝ₊₊          :: ["scale of log ψ before truncation"]
+# ψ's floor is positive and otherwise free. The constraint is the natural one, −h_min, minus the present value of the
+# least future income, which the stage takes in as h_min[>]; here the least income is zero, the unemployment event's,
+# so h_min = 0 at any growth of permanent income: the present value of nothing. That growth at ψ's floor lie below the
+# return, 𝒢*ψ_min < R, is the condition, where the least income is positive, for its present value to stay bounded as
+# the horizon recedes; it is not required here, and the paper's model has its solution without it.
+ψ_min  : ℝ₊₊          :: ["the lower bound of ψ, strictly positive"]
+ψ_max  : ℝ₊₊          :: ["the upper bound of ψ, finite"]
+μ_θ   : ℝ            :: ["location of log θ before truncation, set so that E[θ] = 1"]
+s_θ   : ℝ₊₊          :: ["scale of log θ before truncation"]
+θ_min  : ℝ₊₊          :: ["the lower bound of θ, strictly positive"]
+θ_max  : ℝ₊₊          :: ["the upper bound of θ, finite"]
+p_zero : (0,1)       :: ["probability ℘ of the zero-income event, positive"]
+
+ξ_scale   : ℝ₊₊ := 1/(1 - p_zero)     :: ["the employed draw's scale in ξ, 1/(1 − ℘), so that E[ξ] = 1"]
+μ_ξ       : ℝ   := μ_θ + log(ξ_scale)   :: ["location of log ξ's employed component before truncation"]
+ξ_emp_min : ℝ₊₊ := θ_min*ξ_scale      :: ["the lower bound of ξ's employed component"]
+ξ_emp_max : ℝ₊₊ := θ_max*ξ_scale      :: ["the upper bound of ξ's employed component"]
+
+ψ : ℝ₊₊
+ψ ~ TruncatedLogNormal(μ_ψ, s_ψ, ψ_min, ψ_max)   :: ["permanent shock, E[ψ] = 1"]
+ξ : ℝ₊
+ξ ~ Mixture((p_zero, 0), (1 - p_zero, TruncatedLogNormal(μ_ξ, s_θ, ξ_emp_min, ξ_emp_max)))   :: ["transitory income, E[ξ] = 1: zero when unemployed, with probability p_zero, else θ/(1 − ℘); independent of ψ"]
+
+𝑢(c : ℝ₊₊) := c^(1-ϱ)/(1-ϱ)       :: [id=util]
+𝑑𝑢(c : ℝ₊₊) := c^(-ϱ)             :: [id=marg_util]
+𝑑𝑢𝑖𝑛𝑣(x : ℝ₊₊) := x^(-1/ϱ)        :: [id=inv_marg_util]
+𝒞(x : Xm) := (0, x + h_min[>])   :: [id=feasible, "consumption below resources plus h_min[>]: a > −h_min[>]"]
+
+[id=arvl_to_dcsn, (k : Xa, ψ, ξ) : !arvl -> (m : Xm) : !dcsn] {
+    m = R*k/(𝒢*ψ) + ξ                                   :: [id=market_resources, "a survivor's resources; k is last period's a"]
+}
+
+[id=dcsn_to_cntn, (m, c : ℝ₊₊ @ !ctrl) : !dcsn -> (a : Xa) : !cntn] {
+    a = m - c                         :: [id=savings]
+}
+
+[id=cntn_to_dcsn, (V[>] : ℝ @ !vlu, h_min[>] : ℝ₊ @ !vlu @ !cnst, c) : !cntn
+    -> (V : ℝ @ !vlu, h_min : ℝ₊ @ !vlu @ !cnst) : !dcsn] {
+    V      = 𝑢(c) + β*ℒ*V[>]          :: [id=value]
+    D_{m}V = 𝑑𝑢(c)                    :: [id=marginal]
+    h_min  = h_min[>]                 :: [id=minimum_human_wealth, "the least income of the period, zero, added"]
+}
+
+[id=dcsn_to_arvl, (V, h_min) : !dcsn -> (V[<] : ℝ @ !vlu, h_min[<] : ℝ₊ @ !vlu @ !cnst) : !arvl] {
+    V[<]      = E_{ψ,ξ}((𝒢*ψ)^(1-ϱ) * V)               :: [id=value]
+    D_{k}V[<] = E_{ψ,ξ}(R * (𝒢*ψ)^(-ϱ) * D_{m}V)       :: [id=marginal]
+    h_min[<]  = (𝒢*ψ_min/R)*h_min                      :: [id=minimum_human_wealth, "on the path of lowest ψ"]
+}
+
+[id=policy, (V[>] : ℝ @ !vlu, h_min[>]) : !cntn -> (c : ℝ₊₊ @ !ctrl) : !dcsn] {
+    c     = argmax_{cp : 𝒞(m)}(𝑢(cp) + β*ℒ*V[>])   :: [id=optimality, !doc]
+    𝑑𝑢(c) = β*ℒ*D_{a}V[>]   :: [id=euler, "with equality: the natural constraint is never reached"]
+}

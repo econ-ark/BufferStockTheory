@@ -1,0 +1,17 @@
+# The numerical settings the default methods file of artificial.bl reads (declaration/stages/artificial/methods.bl).
+# - Nodes: seven per shock, the paper's seven equiprobable points for the continuous part of each law (the appendix
+#   "Positive Minimum Income", subsection "An Example").
+# - Grids: 960 points up to 20 for the savings a and for the assets k, as in the problem with uncertainty
+#   (bellman/natural-borrowing-constraint/declaration/settings/natural.yml). Both grids start at 0, the restrained
+#   consumer's a_Art, so that the kink where the constraint begins to bind is a node of the savings grid. A grid's
+#   bounds are settings and may not name the parameter a_Art, so a_min is set to its value here; both bounds lie in
+#   Xa = [a_Art, ∞), which configuration checks. A calibration with another a_Art needs a_min and k_min set to it.
+settings:
+  n_ψ_nodes: 7
+  n_ξ_nodes: 7
+  n_a: 960
+  a_min: 0.0
+  a_max: 20.0
+  n_k: 960
+  k_min: 0.0
+  k_max: 20.0

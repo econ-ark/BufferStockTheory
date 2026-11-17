@@ -1,0 +1,42 @@
+@methods: artificial
+# The paper's default methods of the stage artificial.bl, an addition to the stage file beside it: the method the
+# paper uses, and no toolkit's handler. A comparator's own methods files stay with the comparator; they name this
+# stage's places by their ids, which change only with a new version of the model (bellman/models.yml).
+#
+# The endogenous grid method stands on the policy builder, on an exogenous grid of savings a whose lower bound a_min
+# is a setting in Xa = [a_Art, ∞), set at a_Art itself so that the kink is a node: a grid's bounds are settings, and a
+# grid may not name the parameter a_Art. Its three lines, which the stage file does not state, stand in place of the
+# maximization when the stage is solved: consumption by the inverse Euler equation with its complementarity clause,
+# where the constraint a ≥ a_Art is not reached; the resources at which that consumption is chosen; and the
+# identification of the chosen consumption with the candidate. Below the resources at which a = a_Art is chosen, the constraint binds and
+# c = m − a_Art. The consumption function is read between the pairs the method computes by linear interpolation at the
+# builder's Evaluation. The stage's two derivative lines stand in the stage file and take no method here.
+#
+# The expectation over the two income shocks at the arrival builder is taken by a quadrature rule. The paper's rule is
+# seven equiprobable points for the continuous part of each law, each point its bin's conditional mean (the appendix
+# "Positive Minimum Income", subsection "An Example"); for the restrained consumer the transitory shock has no point
+# mass. The language has no word for that rule, so the entry says `!quadrature`, which names no rule, with the node
+# counts as settings, and this comment states the rule. The arrival value and its derivative are represented by
+# linear interpolation on a grid of assets k.
+#
+# The settings are declared first, with their sets, and their values stand in declaration/settings/artificial.yml.
+
+n_a : ℕ              :: ["number of points of the savings grid"]
+a_min : Xa           :: ["lower bound of the savings grid, a_Art itself"]
+a_max : Xa           :: ["upper bound of the savings grid"]
+n_k : ℕ              :: ["number of points of the asset grid"]
+k_min : Xa           :: ["lower bound of the asset grid"]
+k_max : Xa           :: ["upper bound of the asset grid"]
+n_ψ_nodes : ℕ        :: ["nodes of the permanent shock: the paper's seven equiprobable points"]
+n_ξ_nodes : ℕ        :: ["nodes of the employed draw of the transitory shock: the paper's seven equiprobable points"]
+
+[id=policy, method : !egm | grid : !Cartesian(a=(a_min, a_max, n_a)) | evaluate.method : !Linear] {
+    c[>] <= 𝑑𝑢𝑖𝑛𝑣(β*ℒ*D_{a}V[>]) ⟂ a >= a_Art   :: [id=InvEuler]
+    m[>] = a + c[>]                              :: [id=endoggrid]
+    c[~] = c[>]                                  :: [id=cons_choice]
+}
+
+E_ψ_ξ.method : !quadrature(n_ψ=n_ψ_nodes, n_ξ=n_ξ_nodes)
+
+dcsn_to_arvl.evaluate.method : !Linear
+dcsn_to_arvl.evaluate.grid : !Cartesian(k=(k_min, k_max, n_k))

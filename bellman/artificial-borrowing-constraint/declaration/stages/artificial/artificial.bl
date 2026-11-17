@@ -1,0 +1,101 @@
+# The problem with uncertainty of Theoretical Foundations of Buffer Stock Saving under an artificial borrowing
+# constraint a ≥ a_Art. Its calibration in declaration/calibration/restrained_consumer.yml is the paper's restrained
+# consumer (subsubsection and appendix "The Liquidity Constrained Solution as a Limit"): a_Art = 0, that is c ≤ m, with
+# no unemployment event. Every line of this file but its comments is the stage file of the family bst-artificial/1 of
+# llorracc/wg1-buffer-stock at 3901bc69 (schemas/bst/artificial/bellman/artificial.bl), so that a comparator reading
+# this file reads its family's own stage, with the same ids and the same free parameters; only the comments are
+# written for the paper. The family is wider than the paper's model: it admits any limit a_Art ≤ 0 and an unemployment
+# event with an income ξ_u ≥ 0, where the restrained consumer is the one point a_Art = 0 with no unemployment event.
+#
+# The shocks' laws are bounded below by strictly positive floors (here truncated lognormals, bounded above as well),
+# and the unemployment income is positive or the unemployment event absent, so h_min, the minimum present value of
+# future income, is strictly positive. The artificial constraint a ≥ a_Art is tighter than the natural one,
+# a > −h_min. That requirement is stated here in words and enforced by no line of this file or of bellman/ (the
+# comparator's checker enforces it for its members); the restrained consumer meets it, since its h_min is positive and
+# its a_Art is 0. The natural constraint is then irrelevant to the model. The consumer ends a period at a_Art for m
+# below a kink, at every ϱ, so the Euler equation carries its complementarity clause. A toolkit may compute the rule as
+# the lower of the constraint line and the rule with this period's constraint relaxed for one period; that is method,
+# not stage. ξ is transitory income, drawn from a mixture: ξ_u with the unemployment event's probability, else the
+# employed draw θ scaled by (1 − ℘ξ_u)/(1 − ℘), so that E[ξ] = 1. θ's law is stated by its own parameters and ξ's
+# employed component is derived from them, the same law: θ·scale, θ truncated lognormal, is truncated lognormal with
+# location μ_θ + log scale and bounds θ_min·scale and θ_max·scale. ξ is drawn whole, so that what a toolkit holds, the
+# nodes of ξ, is what the stage draws. Where there is no unemployment event the mixture's first weight is zero. ϱ > 1.
+# Survivors only.
+#
+# The appendix "Positive Minimum Income" bounds its restrained consumer with a positive unemployment income by minus
+# minimum human wealth, a bound this file cannot state (bellman/README.md); only its column with an unemployment
+# income of zero is this file's restrained consumer. The paper writes Γ, ρ and ℘; the stage writes 𝒢, ϱ and p_zero.
+
+@stage: artificial
+
+Xm := ℝ
+Xa := [a_Art, inf)
+
+β     : ℝ₊₊          :: ["discount factor of the type"]
+ℒ     : (0,1]        :: ["probability of surviving into the next period, perpetual youth"]
+ϱ     : (1, inf)     :: ["coefficient of relative risk aversion, greater than one as in Buffer Stock Theory"]
+R     : ℝ₊₊          :: ["gross return on assets, earned by survivors, with no annuity market"]
+𝒢     : ℝ₊₊          :: ["growth factor of permanent income"]
+# a_Art lies strictly above the natural limit, −h_min, a requirement stated here in words; this file carries no
+# formula for the limit. h_min is the present value of the least future income, ξ_min, on the path of lowest permanent
+# shocks, and belongs to a horizon: zero in the last period and (𝒢*ψ_min/R)*(ξ_min + next period's) before it, a
+# finite number at every finite horizon. As the horizon recedes it converges to ξ_min*𝒢*ψ_min/(R − 𝒢*ψ_min) where
+# 𝒢*ψ_min < R, and the requirement is that a_Art lie above minus that. Where 𝒢*ψ_min >= R it grows without bound, the
+# natural limits fall below every a_Art, and the model with its artificial constraint still has a well-defined
+# solution; so this file puts no restriction on ψ_min. ξ_min is the lower of the unemployment income and the employed
+# draw's floor, θ_min*(1 − ℘ξ_u)/(1 − ℘), or that floor alone where there is no unemployment event. Were it zero the
+# limit would be zero at any growth and no a_Art could lie above it: the family asks for positive floors.
+a_Art : (-inf, 0]    :: ["artificial borrowing limit a_Art, as a ratio to permanent income, strictly above the natural one"]
+μ_ψ   : ℝ            :: ["location of log ψ before truncation, set so that E[ψ] = 1"]
+s_ψ   : ℝ₊₊          :: ["scale of log ψ before truncation"]
+ψ_min  : ℝ₊₊          :: ["the lower bound of ψ, strictly positive"]
+ψ_max  : ℝ₊₊          :: ["the upper bound of ψ, finite"]
+μ_θ   : ℝ            :: ["location of log θ before truncation, set so that E[θ] = 1"]
+s_θ   : ℝ₊₊          :: ["scale of log θ before truncation"]
+θ_min  : ℝ₊₊          :: ["the lower bound of θ, strictly positive"]
+θ_max  : ℝ₊₊          :: ["the upper bound of θ, finite"]
+p_zero : [0,1)       :: ["probability ℘ of unemployment"]
+# ξ_u lies below 1/℘, so that the employed draw's scale, (1 − ℘ξ_u)/(1 − ℘), is positive and E[ξ] = 1; with no
+# unemployment event it has no upper bound. Bellman decides this when it calibrates.
+ξ_u   : ℝ₊ @ [0, ξ_u_sup)   :: ["income ξ_u while unemployed, as a ratio to permanent income, below 1/℘"]
+
+# Derived from the parameters above: the calibration computes it and refuses to be given it. It is defined by cases,
+# and its branch `inf` declares a set that holds that infinity.
+ξ_u_sup : ℝ_{+∞} := if p_zero = 0 then inf else 1/p_zero   :: ["the bound of ξ_u, 1/℘: none where there is no unemployment event"]
+ξ_scale   : ℝ₊₊ := (1 - p_zero*ξ_u)/(1 - p_zero)   :: ["the employed draw's scale in ξ, (1 − ℘ξ_u)/(1 − ℘), so that E[ξ] = 1"]
+μ_ξ       : ℝ   := μ_θ + log(ξ_scale)               :: ["location of log ξ's employed component before truncation"]
+ξ_emp_min : ℝ₊₊ := θ_min*ξ_scale                  :: ["the lower bound of ξ's employed component"]
+ξ_emp_max : ℝ₊₊ := θ_max*ξ_scale                  :: ["the upper bound of ξ's employed component"]
+
+ψ : ℝ₊₊
+ψ ~ TruncatedLogNormal(μ_ψ, s_ψ, ψ_min, ψ_max)   :: ["permanent shock, E[ψ] = 1"]
+ξ : ℝ₊
+ξ ~ Mixture((p_zero, ξ_u), (1 - p_zero, TruncatedLogNormal(μ_ξ, s_θ, ξ_emp_min, ξ_emp_max)))   :: ["transitory income, E[ξ] = 1: ξ_u when unemployed, with probability p_zero, else θ(1 − ℘ξ_u)/(1 − ℘); independent of ψ"]
+
+𝑢(c : ℝ₊₊) := c^(1-ϱ)/(1-ϱ)       :: [id=util]
+𝑑𝑢(c : ℝ₊₊) := c^(-ϱ)             :: [id=marg_util]
+𝑑𝑢𝑖𝑛𝑣(x : ℝ₊₊) := x^(-1/ϱ)        :: [id=inv_marg_util]
+𝒞(x : Xm) := (0, x - a_Art]   :: [id=feasible]
+
+[id=arvl_to_dcsn, (k : Xa, ψ, ξ) : !arvl -> (m : Xm) : !dcsn] {
+    m = R*k/(𝒢*ψ) + ξ                                   :: [id=market_resources, "a survivor's resources; k is last period's a"]
+}
+
+[id=dcsn_to_cntn, (m, c : ℝ₊₊ @ !ctrl) : !dcsn -> (a : Xa) : !cntn] {
+    a = m - c                         :: [id=savings]
+}
+
+[id=cntn_to_dcsn, (V[>] : ℝ @ !vlu, c) : !cntn -> (V : ℝ @ !vlu) : !dcsn] {
+    V      = 𝑢(c) + β*ℒ*V[>]          :: [id=value]
+    D_{m}V = 𝑑𝑢(c)                    :: [id=marginal]
+}
+
+[id=dcsn_to_arvl, (V) : !dcsn -> (V[<] : ℝ @ !vlu) : !arvl] {
+    V[<]      = E_{ψ,ξ}((𝒢*ψ)^(1-ϱ) * V)               :: [id=value]
+    D_{k}V[<] = E_{ψ,ξ}(R * (𝒢*ψ)^(-ϱ) * D_{m}V)       :: [id=marginal]
+}
+
+[id=policy, (V[>] : ℝ @ !vlu) : !cntn -> (c : ℝ₊₊ @ !ctrl) : !dcsn] {
+    c     = argmax_{cp : 𝒞(m)}(𝑢(cp) + β*ℒ*V[>])   :: [id=optimality, !doc]
+    𝑑𝑢(c) = β*ℒ*D_{a}V[>] ⟂ m - c >= a_Art   :: [id=euler]
+}

@@ -1,0 +1,39 @@
+id: ric-gives-stationary-contraction
+name: Return Impatience Yields a Stationary Contraction (and Why WRIC Alone Does Not)
+short: RIC-stationary remark
+defining_equation:
+  anchor: remark-ricstationary
+  latex: \text{RIC} \implies \big(\MPCmin_{T-n}\geq \MPCmin>0\ \forall n\big)\ \text{so}\ \exists\,k:\ \TMap^{\MPCmin, \MPCmax_{T-k}}\ \text{is a \emph{stationary} contraction with}\ \vFunc_{T-n}=\TMap^{\MPCmin, \MPCmax_{T-k}}\vFunc_{T-n+1}\ \forall n>k;\quad \neg\text{RIC}\implies \MPCmin=0\ \text{and}\ \TMap^{0, \MPCmax_{T-k}}\ \text{is not a self-map of}\ \mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)
+  english: 'If the return impatience condition holds, the minimal MPC is bounded away from zero for all horizons, so for large enough $k$ a single fixed (stationary) MPC-bounded Bellman operator $\TMap^{\MPCmin,\MPCmax_{T-k}}$ generates the entire tail of the finite-horizon value-function sequence; if return impatience fails, the minimal MPC is zero and the would-be stationary operator $\TMap^{0,\MPCmax_{T-k}}$ is not even a well-defined self-map of the weighted-norm function space.'
+gloss: |
+  This remark sits immediately after the existence theorem [nondegenerate-solution-existence](#nondegenerate-solution-existence) (`thm-convgtobellman`) and contrasts the construction used there with what would be available under a stronger impatience assumption. The existence proof deliberately uses only [weak return impatience](#WRIC) (WRIC) together with [finite value of autarky](#FVAC), and as a consequence it must work with a *time-varying* family of MPC-bounded operators $\TMap^{\MPCmin_{T-n},\MPCmax_{T-n}}$ whose lower consumption share $\MPCmin_{T-n}$ can drift toward zero as the horizon recedes. The remark observes that if one instead *assumes* the full [return impatience condition](#RIC) (RIC), the minimal MPC is uniformly bounded below, $\MPCmin_{T-n}\geq\MPCmin>0$ for all $n$, and the analysis simplifies dramatically.
+
+  Concretely, RIC *implies* that for $k\in\mathbb{N}$ large enough a single *stationary* operator $\TMap^{\MPCmin,\MPCmax_{T-k}}$ — with fixed lower share $\MPCmin$ and fixed upper share $\MPCmax_{T-k}$ — is a contraction satisfying $\vFunc_{T-n}=\TMap^{\MPCmin,\MPCmax_{T-k}}\vFunc_{T-n+1}$ for every $n>k$. In that case the limiting value function is literally the fixed point of one contraction map and the standard Banach fixed-point picture applies to the tail of the sequence, rather than the Cauchy-sequence-of-eventually-common-modulus argument that the WRIC-only theorem (`thm-cmap`, [contraction-mapping-consumption-bounds](#contraction-mapping-consumption-bounds)) is forced to run.
+
+  The second half of the remark is the cautionary converse: *without* RIC the minimal MPC collapses to $\MPCmin=0$, and then the candidate stationary operator $\TMap^{0,\MPCmax_{T-k}}$ fails to be a well-defined map from $\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$ into itself, no matter how large $k$ is taken. The reason is the continuity/compactness obstruction catalogued in Section [](#subsubsec-challengesDP): when the lower share is zero the feasibility correspondence reopens to $\mNrm\mapsto(0,\mNrm)$, which is not compact-valued, so $\TMap$ need not send continuous functions to continuous functions. This is exactly why the existence theorem cannot simply invoke a stationary contraction and must instead bound the consumption share strictly inside $(0,\MPCmax_{T-n})$ at each step — the WRIC machinery is the price of *not* assuming RIC. The remark thus delimits the boundary between the paper's general (WRIC) existence result and the cleaner stationary-operator route that the stronger RIC would buy.
+relations:
+  - kind: requires
+    target: return-impatience-condition
+    note: 'RIC is precisely the hypothesis that forces $\MPCmin_{T-n}\geq\MPCmin>0$ for all $n$, which is what makes the single stationary operator $\TMap^{\MPCmin,\MPCmax_{T-k}}$ a well-defined contraction; the remark is a statement about what RIC adds.'
+  - kind: contrasts-with
+    target: weak-return-impatience-condition
+    note: 'Under only WRIC the lower share $\MPCmin_{T-n}$ can drift to zero, forcing the time-varying operators of thm-convgtobellman; RIC replaces this with one fixed-share stationary contraction.'
+  - kind: contrasts-with
+    target: contraction-mapping-consumption-bounds
+    note: 'thm-cmap proves the WRIC operators are eventually contractions with a common modulus (a Cauchy-sequence argument); this remark notes that RIC upgrades that to a genuinely stationary contraction $\TMap^{\MPCmin,\MPCmax_{T-k}}$ acting on the whole tail.'
+  - kind: implied-by
+    target: nondegenerate-solution-existence
+    note: 'The remark is appended to thm-convgtobellman and qualifies its proof strategy: it explains why the theorem uses WRIC-style time-varying bounded operators rather than the stationary contraction that RIC would permit.'
+  - kind: requires
+    target: subsubsec-challengesDP
+    note: 'The claim that $\TMap^{0,\MPCmax_{T-k}}$ is not a self-map of $\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$ rests on the non-compact-valued feasibility correspondence $\mNrm\mapsto(0,\mNrm)$ documented there, which breaks continuity of $\TMap$.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: remark-ricstationary
+  - file: BufferStockTheory.md
+    anchor: thm-convgtobellman
+  - file: BufferStockTheory.md
+    anchor: subsubsec-challengesDP
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

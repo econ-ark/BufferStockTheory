@@ -1,0 +1,25 @@
+log GPF=-0.03036  E[log psi]=-0.00467  E[psi log psi]=0.00467  GPF=0.97010
+objective measure (distribution of resources above the limit):
+  start 0.01 t=   10: mean m~=  1.3612 mean c= 0.9700 quantiles(1,10,50,90,99%)=[0.777 1.046 1.368 1.669 1.894]
+  start 0.01 t=  100: mean m~=  1.3916 mean c= 0.9773 quantiles(1,10,50,90,99%)=[0.795 1.072 1.397 1.704 1.935]
+  start 0.01 t=  500: mean m~=  1.3906 mean c= 0.9770 quantiles(1,10,50,90,99%)=[0.789 1.072 1.397 1.703 1.932]
+  start 0.01 t= 1000: mean m~=  1.3913 mean c= 0.9773 quantiles(1,10,50,90,99%)=[0.796 1.073 1.398 1.703 1.93 ]
+  start 0.01 t= 1500: mean m~=  1.3915 mean c= 0.9772 quantiles(1,10,50,90,99%)=[0.793 1.071 1.398 1.704 1.932]
+  start 50   t=   10: mean m~= 34.2651 mean c= 2.9100 quantiles(1,10,50,90,99%)=[16.589 22.311 32.692 48.283 65.84 ]
+  start 50   t=  100: mean m~=  1.4085 mean c= 0.9792 quantiles(1,10,50,90,99%)=[0.792 1.073 1.402 1.715 1.996]
+  start 50   t=  500: mean m~=  1.3912 mean c= 0.9772 quantiles(1,10,50,90,99%)=[0.795 1.072 1.397 1.706 1.935]
+  start 50   t= 1000: mean m~=  1.3915 mean c= 0.9773 quantiles(1,10,50,90,99%)=[0.796 1.072 1.398 1.705 1.934]
+  start 50   t= 1500: mean m~=  1.3909 mean c= 0.9771 quantiles(1,10,50,90,99%)=[0.794 1.072 1.397 1.704 1.933]
+permanent-income-neutral measure (shock probabilities weighted by psi):
+  start 0.01 t=   10: mean m~=  1.4036 mean c= 0.9807 quantiles(1,10,50,90,99%)=[0.812 1.092 1.411 1.707 1.926]
+  start 0.01 t=  100: mean m~=  1.4395 mean c= 0.9888 quantiles(1,10,50,90,99%)=[0.832 1.122 1.447 1.749 1.972]
+  start 0.01 t=  500: mean m~=  1.4398 mean c= 0.9889 quantiles(1,10,50,90,99%)=[0.835 1.12  1.447 1.749 1.971]
+  start 0.01 t= 1000: mean m~=  1.4396 mean c= 0.9889 quantiles(1,10,50,90,99%)=[0.832 1.122 1.447 1.747 1.974]
+  start 0.01 t= 1500: mean m~=  1.4386 mean c= 0.9887 quantiles(1,10,50,90,99%)=[0.832 1.121 1.447 1.748 1.972]
+  start 50   t=   10: mean m~= 31.2542 mean c= 2.7687 quantiles(1,10,50,90,99%)=[15.32  20.44  29.769 43.942 60.623]
+  start 50   t=  100: mean m~=  1.4413 mean c= 0.9891 quantiles(1,10,50,90,99%)=[0.831 1.122 1.449 1.75  1.975]
+  start 50   t=  500: mean m~=  1.4388 mean c= 0.9886 quantiles(1,10,50,90,99%)=[0.831 1.121 1.447 1.748 1.973]
+  start 50   t= 1000: mean m~=  1.4393 mean c= 0.9888 quantiles(1,10,50,90,99%)=[0.834 1.121 1.448 1.749 1.974]
+  start 50   t= 1500: mean m~=  1.4401 mean c= 0.9889 quantiles(1,10,50,90,99%)=[0.835 1.122 1.448 1.749 1.973]
+bound on the weighted mean from the proof: xi~max/(1-GPF) = 46.339
+h_min=1.6018: weighted mean of m itself = weighted mean of m~ minus h_min

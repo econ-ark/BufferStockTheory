@@ -1,0 +1,816 @@
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+\input{\econtexRoot/@local/dir-paths}\usepackage{econark-ifsubfile}\usepackage{econark-xrsetup}
+\compilingasstandalone{\externaldocument{\LaTeXGenerated/BufferStockTheory}} % Get xrefs from main file; only works properly if main file has already been compiled
+
+\notinsubfile{\renewcommand{\LtxDir}{}}
+
+\begin{document}
+
+\hypertarget{ApndxPositiveMinimumIncome}{}
+\section{Positive Minimum Income}\label{sec:ApndxPositiveMinimumIncome}
+
+Section~\ref{subsec:Setup} assumes that income is zero in the zero-income event, and remarks that a positive minimum (unemployment insurance, say) could be handled by capitalizing the present discounted value of minimum income into market resources.
+This appendix carries out that capitalization.
+Its conclusions are:
+
+\begin{enumerate}
+\item The consumer can borrow, up to a natural borrowing limit equal to the present value of minimum income along the path on which every permanent shock takes its lowest value (`minimum human wealth,' $\hNrmPes$).
+That limit is finite only if $\PermGroFac\permShkIndMin<\Rfree$, a requirement the model with zero minimum income does not need (Lemma~\ref{lemma:NaturalBorrowingLimit}).
+\item Without permanent shocks, measuring resources from the natural borrowing limit turns the problem into an instance of the problem in the text.
+With permanent shocks it does not: the transformed income depends on the permanent shock and on the horizon, and it is zero only when the unemployment event and the lowest permanent shock occur together (Lemma~\ref{lemma:ExcessResources}).
+\item The results of Section~\ref{subsec:limSolExists} nevertheless hold, with market resources measured from the natural borrowing limit and with the probability $\pZero$ of the zero-income event replaced by the probability $\pWorst$ of that joint event: the limiting MPCs (Lemma~\ref{lemma:MPCPositiveMinimum}), the contraction (Theorem~\ref{thm:cmapPositiveMinimum}), and the existence of a non-degenerate limiting solution (Theorem~\ref{thm:existencePositiveMinimum}).
+\item The target and the pseudo-target exist and are unique under the same growth impatience conditions as in the text (Theorems~\ref{thm:targetPositiveMinimum} and~\ref{thm:pseudoTargetPositiveMinimum}), but the consumer may be a borrower at both, either may be negative, and their order reverses exactly when the consumer is a borrower there (Lemma~\ref{lemma:orderingPositiveMinimum}).
+\item \cite{szeidlInvariant}'s theorem on invariant distributions assumes that the consumer cannot borrow and that the shocks are independent, so it does not cover this case as stated.
+His general theorem for increasing Markov processes does, and delivers the same conclusions under the same conditions (Proposition~\ref{prop:invariantPositiveMinimum}).
+\item If income measured from the borrowing limit is positive with probability one, so that a consumer who ends the period at the limit is sure to be above it in the next, because the permanent shock has no mass at its lowest value, because there is no unemployment event and borrowing is limited to less than the natural limit, or because the constraint $\cNrm_{t}\leq\mNrm_{t}$ is kept in every period, then the maximal MPC is one and the borrowing limit may be reached; a limiting solution nevertheless exists under finite value of autarky and finite minimum human wealth alone, and the targets and aggregate results hold as before (Section~\ref{subsec:PositiveMinimumNoWorstEvent}).
+\item As the probability of the unemployment event goes to zero, the solution converges, at every horizon and in the limit, to that of a consumer who faces no such event but may not borrow more than minimum human wealth (Theorem~\ref{thm:LiqConstrLimitPositiveMinimum}). With a zero minimum income this proves the claim of Section~\ref{subsubsec:deatonIsLimit}, which Appendix~\ref{sec:LiqConstrAsLimit} argues for the next-to-last period.
+\item If minimum human wealth is not finite, no non-degenerate limiting solution exists under finite value of autarky (Proposition~\ref{prop:InfiniteMinHumanWealth}).
+\end{enumerate}
+
+\subsection{The Income Process and the Consumer's Problem}\label{subsec:PositiveMinimumSetup}
+
+\begin{assumI}\label{ass:shocksPositiveMinimum}(Friedman-Muth Income Process with a Positive Minimum).
+For each $t$:
+\begin{enumerate}
+\item The permanent shock, $\permShk_{t}$, satisfies $\Ex[\permShk_{t}]=1$ and $\permShk_{t}\in[\permShkIndMin,\permShkIndMax]$ with $0<\permShkIndMin\leq 1\leq\permShkIndMax<\infty$.
+It takes its lowest value with positive probability, $\pZeroPerm\colon=\mathbb{P}(\permShk_{t}=\permShkIndMin)>0$, and, if $\pZeroPerm<1$, its other values are no smaller than some $\permShkNextMin>\permShkIndMin$.
+\item The transitory shock, $\tranShkAll_{t}$, satisfies
+\begin{equation}\label{eq:TranShkDefPositiveMinimum}
+  \tranShkAll_{t}=
+  \begin{cases}
+    \IncUnemp & \text{with probability $\pZero>0$} \\
+    \tranShkEmp_{t}(1-\pZero\IncUnemp)/\pNotZero & \text{with probability $\pNotZero$},
+  \end{cases}
+\end{equation}
+for $\tranShkEmp_{t}$ as in Assumption~\ref{ass:shocks} and an income while unemployed $\IncUnemp$ with
+\begin{equation}\label{eq:MinIncomeBelowEmployed}
+  0\leq\IncUnemp<\IncEmpMin\colon=\tranShkEmpMin(1-\pZero\IncUnemp)/\pNotZero .
+\end{equation}
+\item The sequence $\{\permShk_{t},\tranShkAll_{t}\}$ is iid, and $\permShk_{t}$ and $\tranShkAll_{t}$ are independent of each other.
+\end{enumerate}
+\end{assumI}
+
+The factor $(1-\pZero\IncUnemp)/\pNotZero$ keeps $\Ex[\tranShkAll_{t}]=1$.
+A permanent shock built in the same way satisfies the first part of the assumption: if $\permShk_{t}=\permShkIndMin$ with probability $\pZeroPerm\in(0,1)$ and otherwise $\permShk_{t}$ is a draw from a mean-one law on $[\permShkIndMin,\permShkIndMax]$ multiplied by $(1-\pZeroPerm\permShkIndMin)/(1-\pZeroPerm)$, then $\Ex[\permShk_{t}]=1$, the point mass sits at the infimum of that law whatever discrete approximation is used for the rest of it, and the other values are no smaller than $\permShkNextMin=\permShkIndMin(1-\pZeroPerm\permShkIndMin)/(1-\pZeroPerm)>\permShkIndMin$.
+Condition~\eqref{eq:MinIncomeBelowEmployed}, which is equivalent to $\IncUnemp<\tranShkEmpMin/(1-\pZero(1-\tranShkEmpMin))$, says that income in the `unemployment event' $\{\tranShkAll_{t}=\IncUnemp\}$ is below every income the consumer can receive outside it.
+With $\IncUnemp=0$ the assumption is Assumption~\ref{ass:shocks} together with a requirement on $\permShk$ that nothing below uses in that case.
+We call $\{\permShk_{t}=\permShkIndMin,\ \tranShkAll_{t}=\IncUnemp\}$ the `worst event,' and write its probability as
+\begin{equation}\label{eq:pWorst}
+  \pWorst\colon=
+  \begin{cases}
+    \pZero\,\pZeroPerm & \text{if $\IncUnemp>0$} \\
+    \pZero & \text{if $\IncUnemp=0$,}
+  \end{cases}
+\end{equation}
+because when $\IncUnemp=0$ income $\permLvl_{t}\tranShkAll_{t}$ is zero in the unemployment event whatever the permanent shock is.
+
+The consumer's problem is~\eqref{eq:levelRecProblem} with one change: the constraint $\cLvl_{t}\leq\mLvl_{t}$ is imposed only in the terminal period (Equation~\eqref{eq:NoDebtAtDeath}).
+Before $T$ the consumer may borrow, but a plan is feasible only if consumption is strictly positive in every period and the terminal constraint is met with probability one.
+In normalized form,
+\begin{equation}\label{eq:veqnPositiveMinimum}
+  \vFunc_{t}(\mNrm_{t})=\sup_{\cNrm_{t}>0}~\uFunc(\cNrm_{t})+\DiscFac\Ex_{t}[\PermGroFacRnd_{t+1}^{1-\CRRA}\vFunc_{t+1}(\mNrm_{t+1})],\qquad \mNrm_{t+1}=(\mNrm_{t}-\cNrm_{t})\RNrmByGRnd_{t+1}+\tranShkAll_{t+1},
+\end{equation}
+where $\vFunc_{T}(\mNrm)=\uFunc(\mNrm)$ for $\mNrm>0$ and each $\vFunc_{t}$ is $-\infty$ wherever no feasible plan exists.
+With $\IncUnemp=0$ this is Problem~\eqref{eq:veqnNrmRecBellman}, in which the constraint $\cNrm_{t}<\mNrm_{t}$ never binds.
+With $\IncUnemp>0$, keeping $\cNrm_{t}\leq\mNrm_{t}$ in every period would instead be an artificial liquidity constraint that binds; Section~\ref{subsec:PositiveMinimumLiqConstr} takes that up.
+
+\subsection{Minimum Human Wealth and the Natural Borrowing Limit}\label{subsec:MinimumHumanWealth}
+
+Define `minimum human wealth' recursively by $\hNrmPes_{T}=0$ and
+\begin{equation}\label{eq:hNrmMinRecursion}
+  \hNrmPes_{t}=\left(\frac{\PermGroFac\permShkIndMin}{\Rfree}\right)\left(\IncUnemp+\hNrmPes_{t+1}\right),
+  \qquad\text{so that}\qquad
+  \hNrmPes_{T-n}=\IncUnemp\sum_{j=1}^{n}\left(\frac{\PermGroFac\permShkIndMin}{\Rfree}\right)^{j}.
+\end{equation}
+In levels, $\permLvl_{t}\hNrmPes_{t}$ is the present discounted value of the minimum income $\IncUnemp\permLvl_{t+j}$ in the remaining periods, along the path on which every future permanent shock takes its lowest value.
+It is what a lender who must be repaid with certainty will lend.
+Unlike $\hNrm_{t}$ in Equation~\eqref{eq:HDef}, it excludes current income, which is already part of $\mNrm_{t}$.
+
+\begin{lemma}(Natural Borrowing Limit).\label{lemma:NaturalBorrowingLimit}
+Under Assumption~\ref{ass:shocksPositiveMinimum}, a feasible plan exists from $\mNrm_{t}$ if and only if $\mNrm_{t}>-\hNrmPes_{t}$, and the feasible choices at $t<T$ are those with
+\begin{equation}\label{eq:NaturalBorrowingLimit}
+  \aNrm_{t}>-\hNrmPes_{t},\qquad\text{that is,}\qquad 0<\cNrm_{t}<\mNrm_{t}+\hNrmPes_{t}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+If $\IncUnemp=0$ then $\hNrmPes_{t}=0$ and the claim is the natural borrowing constraint of the text, $\aNrm_{t}>0$; so let $\IncUnemp>0$.
+At $T$ a feasible plan exists if and only if $\mNrm_{T}>0=-\hNrmPes_{T}$.
+Suppose the claim holds at $t+1$.
+A choice $\aNrm_{t}$ is feasible if and only if $\aNrm_{t}\RNrmByG/\permShk_{t+1}+\tranShkAll_{t+1}>-\hNrmPes_{t+1}$ with probability one.
+For $\aNrm_{t}\geq 0$ this always holds, because $\tranShkAll_{t+1}\geq\IncUnemp>0\geq-\hNrmPes_{t+1}$.
+For $\aNrm_{t}<0$ the left-hand side is lowest in the worst event, which has positive probability, so the requirement is $\aNrm_{t}\RNrmByG/\permShkIndMin+\IncUnemp>-\hNrmPes_{t+1}$, which is $\aNrm_{t}>-(\IncUnemp+\hNrmPes_{t+1})\permShkIndMin/\RNrmByG=-\hNrmPes_{t}$.
+Since $\cNrm_{t}>0$ requires $\aNrm_{t}<\mNrm_{t}$, a feasible choice exists if and only if $\mNrm_{t}>-\hNrmPes_{t}$.
+\end{proof}
+
+As the horizon recedes, minimum human wealth has a finite limit if and only if either $\IncUnemp=0$ or
+\begin{equation}\label{eq:FiniteMinHumanWealth}
+  \PermGroFac\permShkIndMin<\Rfree, \qquad\text{in which case}\qquad \hNrmPes\colon=\lim_{n\rightarrow\infty}\hNrmPes_{T-n}=\frac{\IncUnemp\,\PermGroFac\permShkIndMin}{\Rfree-\PermGroFac\permShkIndMin}.
+\end{equation}
+\hyperlink{FHWC}{Finite human wealth} (Assumption~\ref{ass:FHWC}) implies~\eqref{eq:FiniteMinHumanWealth}, because $\permShkIndMin\leq 1$.
+But the results of Section~\ref{subsec:limSolExists} do not require finite human wealth, and when $\PermGroFac\geq\Rfree$ Condition~\eqref{eq:FiniteMinHumanWealth} is a restriction on the lowest permanent shock.
+From here on we maintain that minimum human wealth is finite (that is, $\IncUnemp=0$ or $\PermGroFac\permShkIndMin<\Rfree$), and it is this that we mean by Condition~\eqref{eq:FiniteMinHumanWealth}; Section~\ref{subsec:PositiveMinimumFailures} says what happens without it.
+In the notation of the text, the lowest market resources from which positive consumption is feasible are $\mNrmMin_{t}=-\hNrmPes_{t}$, with limit $\mNrmMin=-\hNrmPes$; with $\IncUnemp=0$ this is the $\mNrmMin=0$ of the text.
+
+\subsection{Resources Measured from the Natural Borrowing Limit}\label{subsec:ExcessResources}
+
+Write $\mNrmEx_{t}=\mNrm_{t}-\mNrmMin_{t}$ for `excess' market resources, those above the natural borrowing limit, and mark with the same two dots any other variable or function measured from that limit:
+\begin{equation}\label{eq:nblDefs}
+  \nbl{\mNrm}_{t}\colon=\mNrm_{t}+\hNrmPes_{t},\qquad
+  \nbl{\aNrm}_{t}\colon=\aNrm_{t}+\hNrmPes_{t},\qquad
+  \nbl{\vFunc}_{t}(\nbl{\mNrm})\colon=\vFunc_{t}(\nbl{\mNrm}-\hNrmPes_{t}),\qquad
+  \nbl{\cFunc}_{t}(\nbl{\mNrm})\colon=\cFunc_{t}(\nbl{\mNrm}-\hNrmPes_{t}),
+\end{equation}
+and define
+\begin{equation}\label{eq:tranShkNbl}
+  \tranShkNbl_{t+1}\colon=\left(\tranShkAll_{t+1}-\IncUnemp\right)+\left(\IncUnemp+\hNrmPes_{t+1}\right)\left(1-\frac{\permShkIndMin}{\permShk_{t+1}}\right).
+\end{equation}
+
+\begin{lemma}(The Problem in Excess Resources).\label{lemma:ExcessResources}
+Under Assumption~\ref{ass:shocksPositiveMinimum}, for $t<T$ and $\nbl{\mNrm}_{t}>0$,
+\begin{equation}\label{eq:veqnNbl}
+  \begin{aligned}
+    \nbl{\vFunc}_{t}(\nbl{\mNrm}_{t}) & =\max_{0<\cNrm_{t}<\nbl{\mNrm}_{t}}~\uFunc(\cNrm_{t})+\DiscFac\Ex_{t}[\PermGroFacRnd_{t+1}^{1-\CRRA}\nbl{\vFunc}_{t+1}(\nbl{\mNrm}_{t+1})] \\
+    \nbl{\aNrm}_{t} & =\nbl{\mNrm}_{t}-\cNrm_{t} \\
+    \nbl{\mNrm}_{t+1} & =\nbl{\aNrm}_{t}\RNrmByGRnd_{t+1}+\tranShkNbl_{t+1},
+  \end{aligned}
+\end{equation}
+with $\nbl{\vFunc}_{T}=\uFunc$.
+The transformed income $\tranShkNbl_{t+1}$ has these properties:
+\begin{enumerate}[label=(\alph*)]
+\item $\tranShkNbl_{t+1}\geq 0$, with equality exactly in the worst event, whose probability is $\pWorst>0$.
+\item There is $\tranShkNblMin>0$, the same for every $t$, such that $\tranShkNbl_{t+1}\geq\tranShkNblMin$ outside the worst event.
+\item $\tranShkNbl_{t+1}\leq\tranShkAllMax-\IncUnemp+(\IncUnemp+\hNrmPes_{t+1})(1-\permShkIndMin/\permShkIndMax)<\infty$, where $\tranShkAllMax\colon=\Max{\tranShkEmp}(1-\pZero\IncUnemp)/\pNotZero$; if~\eqref{eq:FiniteMinHumanWealth} holds, the bound $\tranShkNblMax\colon=\tranShkAllMax-\IncUnemp+(\IncUnemp+\hNrmPes)(1-\permShkIndMin/\permShkIndMax)$ serves for every $t$.
+\item If~\eqref{eq:FiniteMinHumanWealth} holds, then, shock by shock, $\tranShkNbl_{T-n+1}$ is nondecreasing in $n$ and converges to $\tranShkNbl\colon=(\tranShkAll-\IncUnemp)+(\IncUnemp+\hNrmPes)(1-\permShkIndMin/\permShk)$, with
+$0\leq\tranShkNbl-\tranShkNbl_{T-n+1}\leq\hNrmPes-\hNrmPes_{T-n+1}=\hNrmPes\,(\PermGroFac\permShkIndMin/\Rfree)^{n-1}$.
+\item $\Ex[\tranShkNbl_{t+1}]=1-\IncUnemp+(\IncUnemp+\hNrmPes_{t+1})(1-\permShkIndMin\Ex[\permShk^{-1}])$, and $\tranShkNbl_{t+1}$ is independent of $\permShk_{t+1}$ only if $\IncUnemp=0$ or there are no permanent shocks.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+By~\eqref{eq:hNrmMinRecursion}, $\hNrmPes_{t}\RNrmByG/\permShk_{t+1}=(\IncUnemp+\hNrmPes_{t+1})\permShkIndMin/\permShk_{t+1}$, so
+\begin{equation*}
+  \nbl{\mNrm}_{t+1}=(\nbl{\aNrm}_{t}-\hNrmPes_{t})\RNrmByG/\permShk_{t+1}+\tranShkAll_{t+1}+\hNrmPes_{t+1}
+  =\nbl{\aNrm}_{t}\RNrmByGRnd_{t+1}+\tranShkNbl_{t+1}.
+\end{equation*}
+By Lemma~\ref{lemma:NaturalBorrowingLimit} the feasible choices are $0<\cNrm_{t}<\nbl{\mNrm}_{t}$, which gives~\eqref{eq:veqnNbl}; that the supremum is attained follows as in Lemma~\ref{lemm:consC2}.
+Both terms of~\eqref{eq:tranShkNbl} are non-negative.
+If $\IncUnemp>0$ both are zero only in the worst event.
+Outside it either $\tranShkAll_{t+1}\geq\IncEmpMin$, or $\tranShkAll_{t+1}=\IncUnemp$ and $\permShk_{t+1}\geq\permShkNextMin$, so (a) and (b) hold with $\tranShkNblMin=\min\{\IncEmpMin-\IncUnemp,\ \IncUnemp(1-\permShkIndMin/\permShkNextMin)\}$ (and with $\tranShkNblMin=\IncEmpMin-\IncUnemp$ if there are no permanent shocks).
+If $\IncUnemp=0$ then $\hNrmPes_{t+1}=0$ and $\tranShkNbl_{t+1}=\tranShkAll_{t+1}$, so (a) and (b) hold with $\tranShkNblMin=\IncEmpMin$.
+Parts (c)--(e) are immediate from~\eqref{eq:tranShkNbl}, \eqref{eq:hNrmMinRecursion} and $\Ex[\tranShkAll]=1$.
+\end{proof}
+
+\begin{remark}(Transforming the model back).\label{remark:TransformingBack}
+If there are no permanent shocks ($\permShk\equiv 1$), then $\tranShkNbl_{t+1}=\tranShkAll_{t+1}-\IncUnemp$ in every period: an iid income that is zero with probability $\pZero$ and has mean $1-\IncUnemp$.
+Dividing $\nbl{\mNrm}$, $\nbl{\aNrm}$ and $\cNrm$ by $1-\IncUnemp$ (which multiplies value by a constant) then makes~\eqref{eq:veqnNbl} exactly Problem~\eqref{eq:veqnNrmRecBellman}, with $\tranShkEmp$ replaced by the mean-one variable $(\tranShkEmp(1-\pZero\IncUnemp)-\IncUnemp\pNotZero)/(1-\IncUnemp)$, whose lowest value is positive by~\eqref{eq:MinIncomeBelowEmployed}.
+In that case every result in the text applies as it stands to the problem in excess resources.
+In the original variables $\cFunc_{t}(\mNrm)$ is $(1-\IncUnemp)$ times the text's consumption function evaluated at $(\mNrm+\hNrmPes_{t})/(1-\IncUnemp)$, so a limiting solution also requires $\hNrmPes_{t}$ to converge, which without permanent shocks means $\PermGroFac<\Rfree$.
+With permanent shocks,~\eqref{eq:veqnNbl} is not an instance of Problem~\eqref{eq:veqnNrmRecBellman}: by parts (a), (d) and (e), the transformed income depends on the permanent shock and on the horizon, its mean need not be one, and it is zero with probability $\pWorst$, not $\pZero$.
+What the proofs in the text use, however, is only that income is non-negative and bounded, is zero with positive probability, and is otherwise bounded away from zero.
+Parts (a)--(c) restore that, and part (d) controls the dependence on the horizon.
+\end{remark}
+
+\subsection{Limiting MPCs}\label{subsec:PositiveMinimumMPC}
+
+\begin{proposition}\label{prop:cfuncpropPositiveMinimum}
+Under Assumption~\ref{ass:shocksPositiveMinimum}, for each $t<T$ the function $\nbl{\cFunc}_{t}$ is twice continuously differentiable, strictly increasing and strictly concave on $\Reals_{++}$, with $0<\nbl{\cFunc}_{t}(\nbl{\mNrm})<\nbl{\mNrm}$; and $\nbl{\vFunc}_{t}$ is strictly negative, strictly increasing, strictly concave and $\mathbf{C}^{3}$, with $\lim_{\nbl{\mNrm}\rightarrow 0}\nbl{\vFunc}_{t}(\nbl{\mNrm})=-\infty$.
+\end{proposition}
+
+\begin{proof}
+The proofs of Lemma~\ref{lemm:consC2} and Claim~\ref{prop:vfc3} apply to~\eqref{eq:veqnNbl} word for word: they use of income only that it is bounded and that it is zero with positive probability (Lemma~\ref{lemma:ExcessResources}(a)), which is what makes the end-of-period value function tend to $-\infty$ as $\nbl{\aNrm}\rightarrow 0$.
+Concavity of $\cFunc_{t}$ is a property of the problem in the original variables, where the shocks are independent as in the text, and it is not affected by a shift of the argument; it follows as in the proof of Proposition~\ref{prop:cfuncprop}.
+\end{proof}
+
+Because $\nbl{\cFunc}_{t}$ is concave with $\lim_{\nbl{\mNrm}\rightarrow 0}\nbl{\cFunc}_{t}(\nbl{\mNrm})=0$, the ratio $\nbl{\eFunc}_{t}(\nbl{\mNrm})\colon=\nbl{\cFunc}_{t}(\nbl{\mNrm})/\nbl{\mNrm}$ is non-increasing, so the limits
+\begin{equation*}
+  \MPCmin_{t}\colon=\lim_{\nbl{\mNrm}\rightarrow\infty}\nbl{\eFunc}_{t}(\nbl{\mNrm}),\qquad \MPCmax_{t}\colon=\lim_{\nbl{\mNrm}\rightarrow 0}\nbl{\eFunc}_{t}(\nbl{\mNrm})
+\end{equation*}
+exist and are the limits of the MPC as $\mNrm\rightarrow\infty$ and as $\mNrm\rightarrow-\hNrmPes_{t}$.
+In this appendix $\MPCmin_{t}$, $\MPCmax_{t}$, $\MPCmin$ and $\MPCmax$ denote these objects; with $\IncUnemp=0$ they are the ones in the text.
+The condition that takes the place of \hyperlink{WRIC}{weak return impatience} (Assumption~\ref{ass:WRIC}) is the same inequality with the probability of the worst event:
+\begin{equation}\label{eq:WRICWorst}
+  \pWorst^{1/\CRRA}\RPFac<1 .
+\end{equation}
+Because $\pWorst\leq\pZero$, weak return impatience implies~\eqref{eq:WRICWorst}, and the two coincide when $\IncUnemp=0$.
+
+\begin{remark}\label{remark:WRICWorstImplied}
+If $\IncUnemp>0$, \hyperlink{FVAC}{finite value of autarky} and~\eqref{eq:FiniteMinHumanWealth} imply~\eqref{eq:WRICWorst}.
+Indeed $\PermGroFac<\Rfree/\permShkIndMin$ and $1-\CRRA<0$ give
+\begin{equation*}
+  1>\DiscFac\PermGroFac^{1-\CRRA}\Ex[\permShk^{1-\CRRA}]>\DiscFac\Rfree^{1-\CRRA}\Ex[(\permShk/\permShkIndMin)^{1-\CRRA}]=\RPFac^{\CRRA}\Ex[(\permShk/\permShkIndMin)^{1-\CRRA}]\geq\RPFac^{\CRRA}\pZeroPerm\geq\RPFac^{\CRRA}\pWorst .
+\end{equation*}
+So when income while unemployed is positive, the hypotheses of Theorem~\ref{thm:existencePositiveMinimum} below come down to finite value of autarky and finite minimum human wealth.
+\end{remark}
+
+\begin{lemma}(Limiting MPCs).\label{lemma:MPCPositiveMinimum}
+Under Assumption~\ref{ass:shocksPositiveMinimum}, $\MPCmin_{T}=\MPCmax_{T}=1$ and for each $n\geq 1$:
+\begin{equation}\label{eq:MPCInvPositiveMinimum}
+  \MPCmin_{T-n}^{-1}=1+\RPFac\,\MPCmin_{T-n+1}^{-1},\qquad
+  \MPCmax_{T-n}^{-1}=1+\pWorst^{1/\CRRA}\RPFac\,\MPCmax_{T-n+1}^{-1},
+\end{equation}
+and
+\begin{equation}\label{eq:cBoundsPositiveMinimum}
+  \MPCmin_{t}\,(\mNrm+\hNrmPes_{t})\leq\cFunc_{t}(\mNrm)\leq\MPCmax_{t}\,(\mNrm+\hNrmPes_{t}),\qquad \mNrm>-\hNrmPes_{t}.
+\end{equation}
+If~\eqref{eq:WRICWorst} holds, then $\lim_{n\rightarrow\infty}\MPCmax_{T-n}=\MPCmax\colon=1-\pWorst^{1/\CRRA}\RPFac>0$.
+If \hyperlink{RIC}{return impatience} (Assumption~\ref{ass:RIC}) holds, then $\lim_{n\rightarrow\infty}\MPCmin_{T-n}=\MPCmin\colon=1-\RPFac>0$; otherwise the limit is $\MPCmin\colon=0$.
+\end{lemma}
+
+\begin{proof}
+For $\IncUnemp=0$ this is Lemma~\ref{lemm:MPC}; let $\IncUnemp>0$.
+Problem~\eqref{eq:veqnNbl} has the first order condition $\nbl{\cFunc}_{t}(\nbl{\mNrm}_{t})^{-\CRRA}=\Rfree\DiscFac\Ex_{t}[\PermGroFacRnd_{t+1}^{-\CRRA}\nbl{\cFunc}_{t+1}(\nbl{\mNrm}_{t+1})^{-\CRRA}]$, the counterpart of~\eqref{eq:scaledeuler}.
+\emph{Minimal MPCs.}
+The argument of Part (1.) of the proof of Lemma~\ref{lemm:MPC} applies unchanged, because it uses of income only that $\PermGroFacRnd_{t+1}\tranShkNbl_{t+1}$ is bounded (Lemma~\ref{lemma:ExcessResources}(c)).
+
+\emph{Maximal MPCs.}
+Write $\nbl{\aFunc}_{t}(\nbl{\mNrm})=\nbl{\mNrm}-\nbl{\cFunc}_{t}(\nbl{\mNrm})$.
+In the worst event $\PermGroFacRnd_{t+1}=\PermGroFac\permShkIndMin$ and $\nbl{\mNrm}_{t+1}=\nbl{\aFunc}_{t}(\nbl{\mNrm}_{t})\Rfree/(\PermGroFac\permShkIndMin)$, so $\PermGroFacRnd_{t+1}\nbl{\cFunc}_{t+1}(\nbl{\mNrm}_{t+1})=\Rfree\,\nbl{\aFunc}_{t}(\nbl{\mNrm}_{t})\,\nbl{\eFunc}_{t+1}(\nbl{\mNrm}_{t+1})$.
+Multiplying the first order condition by $\nbl{\mNrm}_{t}^{\CRRA}$ and separating the worst event from its complement $\mathcal{W}^{c}$,
+\begin{equation}\label{eq:eFuncEulerPositiveMinimum}
+  \begin{aligned}
+  \nbl{\eFunc}_{t}(\nbl{\mNrm}_{t})^{-\CRRA}
+  & =\DiscFac\Rfree\,\nbl{\mNrm}_{t}^{\CRRA}\,\Ex_{t}\left[\left(\PermGroFacRnd_{t+1}\nbl{\cFunc}_{t+1}(\nbl{\mNrm}_{t+1})\right)^{-\CRRA}\mathbf{1}_{\mathcal{W}^{c}}\right] \\
+  & \qquad +\pWorst\DiscFac\Rfree^{1-\CRRA}\left(\nbl{\eFunc}_{t+1}\!\left(\frac{\nbl{\aFunc}_{t}(\nbl{\mNrm}_{t})\RNrmByG}{\permShkIndMin}\right)\left(1-\nbl{\eFunc}_{t}(\nbl{\mNrm}_{t})\right)\right)^{-\CRRA}.
+  \end{aligned}
+\end{equation}
+On $\mathcal{W}^{c}$, $\nbl{\mNrm}_{t+1}\geq\tranShkNblMin$ (Lemma~\ref{lemma:ExcessResources}(b)) and $\nbl{\cFunc}_{t+1}$ is increasing, so the expectation in the first term is at most $(\PermGroFac\permShkIndMin\,\nbl{\cFunc}_{t+1}(\tranShkNblMin))^{-\CRRA}<\infty$, and the first term vanishes as $\nbl{\mNrm}_{t}\rightarrow 0$.
+As $\nbl{\mNrm}_{t}\rightarrow 0$, $\nbl{\aFunc}_{t}(\nbl{\mNrm}_{t})\rightarrow 0$, so $\nbl{\eFunc}_{t+1}(\nbl{\aFunc}_{t}(\nbl{\mNrm}_{t})\RNrmByG/\permShkIndMin)\rightarrow\MPCmax_{t+1}\in(0,1]$.
+The left-hand side converges to $\MPCmax_{t}^{-\CRRA}$, which is finite because $\MPCmax_{t}\geq\nbl{\eFunc}_{t}(1)>0$.
+Hence $(1-\nbl{\eFunc}_{t}(\nbl{\mNrm}_{t}))^{-\CRRA}$ has a finite limit, so $\MPCmax_{t}<1$ and
+$\MPCmax_{t}^{-\CRRA}=\pWorst\DiscFac\Rfree^{1-\CRRA}\MPCmax_{t+1}^{-\CRRA}(1-\MPCmax_{t})^{-\CRRA}$.
+Raising both sides to the power $-1/\CRRA$ gives $\pWorst^{1/\CRRA}\RPFac\,\MPCmax_{t}=(1-\MPCmax_{t})\MPCmax_{t+1}$, which rearranges to the second recursion in~\eqref{eq:MPCInvPositiveMinimum}.
+The bounds~\eqref{eq:cBoundsPositiveMinimum} hold because $\nbl{\eFunc}_{t}$ is non-increasing, and the limits follow from the recursions as in Lemma~\ref{lemm:MPC}.
+\end{proof}
+
+The economics is that of the text, with one change.
+Near the natural borrowing limit, what restrains consumption is the fear of the event in which next period's resources fall to the limit itself; with a positive minimum income and permanent shocks, that requires the unemployment event \emph{and} the lowest permanent shock, because with any higher permanent shock the debt is smaller relative to the income against which it was secured.
+So the maximal MPC is governed by $\pWorst=\pZero\pZeroPerm$, not by $\pZero$: it is higher than in the text, and~\eqref{eq:WRICWorst} is weaker than weak return impatience.
+The dependence on $\IncUnemp$ is discontinuous at zero: for every $\IncUnemp>0$, however small, the MPC at the limit is $1-(\pZero\pZeroPerm)^{1/\CRRA}\RPFac$, while for $\IncUnemp=0$ it is $1-\pZero^{1/\CRRA}\RPFac$.
+
+\subsection{Existence of a Limiting Solution}\label{subsec:PositiveMinimumExistence}
+
+Throughout this section let Assumption~\ref{ass:shocksPositiveMinimum}, \eqref{eq:FiniteMinHumanWealth}, \eqref{eq:WRICWorst} and \hyperlink{FVAC}{finite value of autarky} (Assumption~\ref{ass:FVAC}) hold.
+By the argument of Claim~\ref{claim:MPCMAXKleq1} with $\pWorst$ in place of $\pZero$, there is $k\geq 1$ such that $\pWorst\DiscFac(\Rfree(1-\MPCmax_{T-k}))^{1-\CRRA}<1$.
+Fix such a $k$, fix
+\begin{equation}\label{eq:shnkrdefPositiveMinimum}
+  \Shrinker\in\left(\max\left\{\pWorst\DiscFac(\Rfree(1-\MPCmax_{T-k}))^{1-\CRRA},\ \DiscFac\Ex\PermGroFacRnd^{1-\CRRA}\right\},\ 1\right),
+\end{equation}
+and let the bounding function be
+\begin{equation}\label{eq:boundFuncPositiveMinimum}
+  \boundFunc(x)=\zetaNbl+x^{1-\CRRA},\qquad
+  \zetaNbl\colon=\frac{\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}\,\tranShkNblMin^{1-\CRRA}}{\Shrinker-\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}}.
+\end{equation}
+For $t<T$ and $0<\MPCminInf\leq\MPCmaxInf<1$ define, for $\fFunc\in\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$,
+\begin{equation}\label{eq:TMapNbl}
+  \TMapNbl_{t}^{\MPCminInf,\MPCmaxInf}\fFunc(\nbl{\mNrm})=\max_{\cNrm\in[\MPCminInf\nbl{\mNrm},\MPCmaxInf\nbl{\mNrm}]}\left\{\uFunc(\cNrm)+\DiscFac\Ex\left[\PermGroFacRnd^{1-\CRRA}\fFunc\left(\RNrmByGRnd(\nbl{\mNrm}-\cNrm)+\tranShkNbl_{t+1}\right)\right]\right\},
+\end{equation}
+and let $\TMapNbl$ be the stationary operator in which $\tranShkNbl$ of Lemma~\ref{lemma:ExcessResources}(d) replaces $\tranShkNbl_{t+1}$ and the maximum is over $\cNrm\in(0,\nbl{\mNrm})$.
+By Lemma~\ref{lemma:MPCPositiveMinimum}, $\nbl{\vFunc}_{t}=\TMapNbl_{t}^{\MPCmin_{t},\MPCmax_{t}}\nbl{\vFunc}_{t+1}$ for $t<T$.
+
+\begin{theorem}(Contraction Mapping Under Consumption Bounds).\label{thm:cmapPositiveMinimum}
+For every $t<T$ and every $[\MPCminInf,\MPCmaxInf]$ with $\MPCmax_{T-k}\geq\MPCmaxInf\geq\MPCminInf>0$, the operator $\TMapNbl_{t}^{\MPCminInf,\MPCmaxInf}$ maps $\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$ into itself and is a contraction with modulus $\Shrinker$.
+The modulus and the bounding function do not depend on $t$.
+\end{theorem}
+
+\begin{proof}
+Let $\nbl{\aNrm}\geq(1-\MPCmaxInf)\nbl{\mNrm}$ and $\nbl{\mNrm}^{\nxt}=\nbl{\aNrm}\RNrmByGRnd+\tranShkNbl_{t+1}$.
+In the worst event $\PermGroFacRnd^{1-\CRRA}(\nbl{\mNrm}^{\nxt})^{1-\CRRA}=(\Rfree\nbl{\aNrm})^{1-\CRRA}\leq(\Rfree(1-\MPCmaxInf)\nbl{\mNrm})^{1-\CRRA}$; outside it $(\nbl{\mNrm}^{\nxt})^{1-\CRRA}\leq\tranShkNblMin^{1-\CRRA}$ by Lemma~\ref{lemma:ExcessResources}(b).
+Therefore
+\begin{equation}\label{eq:boundFuncKey}
+  \begin{aligned}
+  \DiscFac\Ex\left[\PermGroFacRnd^{1-\CRRA}\boundFunc(\nbl{\mNrm}^{\nxt})\right]
+  & \leq\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}\left(\zetaNbl+\tranShkNblMin^{1-\CRRA}\right)+\pWorst\DiscFac(\Rfree(1-\MPCmaxInf))^{1-\CRRA}\nbl{\mNrm}^{1-\CRRA} \\
+  & \leq\Shrinker\zetaNbl+\Shrinker\nbl{\mNrm}^{1-\CRRA}=\Shrinker\boundFunc(\nbl{\mNrm}),
+  \end{aligned}
+\end{equation}
+where the second inequality uses the definition of $\zetaNbl$ and $\pWorst\DiscFac(\Rfree(1-\MPCmaxInf))^{1-\CRRA}\leq\pWorst\DiscFac(\Rfree(1-\MPCmax_{T-k}))^{1-\CRRA}<\Shrinker$.
+Inequality~\eqref{eq:boundFuncKey} is Equation~\eqref{eq:reqCondWeak}; apart from it, the proofs of Claim~\ref{clm:hiraguchi_cont} and Theorem~\ref{thm:cmap} use of the income process only that income is non-negative and bounded (Lemma~\ref{lemma:ExcessResources}(a),(c)).
+With it, those proofs apply without further change: the operator is monotone, maps the zero function to $\uFunc(\MPCmaxInf\,\cdot)\in\mathcal{C}_{\boundFunc}$, satisfies Condition (3) of Theorem~\ref{thm:Boyd} with $\Shrinker$, and (by Berge's theorem, the band being compact-valued and $\nbl{\aNrm}$ being bounded away from zero on it) maps continuous $\boundFunc$-bounded functions to continuous $\boundFunc$-bounded functions.
+\end{proof}
+
+\begin{theorem}(Existence of a Non-degenerate Solution).\label{thm:existencePositiveMinimum}
+Let Assumption~\ref{ass:shocksPositiveMinimum}, \eqref{eq:FiniteMinHumanWealth}, \eqref{eq:WRICWorst} and \hyperlink{FVAC}{finite value of autarky} (Assumption~\ref{ass:FVAC}) hold.
+Then:
+\begin{enumerate}[label=(\roman*)]
+\item The sequence $\{\nbl{\vFunc}_{T-n}\}_{n=0}^{\infty}$ converges in the $\boundFunc$-norm to some $\nbl{\vFunc}\in\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$.
+\item $\nbl{\vFunc}$ is a fixed point of the stationary operator, $\TMapNbl\nbl{\vFunc}=\nbl{\vFunc}$, and for each $\nbl{\mNrm}>0$ the maximum is attained at a unique $\nbl{\cFunc}(\nbl{\mNrm})\in(0,\nbl{\mNrm})$.
+\item $\{\nbl{\cFunc}_{T-n}\}_{n=0}^{\infty}$ converges point-wise to $\nbl{\cFunc}$.
+\item In the original variables: for every $\mNrm>-\hNrmPes$,
+$\lim_{n\rightarrow\infty}\vFunc_{T-n}(\mNrm)=\vFunc(\mNrm)\colon=\nbl{\vFunc}(\mNrm+\hNrmPes)$ and $\lim_{n\rightarrow\infty}\cFunc_{T-n}(\mNrm)=\cFunc(\mNrm)\colon=\nbl{\cFunc}(\mNrm+\hNrmPes)>0$.
+\end{enumerate}
+That is, the problem has a non-degenerate limiting solution on $(-\hNrmPes,\infty)$.
+\end{theorem}
+
+The proof follows that of Theorem~\ref{thm:convgtobellman}, with one new element.
+Because minimum human wealth grows with the horizon, successive value functions are generated by different operators, $\nbl{\vFunc}_{T-n}=\TMapNbl_{T-n}^{\MPCmin_{T-n},\MPCmax_{T-n}}\nbl{\vFunc}_{T-n+1}$, so the sequence is not the orbit of a single contraction.
+The operators differ only through $\tranShkNbl_{T-n+1}$, which converges geometrically (Lemma~\ref{lemma:ExcessResources}(d)) and differs across horizons only where next period's resources are bounded away from zero; the proof shows that this perturbation is summable.
+
+\begin{proof}
+Write $t_{n}\colon=T-n$, and recall that $\MPCmax_{T-k}<1$ because $k\geq 1$.
+
+\statement{Step 1. A bound on value and on consumption that is uniform in the horizon.}
+Let $\wFunc_{0}=\uFunc$ and, for $n\geq 1$, let $\wFunc_{n}(\nbl{\mNrm})\colon=\uFunc(\MPCmax_{T-k}\nbl{\mNrm})+\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}\wFunc_{n-1}((1-\MPCmax_{T-k})\nbl{\mNrm}\RNrmByGRnd+\tranShkNbl_{t_{n}+1})]$ be the value of consuming the fraction $\MPCmax_{T-k}$ of excess resources in every period before the last.
+That policy is feasible, so by induction $0>\nbl{\vFunc}_{t_{n}}\geq\wFunc_{n}$.
+By~\eqref{eq:boundFuncKey}, $\Vert\wFunc_{n}\Vert_{\boundFunc}\leq\MPCmax_{T-k}^{1-\CRRA}/(\CRRA-1)+\Shrinker\Vert\wFunc_{n-1}\Vert_{\boundFunc}$, and $\Vert\wFunc_{0}\Vert_{\boundFunc}\leq 1/(\CRRA-1)$, so for every $n$
+\begin{equation}\label{eq:valueBoundUniform}
+  \vert\nbl{\vFunc}_{t_{n}}(\nbl{\mNrm})\vert\leq B\,\boundFunc(\nbl{\mNrm}),\qquad B\colon=\frac{\MPCmax_{T-k}^{1-\CRRA}}{(\CRRA-1)(1-\Shrinker)}.
+\end{equation}
+(The constant $B$ exceeds $1/(\CRRA-1)$ because $\MPCmax_{T-k}<1$.)
+In particular $\nbl{\vFunc}_{t_{n}}\in\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$.
+For $n\geq 1$ continuation value is negative, so $\uFunc(\nbl{\cFunc}_{t_{n}}(\nbl{\mNrm}))>\nbl{\vFunc}_{t_{n}}(\nbl{\mNrm})\geq-B\boundFunc(\nbl{\mNrm})$, which rearranges to
+\begin{equation}\label{eq:cLowerUniform}
+  \nbl{\cFunc}_{t_{n}}(\nbl{\mNrm})\geq\underline{\cFunc}(\nbl{\mNrm})\colon=\MPCmax_{T-k}\left(\frac{1-\Shrinker}{\boundFunc(\nbl{\mNrm})}\right)^{1/(\CRRA-1)}>0\qquad\text{for all $n\geq 0$.}
+\end{equation}
+(For $n=0$, where $\nbl{\cFunc}_{T}(\nbl{\mNrm})=\nbl{\mNrm}$, the bound holds because $\boundFunc(\nbl{\mNrm})\geq\nbl{\mNrm}^{1-\CRRA}$.)
+The function $\underline{\cFunc}$ is increasing.
+By the envelope condition $\nbl{\vFunc}_{t_{n}}^{\prime}=\uFunc^{\prime}(\nbl{\cFunc}_{t_{n}})$, so each $\nbl{\vFunc}_{t_{n}}$ is Lipschitz on $[\tranShkNblMin,\infty)$ with the same constant $D\colon=\underline{\cFunc}(\tranShkNblMin)^{-\CRRA}$.
+
+\statement{Step 2. The value functions are a Cauchy sequence.}
+Let $n\geq k+2$ and abbreviate $\TMapNbl_{t}^{n}\colon=\TMapNbl_{t}^{\MPCmin_{t_{n}},\MPCmax_{t_{n-1}}}$.
+As in the proof of Theorem~\ref{thm:convgtobellman}, because the MPC bounds are non-increasing in $n$, $\nbl{\vFunc}_{t_{n}}=\TMapNbl_{t_{n}}^{n}\nbl{\vFunc}_{t_{n-1}}$ and $\nbl{\vFunc}_{t_{n-1}}=\TMapNbl_{t_{n-1}}^{n}\nbl{\vFunc}_{t_{n-2}}$.
+By Theorem~\ref{thm:cmapPositiveMinimum},
+\begin{equation}\label{eq:CauchyPerturbed}
+  \Vert\nbl{\vFunc}_{t_{n}}-\nbl{\vFunc}_{t_{n-1}}\Vert_{\boundFunc}
+  \leq\Shrinker\Vert\nbl{\vFunc}_{t_{n-1}}-\nbl{\vFunc}_{t_{n-2}}\Vert_{\boundFunc}
+  +\Vert\TMapNbl_{t_{n}}^{n}\nbl{\vFunc}_{t_{n-2}}-\TMapNbl_{t_{n-1}}^{n}\nbl{\vFunc}_{t_{n-2}}\Vert_{\boundFunc}.
+\end{equation}
+The two operators in the last term maximize, over the same band, objectives that differ only in the argument of $\nbl{\vFunc}_{t_{n-2}}$: $\nbl{\aNrm}\RNrmByGRnd+\tranShkNbl_{t_{n}+1}$ in one and $\nbl{\aNrm}\RNrmByGRnd+\tranShkNbl_{t_{n-1}+1}$ in the other.
+In the worst event both arguments equal $\nbl{\aNrm}\RNrmByGRnd$.
+Outside it both are at least $\tranShkNblMin$ and they differ by at most $\hNrmPes(\PermGroFac\permShkIndMin/\Rfree)^{n-2}$ (Lemma~\ref{lemma:ExcessResources}(b),(d)).
+By Step 1 the objectives therefore differ by at most $\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}D\,\hNrmPes(\PermGroFac\permShkIndMin/\Rfree)^{n-2}$, and so do their maxima.
+Since $\boundFunc\geq\zetaNbl$, the last term of~\eqref{eq:CauchyPerturbed} is at most $C(\PermGroFac\permShkIndMin/\Rfree)^{n-2}$ with $C\colon=\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}D\,\hNrmPes/\zetaNbl$.
+With $d_{n}\colon=\Vert\nbl{\vFunc}_{t_{n}}-\nbl{\vFunc}_{t_{n-1}}\Vert_{\boundFunc}$ this reads $d_{n}\leq\Shrinker d_{n-1}+C(\PermGroFac\permShkIndMin/\Rfree)^{n-2}$, and since $\Shrinker<1$ and $\PermGroFac\permShkIndMin/\Rfree<1$, $\sum_{n}d_{n}<\infty$.
+So $\{\nbl{\vFunc}_{t_{n}}\}$ is a Cauchy sequence in the complete space $\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$ and converges in the $\boundFunc$-norm to some $\nbl{\vFunc}$ in that space, which is (i).
+As a limit of concave functions that are Lipschitz with constant $D$ on $[\tranShkNblMin,\infty)$, $\nbl{\vFunc}$ is concave and Lipschitz with constant $D$ there.
+
+\statement{Step 3. The limit solves the stationary problem, and the consumption functions converge.}
+Fix $\nbl{\mNrm}>0$.
+For $n>k$, by~\eqref{eq:cLowerUniform} and Lemma~\ref{lemma:MPCPositiveMinimum}, $\nbl{\cFunc}_{t_{n}}(\nbl{\mNrm})$ lies in the compact interval $K(\nbl{\mNrm})\colon=[\underline{\cFunc}(\nbl{\mNrm}),\MPCmax_{T-k}\nbl{\mNrm}]\subset(0,\nbl{\mNrm})$.
+For $\cNrm\in(0,\nbl{\mNrm})$ let
+\begin{equation*}
+  \begin{aligned}
+  \fFunc^{n}(\cNrm) & \colon=\uFunc(\cNrm)+\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}\nbl{\vFunc}_{t_{n}+1}(\RNrmByGRnd(\nbl{\mNrm}-\cNrm)+\tranShkNbl_{t_{n}+1})], \\
+  \fFunc(\cNrm) & \colon=\uFunc(\cNrm)+\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}\nbl{\vFunc}(\RNrmByGRnd(\nbl{\mNrm}-\cNrm)+\tranShkNbl)].
+  \end{aligned}
+\end{equation*}
+Then, using $\vert\nbl{\vFunc}_{t_{n}+1}-\nbl{\vFunc}\vert\leq\Vert\nbl{\vFunc}_{t_{n}+1}-\nbl{\vFunc}\Vert_{\boundFunc}\boundFunc$, the bound $\Ex[\PermGroFacRnd^{1-\CRRA}\boundFunc(\RNrmByGRnd\nbl{\aNrm}+\tranShkNbl_{t_{n}+1})]\leq\zetaNbl\Ex\PermGroFacRnd^{1-\CRRA}+(\Rfree\nbl{\aNrm})^{1-\CRRA}$, and the Lipschitz property of $\nbl{\vFunc}$ as in Step 2,
+\begin{equation*}
+  \begin{aligned}
+  \vert\fFunc^{n}(\cNrm)-\fFunc(\cNrm)\vert & \leq\DiscFac\Vert\nbl{\vFunc}_{t_{n}+1}-\nbl{\vFunc}\Vert_{\boundFunc}\left(\zetaNbl\Ex\PermGroFacRnd^{1-\CRRA}+(\Rfree(\nbl{\mNrm}-\cNrm))^{1-\CRRA}\right) \\
+  & \qquad +\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}D\,\hNrmPes\left(\frac{\PermGroFac\permShkIndMin}{\Rfree}\right)^{n-1},
+  \end{aligned}
+\end{equation*}
+which tends to zero uniformly on compact subsets of $(0,\nbl{\mNrm})$.
+The function $\fFunc$ is continuous and, because $\nbl{\vFunc}$ is concave and $\uFunc$ strictly concave, strictly concave.
+Let $\cNrm^{\ast}\in K(\nbl{\mNrm})$ be the limit of a convergent subsequence of $\nbl{\cFunc}_{t_{n}}(\nbl{\mNrm})$.
+Since $\nbl{\cFunc}_{t_{n}}(\nbl{\mNrm})$ maximizes $\fFunc^{n}$ over $(0,\nbl{\mNrm})$, passing to the limit along the subsequence gives $\fFunc(\cNrm^{\ast})\geq\fFunc(\cNrm)$ for every $\cNrm\in(0,\nbl{\mNrm})$.
+By strict concavity the maximizer is unique; call it $\nbl{\cFunc}(\nbl{\mNrm})$.
+Every convergent subsequence has this limit, so $\nbl{\cFunc}_{t_{n}}(\nbl{\mNrm})\rightarrow\nbl{\cFunc}(\nbl{\mNrm})$, which is (iii), and $\nbl{\cFunc}(\nbl{\mNrm})\geq\underline{\cFunc}(\nbl{\mNrm})>0$.
+Finally $\nbl{\vFunc}(\nbl{\mNrm})=\lim_{n}\nbl{\vFunc}_{t_{n}}(\nbl{\mNrm})=\lim_{n}\fFunc^{n}(\nbl{\cFunc}_{t_{n}}(\nbl{\mNrm}))=\fFunc(\nbl{\cFunc}(\nbl{\mNrm}))=\max_{\cNrm\in(0,\nbl{\mNrm})}\fFunc(\cNrm)=\TMapNbl\nbl{\vFunc}(\nbl{\mNrm})$, which is (ii).
+
+\statement{Step 4. The original variables.}
+Fix $\mNrm>-\hNrmPes$.
+For $n$ large, $\mNrm>-\hNrmPes_{t_{n}}$, and $\vFunc_{t_{n}}(\mNrm)=\nbl{\vFunc}_{t_{n}}(\mNrm+\hNrmPes_{t_{n}})$ with $\mNrm+\hNrmPes_{t_{n}}\rightarrow\mNrm+\hNrmPes>0$.
+Convergence in the $\boundFunc$-norm implies uniform convergence on compact subsets of $\Reals_{++}$, and $\nbl{\vFunc}$ is continuous, so $\vFunc_{t_{n}}(\mNrm)\rightarrow\nbl{\vFunc}(\mNrm+\hNrmPes)$.
+The functions $\nbl{\cFunc}_{t_{n}}$ are concave and converge point-wise on $\Reals_{++}$, hence uniformly on compact subsets (Theorem 10.8 in \cite{Rockafellar1972}), so likewise $\cFunc_{t_{n}}(\mNrm)\rightarrow\nbl{\cFunc}(\mNrm+\hNrmPes)$.
+\end{proof}
+
+\begin{lemma}(The Limiting Consumption Function).\label{lemma:MPCBoundsConvgPositiveMinimum}
+Under the hypotheses of Theorem~\ref{thm:existencePositiveMinimum}, the limiting consumption function $\cFunc$ is non-decreasing (strictly increasing under return impatience) and concave on $(-\hNrmPes,\infty)$, satisfies the Euler equation $\cFunc(\mNrm)^{-\CRRA}=\Rfree\DiscFac\Ex[\PermGroFacRnd^{-\CRRA}\cFunc(\mNrm^{\nxt})^{-\CRRA}]$ with $\mNrm^{\nxt}=\RNrmByGRnd(\mNrm-\cFunc(\mNrm))+\tranShkAll$, and
+\begin{equation}\label{eq:cBoundsLimitPositiveMinimum}
+  \lim_{\mNrm\rightarrow-\hNrmPes}\frac{\cFunc(\mNrm)}{\mNrm+\hNrmPes}=\MPCmax,\qquad
+  \lim_{\mNrm\rightarrow\infty}\frac{\cFunc(\mNrm)}{\mNrm}=\MPCmin,\qquad
+  \MPCmin\,(\mNrm+\hNrmPes)\leq\cFunc(\mNrm)\leq\MPCmax\,(\mNrm+\hNrmPes).
+\end{equation}
+Its slope is nowhere below $\MPCmin$ or above $\MPCmax$.
+\end{lemma}
+
+\begin{proof}
+Concavity and monotonicity pass to the point-wise limit, and the inequalities in~\eqref{eq:cBoundsLimitPositiveMinimum} are the limits of~\eqref{eq:cBoundsPositiveMinimum}.
+The Euler equation follows as in Claim~\ref{eq:EuelrStatC}: the first order conditions of the finite-horizon problems converge term by term, the integrand being dominated because, for $n>k$, next period's excess resources are at least $\tranShkNblMin$ outside the worst event and at least $(1-\MPCmax_{T-k})\nbl{\mNrm}\RNrmByG/\permShkIndMin$ in it, and consumption there is at least $\underline{\cFunc}$ of~\eqref{eq:cLowerUniform}.
+The two limits then follow from the Euler equation by the arguments of the proof of Lemma~\ref{lemma:MPCBoundsConvg}, with the decomposition~\eqref{eq:eFuncEulerPositiveMinimum} in place of~\eqref{eq:eFuncEulerMPCmax}.
+A concave function whose ratio to $\mNrm+\hNrmPes$ tends to $\MPCmax$ at the lower end and whose ratio to $\mNrm$ tends to $\MPCmin$ at the upper end has all its slopes in $[\MPCmin,\MPCmax]$.
+\end{proof}
+
+Two further bounds from the text carry over.
+First, when \hyperlink{FHWC}{finite human wealth} and \hyperlink{RIC}{return impatience} hold, the perfect foresight solution remains an upper bound, $\cFunc(\mNrm)\leq(\mNrm-1+\hNrm)\MPCmin$.
+The proof is by induction on the horizon: replace next period's consumption function in the Euler equation by the (linear) perfect foresight rule and apply Jensen's inequality, which needs only $\Ex[\permShk]=\Ex[\permShk\tranShkAll]=1$ and that the perfect foresight rule be positive wherever next period's resources can fall; it is, because minimum human wealth is no greater than $\hNrm-1$.
+Together with~\eqref{eq:cBoundsLimitPositiveMinimum}, consumption lies between the perfect foresight consumption of a consumer who counts only minimum human wealth and that of one who counts all of human wealth.
+Second, as income risk vanishes ($\IncUnemp\rightarrow 1$, $\permShkIndMin\rightarrow 1$), $\hNrmPes\rightarrow(\PermGroFac/\Rfree)/(1-\PermGroFac/\Rfree)=\hNrm-1$: the two bounds coincide, at the perfect foresight solution without a liquidity constraint.
+
+\subsection{Target and Pseudo-Target}\label{subsec:PositiveMinimumTargets}
+
+Because $\mNrm$ can now be zero or negative, the definitions of Section~\ref{subsec:onetarget} are stated as differences, not ratios.
+Let $\bar{\RNrmByGRnd}=\RNrmByG\Ex[\permShk^{-1}]$ as in~\eqref{eq:mTargImplicit}, and for $\mNrm>-\hNrmPes$ let
+\begin{equation}\label{eq:difFuncsPositiveMinimum}
+  \Ex_{t}[\mNrm_{t+1}]-\mNrm_{t}=\bar{\RNrmByGRnd}\,\aFunc(\mNrm_{t})+1-\mNrm_{t},\qquad
+  \Ex_{t}[\permShk_{t+1}\mNrm_{t+1}]-\mNrm_{t}=\RNrmByG\,\aFunc(\mNrm_{t})+1-\mNrm_{t},
+\end{equation}
+where $\aFunc(\mNrm)=\mNrm-\cFunc(\mNrm)$.
+(The second expression has the sign of $\Ex_{t}[\mLvl_{t+1}]-\PermGroFac\mLvl_{t}$.)
+
+\begin{theorem}(Buffer Stock Target).\label{thm:targetPositiveMinimum}
+If the hypotheses of Theorem~\ref{thm:existencePositiveMinimum} and \hyperlink{GICMod}{strong growth impatience} (Assumption~\ref{ass:GICMod}) hold, there is a unique $\mTrgNrm\in(-\hNrmPes,\infty)$ such that $\Ex_{t}[\mNrm_{t+1}]=\mNrm_{t}$ if $\mNrm_{t}=\mTrgNrm$; moreover $\Ex_{t}[\mNrm_{t+1}]>\mNrm_{t}$ for $\mNrm_{t}\in(-\hNrmPes,\mTrgNrm)$ and $\Ex_{t}[\mNrm_{t+1}]<\mNrm_{t}$ for $\mNrm_{t}>\mTrgNrm$.
+\end{theorem}
+
+\begin{theorem}(Pseudo-Target).\label{thm:pseudoTargetPositiveMinimum}
+If the hypotheses of Theorem~\ref{thm:existencePositiveMinimum} and \hyperlink{GICRaw}{growth impatience} (Assumption~\ref{ass:GICRaw}) hold, there is a unique $\mBalLvl\in(-\hNrmPes,\infty)$ such that $\Ex_{t}[\permShk_{t+1}\mNrm_{t+1}]=\mNrm_{t}$ if $\mNrm_{t}=\mBalLvl$; moreover $\Ex_{t}[\mLvl_{t+1}]>\PermGroFac\mLvl_{t}$ for $\mNrm_{t}\in(-\hNrmPes,\mBalLvl)$ and $\Ex_{t}[\mLvl_{t+1}]<\PermGroFac\mLvl_{t}$ for $\mNrm_{t}>\mBalLvl$.
+\end{theorem}
+
+\begin{proof}[Proof of Theorems~\ref{thm:targetPositiveMinimum} and~\ref{thm:pseudoTargetPositiveMinimum}]
+Both expressions in~\eqref{eq:difFuncsPositiveMinimum} are continuous in $\mNrm_{t}$.
+\emph{They are strictly decreasing.}
+This is Part (iii) of the proof of Theorem~\ref{thm:target} and Part (ii) of the proof of Theorem~\ref{thm:MSSBalExists}, which use only that $\cFunc$ is increasing and concave with slope at least $\MPCmin$ (Lemma~\ref{lemma:MPCBoundsConvgPositiveMinimum}): for $\epsilon>0$ the forward difference of the first expression is at most $\epsilon(\bar{\RNrmByGRnd}(1-\MPCmin)-1)$, which is $\epsilon(\GPFacMod-1)<0$ when return impatience holds and $\epsilon(\bar{\RNrmByGRnd}-1)<0$ when it fails (Equations~\eqref{eq:GICStrRICfailst1}--\eqref{eq:GICStrRICfailst2}); the same holds for the second expression with $\RNrmByG$ in place of $\bar{\RNrmByGRnd}$ and $\GPFacRaw$ in place of $\GPFacMod$.
+\emph{They are negative for large $\mNrm_{t}$,} by the same bounds.
+\emph{They are positive near the natural borrowing limit.}
+In excess resources the first expression is $\Ex_{t}[\nbl{\mNrm}_{t+1}]-\nbl{\mNrm}_{t}=\bar{\RNrmByGRnd}\,\nbl{\aNrm}_{t}-\nbl{\mNrm}_{t}+\Ex[\tranShkNbl]$ and the second is $\RNrmByG\,\nbl{\aNrm}_{t}-\nbl{\mNrm}_{t}+\Ex[\permShk\tranShkNbl]$.
+As $\mNrm_{t}\rightarrow-\hNrmPes$, $\nbl{\mNrm}_{t}\rightarrow 0$ and $\nbl{\aNrm}_{t}\rightarrow 0$, so they tend to $\Ex[\tranShkNbl]>0$ and $\Ex[\permShk\tranShkNbl]>0$ (Lemma~\ref{lemma:ExcessResources}(a)).
+The Intermediate Value Theorem gives a root of each, and strict monotonicity gives uniqueness and the signs on either side.
+\end{proof}
+
+In the text the consumer never ends a period with negative assets, so both targets exceed one (the mean of income) and the pseudo-target is the smaller.
+Here neither need be true.
+
+\begin{lemma}(Borrowing at the Targets, and Their Order).\label{lemma:orderingPositiveMinimum}
+Suppose the hypotheses of Theorem~\ref{thm:targetPositiveMinimum} hold and $\permShk$ is not degenerate.
+Then the following have the same sign (positive, zero, or negative):
+\begin{equation*}
+  1-\cFunc(1),\qquad \mBalLvl-1,\qquad \mTrgNrm-1,\qquad \aFunc(\mBalLvl),\qquad \aFunc(\mTrgNrm),\qquad \mTrgNrm-\mBalLvl .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Let $\Phi_{\RNrmByG}(\mNrm)=\RNrmByG\,\aFunc(\mNrm)+1-\mNrm$ and $\Phi_{\bar{\RNrmByGRnd}}(\mNrm)=\bar{\RNrmByGRnd}\,\aFunc(\mNrm)+1-\mNrm$, strictly decreasing with roots $\mBalLvl$ and $\mTrgNrm$.
+Since $\Phi_{\RNrmByG}(1)=\RNrmByG(1-\cFunc(1))$, the root $\mBalLvl$ is above, at, or below one according to the sign of $1-\cFunc(1)$; likewise for $\mTrgNrm$.
+At the roots, $\RNrmByG\,\aFunc(\mBalLvl)=\mBalLvl-1$ and $\bar{\RNrmByGRnd}\,\aFunc(\mTrgNrm)=\mTrgNrm-1$.
+Finally $\Phi_{\bar{\RNrmByGRnd}}(\mBalLvl)=(\bar{\RNrmByGRnd}-\RNrmByG)\,\aFunc(\mBalLvl)$ with $\bar{\RNrmByGRnd}>\RNrmByG$ by Jensen's inequality, so $\mTrgNrm$ is above, at, or below $\mBalLvl$ according to the sign of $\aFunc(\mBalLvl)$.
+\end{proof}
+
+So the question is whether a consumer who has no assets and receives mean income saves ($\cFunc(1)<1$) or borrows.
+With $\IncUnemp=0$ such a consumer always saves, which gives Lemma~\ref{lemma:orderingPartOne}.
+With $\IncUnemp>0$ an impatient consumer may borrow against minimum human wealth; the `buffer stock' is then negative net worth, $\aFunc(\mTrgNrm)<0$, held at a positive distance $\aFunc(\mTrgNrm)+\hNrmPes$ from the borrowing limit, and the target lies \emph{below} the pseudo-target.
+If minimum human wealth is large enough the target $\mTrgNrm$ is itself negative (Table~\ref{table:PositiveMinimumExample}).
+
+Proposition~\ref{prop:convgGrowth} also carries over, with the lower limit taken at the borrowing limit: $\lim_{\mNrm_{t}\rightarrow-\hNrmPes}\Ex_{t}[\cLvl_{t+1}/\cLvl_{t}]=\infty$, because $\cFunc(\mNrm_{t})\rightarrow 0$ while next period's consumption is at least $\nbl{\cFunc}(\tranShkNblMin)>0$ outside the worst event; and under return impatience $\lim_{\mNrm_{t}\rightarrow\infty}\Ex_{t}[\cLvl_{t+1}/\cLvl_{t}]=\APFac$, by the proof in the text.
+
+\subsection{Invariant Distributions and Aggregate Balanced Growth}\label{subsec:PositiveMinimumAggregate}
+
+The aggregate results of the text rest on \cite{szeidlInvariant} and, through it, \cite{harmenbergInvariant}.
+Szeidl's theorem for the buffer-stock model (his Proposition 3) assumes that the consumer cannot borrow and that the permanent and transitory shocks are independent; it covers a zero minimum income because non-negative saving then arises of itself.
+With a positive minimum income and no artificial constraint, the consumer borrows; and in excess resources, where end-of-period assets are again non-negative, income $\tranShkNbl$ is no longer independent of the permanent shock (Lemma~\ref{lemma:ExcessResources}(e)).
+So neither result applies as stated.
+Szeidl's general result does: an increasing Markov process that is Feller, weakly mixing, and uniformly asymptotically tight has a unique invariant distribution, to which it converges from any initial distribution (his Theorem 1).
+We verify its hypotheses for the process of excess resources under the limiting consumption rule,
+\begin{equation}\label{eq:mNblProcess}
+  \nbl{\mNrm}_{t+1}=\nbl{\aFunc}(\nbl{\mNrm}_{t})\RNrmByG/\permShk_{t+1}+\tranShkNbl_{t+1},\qquad \nbl{\aFunc}(\nbl{\mNrm})\colon=\nbl{\mNrm}-\nbl{\cFunc}(\nbl{\mNrm}),\quad\nbl{\aFunc}(0)\colon=0,
+\end{equation}
+on the state space $[0,\infty)$.
+
+For the permanent-income-weighted distribution, let $\Harm{\mu}_{t}(A)\colon=\Ex[\permLvl_{t}\mathbf{1}\{\nbl{\mNrm}_{t}\in A\}]/\Ex[\permLvl_{t}]$ be the share of aggregate permanent income held by consumers with $\nbl{\mNrm}_{t}\in A$.
+Because the shocks of period $t+1$ are independent of $(\permLvl_{t},\nbl{\mNrm}_{t})$ and $\Ex[\permShk]=1$,
+\begin{equation}\label{eq:HarmTransition}
+  \Harm{\mu}_{t+1}(A)=\frac{\Ex[\permLvl_{t}\,\permShk_{t+1}\mathbf{1}\{\nbl{\mNrm}_{t+1}\in A\}]}{\Ex[\permLvl_{t}]}=\int\Harm{\mu}_{t}(d\nbl{\mNrm})\,\Ex\left[\permShk\,\mathbf{1}\{\nbl{\aFunc}(\nbl{\mNrm})\RNrmByG/\permShk+\tranShkNbl\in A\}\right].
+\end{equation}
+That is, $\Harm{\mu}_{t}$ evolves as the distribution of the process~\eqref{eq:mNblProcess} does when the shocks are drawn from the `permanent-income-neutral' measure $\Harm{\mathbb{P}}$ with $d\Harm{\mathbb{P}}=\permShk\,d\mathbb{P}$.
+This is the content of \cite{harmenbergInvariant}'s Theorem 1, obtained here directly; it does not require $\tranShkNbl$ to be independent of $\permShk$.
+
+\begin{proposition}(Invariant Distributions).\label{prop:invariantPositiveMinimum}
+Let the hypotheses of Theorem~\ref{thm:existencePositiveMinimum} and \hyperlink{RIC}{return impatience} (Assumption~\ref{ass:RIC}) hold.
+\begin{enumerate}[label=(\roman*)]
+\item If $\log\GPFacRaw<\Ex[\log\permShk]$ (Equation~\eqref{eq:GICSdl}), then $\mNrm_{t}$ has a unique invariant distribution, and its distribution converges to it from any initial distribution.
+\item If $\log\GPFacRaw<\Ex[\permShk\log\permShk]$, the same is true of the permanent-income-weighted distribution $\Harm{\mu}_{t}$.
+\item If \hyperlink{GICRaw}{growth impatience} holds ($\GPFacRaw<1$, which implies the condition in (ii)), the invariant permanent-income-weighted distribution has a finite mean, and in a population whose permanent-income-weighted distribution is the invariant one, aggregate consumption, market resources and assets are each a constant multiple of aggregate permanent income; in particular aggregate consumption grows by the factor $\PermGroFac$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{Increasing and Feller.}
+$\nbl{\aFunc}$ is continuous and strictly increasing (the slopes of the concave function $\nbl{\cFunc}$ are at most $\MPCmax<1$), so next period's state is a continuous increasing function of this period's for every realization of the shocks.
+
+\emph{Uniformly asymptotically tight.}
+By~\eqref{eq:cBoundsLimitPositiveMinimum}, $\nbl{\aFunc}(\nbl{\mNrm})\leq(1-\MPCmin)\nbl{\mNrm}=\RPFac\nbl{\mNrm}$, so $\nbl{\mNrm}_{t+1}\leq \Lambda_{t+1}\nbl{\mNrm}_{t}+\tranShkNblMax$ with $\Lambda_{t+1}\colon=\GPFacRaw/\permShk_{t+1}$.
+Iterating from $\nbl{\mNrm}_{0}=x$, $\nbl{\mNrm}_{n}\leq \Lambda_{n}\cdots \Lambda_{1}x+\tranShkNblMax\sum_{j=1}^{n}\Lambda_{n}\cdots \Lambda_{j+1}$, and the right-hand side has the same distribution as $\Lambda_{1}\cdots \Lambda_{n}x+\tranShkNblMax\sum_{j=1}^{n}\Lambda_{1}\cdots \Lambda_{j-1}$.
+Under the condition in (i), $\Ex[\log\Lambda]<0$, so by the strong law of large numbers $(\Lambda_{1}\cdots \Lambda_{j})^{1/j}\rightarrow\exp(\Ex[\log\Lambda])<1$ almost surely; hence $\Lambda_{1}\cdots \Lambda_{n}x\rightarrow 0$ and $S\colon=\tranShkNblMax\sum_{j=1}^{\infty}\Lambda_{1}\cdots \Lambda_{j-1}<\infty$ almost surely.
+Given $\varepsilon>0$ choose $b$ with $\mathbb{P}(S>b/2)<\varepsilon/2$; then $\limsup_{n}\mathbb{P}(\nbl{\mNrm}_{n}>b\mid\nbl{\mNrm}_{0}=x)\leq\varepsilon/2$ for every $x$, which is uniform asymptotic tightness with the compact set $[0,b]$.
+
+\emph{Weakly mixing.}
+The condition in (i) implies $\GPFacRaw<\permShkIndMax$.
+For $\permShk^{\ast}\in(\GPFacRaw,\permShkIndMax]$, which we will choose close to $\permShkIndMax$, let $J=[\permShk^{\ast},\permShkIndMax]$; $\mathbb{P}(\permShk\in J)>0$, taking $\permShkIndMax$ (without loss of generality) to be the largest point of the support of $\permShk$.
+On the event $\{\permShk_{t+1}\in J,\ \tranShkAll_{t+1}=\IncUnemp\}$,
+$\nbl{\mNrm}_{t+1}\leq g_{L}(\nbl{\mNrm}_{t})\colon=\nbl{\aFunc}(\nbl{\mNrm}_{t})\RNrmByG/\permShk^{\ast}+(\IncUnemp+\hNrmPes)(1-\permShkIndMin/\permShkIndMax)$,
+and on $\{\permShk_{t+1}\in J,\ \tranShkAll_{t+1}\geq\IncEmpMin\}$,
+$\nbl{\mNrm}_{t+1}\geq g_{H}(\nbl{\mNrm}_{t})\colon=\nbl{\aFunc}(\nbl{\mNrm}_{t})\RNrmByG/\permShkIndMax+(\IncEmpMin-\IncUnemp)+(\IncUnemp+\hNrmPes)(1-\permShkIndMin/\permShk^{\ast})$.
+Both events have positive probability.
+Both maps are continuous and non-decreasing with slope at most $\GPFacRaw/\permShk^{\ast}<1$, so each has a unique fixed point, $x_{L}$ and $x_{H}$, to which its iterates converge from any starting point.
+Now $g_{H}(x)-g_{L}(x)=(\IncEmpMin-\IncUnemp)-(\nbl{\aFunc}(x)\RNrmByG+(\IncUnemp+\hNrmPes)\permShkIndMin)(1/\permShk^{\ast}-1/\permShkIndMax)$, and $x_{L}=g_{L}(x_{L})\leq(\GPFacRaw/\permShk^{\ast})x_{L}+\IncUnemp+\hNrmPes$ stays bounded as $\permShk^{\ast}\rightarrow\permShkIndMax$, so for $\permShk^{\ast}$ close enough to $\permShkIndMax$, $g_{H}(x_{L})>g_{L}(x_{L})=x_{L}$ and therefore $x_{H}>x_{L}$.
+Pick $\bar{x}\in(x_{L},x_{H})$.
+From any $x$, if the first event occurs $r$ times in a row then $\nbl{\mNrm}_{r}\leq g_{L}^{r}(x)<\bar{x}$ for $r$ large, and if the second occurs $r$ times in a row then $\nbl{\mNrm}_{r}\geq g_{H}^{r}(x)\geq g_{H}^{r}(0)>\bar{x}$ for $r$ large.
+Each has positive probability, which is weak mixing.
+
+Szeidl's Theorem 1 now gives (i) for $\nbl{\mNrm}_{t}$, hence for $\mNrm_{t}=\nbl{\mNrm}_{t}-\hNrmPes$.
+(The invariant distribution puts no mass on $\nbl{\mNrm}=0$: that point can be reached only from itself, and then only in the worst event, so its mass $\pi_{0}$ satisfies $\pi_{0}=\pWorst\pi_{0}$.)
+For (ii), by~\eqref{eq:HarmTransition} it suffices to repeat the argument under $\Harm{\mathbb{P}}$.
+The process is still increasing and Feller; the events used for mixing still have positive probability, because $\Harm{\mathbb{P}}$ and $\mathbb{P}$ have the same null sets; and tightness needs $\Harm{\Ex}[\log\Lambda]=\log\GPFacRaw-\Ex[\permShk\log\permShk]<0$.
+For (iii), $\Ex[\permShk\log\permShk]\geq 0$ by Jensen's inequality, so growth impatience implies the condition in (ii).
+Under $\Harm{\mathbb{P}}$, $\Harm{\Ex}[\Lambda]=\Ex[\permShk\,\GPFacRaw/\permShk]=\GPFacRaw<1$, so $\Harm{\Ex}[\nbl{\mNrm}_{n}]\leq\GPFacRaw^{n}x+\tranShkNblMax/(1-\GPFacRaw)$, and the mean of the weak limit is at most $\tranShkNblMax/(1-\GPFacRaw)$.
+With $\Harm{\mu}$ the invariant distribution, aggregate consumption is $\Ex[\permLvl_{t}\nbl{\cFunc}(\nbl{\mNrm}_{t})]=\Ex[\permLvl_{t}]\int\nbl{\cFunc}\,d\Harm{\mu}$, where $0<\int\nbl{\cFunc}\,d\Harm{\mu}\leq\MPCmax\int\nbl{\mNrm}\,d\Harm{\mu}<\infty$, and $\Ex[\permLvl_{t+1}]=\PermGroFac\Ex[\permLvl_{t}]$; market resources and assets are treated in the same way.
+\end{proof}
+
+Given these invariant distributions, the remaining statements of Section~\ref{subsec:cGroEqPermGroFacQ} and Section~\ref{subsec:Covariances} follow by the arguments given there, which use only invariance and the independence of $\permShk$ and $\tranShkAll$ in the original variables (which is what makes aggregate noncapital income grow by $\PermGroFac$).
+One qualification concerns aggregate market resources and aggregate assets: each is a constant multiple of aggregate permanent income, but with borrowing the constant can be negative (or zero), so it is the level, not a growth factor, that should be compared across dates.
+
+\subsection{When the Borrowing Limit Can Be Reached}\label{subsec:PositiveMinimumNoWorstEvent}
+
+Everything above relies on transformed income $\tranShkNbl_{t+1}$ being zero with positive probability, in the worst event: that is what keeps the consumer away from the borrowing limit and the maximal MPC below one.
+In three problems $\tranShkNbl_{t+1}$ is positive with probability one:
+\begin{enumerate}[label=(\alph*)]
+\item\label{item:NoPointMass} \emph{No point mass.} Assumption~\ref{ass:shocksPositiveMinimum} holds with $\IncUnemp>0$, except that $\permShkIndMin$ is the lowest point of the support of $\permShk$ and $\mathbb{P}(\permShk_{t}=\permShkIndMin)=0$.
+\item\label{item:Restrained} \emph{The restrained consumer.} There is no unemployment event ($\tranShkAll_{t}=\tranShkEmp_{t}$), the permanent shock is as in~\ref{item:NoPointMass} or as in Assumption~\ref{ass:shocksPositiveMinimum}, and the consumer may not borrow more than the minimum human wealth that some $\IncUnemp\in[0,\tranShkEmpMin)$ would support: $\aNrm_{t}\geq-\hNrmPes_{t}$, with $\hNrmPes_{t}$ from~\eqref{eq:hNrmMinRecursion}.
+With $\IncUnemp=0$ this is the restrained consumer of Section~\ref{subsubsec:deatonIsLimit}.
+\item\label{item:Artificial} \emph{No borrowing.} Assumption~\ref{ass:shocksPositiveMinimum} holds with $\IncUnemp>0$, and the constraint $\cNrm_{t}\leq\mNrm_{t}$ of Problem~\eqref{eq:levelRecProblem} is kept in every period.
+\end{enumerate}
+In~\ref{item:NoPointMass} the limit $\aNrm_{t}=-\hNrmPes_{t}$ may itself be chosen: it leaves next period's resources above the next limit by $\tranShkNbl_{t+1}$, which is positive with probability one, while any lower $\aNrm_{t}$ leaves them below it with positive probability (in the unemployment event with $\permShk_{t+1}$ close enough to $\permShkIndMin$).
+So in all three problems, with resources measured from the limit ($\nbl{\mNrm}_{t}=\mNrm_{t}+\hNrmPes_{t}$, where in~\ref{item:Artificial} we set $\hNrmPes_{t}\equiv 0$), the consumer solves
+\begin{equation}\label{eq:veqnNoWorst}
+  \nbl{\vFunc}_{t}(\nbl{\mNrm}_{t})=\max_{0<\cNrm_{t}\leq\nbl{\mNrm}_{t}}~\uFunc(\cNrm_{t})+\DiscFac\Ex_{t}\left[\PermGroFacRnd_{t+1}^{1-\CRRA}\nbl{\vFunc}_{t+1}\left((\nbl{\mNrm}_{t}-\cNrm_{t})\RNrmByGRnd_{t+1}+\tranShkNbl_{t+1}\right)\right],\qquad \nbl{\vFunc}_{T}=\uFunc,
+\end{equation}
+where $\tranShkNbl_{t+1}$ is given by~\eqref{eq:tranShkNbl} in~\ref{item:NoPointMass}, by~\eqref{eq:tranShkNbl} with $\tranShkEmp_{t+1}$ in place of $\tranShkAll_{t+1}$ in~\ref{item:Restrained}, and is $\tranShkAll_{t+1}$ itself in~\ref{item:Artificial}.
+In each, income $\tranShkNbl_{t+1}$ is positive with probability one and bounded, by $\bar{y}\colon=\tranShkAllMax+\hNrmPes$ when minimum human wealth is finite (with $\Max{\tranShkEmp}$ in place of $\tranShkAllMax$ in~\ref{item:Restrained}, and $\hNrmPes=0$ in~\ref{item:Artificial}); in~\ref{item:NoPointMass} and~\ref{item:Restrained} (with $\tranShkEmp$ in place of $\tranShkAll$ in the latter) it has property (d) of Lemma~\ref{lemma:ExcessResources}, and in~\ref{item:Artificial} it does not depend on the horizon.
+In~\ref{item:Restrained} and~\ref{item:Artificial} it is bounded away from zero (by $\tranShkEmpMin-\IncUnemp$ and by $\IncUnemp$); in~\ref{item:NoPointMass} it is not, because it is $(\IncUnemp+\hNrmPes_{t+1})(1-\permShkIndMin/\permShk_{t+1})$ in the unemployment event.
+Problem~\eqref{eq:veqnNoWorst} also makes sense when $\tranShkNbl_{t+1}\geq 0$ is zero with positive probability, if we set $\nbl{\vFunc}_{t+1}(0)=-\infty$: then the choice $\cNrm_{t}=\nbl{\mNrm}_{t}$ is never made, and~\eqref{eq:veqnNoWorst} is Problem~\eqref{eq:veqnNbl}.
+The next two lemmas are stated in that generality.
+
+\begin{lemma}(The Finite-Horizon Solution).\label{lemma:NoWorstFinite}
+In Problem~\eqref{eq:veqnNoWorst}, let $\PermGroFacRnd_{t+1}$ be bounded and bounded away from zero, let $\tranShkNbl_{t+1}\geq 0$ be bounded, and let $t<T$.
+\begin{enumerate}[label=(\roman*)]
+\item The maximum is attained at a unique $\nbl{\cFunc}_{t}(\nbl{\mNrm})$; $\nbl{\cFunc}_{t}$ is continuous and strictly increasing and $\nbl{\aFunc}_{t}(\nbl{\mNrm})\colon=\nbl{\mNrm}-\nbl{\cFunc}_{t}(\nbl{\mNrm})$ is non-decreasing, so both have slopes between zero and one; $\nbl{\vFunc}_{t}$ is strictly increasing, strictly concave and differentiable, with $\nbl{\vFunc}_{t}^{\prime}=\uFunc^{\prime}(\nbl{\cFunc}_{t})$.
+\item $\nbl{\cFunc}_{t}(\nbl{\mNrm})^{-\CRRA}\geq\Rfree\DiscFac\Ex_{t}[\PermGroFacRnd_{t+1}^{-\CRRA}\nbl{\cFunc}_{t+1}(\nbl{\mNrm}_{t+1})^{-\CRRA}]$, with equality if $\nbl{\cFunc}_{t}(\nbl{\mNrm})<\nbl{\mNrm}$.
+\item $\MPCmin_{t}\nbl{\mNrm}\leq\nbl{\cFunc}_{t}(\nbl{\mNrm})$, with $\MPCmin_{t}$ from~\eqref{eq:MPCInvPositiveMinimum}.
+\item If $\tranShkNbl_{t+1}>0$ with probability one, then $\lim_{\nbl{\mNrm}\downarrow 0}\nbl{\cFunc}_{t}(\nbl{\mNrm})/\nbl{\mNrm}=1$, and $\nbl{\cFunc}_{t}(\nbl{\mNrm})=\nbl{\mNrm}$ exactly when $\nbl{\mNrm}\leq\nbl{\mNrm}_{\#,t}\colon=\left(\Rfree\DiscFac\Ex_{t}[\PermGroFacRnd_{t+1}^{-\CRRA}\nbl{\cFunc}_{t+1}(\tranShkNbl_{t+1})^{-\CRRA}]\right)^{-1/\CRRA}$.
+This is positive if and only if $\Ex[\tranShkNbl_{t+1}^{-\CRRA}]<\infty$: always in~\ref{item:Restrained} and~\ref{item:Artificial}, and in~\ref{item:NoPointMass} if and only if $\Ex[(\permShk-\permShkIndMin)^{-\CRRA}]<\infty$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+By backward induction; suppose $\nbl{\vFunc}_{t+1}$ is strictly increasing, strictly concave and differentiable with $\nbl{\vFunc}_{t+1}^{\prime}=\uFunc^{\prime}(\nbl{\cFunc}_{t+1})$ and $\nbl{\cFunc}_{t+1}(\nbl{\mNrm})\geq\MPCmin_{t+1}\nbl{\mNrm}$ (true at $T$, with $\MPCmin_{T}=1$).
+Let $\mathfrak{v}_{t}(\nbl{\aNrm})\colon=\DiscFac\Ex_{t}[\PermGroFacRnd_{t+1}^{1-\CRRA}\nbl{\vFunc}_{t+1}(\nbl{\aNrm}\RNrmByGRnd_{t+1}+\tranShkNbl_{t+1})]$.
+For $\nbl{\aNrm}>0$ next period's resources are at least $\nbl{\aNrm}\Rfree/(\PermGroFac\permShkIndMax)$, so $\mathfrak{v}_{t}$ is finite, strictly increasing and strictly concave there, and differentiable with $\mathfrak{v}_{t}^{\prime}(\nbl{\aNrm})=\Rfree\DiscFac\Ex_{t}[\PermGroFacRnd_{t+1}^{-\CRRA}\nbl{\cFunc}_{t+1}(\nbl{\mNrm}_{t+1})^{-\CRRA}]$ by dominated convergence; $\mathfrak{v}_{t}(0)$ and $\mathfrak{v}_{t}^{\prime}(0+)$ are monotone limits, possibly $-\infty$ and $+\infty$.
+The objective $\uFunc(\cNrm)+\mathfrak{v}_{t}(\nbl{\mNrm}-\cNrm)$ is strictly concave in $\cNrm$, tends to $-\infty$ as $\cNrm\downarrow 0$, and is upper semicontinuous at $\cNrm=\nbl{\mNrm}$, so it has a unique maximizer, which equals $\nbl{\mNrm}$ if and only if $\uFunc^{\prime}(\nbl{\mNrm})\geq\mathfrak{v}_{t}^{\prime}(0+)$; this gives (ii).
+It is jointly concave in $(\nbl{\mNrm},\cNrm)$ on a convex set, so $\nbl{\vFunc}_{t}$ is strictly concave, and it is differentiable with $\nbl{\vFunc}_{t}^{\prime}=\uFunc^{\prime}(\nbl{\cFunc}_{t})$ because it lies above the differentiable function $\uFunc(\nbl{\cFunc}_{t}(\nbl{\mNrm})+y-\nbl{\mNrm})+\mathfrak{v}_{t}(\nbl{\aFunc}_{t}(\nbl{\mNrm}))$ of $y$ and touches it at $y=\nbl{\mNrm}$, while a concave function with a differentiable minorant that touches it at a point is differentiable there.
+Monotonicity of $\nbl{\cFunc}_{t}$ and $\nbl{\aFunc}_{t}$ follows from (ii), because $\uFunc^{\prime}$ and $\mathfrak{v}_{t}^{\prime}$ are strictly decreasing; this is (i).
+For (iii): if $\nbl{\cFunc}_{t}(\nbl{\mNrm})<\nbl{\mNrm}$, then by (ii) and $\nbl{\cFunc}_{t+1}(\nbl{\mNrm}_{t+1})\geq\MPCmin_{t+1}\nbl{\aNrm}\Rfree/\PermGroFacRnd_{t+1}$, $\nbl{\cFunc}_{t}^{-\CRRA}\leq\Rfree\DiscFac(\MPCmin_{t+1}\Rfree\nbl{\aNrm})^{-\CRRA}$, that is, $\nbl{\cFunc}_{t}\geq\MPCmin_{t+1}(\nbl{\mNrm}-\nbl{\cFunc}_{t})/\RPFac$, which rearranges to $\nbl{\cFunc}_{t}\geq\MPCmin_{t}\nbl{\mNrm}$.
+For (iv): suppose $\nbl{\aFunc}_{t}(x_{j})\geq\delta x_{j}$ along a sequence $x_{j}\downarrow 0$ with $\delta>0$.
+Multiplying the equality in (ii) by $x_{j}^{\CRRA}$ gives $(\nbl{\cFunc}_{t}(x_{j})/x_{j})^{-\CRRA}=\Rfree\DiscFac\Ex_{t}[\PermGroFacRnd^{-\CRRA}(\nbl{\cFunc}_{t+1}(\nbl{\mNrm}_{t+1})/x_{j})^{-\CRRA}]$.
+The left side is at least one.
+On the right, $\nbl{\cFunc}_{t+1}(\nbl{\mNrm}_{t+1})/x_{j}\geq\MPCmin_{t+1}(\delta\Rfree/\PermGroFacRnd+\tranShkNbl_{t+1}/x_{j})$, which bounds the integrand and tends to infinity with probability one, so the right side tends to zero: a contradiction.
+The characterization of $\nbl{\mNrm}_{\#,t}$ is the condition $\uFunc^{\prime}(\nbl{\mNrm})\geq\mathfrak{v}_{t}^{\prime}(0+)$, with $\mathfrak{v}_{t}^{\prime}(0+)=\Rfree\DiscFac\Ex_{t}[\PermGroFacRnd^{-\CRRA}\nbl{\cFunc}_{t+1}(\tranShkNbl_{t+1})^{-\CRRA}]$ by monotone convergence; it is finite exactly when $\Ex[\tranShkNbl_{t+1}^{-\CRRA}]$ is, because $\MPCmin_{t+1}\tranShkNbl_{t+1}\leq\nbl{\cFunc}_{t+1}(\tranShkNbl_{t+1})\leq\tranShkNbl_{t+1}$.
+In~\ref{item:NoPointMass}, $\tranShkNbl_{t+1}$ is bounded away from zero outside the unemployment event and equals $(\IncUnemp+\hNrmPes_{t+1})(\permShk_{t+1}-\permShkIndMin)/\permShk_{t+1}$ in it.
+\end{proof}
+
+\begin{lemma}(Continuity in the Income Process).\label{lemma:ContinuityIncome}
+For $k=1,2,\ldots,\infty$ let $\nbl{\cFunc}_{t}^{k}$ and $\nbl{\vFunc}_{t}^{k}$ solve Problem~\eqref{eq:veqnNoWorst} with the same $\DiscFac$, $\Rfree$, $\CRRA$ and $T$, and with shocks $\PermGroFacRnd_{t+1}^{k}$ and $\tranShkNbl_{t+1}^{k}$ defined on one probability space.
+Suppose the $\PermGroFacRnd^{k}$ lie in a common compact subset of $\Reals_{++}$, the $\tranShkNbl^{k}\geq 0$ below a common bound, and $\PermGroFacRnd_{t+1}^{k}\rightarrow\PermGroFacRnd_{t+1}^{\infty}$ and $\tranShkNbl_{t+1}^{k}\rightarrow\tranShkNbl_{t+1}^{\infty}$ with probability one for each $t$.
+Then $\nbl{\cFunc}_{t}^{k}(\nbl{\mNrm})\rightarrow\nbl{\cFunc}_{t}^{\infty}(\nbl{\mNrm})$ and $\nbl{\vFunc}_{t}^{k}(\nbl{\mNrm})\rightarrow\nbl{\vFunc}_{t}^{\infty}(\nbl{\mNrm})$ for every $t\leq T$ and $\nbl{\mNrm}>0$.
+\end{lemma}
+
+\begin{proof}
+By backward induction from $\nbl{\cFunc}_{T}^{k}(\nbl{\mNrm})=\nbl{\mNrm}$.
+If $\nbl{\cFunc}_{t+1}^{k}\rightarrow\nbl{\cFunc}_{t+1}^{\infty}$ point-wise, the convergence is uniform on compact subsets of $\Reals_{++}$, because the functions are non-decreasing and the limit is continuous.
+For fixed $\nbl{\aNrm}>0$, next period's resources then converge with probability one and stay in a compact subset of $\Reals_{++}$, and the integrand of $\mathfrak{v}_{t}^{k\prime}(\nbl{\aNrm})$ is at most $\PermGroFacRnd^{-\CRRA}(\MPCmin_{t+1}\nbl{\aNrm}\Rfree/\PermGroFacRnd)^{-\CRRA}$ (Lemma~\ref{lemma:NoWorstFinite}(iii)), so $\mathfrak{v}_{t}^{k\prime}(\nbl{\aNrm})\rightarrow\mathfrak{v}_{t}^{\infty\prime}(\nbl{\aNrm})$ by bounded convergence.
+End-of-period assets at $\nbl{\mNrm}$ are zero if $\Phi_{k}(0+)\geq 0$ and otherwise the root of $\Phi_{k}(\nbl{\aNrm})\colon=\uFunc^{\prime}(\nbl{\mNrm}-\nbl{\aNrm})-\mathfrak{v}_{t}^{k\prime}(\nbl{\aNrm})$, which is strictly increasing on $(0,\nbl{\mNrm})$; strictly increasing functions that converge point-wise to a continuous strictly increasing limit have roots (or zero) converging to the limit's, so $\nbl{\cFunc}_{t}^{k}(\nbl{\mNrm})\rightarrow\nbl{\cFunc}_{t}^{\infty}(\nbl{\mNrm})$.
+For values: consuming half of resources in every period before $T$ is feasible and yields at least $-K\nbl{\mNrm}^{1-\CRRA}$, with $K$ depending only on $T-t$ and on the bounds on $\PermGroFacRnd$, so $\nbl{\vFunc}_{t}^{k}(\nbl{\mNrm})\rightarrow 0$ as $\nbl{\mNrm}\rightarrow\infty$ and $\nbl{\vFunc}_{t}^{k}(\nbl{\mNrm})=-\int_{\nbl{\mNrm}}^{\infty}\uFunc^{\prime}(\nbl{\cFunc}_{t}^{k}(y))\,dy$; the integrand converges and is at most $(\MPCmin_{t}y)^{-\CRRA}$, which is integrable because $\CRRA>1$.
+\end{proof}
+
+\begin{corollary}\label{coro:ConcaveNoWorst}
+In~\ref{item:NoPointMass}, \ref{item:Restrained} and~\ref{item:Artificial}, each $\nbl{\cFunc}_{t}$ is concave.
+\end{corollary}
+
+\begin{proof}
+Each is the limit, in the sense of Lemma~\ref{lemma:ContinuityIncome}, of problems whose consumption functions are concave by Proposition~\ref{prop:cfuncpropPositiveMinimum} or Proposition~\ref{prop:cfuncprop}, and a point-wise limit of concave functions is concave.
+For~\ref{item:NoPointMass}: replace $\permShk$ by $\permShkIndMin$ wherever $\permShk\leq\permShkIndMin+1/k$; after dividing the result by its mean and multiplying $\PermGroFac$ by that mean, the permanent shock satisfies Assumption~\ref{ass:shocksPositiveMinimum} with the same $\PermGroFac\permShkIndMin$, hence the same $\hNrmPes_{t}$, and $\PermGroFacRnd$ and $\tranShkNbl$ converge with probability one because $\permShk>\permShkIndMin$ with probability one.
+For~\ref{item:Restrained}: the problem of this appendix with unemployment probability $1/k$ (the problem of the text if $\IncUnemp=0$), with the same replacement if $\permShk$ has no point mass; the proof of part (i) of Theorem~\ref{thm:LiqConstrLimitPositiveMinimum} below, which uses only Lemma~\ref{lemma:ContinuityIncome}, spells out the convergence.
+For~\ref{item:Artificial}: the problem of the text with zero-income probability $1/k$ and with the whole of $\tranShkAll$, which has mean one and a positive lowest value, in the role of $\tranShkEmp$; in that problem the consumer cannot borrow, and its income converges to $\tranShkAll$.
+\end{proof}
+
+So in all three problems $\nbl{\cFunc}_{t}$ is concave, with slopes between $\MPCmin_{t}$ and one; it equals $\nbl{\mNrm}$ near zero when $\Ex[\tranShkNbl_{t+1}^{-\CRRA}]<\infty$, and otherwise is below it with a slope that tends to one there.
+The maximal MPC is one: in the notation of Lemma~\ref{lemma:MPCPositiveMinimum}, $\MPCmax_{t}=1$ at every horizon before the last, which is the second recursion of~\eqref{eq:MPCInvPositiveMinimum} with $\pWorst$ replaced by $\mathbb{P}(\tranShkNbl_{t+1}=0)=0$.
+The minimal MPC is as before, by the argument of Part (1.) of the proof of Lemma~\ref{lemm:MPC}.
+The existence proof above bounds next period's resources, in the event in which $\tranShkNbl_{t+1}=0$, by means of a maximal MPC below one; that bound is not available here.
+The next theorem uses a different bound, and needs neither~\eqref{eq:WRICWorst} nor return impatience.
+
+\begin{theorem}(Existence When the Borrowing Limit Can Be Reached).\label{thm:existenceNoWorst}
+In~\ref{item:NoPointMass}, \ref{item:Restrained} or~\ref{item:Artificial}, let \hyperlink{FVAC}{finite value of autarky} hold and, in~\ref{item:NoPointMass} and~\ref{item:Restrained}, let minimum human wealth be finite (Condition~\eqref{eq:FiniteMinHumanWealth}).
+Then $\nbl{\vFunc}_{T-n}$ converges in a weighted norm, and $\nbl{\cFunc}_{T-n}$ point-wise, to the value and consumption functions of the stationary problem with income $\tranShkNbl$, and the limits in the original variables exist for every $\mNrm>-\hNrmPes$, as in Theorem~\ref{thm:existencePositiveMinimum}.
+The limiting consumption function is concave and non-decreasing with slopes between $\MPCmin$ and one, satisfies $\nbl{\cFunc}(\nbl{\mNrm})/\nbl{\mNrm}\rightarrow 1$ as $\nbl{\mNrm}\downarrow 0$ and $\nbl{\cFunc}(\nbl{\mNrm})/\nbl{\mNrm}\rightarrow\MPCmin$ as $\nbl{\mNrm}\rightarrow\infty$, and satisfies the Euler equation $\cFunc(\mNrm)^{-\CRRA}=\Rfree\DiscFac\Ex[\PermGroFacRnd^{-\CRRA}\cFunc(\mNrm^{\nxt})^{-\CRRA}]$ wherever $\cFunc(\mNrm)<\mNrm+\hNrmPes$.
+\end{theorem}
+
+\begin{proof}
+Write $\tranShkNbl^{(n)}$ for the income of the period after $T-n$, so that $\tranShkNbl^{(1)}=\tranShkNbl_{T}$ and $\tranShkNbl^{(n)}\uparrow\tranShkNbl$; in~\ref{item:Artificial} all of them equal $\tranShkAll$, and below $\PermGroFac\permShkIndMin/\Rfree$ is to be read as zero there and when $\IncUnemp=0$.
+The bound $\bar{y}$ on $\tranShkNbl$ is the one defined after~\eqref{eq:veqnNoWorst}.
+From~\eqref{eq:hNrmMinRecursion}, $\IncUnemp+\hNrmPes_{T}=(1-\PermGroFac\permShkIndMin/\Rfree)(\IncUnemp+\hNrmPes)$ and $(\IncUnemp+\hNrmPes_{T-n+1})/(\IncUnemp+\hNrmPes_{T-n+2})\leq 1+(\PermGroFac\permShkIndMin/\Rfree)^{n-1}$, so, since $\tranShkNbl^{(n)}$ is the sum of a term that does not depend on $n$ and one proportional to $\IncUnemp+\hNrmPes_{T-n+1}$,
+\begin{equation}\label{eq:IncomeHorizonBounds}
+  \left(1-\frac{\PermGroFac\permShkIndMin}{\Rfree}\right)\tranShkNbl\leq\tranShkNbl^{(1)}\leq\tranShkNbl^{(n-1)}\leq\tranShkNbl^{(n)}\leq\left(1+\left(\frac{\PermGroFac\permShkIndMin}{\Rfree}\right)^{n-1}\right)\tranShkNbl^{(n-1)},\qquad\tranShkNbl\leq\bar{y}.
+\end{equation}
+
+\statement{Step 1. An upper bound on consumption.}
+Let $g(\nbl{\aNrm})\colon=\Ex[(\Rfree\nbl{\aNrm}+\PermGroFacRnd\tranShkNbl)^{-\CRRA}]$ and let $\hat{\cFunc}(\nbl{\mNrm})$ solve $\hat{\cFunc}^{-\CRRA}=\Rfree\DiscFac g(\nbl{\mNrm}-\hat{\cFunc})$, or be $\nbl{\mNrm}$ if $\nbl{\mNrm}^{-\CRRA}\geq\Rfree\DiscFac g(0)$: the consumption function of the next-to-last period for a consumer whose income is the largest one, $\tranShkNbl$.
+Write $\hat{\aFunc}(\nbl{\mNrm})\colon=\nbl{\mNrm}-\hat{\cFunc}(\nbl{\mNrm})$, which is non-decreasing.
+Since $\nbl{\cFunc}_{t+1}(\nbl{\mNrm}_{t+1})\leq\nbl{\mNrm}_{t+1}$ and $\tranShkNbl_{t+1}\leq\tranShkNbl$, Lemma~\ref{lemma:NoWorstFinite}(ii) gives $\nbl{\cFunc}_{t}^{-\CRRA}\geq\Rfree\DiscFac g(\nbl{\mNrm}-\nbl{\cFunc}_{t})$, so $\nbl{\cFunc}_{t}\leq\hat{\cFunc}$ for every $t<T$.
+Also $g(\nbl{\aNrm})\leq(\Rfree\nbl{\aNrm})^{-\CRRA}$, which gives $\hat{\cFunc}(\nbl{\mNrm})\geq\nbl{\mNrm}/(1+\RPFac)$, and $g(\hat{\aFunc}(\nbl{\mNrm}))\leq\hat{\cFunc}(\nbl{\mNrm})^{-\CRRA}/(\Rfree\DiscFac)$.
+
+\statement{Step 2. The key inequality.}
+Let $\nbl{\aNrm}\geq\hat{\aFunc}(\nbl{\mNrm})$, let $\nbl{\mNrm}^{\nxt}=\nbl{\aNrm}\RNrmByGRnd+\tranShkNbl^{(n)}$ for any $n$, and for $\delta>0$ let $D_{\delta}=\{\tranShkNbl^{(1)}\leq\delta\}$ and $q_{\delta}=\mathbb{P}(D_{\delta})$.
+Then $(\PermGroFacRnd\nbl{\mNrm}^{\nxt})^{1-\CRRA}\leq(\Rfree\hat{\aFunc}+\PermGroFacRnd\tranShkNbl^{(1)})^{1-\CRRA}$.
+Outside $D_{\delta}$ this is at most $(\PermGroFacRnd\delta)^{1-\CRRA}$.
+On $D_{\delta}$, by~\eqref{eq:IncomeHorizonBounds} it is at most $(1-\PermGroFac\permShkIndMin/\Rfree)^{1-\CRRA}(\Rfree\hat{\aFunc}+\PermGroFacRnd\tranShkNbl)^{1-\CRRA}$, and by H\"{o}lder's inequality with exponents $\CRRA/(\CRRA-1)$ and $\CRRA$, $\Ex[(\Rfree\hat{\aFunc}+\PermGroFacRnd\tranShkNbl)^{1-\CRRA}\mathbf{1}_{D_{\delta}}]\leq g(\hat{\aFunc})^{(\CRRA-1)/\CRRA}q_{\delta}^{1/\CRRA}$.
+With Step 1 and $\DiscFac(\Rfree\DiscFac)^{-(\CRRA-1)/\CRRA}=\RPFac$,
+\begin{equation}\label{eq:KeyNoWorst}
+  \DiscFac\Ex\left[\PermGroFacRnd^{1-\CRRA}(\nbl{\mNrm}^{\nxt})^{1-\CRRA}\right]\leq\RPFac\left(1-\frac{\PermGroFac\permShkIndMin}{\Rfree}\right)^{1-\CRRA}(1+\RPFac)^{\CRRA-1}q_{\delta}^{1/\CRRA}\,\nbl{\mNrm}^{1-\CRRA}+\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}]\,\delta^{1-\CRRA}.
+\end{equation}
+Because $\tranShkNbl^{(1)}>0$ with probability one, $q_{\delta}\rightarrow 0$ as $\delta\rightarrow 0$.
+So we can fix $\Shrinker\in(\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}],1)$, which finite value of autarky allows, then $\delta>0$ that makes the first coefficient in~\eqref{eq:KeyNoWorst} at most $\Shrinker$, and then $\zeta=\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}]\delta^{1-\CRRA}/(\Shrinker-\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}])$.
+With $\boundFunc(x)=\zeta+x^{1-\CRRA}$ (a constant $\zeta$ particular to this proof), \eqref{eq:KeyNoWorst} gives $\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}\boundFunc(\nbl{\mNrm}^{\nxt})]\leq\Shrinker\boundFunc(\nbl{\mNrm})$ for every $\nbl{\aNrm}\geq\hat{\aFunc}(\nbl{\mNrm})$ and every horizon.
+
+\statement{Step 3. Bounds that do not depend on the horizon.}
+Let $B=(1+\RPFac)^{\CRRA-1}/((\CRRA-1)(1-\Shrinker))$.
+Then $\vert\nbl{\vFunc}_{t}\vert\leq B\boundFunc$ for every $t$: at $T$ because $B\geq 1/(\CRRA-1)$, and before $T$ by following $\hat{\cFunc}$ for one period and applying Step 2, since $\uFunc(\hat{\cFunc}(\nbl{\mNrm}))\geq-(1+\RPFac)^{\CRRA-1}\nbl{\mNrm}^{1-\CRRA}/(\CRRA-1)$.
+Since continuation values are negative, $\uFunc(\nbl{\cFunc}_{t})>\nbl{\vFunc}_{t}\geq-B\boundFunc$, so $\nbl{\cFunc}_{t}\geq\underline{\cFunc}\colon=((\CRRA-1)B\boundFunc)^{-1/(\CRRA-1)}$ and $\nbl{\vFunc}_{t}^{\prime}\leq\underline{\cFunc}^{-\CRRA}$; both bounds hold at $T$ too.
+For $n\geq 1$ let $\TMapNbl_{n}$ be the operator that maximizes the objective of~\eqref{eq:veqnNoWorst}, with income $\tranShkNbl^{(n)}$, over $\cNrm\in[\underline{\cFunc}(\nbl{\mNrm}),\hat{\cFunc}(\nbl{\mNrm})]$.
+Then $\nbl{\vFunc}_{T-n}=\TMapNbl_{n}\nbl{\vFunc}_{T-n+1}$, and by Step 2 and Theorem~\ref{thm:Boyd} each $\TMapNbl_{n}$ is a contraction with modulus $\Shrinker$ on the continuous functions in $\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$; the objective is jointly continuous in $(\nbl{\mNrm},\cNrm)$ on the band by dominated convergence, because for $\nbl{\mNrm}\geq\nbl{\mNrm}_{0}$ next period's resources there are at least $\hat{\aFunc}(\nbl{\mNrm}_{0})\RNrmByGRnd+\tranShkNbl^{(1)}$ ($\hat{\aFunc}$ being non-decreasing), whose $\boundFunc$ has finite expectation by Step 2.
+
+\statement{Step 4. The value functions are a Cauchy sequence.}
+For $n\geq 2$, as in~\eqref{eq:CauchyPerturbed}, $d_{n}\colon=\Vert\nbl{\vFunc}_{T-n}-\nbl{\vFunc}_{T-n+1}\Vert_{\boundFunc}\leq\Shrinker d_{n-1}+\Vert(\TMapNbl_{n}-\TMapNbl_{n-1})\nbl{\vFunc}_{T-n+2}\Vert_{\boundFunc}$.
+The two operators have the same band and differ only in the argument of $f\colon=\nbl{\vFunc}_{T-n+2}$: $x_{n}=\nbl{\aNrm}\RNrmByGRnd+\tranShkNbl^{(n)}$ against $x_{n-1}$.
+By~\eqref{eq:IncomeHorizonBounds}, with $\epsilon_{n}=(\PermGroFac\permShkIndMin/\Rfree)^{n-1}$, $0\leq x_{n}-x_{n-1}\leq\epsilon_{n}\min\{x_{n-1},\bar{y}\}$, so by concavity and Step 3
+\begin{equation*}
+  0\leq f(x_{n})-f(x_{n-1})\leq\underline{\cFunc}(x_{n-1})^{-\CRRA}\epsilon_{n}\min\{x_{n-1},\bar{y}\}\leq\epsilon_{n}C\boundFunc(x_{n-1}),
+\end{equation*}
+with $C\colon=((\CRRA-1)B)^{\CRRA/(\CRRA-1)}(1+\zeta)^{1/(\CRRA-1)}\max\{1,\bar{y}\}$, using $\boundFunc(x)\leq(1+\zeta)x^{1-\CRRA}$ for $x\leq 1$ and $\boundFunc(x)\leq 1+\zeta$ for $x\geq 1$.
+By Step 2 the objectives, and hence their maxima, differ by at most $\Shrinker C\epsilon_{n}\boundFunc(\nbl{\mNrm})$.
+So $d_{n}\leq\Shrinker d_{n-1}+\Shrinker C(\PermGroFac\permShkIndMin/\Rfree)^{n-1}$, and $\sum_{n}d_{n}<\infty$ because $\PermGroFac\permShkIndMin<\Rfree$: the sequence converges in the $\boundFunc$-norm to some $\nbl{\vFunc}$, which is concave and non-decreasing and satisfies $\nbl{\vFunc}(x_{\infty})-\nbl{\vFunc}(x_{n})\leq C\epsilon_{n}^{\prime}\boundFunc(x_{n})$ for its own perturbations, with $\epsilon_{n}^{\prime}\rightarrow 0$.
+
+\statement{Step 5. The limit.}
+Step 3 of the proof of Theorem~\ref{thm:existencePositiveMinimum} now applies on the band $[\underline{\cFunc}(\nbl{\mNrm}),\hat{\cFunc}(\nbl{\mNrm})]$, which is compact but may contain $\cNrm=\nbl{\mNrm}$: on it the objectives converge uniformly, by Step 2 and the last inequality of Step 4; off it they converge point-wise on $(0,\nbl{\mNrm})$; and at $\cNrm=\nbl{\mNrm}$ the limit objective is the limit of its values as $\cNrm\uparrow\nbl{\mNrm}$, by monotone convergence.
+So the consumption functions converge to the unique maximizer of the stationary problem, and $\nbl{\vFunc}$ is its value.
+Since $\nbl{\vFunc}$ is a fixed point, the arguments of Lemma~\ref{lemma:NoWorstFinite} for (ii), (iv) and differentiability apply to the stationary problem; they need $\nbl{\vFunc}$ to be concave, not strictly concave, and in (iv) the bound $\underline{\cFunc}(y)\geq((\CRRA-1)B(1+\zeta))^{-1/(\CRRA-1)}\min\{y,1\}$ takes the place of $\MPCmin_{t+1}y$.
+This gives the shape of $\nbl{\cFunc}$ near zero and the Euler equation.
+The limit at infinity follows from the Euler equation as in Lemma~\ref{lemma:MPCBoundsConvgPositiveMinimum}, except that the integrand is dominated for $\nbl{\mNrm}\geq\nbl{\mNrm}_{0}$, with $\nbl{\mNrm}_{0}$ above the region where the limit binds, by means of $\nbl{\aFunc}(\nbl{\mNrm})\geq(1-\nbl{\cFunc}(\nbl{\mNrm}_{0})/\nbl{\mNrm}_{0})\nbl{\mNrm}$ (the ratio $\nbl{\cFunc}/\nbl{\mNrm}$ being non-increasing) in place of the bound from $\MPCmax<1$.
+The original variables follow as in Step 4 of the proof of Theorem~\ref{thm:existencePositiveMinimum}.
+\end{proof}
+
+\begin{proposition}(Targets and Aggregates When the Borrowing Limit Can Be Reached).\label{prop:NoWorstTargets}
+Under the hypotheses of Theorem~\ref{thm:existenceNoWorst}, Theorems~\ref{thm:targetPositiveMinimum} and~\ref{thm:pseudoTargetPositiveMinimum}, Lemma~\ref{lemma:orderingPositiveMinimum} and Proposition~\ref{prop:invariantPositiveMinimum} hold for~\ref{item:NoPointMass}, \ref{item:Restrained} and~\ref{item:Artificial}, under the same additional conditions; in~\ref{item:Restrained} the statements about invariant distributions also require that $\tranShkEmp$ not be degenerate.
+In~\ref{item:Artificial} the consumer never borrows, so both targets are at least one, and both equal one if the constraint binds at $\mNrm=1$.
+\end{proposition}
+
+\begin{proof}
+The proofs given above use of the consumption function only that it is continuous, concave and non-decreasing with slopes between $\MPCmin$ and one, and of income only that it is bounded with a positive mean; Theorem~\ref{thm:existenceNoWorst} supplies the first.
+For the invariant distributions, the process~\eqref{eq:mNblProcess} is still increasing (Szeidl's theorem needs only that next period's state be non-decreasing in this period's), its state never reaches zero, and the events used for mixing have positive probability: in~\ref{item:NoPointMass} and~\ref{item:Artificial} they are those used in the proof of Proposition~\ref{prop:invariantPositiveMinimum}, and in~\ref{item:Restrained} the events $\{\tranShkEmp\leq\tranShkEmpMin+\eta\}$ and $\{\tranShkEmp\geq\Max{\tranShkEmp}-\eta\}$, for small $\eta>0$ and with $\tranShkEmpMin$ and $\Max{\tranShkEmp}$ taken to be the lowest and highest points of the support of $\tranShkEmp$, take the places of the unemployment event and its complement.
+In~\ref{item:Artificial}, $\aFunc\geq 0$ gives $\cFunc(1)\leq 1$, so the six quantities of Lemma~\ref{lemma:orderingPositiveMinimum} are non-negative.
+\end{proof}
+
+\subsection{Liquidity Constraints}\label{subsec:PositiveMinimumLiqConstr}
+
+\paragraph{The liquidity constrained solution as a limit.}
+Section~\ref{subsubsec:deatonIsLimit} and Appendix~\ref{sec:LiqConstrAsLimit} argue that, with a zero minimum income, the solution approaches that of a consumer with no zero-income event who cannot borrow ($\aNrm_{t}\geq 0$) as $\pZero\downarrow 0$.
+With a positive minimum income the counterpart is the restrained consumer of problem~\ref{item:Restrained} in Section~\ref{subsec:PositiveMinimumNoWorstEvent}, who faces no unemployment event but may not borrow more than the minimum human wealth that $\IncUnemp$ would have supported.
+The next theorem proves the claim at every horizon and in the limit, for a zero or a positive minimum income.
+
+\begin{theorem}(The Liquidity Constrained Solution as a Limit).\label{thm:LiqConstrLimitPositiveMinimum}
+Fix $\IncUnemp\in[0,\tranShkEmpMin)$ and every parameter other than $\pZero$.
+For $\pZero\in(0,1)$ let $\cFunc_{t}(\bullet;\pZero)$ and $\vFunc_{t}(\bullet;\pZero)$ solve the problem of this appendix (of the text if $\IncUnemp=0$; problem~\ref{item:NoPointMass} if $\IncUnemp>0$ and $\permShk$ has no point mass at $\permShkIndMin$), and let $\cnstr{\cFunc}_{t}$ and $\cnstr{\vFunc}_{t}$ solve problem~\ref{item:Restrained} for the same $\IncUnemp$ and the same permanent shock.
+\begin{enumerate}[label=(\roman*)]
+\item For every $t\leq T$ and $\mNrm>-\hNrmPes_{t}$: $\lim_{\pZero\downarrow 0}\cFunc_{t}(\mNrm;\pZero)=\cnstr{\cFunc}_{t}(\mNrm)$ and $\lim_{\pZero\downarrow 0}\vFunc_{t}(\mNrm;\pZero)=\cnstr{\vFunc}_{t}(\mNrm)$.
+\item If \hyperlink{FVAC}{finite value of autarky} holds and either $\IncUnemp=0$ or $\PermGroFac\permShkIndMin<\Rfree$, then for all small enough $\pZero$ the limiting solutions $\cFunc(\bullet;\pZero)$, $\vFunc(\bullet;\pZero)$ and $\cnstr{\cFunc}$, $\cnstr{\vFunc}$ exist, and for every $\mNrm>-\hNrmPes$, $\lim_{\pZero\downarrow 0}\cFunc(\mNrm;\pZero)=\cnstr{\cFunc}(\mNrm)$ and $\lim_{\pZero\downarrow 0}\vFunc(\mNrm;\pZero)=\cnstr{\vFunc}(\mNrm)$.
+\end{enumerate}
+With $\IncUnemp=0$, (i) is~\eqref{eq:RestrEqUnrestr} at every horizon and (ii) is its counterpart for the limiting solutions.
+\end{theorem}
+
+\begin{proof}
+Neither $\hNrmPes_{t}$ nor $\PermGroFacRnd$ depends on $\pZero$.
+Put all the problems on one probability space with a uniform random variable $U$, independent of the other shocks, and let the unemployment event be $\{U<\pZero\}$.
+Then, in resources measured from the limit, each problem is~\eqref{eq:veqnNoWorst}, and as $\pZero\downarrow 0$ its income $\tranShkNbl_{t+1}$ converges with probability one to that of problem~\ref{item:Restrained}, because $(1-\pZero\IncUnemp)/\pNotZero\rightarrow 1$.
+Lemma~\ref{lemma:ContinuityIncome} gives (i).
+
+For (ii), the proof of Theorem~\ref{thm:existenceNoWorst} uses the positivity of income only to choose $\delta$ in Step 2 so that the first coefficient in~\eqref{eq:KeyNoWorst} is at most $\Shrinker$.
+Take $\delta=(\tranShkEmpMin-\IncUnemp)/2$.
+Outside the unemployment event $\tranShkNbl^{(1)}\geq\tranShkEmpMin-\IncUnemp>\delta$, so $q_{\delta}\leq\pZero$; choose $\pZero_{0}>0$ with $\RPFac(1-\PermGroFac\permShkIndMin/\Rfree)^{1-\CRRA}(1+\RPFac)^{\CRRA-1}\pZero_{0}^{1/\CRRA}\leq\Shrinker$.
+Then Steps 1 to 4 of that proof, and the convergence in its Step 5, apply word for word to every problem with $\pZero\leq\pZero_{0}$ and to problem~\ref{item:Restrained}, and $\Shrinker$, $\delta$, $\zeta$, $B$, $\underline{\cFunc}$ and $C$ are the same for all of them, with $\bar{y}=\Max{\tranShkEmp}/(1-\pZero_{0})+\hNrmPes$, which bounds the income of every one of them.
+The bound $d_{1}\leq 2B$ and the recursion for $d_{n}$ are then uniform too, so there are $r_{n}\rightarrow 0$ that do not depend on $\pZero$ with $\Vert\nbl{\vFunc}_{T-n}(\bullet;\pZero)-\nbl{\vFunc}(\bullet;\pZero)\Vert_{\boundFunc}\leq r_{n}$, and likewise for problem~\ref{item:Restrained}.
+Hence, for every $n$,
+\begin{equation*}
+  \limsup_{\pZero\downarrow 0}\vert\nbl{\vFunc}(\nbl{\mNrm};\pZero)-\nbl{\cnstr{\vFunc}}(\nbl{\mNrm})\vert\leq 2r_{n}\boundFunc(\nbl{\mNrm})+\lim_{\pZero\downarrow 0}\vert\nbl{\vFunc}_{T-n}(\nbl{\mNrm};\pZero)-\nbl{\cnstr{\vFunc}}_{T-n}(\nbl{\mNrm})\vert=2r_{n}\boundFunc(\nbl{\mNrm})
+\end{equation*}
+by (i), and the left side is zero.
+For consumption: the value functions are concave and differentiable, with derivative $\uFunc^{\prime}$ of consumption, and concave functions that converge point-wise to a differentiable limit have converging derivatives (Theorem 25.7 in \cite{Rockafellar1972}).
+\end{proof}
+
+The argument is that of Appendix~\ref{sec:LiqConstrAsLimit}, made uniform.
+Near the borrowing limit, the consumer with $\pZero>0$ is held back by the small chance of the unemployment event, in which next period's resources can be at or arbitrarily close to the limit, where marginal utility is infinite or without bound; as $\pZero\downarrow 0$ that motive vanishes for any fixed positive saving, while the motive for saving that remains is the restrained consumer's.
+The uniformity in (ii) is what makes the limits in $\pZero$ and in the horizon interchangeable; it comes from the existence proof of Section~\ref{subsec:PositiveMinimumNoWorstEvent}, whose constants do not depend on $\pZero$ once it is small.
+Read in the other direction, the theorem says that a liquidity constraint that allows borrowing up to $\hNrmPes_{t}$ of~\eqref{eq:hNrmMinRecursion}, which in the limit can be any fraction of permanent income below $\tranShkEmpMin\PermGroFac\permShkIndMin/(\Rfree-\PermGroFac\permShkIndMin)$, is the limit of natural borrowing constraints generated by an unemployment benefit, as the probability of unemployment goes to zero; the text's result is the case in which both the benefit and the borrowing limit are zero.
+Numerically, at the baseline calibration with $\IncUnemp=0.3$, the largest distance between $\cFunc(\bullet;\pZero)$ and $\cnstr{\cFunc}$ over $\mNrm+\hNrmPes\in[0.001,30]$ falls from $0.12$ at $\pZero=0.05$ to $0.0005$ at $\pZero=5\times 10^{-6}$; with $\IncUnemp=0$, from $0.30$ to $0.011$.
+The maximal MPC behaves as it should, $\lim_{\pZero\downarrow 0}\MPCmax=1$.
+
+\paragraph{An artificial constraint tighter than the natural one.}
+If the constraint $\cNrm_{t}\leq\mNrm_{t}$ of Problem~\eqref{eq:levelRecProblem} is kept in every period while $\IncUnemp>0$, it binds for low enough $\mNrm_{t}$, because $-\hNrmPes_{t}<0$, and the MPC of a constrained consumer is one.
+This is problem~\ref{item:Artificial} of Section~\ref{subsec:PositiveMinimumNoWorstEvent}.
+By Theorem~\ref{thm:existenceNoWorst} it has a limiting solution under finite value of autarky alone (return impatience is not needed, and neither is finite minimum human wealth, since the consumer cannot borrow).
+The constraint binds exactly below a level of $\mNrm$ that is positive because income is at least $\IncUnemp$ (Lemma~\ref{lemma:NoWorstFinite}(iv), which applies to the limiting solution by Step 5 of the proof of Theorem~\ref{thm:existenceNoWorst}).
+By Proposition~\ref{prop:NoWorstTargets}, the target and pseudo-target exist under the same conditions as in the text, both are at least one, and the invariant distributions exist under the conditions of Proposition~\ref{prop:invariantPositiveMinimum}.
+In this problem the consumer cannot borrow and income is independent of the permanent shock, so the two features that kept \cite{szeidlInvariant}'s buffer-stock theorem from applying in Section~\ref{subsec:PositiveMinimumAggregate} are absent.
+
+\paragraph{Perfect foresight.}
+Appendix~\ref{sec:ApndxLiqConstr} concerns the perfect foresight model, which has no unemployment event, so nothing in it depends on the income received in that event.
+
+\subsection{When the Hypotheses Fail}\label{subsec:PositiveMinimumFailures}
+
+\paragraph{Weak return impatience fails at the probability of the worst event.}
+If $\pWorst^{1/\CRRA}\RPFac\geq 1$, the second recursion in~\eqref{eq:MPCInvPositiveMinimum} gives $\MPCmax_{T-n}\rightarrow 0$.
+When minimum human wealth is finite, the upper bound in~\eqref{eq:cBoundsPositiveMinimum} then gives $\cFunc_{T-n}(\mNrm)\leq\MPCmax_{T-n}(\mNrm+\hNrmPes)\rightarrow 0$ at every $\mNrm$: the limiting solution is degenerate, which is the counterpart of what \hyperlink{WRIC}{weak return impatience} prevents in the text.
+By Remark~\ref{remark:WRICWorstImplied}, with $\IncUnemp>0$ and finite minimum human wealth this can happen only if finite value of autarky fails.
+If minimum human wealth is not finite, Proposition~\ref{prop:InfiniteMinHumanWealth} below applies.
+
+\paragraph{Minimum human wealth is not finite.}
+If $\IncUnemp>0$ and $\PermGroFac\permShkIndMin\geq\Rfree$, then $\hNrmPes_{T-n}\rightarrow\infty$: the consumer can borrow without limit against an income floor that, even on the worst path, grows at least as fast as the interest rate.
+This is the counterpart, for the worst path, of the role \hyperlink{FHWC}{finite human wealth} plays in the unconstrained perfect foresight model (Proposition~\ref{prop:pfUCFHWC}).
+
+\begin{proposition}(Infinite Minimum Human Wealth).\label{prop:InfiniteMinHumanWealth}
+Let Assumption~\ref{ass:shocksPositiveMinimum} hold with $\IncUnemp>0$ and $\PermGroFac\permShkIndMin\geq\Rfree$.
+If $\lim_{n\rightarrow\infty}\cFunc_{T-n}(\mNrm)$ exists in $(0,\infty)$ for some $\mNrm$, then it exists, with the same value, for every $\mNrm\in\Reals$, and $\Rfree\DiscFac\Ex[\PermGroFacRnd^{-\CRRA}]=1$, which is incompatible with \hyperlink{FVAC}{finite value of autarky}.
+By (iii) below, a limit that is zero, or infinite, at one $\mNrm$ is zero, or infinite, at every $\mNrm$.
+So under finite value of autarky the problem has no non-degenerate limiting solution.
+Moreover, for every $\mNrm$:
+\begin{enumerate}[label=(\roman*)]
+\item if $\APFac<\PermGroFac\permShkIndMin$ (in particular, under \hyperlink{RIC}{return impatience}), $\cFunc_{T-n}(\mNrm)\rightarrow\infty$;
+\item if $\pWorst^{1/\CRRA}\APFac>\PermGroFac\permShkIndMin$, or if $\APFac>\PermGroFac$, $\cFunc_{T-n}(\mNrm)\rightarrow 0$;
+\item for every $\Delta>0$, $\cFunc_{T-n}(\mNrm+\Delta)/\cFunc_{T-n}(\mNrm)\rightarrow 1$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Part (iii), proved below without the first statement, gives the first claim: if $\cFunc_{T-n}(\mNrm)\rightarrow\bar{c}$, then $\cFunc_{T-n}(\mNrm^{\prime})\rightarrow\bar{c}$ for every $\mNrm^{\prime}$, because the ratio of the two converges to one; the same argument gives the sentence after the first.
+The domains $(-\hNrmPes_{T-n},\infty)$ increase to $\Reals$ and each $\cFunc_{T-n}$ is concave on its domain (Proposition~\ref{prop:cfuncpropPositiveMinimum}), and concave functions that converge point-wise on an open interval converge uniformly on its compact subsets (Theorem 10.8 in \cite{Rockafellar1972}).
+So in the first order condition $\cFunc_{T-n}(\mNrm)^{-\CRRA}=\Rfree\DiscFac\Ex[\PermGroFacRnd^{-\CRRA}\cFunc_{T-n+1}(\mNrm^{\nxt})^{-\CRRA}]$, in which $\mNrm^{\nxt}=(\mNrm-\cFunc_{T-n}(\mNrm))\RNrmByGRnd+\tranShkAll$ stays in a compact set, the integrand converges to $\PermGroFacRnd^{-\CRRA}\bar{c}^{-\CRRA}$ and is bounded, which gives $\Rfree\DiscFac\Ex[\PermGroFacRnd^{-\CRRA}]=1$.
+Then $\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}]\geq\PermGroFac\permShkIndMin\DiscFac\Ex[\PermGroFacRnd^{-\CRRA}]=\PermGroFac\permShkIndMin/\Rfree\geq 1$, so finite value of autarky fails.
+
+Write $\hNrmPes_{T-n}=\IncUnemp\sum_{j=1}^{n}(\PermGroFac\permShkIndMin/\Rfree)^{j}$, which is at least $\IncUnemp(\PermGroFac\permShkIndMin/\Rfree)^{n}$ and at most $n\IncUnemp(\PermGroFac\permShkIndMin/\Rfree)^{n}$.
+(i) By~\eqref{eq:cBoundsPositiveMinimum}, $\cFunc_{T-n}(\mNrm)\geq\MPCmin_{T-n}(\mNrm+\hNrmPes_{T-n})$ with $\MPCmin_{T-n}^{-1}=\sum_{i=0}^{n}\RPFac^{i}$.
+If $\RPFac<1$, then $\MPCmin_{T-n}\geq 1-\RPFac$ while $\hNrmPes_{T-n}\rightarrow\infty$; if $\RPFac\geq 1$, then $\MPCmin_{T-n}\geq\RPFac^{-n}/(n+1)$, and the bound is $\IncUnemp(\PermGroFac\permShkIndMin/\APFac)^{n}/(n+1)$ plus a term that tends to zero, so it tends to infinity.
+(ii) By~\eqref{eq:cBoundsPositiveMinimum}, $\cFunc_{T-n}(\mNrm)\leq\MPCmax_{T-n}(\mNrm+\hNrmPes_{T-n})$; if $\pWorst^{1/\CRRA}\APFac>\PermGroFac\permShkIndMin\geq\Rfree$, then $\pWorst^{1/\CRRA}\RPFac>1$ and $\MPCmax_{T-n}\leq(\pWorst^{1/\CRRA}\RPFac)^{-n}$, so the bound is at most $(\pWorst^{1/\CRRA}\RPFac)^{-n}\mNrm+n\IncUnemp(\PermGroFac\permShkIndMin/(\pWorst^{1/\CRRA}\APFac))^{n}\rightarrow 0$.
+If $\APFac>\PermGroFac$, use instead the perfect foresight bound $\cFunc_{T-n}(\mNrm)\leq\MPCmin_{T-n}(\mNrm-1+\hNrm_{T-n})$, whose proof by induction (Section~\ref{subsec:PositiveMinimumExistence}) holds at every horizon without finite human wealth or return impatience; here $\RPFac>\PermGroFac/\Rfree\geq 1$, $\MPCmin_{T-n}\leq\RPFac^{-n}$ and $\hNrm_{T-n}\leq(n+1)(\PermGroFac/\Rfree)^{n}$, so the bound is at most $\RPFac^{-n}\mNrm+(n+1)(\PermGroFac/\APFac)^{n}\rightarrow 0$.
+(iii) In excess resources the ratio $\nbl{\cFunc}_{T-n}(\nbl{\mNrm})/\nbl{\mNrm}$ is non-increasing, so $1\leq\cFunc_{T-n}(\mNrm+\Delta)/\cFunc_{T-n}(\mNrm)\leq 1+\Delta/(\mNrm+\hNrmPes_{T-n})\rightarrow 1$.
+\end{proof}
+
+The first statement and parts (i) and (iii) hold for problem~\ref{item:NoPointMass} too, with the same proofs (Corollary~\ref{coro:ConcaveNoWorst} supplies concavity).
+When neither (i) nor (ii) applies ($\PermGroFac\permShkIndMin\leq\APFac\leq\PermGroFac$ and $\pWorst^{1/\CRRA}\APFac\leq\PermGroFac\permShkIndMin$), these bounds do not say whether consumption at a given $\mNrm$ goes to zero, goes to infinity, or fails to converge; by the first statement of the proposition it has no finite positive limit under finite value of autarky, and in the examples we have computed it goes to infinity.
+Part (iii) says that, whichever happens, consumption becomes flat in $\mNrm$: with the borrowing limit receding, a given difference in market resources is a vanishing fraction of the resources the consumer can draw on.
+
+\paragraph{The permanent shock has no point mass at its lowest value.}
+This is problem~\ref{item:NoPointMass} of Section~\ref{subsec:PositiveMinimumNoWorstEvent}.
+The natural borrowing limit is the same, but it can be reached; the maximal MPC is one; the consumer chooses the limit itself at low enough resources if $\Ex[(\permShk-\permShkIndMin)^{-\CRRA}]<\infty$, so that the consumption function is linear with slope one there, and otherwise approaches it with a slope that tends to one.
+A limiting solution exists under finite value of autarky and finite minimum human wealth (Theorem~\ref{thm:existenceNoWorst}), and the targets and the aggregate results hold as before (Proposition~\ref{prop:NoWorstTargets}).
+
+\subsection{An Example}\label{subsec:PositiveMinimumExample}
+
+Table~\ref{table:PositiveMinimumExample} reports the solution at the baseline calibration of Table~\ref{table:Calibration} for four values of income while unemployed.
+The permanent shock is built as described after Assumption~\ref{ass:shocksPositiveMinimum}, around a mean-one lognormal truncated at three standard deviations of its log (whose standard deviation after truncation is $0.1$): with probability $\pZeroPerm=0.00135$, the mass that the truncation removes at the bottom, $\permShk$ equals that law's infimum, $\permShkIndMin=0.734$.
+The employed draw $\tranShkEmp$ has the same truncated law, without a point mass.
+(In the first column, where $\IncUnemp=0$, the permanent shock has no point mass either: that column is the model of the text.)
+The problem is solved in excess resources, from~\eqref{eq:veqnNbl}, with the continuous part of each law replaced by seven equiprobable points.
+The lowest permanent shock, the probability of the worst event, minimum human wealth and the maximal MPC do not depend on that number; the targets do, slightly.
+
+With $\IncUnemp=0.05$ the consumer holds a positive buffer, smaller than in the text.
+With $\IncUnemp=0.3$ minimum human wealth is about $0.8$ of annual permanent income, the consumer owes about $0.6$ at the target, and the target is below the pseudo-target.
+With $\IncUnemp=0.5$ both targets are negative.
+Because the worst event is so improbable, the maximal MPC, $1-\pWorst^{1/\CRRA}\RPFac$, is close to one in every column with positive income while unemployed. (The row for $\cFunc(1)$ is consumption with no assets and mean income, the quantity in Lemma~\ref{lemma:orderingPositiveMinimum}.)
+
+Two variations at $\IncUnemp=0.3$ show the problems of Section~\ref{subsec:PositiveMinimumNoWorstEvent}.
+Without the point mass (the truncated lognormal itself), and with 200 equiprobable points for the law in both cases, the target and pseudo-target are $0.393$ and $0.417$, against $0.399$ and $0.424$ with the point mass: removing so improbable an event barely matters.\footnote{Without the point mass the borrowing limit is computed from the law's infimum, which no point of the discretized law reaches, so the discretized problem is strictly one whose limit is tighter than its own natural limit; its solution converges as the number of points grows (with 800 points the target and pseudo-target are $0.3931$ and $0.4179$, against $0.3926$ and $0.4174$ with 200).}
+With the constraint $\cNrm_{t}\leq\mNrm_{t}$ kept in every period (and the seven points of the table), it binds below $\mNrm=0.946$, and the target and pseudo-target are $1.100$ and $1.097$, below the $1.392$ and $1.378$ of the text's model because unemployment is now less costly.
+
+\begin{table}[ht]
+\centering
+\caption{Positive Minimum Income at the Baseline Calibration}\label{table:PositiveMinimumExample}
+\begin{tabular}{lcccc}
+\hline\hline
+ & $\IncUnemp=0$ & $\IncUnemp=0.05$ & $\IncUnemp=0.3$ & $\IncUnemp=0.5$ \\
+\hline
+Worst event's probability, $\pWorst$ & $0.005$ & $6.7\times 10^{-6}$ & $6.7\times 10^{-6}$ & $6.7\times 10^{-6}$ \\
+Minimum human wealth, $\hNrmPes$ & $0$ & $0.133$ & $0.799$ & $1.332$ \\
+Maximal MPC, $\MPCmax$ & $0.9321$ & $0.9975$ & $0.9975$ & $0.9975$ \\
+Minimal MPC, $\MPCmin$ & $0.039$ & $0.039$ & $0.039$ & $0.039$ \\
+Consumption at $\mNrm=1$, $\cFunc(1)$ & $0.853$ & $0.942$ & $1.105$ & $1.152$ \\
+Target, $\mTrgNrm$ & $1.392$ & $1.190$ & $0.381$ & $-0.126$ \\
+Pseudo-target, $\mBalLvl$ & $1.378$ & $1.183$ & $0.405$ & $-0.080$ \\
+Assets at the target, $\aFunc(\mTrgNrm)$ & $0.385$ & $0.186$ & $-0.607$ & $-1.105$ \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\ifSubfilesClassLoaded{\bibfilesfind{\texname}\bibliography{\bibfilesfound}}{}
+
+\end{document}\endinput

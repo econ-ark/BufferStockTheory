@@ -1,0 +1,914 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+
+\newcommand{\subname}{ApndxConcaveCFunc}
+\input{\econtexRoot/@local/dir-paths} % get directory macros
+\usepackage{econark-ifsubfile}        % allow conditional execution of code
+\usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
+
+\xrsetup{\econtexRoot/\texname}
+
+% \begin{document}
+% The first panel of Table~\ref{table:Required} summarizes: The PF-Unconstrained model has a non-degenerate limiting solution if we impose the {\RIC} and {\FHWC} (these conditions are necessary as well as sufficient).
+% Together the {\PFFVAC} and the {\FHWC} imply the {\RIC}.
+
+% \cite{carroll:death}
+
+% \end{document}
+
+%  \externaldocument{\LaTeXGenerated/BufferStockTheory}\providecommand{\texname}{}\renewcommand{\texname}{Introduction}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+\begin{document}
+
+\section{Appendix for Section \ref{sec:Theory}}\label{sec:ApndxConcaveCFunc}
+
+\subsection{Recovering the Non-Normalized Problem}\label{sec:recoverLevels}
+Letting nonbold variables be the boldface counterpart normalized by $\permLvl_{t}$ (as with $\mNrm=\mLvl/\permLvl$), consider the problem in the second-to-last period:
+\begin{equation}\labelsafe{eq:vBold}
+  \begin{aligned}
+    \vFuncLvl_{T-1}(\mLvl_{T-1},\permLvl_{T-1})
+    & =  \max_{0< \cNrm_{T-1}< \mNrm_{T-1}}~
+    \uFunc(\permLvl_{T-1}\cNrm_{T-1}) + \DiscFac  \Ex_{t}[\uFunc(\permLvl_{T}{\mNrm}
+    _{T})]  \\
+    & = \permLvl_{T-1}^{1-\CRRA}
+    \left\{\max_{0<\cNrm_{T-1}\leq \mNrm_{T-1}}~ \uFunc(\cNrm_{T-1}) + \DiscFac \Ex_{t}[ \uFunc( {\PermGroFacRnd}_{T}
+      {\mNrm}_{T}) ] \right\}.
+  \end{aligned}
+\end{equation}
+
+\hypertarget{The-Related-Problem}{}
+
+Since $\vFunc_{T}(\mNrm_{T}) = \uFunc(\mNrm_{T})$, defining $\vFunc_{T-1}(\mNrm_{T-1})$ from Problem ~\eqref{eq:veqnNrmRecBellman}, we obtain:
+\begin{align*}
+  \vFuncLvl_{T-1}(\mLvl_{T-1},\permLvl_{T-1})  & = \permLvl_{T-1}^{1-\CRRA} \vFunc_{T-1}(\underbrace{\mLvl_{T-1}/\permLvl_{T-1}}_{=\mNrm_{T-1}}).
+\end{align*}
+
+This logic induces to earlier periods; if we solve the normalized one-state-variable problem~\eqref{eq:veqnNrmRecBellman}, we will have solutions to the original problem for any $t<T$ from:
+\begin{align*}
+  \vFuncLvl_{t}(\mLvl_{t},\permLvl_{t})  & = \permLvl_{t}^{1-\CRRA}\vFunc_{t}(\mNrm_{t}),
+  \\ \cLvl_{t}(\mLvl_{t},\permLvl_{t})  & = \permLvl_{t}\cFunc_{t}(\mNrm_{t}).
+\end{align*}
+
+\subsection{Perfect Foresight Benchmarks}\label{subsec:PFBProofs}\hypertarget{PFBProofs}{}
+
+\begin{proof}[\textbf{Proof of Claim \ref{claim:PFConspC}}]
+First we show that if \hyperlink{FHWC}{finite limiting human wealth} (Assumption \ref{ass:FHWC}) and \hyperlink{GICRaw}{growth impatience} (Assumption \ref{ass:GICRaw}) are both satisfied, \hyperlink{PFFVAC}{perfect foresight finite value of autarky} (Equation \eqref{eq:PFFVAC}) holds.
+In particular, note that:
+  
+\begin{equation}\label{eq:GICandFHWCimplyPFFVAC}
+  \begin{aligned}
+    \APFac & < \PermGroFac < \Rfree
+    \\   \RPFac & < \PermGroFac/\Rfree < {(\PermGroFac/\Rfree)}^{1-1/\CRRA} < 1.
+  \end{aligned}
+\end{equation}
+
+The last line above holds because \hyperlink{FHWC}{finite human wealth} implies $0 \leq (\PermGroFac/\Rfree) < 1$ and $\CRRA > 1 \Rightarrow 0 < 1-1/\CRRA < 1$.
+
+
+Next, we show that if \hyperlink{FHWC}{finite limiting human wealth} is satisfied, \hyperlink{PFFVAC}{perfect foresight finite value of autarky} (Equation \eqref{eq:PFFVAC}) implies \hyperlink{RIC}{return impatience} (Assumption \ref{ass:RIC}).
+To see why, divide both sides of the second inequality in Equation~\eqref{eq:PFFVAC} by $\Rfree$, and after some straightforward algebra, arrive at:
+%
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \APFac/\Rfree & < {(\PermGroFac/\Rfree)}^{1-1/\CRRA}  \label{eq:FHWCandPFFVACimplyRIC}.
+  \end{aligned}\end{gathered}\end{equation}
+  Due to \hyperlink{FHWC}{finite limiting human wealth}, the RHS above is strictly less than $ 1$ because $(\PermGroFac/\Rfree) < 1$ (and the RHS is raised to a positive power (because $\CRRA>1$)).
+
+\end{proof}
+%
+\begin{comment}
+The first panel of Table~\ref{table:Required} summarizes: The PF-Unconstrained model has a non-degenerate limiting solution if we impose the {\RIC} and {\FHWC} (these conditions are necessary as well as sufficient).
+Together the {\PFFVAC} and the {\FHWC} imply the {\RIC}.
+If we impose the {\GICRaw} and the {\FHWC}, both the {\PFFVAC} and the {\RIC} follow, so {\GICRaw}+{\FHWC} are also sufficient.
+But there are circumstances under which the {\RIC} and {\FHWC} can hold while the {\PFFVAC} fails (`\cncl{\PFFVAC}').
+For example, if $\PermGroFac=0$, the problem is a standard `cake-eating' problem with a non-degenerate solution under the {\RIC} (when the consumer has access to capital markets).% chktex 10
+\end{comment}
+
+\subsection{Properties of the Consumption Function and Limiting MPCs}\label{sec:MPCiterproofs}
+
+For the following, a function with $k$ continuous derivatives is called a $\mathbf{C}^{k}$ function.
+
+
+\begin{lemma}\label{lemm:consC2}
+Let $t<T$ and suppose $\pZero>0$ (Assumption~\ref{ass:shocks}).
+If $\vFunc_{t+1}$ is strictly negative, strictly increasing, strictly concave, $\mathbf{C}^{3}$ and satisfies $\lim\limits_{\mNrm\rightarrow 0}~\vFunc_{t+1}(\mNrm) =-\infty $, then $\cFunc_{t}$ is $\mathbf{C}^{2}$.
+\end{lemma}
+
+%% AS to AS: The domain of the argument of the functions below is only stated the first three equations. This should be fine since the domains are the same in the later equations, but may cause confusion. 
+
+\begin{proof}
+
+\hypertarget{BoroCnstNat}{}
+%
+Start by defining an end-of-period value function $\mathfrak{v}_{t}$ as:
+%
+\begin{equation}\label{eq:vfFrackdefn}
+  \mathfrak{v}_{t}(a)\colon =\DiscFac \Ex_{t}\left[{\PermGroFacRnd}_{t+1}^{1-\CRRA}\vFunc_{t+1}\left({\RNrmByGRnd}_{t+1} a+{\tranShkAll}_{t+1}\right) \right], \qquad a\in \mathbb{R}_{++}. 
+\end{equation}
+
+Since there is a positive probability that $\tranShkAll_{t+1}$ will
+attain its minimum of zero and since ${\RNrmByGRnd}_{t+1}>0$, we will have that $\lim\limits_{\aNrm \rightarrow 0} \mathfrak{v}_{t}(a) = -\infty$.
+Moreover, note that
+$\mathfrak{v}_{t}(a) $ is real-valued iff $\aNrm>0$.
+As such, by Leibniz Rule,  $\mathfrak{v}_{t}$ will be $\mathbf{C}^{3}$.
+
+Next, define $\underline{\vFunc}_{t}(\mNrm,\cNrm)$ as:
+%
+%
+\begin{equation*}
+  \underline{\vFunc}_{t}(\mNrm,\cNrm)\colon =\uFunc(c)+\mathfrak{v}_{t}(\mNrm-c), \qquad (\mNrm,\cNrm)\in \Reals_{++}.
+\end{equation*}
+%
+Note that for fixed $\mNrm$, $\cNrm \mapsto \underline{\vFunc}_{t}(\mNrm,\cNrm)$ is $\mathbf{C}^{3}$ on $(0, \mNrm)$ since $\mathfrak{v}_{t}$ and $\uFunc$ are both
+$\mathbf{C}^{3}$.
+Observe that the value function defined
+by Problem~\eqref{eq:veqnNrmRecBellman} can be written as:
+%
+\begin{equation*}\begin{gathered}\begin{aligned}
+      \vFunc_{t}(\mNrm) & =  \max_{0<\cNrm<\mNrm}~\underline{\vFunc}_{t}(\mNrm,\cNrm), \qquad \mNrm\in \Reals_{++}
+    \end{aligned}\end{gathered}\end{equation*}
+%
+where the function $\underline{\vFunc}_{t}$ is real-valued if and only if $0<c<m$.
+Furthermore,
+$\lim\limits_{c \rightarrow
+  0}\underline{\vFunc}_{t}(\mNrm,\cNrm)=\lim\limits_{c\rightarrow m} \underline{\vFunc}_{t}(\mNrm,\cNrm)=-\infty $, $\frac{\partial ^{2}\underline{\vFunc}_{t}(\mNrm,\cNrm)}{\partial c^{2}}%
+<0$, $\lim\limits_{\cNrm \rightarrow 0}\frac{\partial \underline{\vFunc}_{t}(\mNrm,\cNrm)}{\partial c}%
+=+\infty $, and $\lim\limits_{\cNrm\rightarrow m} \frac{\partial \underline{\vFunc}_{t}(\mNrm,\cNrm)}{%
+  \partial c}=-\infty $.
+
+Letting $\underline{\vFunc}_{t}(\mNrm,0) = -\infty$ and  $\underline{\vFunc}_{t}(\mNrm,\mNrm) = -\infty$,  consider that $\cFunc_{t}(\mNrm)$ is given by:
+%
+\begin{equation*}\begin{gathered}\begin{aligned}
+      \cFunc_{t}(\mNrm)  & = \underset{0<c<m}{\arg \max }~\underline{\vFunc}_{t}(\mNrm,\cNrm)= \underset{0\leq c \leq m}{\arg \max }~\underline{\vFunc}_{t}(\mNrm,\cNrm)
+    \end{aligned}\end{gathered}\end{equation*}
+where the maximizer exists, is unique and an interior solution.
+As such, note that $\cFunc_{t}$ satisfies the first order condition:
+%
+\begin{equation*}\label{eq:uprimcFOC}
+  \uFunc^{\prime }(\cFunc_{t}(\mNrm))=\mathfrak{v}_{t}^{\prime }(\mNrm-\cFunc_{t}(\mNrm)).
+\end{equation*}
+%
+By the Implicit Function Theorem, $\cFunc_{t}$ is continuous and differentiable and:
+%
+\begin{equation*}\label{eq:derivativeConsFunc}\begin{gathered}\begin{aligned}
+      \cFunc_{t}^{\prime }(\mNrm)  & = \frac{\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))  }{\uFunc^{\prime \prime }(\cFunc_{t}(\mNrm))+\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))},
+    \end{aligned}\end{gathered}\end{equation*}
+%
+where the function $\aFunc_{t}$ is defined by the evaluation $\aFunc_{t}(\mNrm) = m- \cFunc_{t}(\mNrm)$.
+Since both $\uFunc$ and $\mathfrak{v}_{t}$ are
+three times continuously differentiable and $\cFunc_{t}$ is continuous, the RHS of the above equation is continuous and we can conclude that
+$\cFunc_{t}^{\prime }$ is continuous and $\cFunc_{t}$ is in $\mathbf{C}^{1}$.
+
+Finally, $\cFunc_{t}^{\prime }(\mNrm)$ is differentiable because
+$\mathfrak{v}_{t}^{\prime \prime }$ is $\mathbf{C}^{1}$, $ \cFunc_{t}(\mNrm)$
+is $\mathbf{C}^{1}$ and $\uFunc^{\prime \prime
+}(\cFunc_{t}(\mNrm))+\mathfrak{v}_{t}^{\prime \prime }\left( {\aFunc}_{t}(\mNrm)\right)
+<0$.
+The second derivative $\cFunc_{t}^{\prime \prime }(\mNrm)$ will then be given by:
+%
+\begin{equation*}
+  \cFunc_{t}^{\prime \prime }(\mNrm)=\frac{{\aFunc}_{t}^{\prime }(\mNrm)\mathfrak{v}_{t}^{\prime \prime
+      \prime }({\aNrm}_{t})\left[ \uFunc^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aNrm}_{t})
+    \right] -\mathfrak{v}_{t}^{\prime \prime }({\aNrm}_{t})\left[ \cFunc_{t}^{\prime }(\mNrm)\uFunc^{\prime \prime
+        \prime }(c_{t})+{\aFunc}_{t}^{\prime }(\mNrm)\mathfrak{v}_{t}^{\prime \prime \prime }({\aNrm}_{t})\right] }{
+    {\left[ \uFunc^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aNrm}_{t})\right]}^{2}},
+\end{equation*}
+%
+where $\aNrm_{t} = \aFunc_{t}(\mNrm)$ in the equation above.
+Since $\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))$ is continuous,
+$\cFunc_{t}^{\prime \prime }(\mNrm)$ is also continuous.
+
+\end{proof}
+
+\begin{claim}\label{prop:vfc3}
+For each $t$, $\vFunc_{t}$ is strictly negative, strictly increasing, strictly concave, $\mathbf{C}^{3}$ and satisfies $\lim\limits_{\mNrm\rightarrow 0}~\vFunc_{t}(\mNrm) =-\infty $.
+\end{claim}
+
+\begin{proof}
+%
+We will say a function is `nice' if it satisfies the properties stated by the Proposition.
+Assume that for some $t+1$, $\vFunc_{t+1}$ is nice.
+Our objective is to show that this
+implies $\vFunc_{t}$ is also nice; this is sufficient to establish that
+$\vFunc_{t-n}$ is nice by induction for all $n > 0$ because $\vFunc_{T}(\mNrm)
+=\uFunc(\mNrm) $ and $\uFunc$, where $\uFunc(\mNrm)=\mNrm^{1-\CRRA}/(1-\CRRA)$, is nice by inspection.
+By Lemma~\ref{lemm:consC2}, if $\vFunc_{t+1}$ is nice, $\cNrm_{t}$ is in $\mathbf{C}^{2}$.
+Next, since both $\uFunc$ and $\mathfrak{v}_{t}$ are strictly concave, both
+$\cFunc_{t}$ and $\aFunc_{t}$, where $\aFunc_{t}(\mNrm)=\mNrm-\cFunc_{t}(\mNrm)$,
+are strictly increasing (Recall Equation \eqref{eq:derivativeConsFunc}).
+This implies that
+$\vFunc_{t}(\mNrm)$ is nice, since
+$\vFunc_{t}(\mNrm)=\uFunc(\cFunc_{t}(\mNrm))+\mathfrak{v}_{t}({\aFunc}_{t}(\mNrm))$.
+In particular, the first order condition~\eqref{eq:uprimcFOC} gives the envelope identity $\vFunc_{t}^{\prime}(\mNrm)=\uFunc^{\prime}(\cFunc_{t}(\mNrm))$; since $\uFunc^{\prime}\in\mathbf{C}^{\infty}$ and $\cFunc_{t}\in\mathbf{C}^{2}$, $\vFunc_{t}^{\prime}\in\mathbf{C}^{2}$, hence $\vFunc_{t}\in\mathbf{C}^{3}$, and $\vFunc_{t}^{\prime}$ is strictly decreasing (so $\vFunc_{t}$ strictly concave).
+\end{proof}
+
+ 
+\hypertarget{cFunc-is-Twice-Continuously-Differentiable}{}
+\begin{proof}[\textbf{\textit{Proof for Proposition \ref{prop:cfuncprop}}}]
+
+By Claim~\ref{prop:vfc3}, each $\vFunc_{t}$ is strictly negative, strictly increasing, strictly concave, $\mathbf{C}^{3}$ and satisfies $\lim\limits_{\mNrm\rightarrow 0}~\vFunc_{t}(\mNrm) =-\infty $.
+As such, apply Lemma \ref{lemm:consC2} to conclude that $\cFunc_{t}$ is in $\mathbf{C}^{2}$.
+To see that  $\cFunc_{t}$ is strictly increasing, note \eqref{eq:derivativeConsFunc}.
+To see that $\cFunc_{t}$  is strictly concave, see Theorem 1.
+in \cite{ckConcavity}.
+\end{proof}
+
+
+\begin{proof}[\textbf{Proof of Lemma \ref{lemm:MPC} (Limiting MPCs)}]
+
+\vspace{0.7em} 
+\noindent\textit{Part (1.): Minimal MPCs}  
+\vspace{0.7em} 
+
+Fix any $t$ and for any $\mNrm_{t}$ with  $\mNrm_{t}>0$, we can define $\eFunc_{t}(\mNrm_{t})=\cFunc_{t}(\mNrm_{t})/\mNrm_{t}$ and $\aFunc_{t}(\mNrm_{t})= \mNrm_{t} -\cFunc_{t}(\mNrm_{t})$.
+The Euler equation, Equation~\eqref{eq:scaledeuler}, can be rewritten as:
+
+\begin{equation}\begin{gathered}\begin{aligned}\label{eq:eFuncEuler}
+ \eFunc_{t}{(\mNrm_{t})}^{-\CRRA}  & = \DiscFac \Rfree \Ex_{t}{\left(\eFunc_{t+1}({\mNrm}_{t+1})\left(\frac{\overbrace{\Rfree \aFunc_{t}(\mNrm_{t})+{\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}}^{={\mNrm}_{t+1} \PermGroFacRnd_{t+1}}}{\mNrm_{t}}\right)\right)}^{-\CRRA }
+\end{aligned}\end{gathered}\end{equation}
+%
+where ${\mNrm}_{t+1} = \RNrmByGRnd_{t+1}(\mNrm_{t} -\cFunc_{t}(\mNrm_{t})) +\tranShkAll_{t+1}$.
+The minimal MPC's are obtained by letting where $\mNrm_{t} \rightarrow \infty$.
+Note that $\lim\limits_{\mNrm_{t}\rightarrow \infty} \mNrm_{t+1} = \infty$ almost surely and thus $\lim\limits_{\mNrm_{t}\rightarrow \infty}\eFunc_{t+1}({\mNrm}_{t+1}) = \MPCmin_{t+1}$ almost surely.
+Turning to the second term inside the marginal utility on the RHS, we can write:
+
+\begin{equation}\begin{gathered}\begin{aligned}
+\lim_{\mNrm_{t}\rightarrow \infty}\frac{\Rfree \aFunc_{t}(\mNrm_{t})+{\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}}{\mNrm_{t}} &  = \lim_{\mNrm_{t}\rightarrow \infty}\frac{\Rfree \aFunc_{t}(\mNrm_{t})}{\mNrm_{t}} + \lim_{\mNrm_{t}\rightarrow \infty}\frac{{\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}}{\mNrm_{t}} \\
+			& = \Rfree (1- \MPCmin_{t}) + 0, 
+\end{aligned}\end{gathered}\end{equation}
+since ${\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}$ is bounded.
+Thus, we can assert:
+
+\begin{equation}
+\lim_{\mNrm_{t}\rightarrow \infty}{\left(\eFunc_{t+1}({\mNrm}_{t+1})\left(\frac{\Rfree \aFunc_{t}(\mNrm)+{\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}}{\mNrm_{t}}\right)\right)}^{-\CRRA } = (\Rfree\MPCmin_{t+1}(1-\MPCmin_{t}))^{-\CRRA}, 
+\end{equation}
+
+almost surely.
+Since each $\cFunc_{s}$ is concave (Proposition \ref{prop:cfuncprop}) with $0<\cFunc_{s}(\mNrm)\leq\mNrm$, each $\eFunc_{s}$ is non-increasing, so $\eFunc_{t+1}\geq\MPCmin_{t+1}$, where $\MPCmin_{t+1}>0$ by backward induction on the recursion \eqref{eq:MPCminInvApndx} below from $\MPCmin_{T}=1$; and $\eFunc_{t}(\mNrm_{t})\leq\eFunc_{t}(1)<1$ for $\mNrm_{t}\geq 1$, because the optimal choice is interior.
+Hence, for $\mNrm_{t}\geq 1$, the term inside the expectation operator at Equation \eqref{eq:eFuncEuler} is bounded above by the finite constant $\left(\Rfree\MPCmin_{t+1}(1-\eFunc_{t}(1))\right)^{-\CRRA}$.
+Thus, by the Dominated Convergence Theorem, we have:
+
+\begin{equation}\labelsafe{eq:eFuncEulerMPCmaxDCT}
+\lim_{\mNrm_{t}\rightarrow \infty}{\DiscFac \Rfree \Ex_{t}\left(\eFunc_{t+1}({\mNrm}_{t+1})\left(\frac{\Rfree \aFunc_{t}(\mNrm_{t})+{\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}}{\mNrm_{t}}\right)\right)}^{-\CRRA } = \DiscFac \Rfree(R\MPCmin_{t+1}(1-\MPCmin_{t}))^{-\CRRA}. 
+\end{equation}
+
+Again applying L'H\^opital's rule to the LHS of Equation \eqref{eq:eFuncEuler}, letting $\lim\limits_{\mNrm \rightarrow \infty} \eFunc_{t}(\mNrm) = \MPCmin_{t}$ and equating limits to the RHS, we arrive at: \hypertarget{MPCnvrs}{}
+
+\begin{equation*}
+ \MPSmax \MPCmin_{t}  =  (1-\MPCmin_{t}) \MPCmin_{t+1}
+\end{equation*}
+
+Thus the minimal marginal propensity to consume satisfies the following recursive formula:
+\begin{equation}\begin{gathered}\begin{aligned}
+ \MPCmin_{t}^{-1}  & = 1+\MPCmin_{t+1}^{-1}\MPSmax,  \labelsafe{eq:MPCminInvApndx}
+\end{aligned}\end{gathered}\end{equation}
+
+which implies $\{\MPCmin_{T-n}^{-1}\}_{n=0}^{\infty}$ is an increasing sequence.
+Define:
+\begin{equation}\begin{gathered}\begin{aligned}
+\MPCmin^{-1} \colon = &\lim_{n \rightarrow \infty} \MPC_{T-n}^{-1}  
+\end{aligned}\end{gathered}\end{equation}
+as the limiting (inverse) marginal MPC.
+If  \hyperlink{RIC}{return impatience}(Assumption \ref{ass:RIC}) does \textit{not} hold, then $\lim\limits_{n \rightarrow \infty} \MPCmin_{T-n}^{-1} = \infty$
+and so the limiting MPC is $\MPCmin = 0$.
+Otherwise if  \hyperlink{RIC}{return impatience} (Assumption \ref{ass:RIC})  holds, then $\MPCmin > 0$.
+
+\vspace{0.7em} % Add some space before the heading
+\noindent\textit{Part (2.): Maximal MPCs}  % Make it bold and larger
+\vspace{0.7em} % Add some space after the heading
+
+The Euler Equation~\eqref{eq:scaledeuler} can be rewritten as:
+
+
+\begin{equation}\begin{gathered}\begin{aligned}\labelsafe{eq:eFuncEulerMPCmax}
+ \eFunc_{t}{(\mNrm_{t})}^{-\CRRA}  & = \DiscFac \Rfree \Ex_{t}\left[{\left(\eFunc_{t+1}({\mNrm}_{t+1})\left(\frac{\overbrace{\Rfree \aFunc_{t}(\mNrm)+{\PermGroFacRnd}_{t+1}{\tranShkAll}_{t+1}}^{={\mNrm}_{t+1} \PermGroFacRnd_{t+1}}}{\mNrm_{t}}\right)\right)}^{-\CRRA }\right] 
+\\  & = \phantom{ + }\pNotZero \DiscFac \Rfree \mNrm_{t}^{\CRRA} \Ex_{t}\left[ {\left(\eFunc_{t+1}({\mNrm}_{t+1} ) {\mNrm}_{t+1} \PermGroFacRnd_{t+1}\right)}^{-\CRRA} \big\vert ~ \tranShkAll_{t+1}>0 \right] 
+\\ & \qquad  + \pZero  \DiscFac \Rfree^{1-\CRRA} \Ex_{t}\left[{\left(\eFunc_{t+1}(\RNrmByGRnd_{t+1}\aFunc_{t}(\mNrm))\frac{\mNrm_t-\cFunc_{t}(\mNrm)}{\mNrm_{t}}\right)}^{-\CRRA} \big\vert~ \tranShkAll_{t+1} = 0 \right]  
+\end{aligned}\end{gathered}\end{equation}
+%
+%
+Now consider the first conditional expectation in the second line of Equation ~\eqref{eq:eFuncEulerMPCmax}.
+Recall that if $\tranShkAll_{t+1}>0$, then $\tranShkAll_{t+1} =
+\tranShkEmp_{t+1}/\pNotZero$ by Assumption \ref{ass:shocks}.
+Since $\mNrm_{t+1}\geq\underline{\tranShkEmp}/\pNotZero$ on this event and $\eFunc_{t+1}(\mNrm)\mNrm=\cFunc_{t+1}(\mNrm)$ is increasing,
+$\Ex_{t}[{(\eFunc_{t+1}({\mNrm_{t+1}} ){\mNrm_{t+1}} \PermGroFacRnd_{t+1})}^{-\CRRA}~|~\tranShkAll_{t+1}>0]$
+is contained in the bounded interval
+$[0, {(\eFunc_{t+1}(\underline{\tranShkEmp}/\pNotZero) \PermGroFac\underline{\permShk}
+\underline{\tranShkEmp}/\pNotZero)}^{-\CRRA}]$.
+As such, the first term after the second equality above converges to zero as
+$\mNrm_{t}^{\CRRA}$ converges to zero.
+
+
+Turning to the second term after the second equality above, the factor ${(1-\eFunc_{t}(\mNrm_{t}))}^{-\CRRA}$ is not random and comes out of the expectation, and the remaining integrand $\eFunc_{t+1}(\RNrmByGRnd_{t+1}\aFunc_{t}(\mNrm_{t}))^{-\CRRA}$ lies in $[1,\MPCmin_{t+1}^{-\CRRA}]$.
+As $\mNrm_{t} \rightarrow 0$, $\aFunc_{t}(\mNrm_{t})\rightarrow 0$, so by the Dominated Convergence Theorem this expectation converges to $\MPCmax _{t+1}^{-\CRRA}$.
+The left-hand side converges to $\MPCmax_{t}^{-\CRRA}<\infty$ (as $\MPCmax_{t}\geq\eFunc_{t}(1)>0$) and the first term vanishes, so ${(1-\eFunc_{t}(\mNrm_{t}))}^{-\CRRA}$ has a finite limit; hence $\MPCmax_{t}<1$, and the second term's expectation converges to $\MPCmax _{t+1}^{-\CRRA
+}{(1-\MPCmax _{t})}^{-\CRRA }$.
+
+
+Equating the limits on the LHS and RHS of Equation \eqref{eq:eFuncEulerMPCmax}, we have $\MPCmax_{t}^{-\CRRA }=\DiscFac
+\pZero\Rfree^{1-\CRRA }\MPCmax_{t+1}^{-\CRRA }{(1-\MPCmax
+_{t})}^{-\CRRA }$.
+Exponentiating by $\CRRA$ on both sides, we can conclude:
+%
+%
+\begin{equation}\label{eq:mpcmaxiter}\begin{gathered}\begin{aligned}
+\MPCmax_{t} & = \pZero^{-1/\CRRA} {(\DiscFac
+\Rfree)}^{-1/\CRRA}\Rfree(1-\MPCmax _{t})\MPCmax _{t+1} \notag
+\end{aligned}\end{gathered}\end{equation}
+%
+%
+and, 
+%
+%
+\begin{equation}
+ \underbrace{\pZero^{1/\CRRA}\overbrace{{\Rfree}^{-1}{(\DiscFac
+    \Rfree)}^{1/\CRRA}}^{\RPFac}}_{\equiv \MPSmin} \MPCmax_{t}  = (1-\MPCmax _{t})\MPCmax _{t+1} \labelsafe{eq:MPSminDef}
+\end{equation}
+%
+%
+The equation above yields a recursive formula for the maximal marginal propensity to consume after some algebra:
+%
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+  {(\MPSmin \MPCmax_{t})}^{-1}  & = {(1-\MPCmax_{t})}^{-1}\MPCmax_{t+1}^{-1}  \notag
+\\ \Rightarrow \MPCmax_{t}^{-1}(1-\MPCmax_{t})  & = \MPSmin \MPCmax_{t+1}^{-1}   \notag
+\\ \Rightarrow  \MPCmax_{t}^{-1}  & = 1+\MPSmin \MPCmax_{t+1}^{-1} \label{eq:MPCmaxInvApndxIter}
+\end{aligned}\end{gathered}\end{equation}
+%
+%
+As noted in the main text, we need \hyperlink{WRIC}{weak return impatience}(Assumption \ref{ass:WRIC}) for this to be a convergent sequence:
+\begin{equation}\begin{gathered}\begin{aligned}
+  0 \leq & ~\pZero^{1/\CRRA} \RPFac < 1 \labelsafe{eq:WRICapndx},
+\end{aligned}\end{gathered}\end{equation}
+
+Since $\MPCmax_{T}=1$, iterating~\eqref{eq:MPCmaxInvApndxIter} backward to
+infinity, we obtain:
+\begin{equation}\begin{gathered}\begin{aligned}
+\lim_{n\rightarrow\infty}\MPCmax_{T-n} 
+& = \MPCmax \equiv 1-\pZero^{1/\CRRA}\RPFac  \labelsafe{eq:MPCmaxDef}
+\end{aligned}\end{gathered}\end{equation}
+
+
+\end{proof}
+
+\hypertarget{It-Is-A-Contraction-Mapping}{}
+\subsection{Existence of Limiting Solutions}\label{sec:Tcontractionmapping}
+
+
+
+We state Boyd's contraction mapping Theorem (Boyd,1990) for completeness.
+
+\begin{theorem}(Boyd's Contraction Mapping)\label{thm:Boyd}
+Let $\mathbb{B}:\mathcal{C}_{\boundFunc }\left( S,Y\right)
+  \rightarrow \mathcal{C}_{\boundFunc }\left(S,Y\right) $ with $S\subset \Reals$ and $Y$ a closed subset of $\Reals$ (so that $\mathcal{C}_{\boundFunc }\left(S,Y\right)$ is complete under $\Vert\cdot\Vert_{\boundFunc}$).
+
+If, 
+\begin{enumerate}
+  \item the operator $\mathbb{B}$ is non-decreasing, i.e.\ $\xFunc \leq \yFunc \Rightarrow\mathbb{B}{\xFunc } \leq \mathbb{B}{\yFunc}$,
+  \item we have $\mathbb{B}\mathbf{0}\in ~ \mathcal{C}_{\boundFunc }\left(S,Y\right) $, where $\mathbf{0}$ is the null vector,
+  \item there exists $\alpha$ with $0 < \alpha < 1$ such that for all $\lambda$ with $\lambda > 0$, we have:
+             $$\mathbb{B}({\xFunc } +\lambda\boundFunc ) \leq \mathbb{B}{\xFunc } +\lambda\alpha \boundFunc,$$
+\end{enumerate}
+then $\mathbb{B}$ defines a contraction with a unique fixed point.
+\end{theorem}
+
+
+\begin{claim}\label{claim:MPCMAXKleq1}
+If \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC}) holds, then there exists $k$ such that for all $0\leq\MPCmaxInf\leq \MPCmax_{T-k}$, we have:
+%
+\begin{equation}\label{eq:MPCMAXKleq1}
+  \pZero \DiscFac {(\Rfree (1-\MPCmaxInf))}^{1-\CRRA}   < 1
+\end{equation}
+%
+\end{claim}
+\begin{proof}
+
+By straightforward algebra and Equation \eqref{eq:MPCmaxDefn} from the main text, we have:
+
+\begin{equation}\begin{gathered}\begin{aligned}
+\pZero \DiscFac {(\Rfree (1-\MPCmax))}^{1-\CRRA}  & = \pZero\DiscFac\Rfree^{1-\CRRA}{\left(\pZero^{1/\CRRA}\frac{{(\Rfree\DiscFac)}^{1/\CRRA}}{\Rfree}\right)}^{1-\CRRA} \\\notag
+& = \pZero^{1/\CRRA}\frac{{(\Rfree\DiscFac)}^{1/\CRRA}}{\Rfree} <1 \notag,
+\end{aligned}\end{gathered}\end{equation}
+
+where the inequality holds by \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC}).
+Finally, the expression $\MPCmaxInf\mapsto \pZero \DiscFac {(\Rfree (1-\MPCmaxInf))}^{1-\CRRA} $ is continuous and increasing in $\MPCmaxInf$, and we have $1>\MPCmax>0$ and $\MPCmax_{T-n} \rightarrow \MPCmax$ as $n\rightarrow\infty$.
+As such, there exists $k$ such that $\pZero \DiscFac {(\Rfree (1-\MPCmax_{T-k}))}^{1-\CRRA}<1$ and Equation \eqref{eq:MPCMAXKleq1} holds for all $\MPCmaxInf\leq \MPCmax_{T-k}$.
+
+
+\end{proof}
+
+
+\begin{remark}\label{rem:shnkrdef}
+By the \hyperlink{FVAC}{finite value of autarky}~(Assumption \ref{ass:FVAC}) and for $k$ large enough, fix $\Shrinker$ such that:
+%
+\begin{equation}\label{eq:shnkrdef}
+\text{fix any } \Shrinker \in \left(\max\{\pZero \DiscFac {(\Rfree (1-\MPCmax_{T-k}))}^{1-\CRRA},\ \beta\Ex\PermGroFacRnd^{1-\CRRA}\},\ 1\right),
+\end{equation}
+%
+a non-empty interval because $\pZero \DiscFac {(\Rfree (1-\MPCmax_{T-k}))}^{1-\CRRA}<1$ (by \hyperlink{WRIC}{weak return impatience} via Claim \ref{claim:MPCMAXKleq1}) and $\beta\Ex\PermGroFacRnd^{1-\CRRA}<1$ (by \hyperlink{FVAC}{finite value of autarky}, Assumption \ref{ass:FVAC}).
+Since $\Shrinker>\beta\Ex\PermGroFacRnd^{1-\CRRA}$ strictly, this implies
+%
+\begin{equation}\label{eq:shrnkrCond}
+\Shrinker(1- \Shrinker^{-1}\DiscFac \Ex\PermGroFacRnd^{1-\CRRA })>0.
+\end{equation}
+%
+We define the constant $\zeta$ as follows:
+%
+\begin{equation}\label{eq:Mbarddef}
+\zeta = \frac{\DiscFac \Ex \PermGroFacRnd^{1-\CRRA }\pNotZero^{\CRRA}\underline{\tranShkEmp}^{1-\CRRA}}{\Shrinker(1- \Shrinker^{-1}\DiscFac \Ex \PermGroFacRnd^{1-\CRRA })}, 
+\end{equation}
+
+and the bounding function, $\boundFunc$, as follows $\boundFunc(x) = \zeta +  x^{1-\CRRA}$.
+
+
+\end{remark}
+
+\begin{claim}\label{clm:hiraguchi_cont}
+If $0<\MPCminInf\leq\MPCmaxInf<1$ and $\xFunc\in  \mathcal{C}_{\boundFunc }\left( S,Y\right)$, then $\TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}\in \mathcal{C}_{\boundFunc }\left(\Reals_{++}, \Reals\right)$.
+\end{claim}
+%
+\begin{proof}
+By definition, we have
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+  \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}(\mNrm_{t}) & = \underset{\cNrm_{t} \in
+                                            [\MPCminInf \mNrm_{t}, \MPCmaxInf \mNrm_{t}]
+                                            }\max \left\{
+                                            \uFunc(c_{t})+\DiscFac \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\mathfrak{\xFunc}}
+                                            \left( {\mNrm}_{t+1}\right) \right] \right\}, \qquad \mNrm_{t}\in \Reals_{++}  %%% \label{eq:condition1}
+\end{aligned}\end{gathered}\end{equation}
+%
+where ${\mNrm}_{t+1} = \RNrmByGRnd\left(\mNrm_{t} - \cNrm_{t}\right) + \tranShkAll$.
+
+First we verify that the mapping $\cNrm_{t}\mapsto \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\mathfrak{\xFunc}}
+                                            \left( {\mNrm}_{t+1}\right) \right]$, which we denote as $\gFunc$,  is continuous.
+To proceed define the mapping $\tilde{\gFunc}\colon \Reals_{++}\times\Omega\rightarrow \Reals$ by $\cNrm, \omega \mapsto\left[ {\PermGroFacRnd}(\omega)^{1-\CRRA }{\mathfrak{\xFunc}}
+                                            \left( \RNrmByGRnd(\omega)\left(\mNrm_{t} - \cNrm_{t}\right) + \tranShkAll(\omega)\right) \right]$ and the mapping $\gFunc\colon \Reals_{++}\times[\permShkIndMin,\permShkIndMax]\times [0,\Max{\tranShkEmp}] \rightarrow \Reals$ by $\cNrm, \permShk,\tranShkAll \mapsto\left[ {\PermGroFacRnd}^{1-\CRRA }{\mathfrak{\xFunc}}
+                                            \left( \RNrmByGRnd\left(\mNrm_{t} - \cNrm_{t}\right) + \tranShkAll\right) \right]$.
+Fix $\cNrm$ and note that for any compact interval $[\bar{\cNrm},\underline{\cNrm}]$ such that $\cNrm\in [\bar{\cNrm},\underline{\cNrm}]\subset \Reals_{++}$, $\cNrm\in \Reals_{++}$, $\gFunc(\cNrm,\bullet,\bullet)$ is continuous on $[\bar{\cNrm},\underline{\cNrm}]\times[\permShkIndMin,\permShkIndMax]\times [0,\Max{\tranShkEmp}]$.
+Thus, $\gFunc$ is bounded above and below by $\bar{\Xi}$ and $\underline{\Xi}$ for any $\cNrm\in [\bar{\cNrm},\underline{\cNrm}]$ (where $\bar{\Xi}$ and $\underline{\Xi}$ do not depend on $\cNrm$).
+To show continuity of $\Ex \tilde{\gFunc}(\cNrm,\bullet)$ for any $\cNrm \in \Reals_{++}$, note there exists  $[\bar{\cNrm},\underline{\cNrm}]$ such that $\cNrm\in [\bar{\cNrm},\underline{\cNrm}]\subset \Reals_{++}$.
+Thus consider $\{\cNrm^{i}\}_{i}$, let $\cNrm^{i}\rightarrow \cNrm$ and we can assume $\cNrm^{i}\in [\bar{\cNrm},\underline{\cNrm}]$ for all $i$.
+Since for each $i$, $\tilde{\gFunc}(\cNrm^{i},\omega)$ is bounded above and below by $\bar{\Xi}$ and $\underline{\Xi}$, by the Dominated Convergence Theorem, we must have $\lim\limits_{i\rightarrow \infty}\Ex \tilde{\gFunc}(\cNrm_{i},\bullet) = \Ex \tilde{\gFunc}(\cNrm,\bullet)$.
+
+                                            
+The same argument, applied to sequences $(\mNrm^{i},\cNrm^{i})\rightarrow(\mNrm,\cNrm)$ with $\cNrm^{i}\leq\MPCmaxInf\mNrm^{i}$ (so that $\mNrm^{i}-\cNrm^{i}\geq(1-\MPCmaxInf)\mNrm^{i}$ stays in a compact subset of $\Reals_{++}$), shows that the maximand is jointly continuous in $(\mNrm,\cNrm)$.
+Next, by Berge's Maximum Theorem (Theorem 17.31 in \cite{Aliprantis2005}), since the feasibilty correspondence $\mNrm_{t}\mapsto [\MPCminInf \mNrm_{t}, \MPCmaxInf \mNrm_{t}]$ is continuous (its endpoints are continuous in $\mNrm_{t}$) and compact valued, $\TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}$ must be continuous.
+
+
+Finally, to show that $\Vert \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}\Vert_{\boundFunc}<\infty$.
+We have:
+%
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+\Vert \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}\Vert_{\boundFunc} & = \sup_{\mNrm} \left\{\frac{\left| \uFunc(\cFunc(\mNrm)) + \DiscFac \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\mathfrak{\xFunc}} \left( {\mNrm^{\nxt}}\right) \right] \right|}{\zeta + \mNrm^{1-\CRRA}}\right\} \\
+& \leq \sup_{\mNrm} \left\{\frac{\left|\uFunc(\MPCminInf\mNrm)\right|}{\zeta + \mNrm^{1-\CRRA}}\right\} + \sup_{\mNrm} \left\{\frac{\DiscFac \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\vert \mathfrak{\xFunc}} \left( {\mNrm^{\nxt}}\right)\vert  \right]}{\zeta + \mNrm^{1-\CRRA}}\right\}\\
+& <\infty,
+\end{aligned}\end{gathered}\end{equation}
+%
+where ${\mNrm}^{\nxt} = \RNrmByGRnd\left(\mNrm - \cNrm\right) + \tranShkAll$ and the final inequality follows from the triangle inequality and the fact that $\xFunc$ is $\boundFunc$-bounded: $\vert\xFunc\vert\leq\Vert\xFunc\Vert_{\boundFunc}\boundFunc$, and the bound on the numerator of \eqref{eq:KeyCondition} in the proof of Theorem \ref{thm:cmap}, which uses only $\cNrm\leq\MPCmaxInf\mNrm$, gives
+\begin{equation*}
+\DiscFac\Ex\left[\PermGroFacRnd^{1-\CRRA}\boundFunc(\mNrm^{\nxt})\right]\leq\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}\left(\zeta+\pNotZero^{\CRRA}\underline{\tranShkEmp}^{1-\CRRA}\right)+\pZero\DiscFac{(\Rfree(1-\MPCmaxInf))}^{1-\CRRA}\mNrm^{1-\CRRA},
+\end{equation*}
+a bounded multiple of $\boundFunc(\mNrm)$ because $\MPCmaxInf<1$.
+
+                                           
+\end{proof}
+
+\begin{proof}[\textbf{Proof of Theorem \ref{thm:cmap}}]
+Fix $k$ such that Equation \eqref{eq:MPCMAXKleq1} holds; then $k\geq 1$, since \eqref{eq:MPCMAXKleq1} fails at $\MPCmaxInf=1=\MPCmax_{T}$, so $\MPCmax_{T-k}<1$ by the proof of Lemma \ref{lemm:MPC} and Claim \ref{clm:hiraguchi_cont} applies to every band with $\MPCmaxInf\leq\MPCmax_{T-k}$.
+By Claim \ref{clm:hiraguchi_cont}, $\TMap^{\MPCminInf, \MPCmaxInf}$  $\TMap^{\MPCminInf, \MPCmaxInf}$ maps from $\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$ to $\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$.
+We now verify conditions (1)-(3) of Boyd's Theorem (\ref{thm:Boyd}).
+
+
+\statement{Condition (1).} By definition of $\TMap^{\MPCminInf, \MPCmaxInf}$, we have: 
+\begin{equation}\begin{gathered}\begin{aligned}
+  \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}(\mNrm_{t}) & = \underset{\cNrm_{t} \in
+                                            [\MPCminInf \mNrm_{t}, \MPCmaxInf \mNrm_{t}]
+                                            }\max \left\{
+                                            \uFunc(c_{t})+\DiscFac \Ex\left[ {\PermGroFacRnd}^{1-\CRRA }{\mathfrak{\xFunc}}
+                                            \left( {\mNrm}_{t+1}\right) \right] \right\},    \label{eq:condition1}
+\end{aligned}\end{gathered}\end{equation}%
+%
+where ${\mNrm}_{t+1} = \RNrmByGRnd\left(\mNrm_{t} - \cNrm_{t}\right) + \tranShkAll$.
+As such, ${\mathfrak{\xFunc}} \leq {\mathfrak{\yFunc}}$ implies $\TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\xFunc}}(\mNrm_{t}) \leq \TMap^{\MPCminInf, \MPCmaxInf}{\mathfrak{\yFunc}} (\mNrm_{t})$ by inspection.
+
+\statement{Condition (2.)}  Condition (2.) requires that $\TMap^{\MPCminInf, \MPCmaxInf}\mathbf{0}\in \mathcal{C}_{\boundFunc}\left(\mathscr{A},\mathscr{B}\right)$.
+By definition,
+\begin{equation*}
+  \TMap^{\MPCminInf, \MPCmaxInf} \mathbf{0}(\mNrm_{t}) = \max_{\cNrm_{t} \in
+    [\MPCminInf \mNrm_{t}, \MPCmaxInf \mNrm_{t}]
+  }\left\{ \left( \frac{\cNrm_{t}^{1-\CRRA }}{1-\CRRA }\right) +\DiscFac 0\right\}
+\end{equation*}
+the solution to which implies
+$\TMap^{\MPCminInf, \MPCmaxInf} \mathbf{0}(\mNrm_{t}) = \uFunc(\MPCmaxInf \mNrm_{t})$.
+Thus, Condition (2)
+will hold if ${(\MPCmaxInf \mNrm_{t})}^{1-\CRRA}$ is $\boundFunc$-bounded, which it is if we use the
+bounding function
+\input{\EqDir/boundFunc}
+defined in Remark \ref{rem:shnkrdef}.
+
+
+\statement{Condition (3).} Finally, we turn to condition (3), which requires us to show $\TMap^{\MPCminInf, \MPCmaxInf}({\zFunc} +\lambda\boundFunc
+)(\mNrm_{t}) \leq\TMap^{\MPCminInf, \MPCmaxInf}{\zFunc}(\mNrm_{t}) +\lambda \Shrinker
+\boundFunc(\mNrm_{t})$ for $0<\Shrinker<1$ and $\lambda>0$.
+
+To proceed, define
+$\breve{\cFunc}$ as the consumption 
+function\footnote{Note that the maximand on the RHS of Equation \eqref{eq:condition1} is continuous (Claim \ref{clm:hiraguchi_cont}) and the feasible set of consumption choices is compact-valued.
+As such, a solution to the maximization problem exists for any $\mNrm_{t}$.
+Thus, letting $\Theta$ be the solution correspondence for the maximization problem, $\Theta(\mNrm_{t})$ will be non-empty and will admit a selector function $\breve{\cFunc}$.
+See Section 17.11 in \cite{Aliprantis2005}.}
+associated with $\TMap^{\MPCminInf, \MPCmaxInf}{\zFunc}$ and $\hat{\cFunc}$ as the consumption function associated with $\TMap^{\MPCminInf, \MPCmaxInf}({\zFunc+\lambda
+  \boundFunc})$; using this notation, Condition (3.) can be rewritten as:
+\begin{align*}
+  \uFunc(\hat{\cFunc})+\DiscFac \Ex {\PermGroFacRnd}^{1-\CRRA }(\zFunc+\lambda \boundFunc)\circ \hat{\mFunc}^{\nxt}  & \leq  \uFunc(\breve{\cFunc})+\DiscFac\Ex {\PermGroFacRnd}^{1-\CRRA }\zFunc\circ\breve{\mFunc}^{\nxt}  + \lambda \Shrinker \boundFunc,
+\end{align*}
+
+where $\breve{\mFunc}^{\nxt}(\mNrm) = \RNrmByGRnd(\mNrm - \breve{\cFunc}(\mNrm)) +\tranShkAll$ and $\hat{\mFunc}^{\nxt}(m) = \RNrmByGRnd(m - \hat{\cFunc}(m))+\tranShkAll$.
+If we now force the consumer facing $\zFunc$ as the next period value function to consume the amount optimal for the consumer facing $\zFunc+\lambda \boundFunc$, the value for the $\zFunc$ consumer must be weakly lower.
+That is,
+%
+\begin{align*}
+  \uFunc(\hat{\cFunc})+\DiscFac \Ex{\PermGroFacRnd}^{1-\CRRA } \zFunc \circ \hat{\mFunc}^{\nxt}  & \leq \uFunc(\breve{\cFunc})+\DiscFac \Ex {\PermGroFacRnd}^{1-\CRRA }\zFunc\circ\breve{\mFunc}^{\nxt}.                                 
+\end{align*}
+%
+Thus, condition (3.) will certainly hold under the stronger condition
+\begin{equation}\begin{gathered}\begin{aligned}
+  \uFunc\circ \hat{\cFunc} +\DiscFac \Ex\PermGroFacRnd^{1-\CRRA } (\zFunc+\lambda \boundFunc) \circ \hat{\mFunc}^{\nxt}  & \leq  \uFunc\circ \hat{\cFunc} + \DiscFac \Ex\PermGroFacRnd^{1-\CRRA } \zFunc\circ\hat{\mFunc}^{\nxt}  + \lambda \Shrinker \boundFunc \notag
+  \\ \Leftrightarrow \DiscFac\Ex\PermGroFacRnd^{1-\CRRA }(\zFunc +\lambda \boundFunc) \circ\hat{\mFunc}^{\nxt}  & \leq  \DiscFac \Ex\PermGroFacRnd^{1-\CRRA }\zFunc\circ \hat{\mFunc}^{\nxt}  + \lambda \Shrinker \boundFunc \notag
+  \\ \Leftrightarrow  \DiscFac\lambda \Ex\PermGroFacRnd^{1-\CRRA }\boundFunc\circ\hat{\mFunc^{\nxt}}  & \leq  \lambda \Shrinker \boundFunc \notag
+  \\ \Leftrightarrow  \DiscFac \Ex\PermGroFacRnd^{1-\CRRA }\boundFunc \circ \hat{\mFunc}^{\nxt}  & \leq  \Shrinker \boundFunc \labelsafe{eq:reqCondWeak}     
+\end{aligned}\end{gathered}\end{equation}
+
+To show \eqref{eq:reqCondWeak} holds, recall by Claim \ref{claim:MPCMAXKleq1} that $\pZero \DiscFac {(\Rfree (1-\MPCmax_{T-k}))}^{1-\CRRA}   < 1$ for $k$ large enough.
+As such, define $\Shrinker$ by Equation \eqref{eq:shnkrdef} and note that $\pZero \DiscFac {(\Rfree (1-\MPCmax_{T-k}))}^{1-\CRRA} < \alpha < 1$ and $\alpha> \beta\Ex\PermGroFacRnd^{1-\CRRA}$.
+Letting $\hat{\aNrm} = \mNrm - \hat{\cFunc}(\mNrm)$, Equation \eqref{eq:reqCondWeak} will be satisfied if:
+%
+\begin{align*}
+  \DiscFac \Ex [{\PermGroFacRnd^{1-\CRRA }}{(\hat{\aNrm}\RNrmByGRnd+\tranShkAll)}^{1-\CRRA}]-\Shrinker\mNrm^{1-\CRRA}  & < \alpha\zeta(1-\alpha^{-1}\DiscFac\Ex {\PermGroFacRnd^{1-\CRRA }}),
+\end{align*}
+%
+which, by imposing \hyperlink{FVAC}{finite value of autarky}~(Assumption \ref{ass:FVAC}) and Equation \eqref{eq:shrnkrCond} can be rewritten as:
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+      \zeta >\frac{\DiscFac \Ex\left[\PermGroFacRnd^{1-\CRRA}{(\hat{\aNrm}\RNrmByGRnd +\tranShkAll)}^{1-\CRRA}\right]- \Shrinker\mNrm^{1-\CRRA}}{\Shrinker(1-\alpha^{-1}\DiscFac\Ex {\PermGroFacRnd^{1-\CRRA }})}= \colon\bar{\bar{M}} \label{eq:KeyCondition}.
+    \end{aligned}\end{gathered}\end{equation}
+
+Thus, the proof reduces to showing Equation \eqref{eq:KeyCondition} holds.
+To proceed, consider that the numerator of~\eqref{eq:KeyCondition} is bounded above as follows:
+%
+%
+\begin{equation}
+\begin{aligned}
+      \DiscFac \Ex\left[\PermGroFacRnd^{1-\CRRA}{(\hat{\aNrm}\RNrmByGRnd +\tranShkAll)}^{1-\CRRA}\right]- \Shrinker\mNrm^{1-\CRRA} &= \pNotZero\DiscFac\Ex\left[\PermGroFacRnd^{1-\CRRA }{(\hat{\aNrm}\RNrmByGRnd+\tranShkEmp/\pNotZero)}^{1-\CRRA}\right] \\
+      &\quad +\pZero\DiscFac\Ex\left[\PermGroFacRnd^{1-\CRRA }{(\hat{\aNrm}\RNrmByGRnd)}^{1-\CRRA}\right]-\Shrinker\mNrm^{1-\CRRA} \\
+      &\leq \pNotZero\DiscFac\Ex\left[\PermGroFacRnd^{1-\CRRA }{((1-\MPCmaxInf)\mNrm\RNrmByGRnd+\tranShkEmp/\pNotZero)}^{1-\CRRA}\right] \\
+      &\quad +\pZero\DiscFac\Rfree^{1-\CRRA}{((1-\MPCmaxInf)\mNrm)}^{1-\CRRA}- \Shrinker\mNrm^{1-\CRRA} \\
+      &= \pNotZero\DiscFac\Ex\left[\PermGroFacRnd^{1-\CRRA }{((1-\MPCmaxInf)\mNrm\RNrmByGRnd+\tranShkEmp/\pNotZero)}^{1-\CRRA}\right] \\
+      &\quad +\mNrm^{1-\CRRA}\left(\underbrace{\pZero \DiscFac {(\Rfree (1-\MPCmaxInf))}^{1-\CRRA}}_{<\Shrinker ~\text{by Claim \ref{claim:MPCMAXKleq1}}}-\Shrinker \right) \\
+      &< \pNotZero\DiscFac\Ex\left[\PermGroFacRnd^{1-\CRRA }{(\underline{\tranShkEmp}/\pNotZero)}^{1-\CRRA}\right] \\ & =\DiscFac\Ex \PermGroFacRnd^{1-\CRRA }\pNotZero^{\CRRA}\underline{\tranShkEmp}^{1-\CRRA} .
+\end{aligned}
+\end{equation}
+    
+%
+Using  Claim \ref{claim:MPCMAXKleq1}, we have that $\pZero \DiscFac {(\Rfree (1-\MPCmaxInf))}^{1-\CRRA}\leq\pZero \DiscFac {(\Rfree (1-\MPCmax_{T-k}))}^{1-\CRRA}< \Shrinker$ since $\MPCmaxInf\leq\MPCmax_{T-k}$ and $\Shrinker$ is chosen by Equation \eqref{eq:shnkrdef}.
+We can thus conclude that equation~\eqref{eq:KeyCondition} will hold since we have
+\begin{equation}\begin{gathered}\begin{aligned}
+      \zeta \geq \frac{\DiscFac \Ex \PermGroFacRnd^{1-\CRRA }\pNotZero^{\CRRA}\underline{\tranShkEmp}^{1-\CRRA}}{\Shrinker(1- \Shrinker^{-1}\DiscFac \Ex \PermGroFacRnd^{1-\CRRA })}> \bar{\bar{M}}. 
+    \end{aligned}\end{gathered}\end{equation}
+
+The proof that $\TMap^{\MPCminInf, \MPCmaxInf}$ defines a contraction mapping under the
+conditions~\eqref{ass:WRIC} and~\eqref{ass:FVAC} is
+now complete.
+\end{proof}
+
+\begin{proof}[\textbf{Proof of Theorem \ref{thm:convgtobellman} (continued)}]
+%
+\statement{Proof of part (ii).}
+We next establish the point-wise convergence of consumption the functions $\left\{ \cFunc_{t_{n}}\right\}_{n=0}^{\infty}$ along a sub-sequence.
+Fix any $\mNrm\in S$.
+For $n\geq 1$, $\vFunc_{t_{n}+1}<0$ (Claim \ref{prop:vfc3}) gives $\uFunc(\cFunc_{t_{n}}(\mNrm))>\vFunc_{t_{n}}(\mNrm)$, and $\vFunc_{t_{n}}(\mNrm)$ converges to the finite $\vFunc(\mNrm)$ by part (i), so $\underline{\cNrm}(\mNrm)\colon=\inf_{n\geq 1}\cFunc_{t_{n}}(\mNrm)>0$.
+For $n>k$ also $\cFunc_{t_{n}}(\mNrm)\leq\MPCmax_{t_{n}}\mNrm\leq\MPCmax_{T-k}\mNrm$ (Equation \eqref{eq:cBounds} and Lemma \ref{lemm:MPC}), with $\MPCmax_{T-k}<1$ (proof of Theorem \ref{thm:cmap}), so these terms lie in the compact interval $K(\mNrm)\colon=[\underline{\cNrm}(\mNrm),\MPCmax_{T-k}\mNrm]\subset(0,\mNrm)$.
+Hence there is a convergent subsequence $\{\cFunc_{t_{n(i)}}(\mNrm)\}_{i=0}^{\infty}$ of $\left\{ \cFunc_{t_{n}}(\mNrm) \right\}_{n=0}^{\infty}$, and its limit lies in $K(\mNrm)$.
+Let the function $\cFunc$ denote the mapping from $\mNrm$ to the limit of $\{\cFunc_{t_{n(i)}}(\mNrm)\}_{i=0}^{\infty}$.
+Since $\cFunc_{t_{n(i)}}(\mNrm)$ solves the time $t_{n(i)}$ finite horizon problem, we have:
+
+\begin{samepage}
+\begin{equation}
+\begin{aligned}
+\uFunc(\cFunc_{t_{n(i)}}(\mNrm)) + & \DiscFac \Ex \left[ {\PermGroFacRnd}^{1 - \CRRA} \vFunc_{t_{n(i)}+1}(\mNrm_{t_{n(i)}+1}) \right] \\
+& \geq \uFunc(\cNrm) + \DiscFac \Ex \left[ {\PermGroFacRnd}^{1 - \CRRA} \vFunc_{t_{n(i)}+1}(\hat{\mNrm}^{\nxt}) \right], 
+\end{aligned}
+\end{equation}
+\end{samepage}
+for any $\cNrm \in (0, \mNrm)$, where $\mNrm_{t_{n(i)}+1} = \RNrmByGRnd(\mNrm - \cFunc_{t_{n(i)}}(\mNrm)) + \tranShkAll_{t_{n(i)}+1}$ and $\hat{\mNrm}^{\nxt} = \RNrmByGRnd(\mNrm - \cNrm) + \tranShkAll_{t_{n(i)}+1}$.
+%
+Allowing $n(i)$ to tend to infinity, the left-hand side converges to:
+ 
+\begin{equation}
+\uFunc(\cFunc(m)) + \DiscFac \Ex \left[ {\PermGroFacRnd}^{1 - \CRRA} \vFunc(\mNrm^{\nxt}) \right],
+\end{equation}
+
+where $\mNrm^{\nxt} = \RNrmByGRnd(\mNrm - \cFunc(\mNrm)) + \tranShkAll$.
+Moreover, the right-hand side converges to:
+
+\begin{equation}
+\uFunc(\cNrm) + \DiscFac \Ex \left[ {\PermGroFacRnd}^{1 - \CRRA} \vFunc(\hat{\mNrm}^{\nxt}) \right].
+\end{equation}
+
+Hence, as $n(i)$ tends to infinity, the following inequality is implied:
+\begin{equation}
+\uFunc(\cFunc(\mNrm)) + \DiscFac \Ex \left[ {\PermGroFacRnd}^{1 - \CRRA} \vFunc(\mNrm^{\nxt}) \right] \geq \uFunc(\cNrm) + \DiscFac \Ex \left[ {\PermGroFacRnd}^{1 - \CRRA} \vFunc(\hat{\mNrm}^{\nxt}) \right].
+\end{equation}
+
+Since the $\cNrm$ above was arbitrary, we have:
+\begin{equation}\label{eq:statCbellman}
+\cFunc(\mNrm) \in \underset{\cNrm \in (0, \mNrm)}{\arg \max} \left\{ \uFunc(\cNrm) + \DiscFac \Ex \left[ {\PermGroFacRnd}^{1 - \CRRA} \vFunc(\hat{\mNrm}^{\nxt}) \right] \right\}.
+\end{equation}
+%By the uniqueness of $\cFunc(\mNrm)$, we determine that $c^* = \cFunc(\mNrm)$.
+
+Next, since $\cFunc_{t_{n(i)}}\rightarrow \cFunc$ pointwise, and $\vFunc_{t_{n(i)}}\rightarrow \vFunc$ pointwise, we have:
+
+\begin{equation}\labelsafe{eq:convgcvftni}
+\vFunc(\mNrm) = \lim_{i\rightarrow \infty}\left[\uFunc(\cFunc_{t_{n(i)}}(\mNrm)) + \DiscFac\Ex\PermGroFacRnd^{1 - \CRRA}\vFunc_{t_{n(i)}+1}(\mNrm_{t_{n(i)}+1})\right] = \uFunc(\cFunc(\mNrm)) + \DiscFac\Ex\PermGroFacRnd^{1 - \CRRA}\vFunc(\mNrm^{\nxt}). 
+\end{equation}
+
+where $\mNrm_{t_{n(i)}+1} = \RNrmByGRnd(\mNrm - \cFunc_{t_{n(i)}}(\mNrm)) + \tranShkAll_{t_{n(i)}+1}$ and $\mNrm^{\nxt} = \RNrmByGRnd(\mNrm - \cFunc(\mNrm)) + \tranShkAll$.
+The first equality stems form the fact that $\vFunc_{t_{n}}\rightarrow \vFunc$ pointwise, and because pointwise convergence implies pointwise convergence along a sub-sequence.
+To see why $\lim
+\limits_{i\rightarrow \infty} \uFunc(\cFunc_{t_{n(i)}}(\mNrm)) =   \uFunc(\cFunc(\mNrm))$, note the continuity of $\uFunc$ and the convergence of $\cFunc_{t_{n(i)}}$ to $\cFunc$ point-wise.
+Turning to the second equality, to see why $\lim\limits_{i\rightarrow \infty}\Ex\PermGroFacRnd^{1 - \CRRA}\vFunc_{t_{n(i)}+1}(\mNrm_{t_{n(i)}+1}) = \Ex\PermGroFacRnd^{1 - \CRRA}\vFunc(\mNrm^{\nxt})$, note that $\vFunc_{t_{n(i)}+1}$ converges in the $\boundFunc$-norm, hence converges uniformly over compact sets in $\mathbb{R}_{++}$ (Fact \ref{fact:normimpliescompact}, Appendix \ref{sec:realanalysis}).
+Thus, by Fact \ref{fact:compactnt} in Appendix \ref{sec:realanalysis}, $\vFunc_{t_{n(i)}+1}(\mNrm_{t_{n(i)}+1})$ converges almost surely.
+Applying Dominated Convergence Theorem gives us $\lim\limits_{i\rightarrow \infty}\Ex\PermGroFacRnd^{1 - \CRRA}\vFunc_{t_{n(i)}+1}(\mNrm_{t_{n(i)}+1}) = \Ex\PermGroFacRnd^{1 - \CRRA}\vFunc(\mNrm^{\nxt})$.
+Since the maximization in \eqref{eq:statCbellman} runs over all of $(0,\mNrm)$, Equation \eqref{eq:convgcvftni} gives $\TMap\vFunc(\mNrm)=\vFunc(\mNrm)$.
+
+
+This completes the proof of part (ii) of the Theorem.
+
+\statement{Proof of part (iii).} The limits at Equation \eqref{eq:convgcvftni} immediately imply:
+
+\begin{equation}
+\vFunc(\mNrm) = \lim_{n\rightarrow \infty}\left[\uFunc(\cFunc_{t_{n}}(\mNrm)) + \DiscFac\Ex\PermGroFacRnd^{1 - \CRRA}\vFunc_{t_{n}+1}(\mNrm_{t_{n}+1})\right] = \uFunc(\cFunc(\mNrm)) + \DiscFac\Ex\PermGroFacRnd^{1 - \CRRA}\vFunc(\mNrm^{\nxt}),
+\end{equation}
+
+since a real valued sequence can have at most one limit.
+
+Finally, apply Fact \ref{fact:xnconvgf} from Appendix \ref{sec:realanalysis} on $K(\mNrm)$ to
+\begin{equation*}
+\fFunc^{n}(\cNrm)\colon=\uFunc(\cNrm)+\DiscFac\Ex[\PermGroFacRnd^{1-\CRRA}\vFunc_{t_{n}+1}(\RNrmByGRnd(\mNrm-\cNrm)+\tranShkAll)]
+\end{equation*}
+and to $\fFunc$, defined in the same way with $\vFunc$ in place of $\vFunc_{t_{n}+1}$; both are continuous (proof of Claim \ref{clm:hiraguchi_cont}).
+For $n>k$, $\cFunc_{t_{n}}(\mNrm)\in K(\mNrm)$ maximizes $\fFunc^{n}$ over $(0,\mNrm)\supset K(\mNrm)$.
+Since $\vert\vFunc_{t_{n}+1}-\vFunc\vert\leq\Vert\vFunc_{t_{n}+1}-\vFunc\Vert_{\boundFunc}\boundFunc$ and $\mNrm-\cNrm\geq(1-\MPCmax_{T-k})\mNrm$ on $K(\mNrm)$,
+\begin{equation*}
+\sup_{\cNrm\in K(\mNrm)}\vert\fFunc^{n}(\cNrm)-\fFunc(\cNrm)\vert\leq\DiscFac\Vert\vFunc_{t_{n}+1}-\vFunc\Vert_{\boundFunc}\left(\zeta\Ex\PermGroFacRnd^{1-\CRRA}+{(\Rfree(1-\MPCmax_{T-k})\mNrm)}^{1-\CRRA}\right)\rightarrow 0
+\end{equation*}
+by part (i), so $\fFunc^{n}\rightarrow\fFunc$ uniformly on $K(\mNrm)$.
+As the point-wise limit of the concave $\vFunc_{t_{n}}$ (Claim \ref{prop:vfc3}), $\vFunc$ is concave, so $\fFunc$ is strictly concave because $\uFunc$ is.
+By \eqref{eq:statCbellman}, $\cFunc(\mNrm)\in K(\mNrm)$ maximizes $\fFunc$ over $(0,\mNrm)\supset K(\mNrm)$, so it is the unique maximizer of $\fFunc$ on $K(\mNrm)$.
+Fact \ref{fact:xnconvgf} then gives $\cFunc_{t_{n}}(\mNrm)\rightarrow  \cFunc(\mNrm)$, thus establishing that $\cFunc_{t_{n}}$ converges point-wise to $\cFunc$; as a point-wise limit of continuous functions, $\cFunc$ is measurable.
+Since $\cFunc(\mNrm)\geq\underline{\cNrm}(\mNrm)>0$ for any $\mNrm>0$, $\vFunc$ and $\cFunc$ are a non-degenerate limiting solution.
+
+\end{proof}
+
+\subsection{Properties of the Converged Consumption Function}\label{subsec:Properties}
+
+Let $\cFunc$ be the limiting non-degenerate consumption function.
+
+\begin{claim}\label{eq:EuelrStatC}
+If \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC}) and \hyperlink{FVAC}{finite value of autarky} (Assumption \ref{ass:FVAC}) hold, then $\cFunc$ satisfies $\cFunc(\mNrm)^{-\CRRA}   = \Rfree \DiscFac \Ex_{t}[ \Rnd{\PermGroFac}_{t+1}^{-\CRRA} \cFunc(\mNrm^{\nxt})^{-\CRRA}]$, where ${\mNrm}^{\nxt} = \RNrmByGRnd(\mNrm -\cFunc(\mNrm)) +\tranShkAll$. 
+\end{claim}
+\begin{proof}
+By Theorem \ref{thm:convgtobellman}, $\cFunc_{T-n}$ converges point-wise to $\cFunc$ as $n\rightarrow \infty$.
+Since $\cFunc_{T-n}$ is the optimal consumption function for time $T-n$, $\cFunc_{T-n}(\mNrm)^{-\CRRA}   = \Rfree \DiscFac \Ex_{t}[ \Rnd{\PermGroFac}_{t+1}^{-\CRRA} \cFunc_{T-n+1}(\mNrm_{t+1})^{-\CRRA}]$, where ${\mNrm}_{t+1} = \RNrmByGRnd(\mNrm -\cFunc_{T-n}(\mNrm)) +\tranShkAll$.
+Fixing $\mNrm>0$, $\RNrmByGRnd(\mNrm -\cFunc_{T-n}(\mNrm)) +\tranShkAll$ converges almost surely to $ \RNrmByGRnd(\mNrm -\cFunc(\mNrm)) +\tranShkAll$.
+Since each $\cFunc_{T-n}$ is concave with marginal propensity to consume no greater than $\MPCmax_{T-n}\leq 1$, the family is uniformly Lipschitz, so $\cFunc_{T-n+1}\rightarrow \cFunc$ uniformly on compact subsets of $\Reals_{++}$ (Theorem 10.8 in \cite{Rockafellar1972}); combined with the almost-sure convergence of $\mNrm_{t+1}$ this gives almost-sure convergence of the integrand.
+For $n>k$, $\cFunc_{T-n}(\mNrm)\leq\MPCmax_{T-k}\mNrm$ gives $\mNrm_{t+1}\geq x_{0}\colon=\Rfree(1-\MPCmax_{T-k})\mNrm/(\PermGroFac\permShkIndMax)>0$, so, $\cFunc_{T-n+1}$ being increasing, $\cFunc_{T-n+1}(\mNrm_{t+1})\geq\cFunc_{T-n+1}(x_{0})\rightarrow\cFunc(x_{0})>0$; with $\PermGroFacRnd\geq\PermGroFac\permShkIndMin$, the integrand is bounded by a constant for all large $n$.
+Making use of the Dominated Convergence Theorem, $\Rfree \DiscFac \Ex_{t}[ \Rnd{\PermGroFac}_{t+1}^{-\CRRA} \cFunc_{T-n+1}(\mNrm_{t+1})^{-\CRRA}]$ converges to $ \Rfree \DiscFac \Ex_{t}[ \Rnd{\PermGroFac}_{t+1}^{-\CRRA} \cFunc(\mNrm^{\nxt})^{-\CRRA}]$.
+Since $\cFunc_{T-n}(\mNrm)^{-\CRRA}$ converges to $\cFunc(\mNrm)^{-\CRRA}$ and $\mNrm\in \Reals_{++}$, the result follows.
+
+\end{proof}
+
+
+\begin{proof}[\textbf{Proof of Lemma \ref{lemma:MPCBoundsConvg}}]
+
+First, we verify $\cFunc$ is concave.
+Since \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC}) and \hyperlink{FVAC}{finite value of autarky} (Assumption \ref{ass:FVAC}) hold, by Theorem \ref{thm:convgtobellman}, $\cFunc_{T-n}\rightarrow \cFunc$ point-wise on $\Reals_{++}$ as $n\rightarrow \infty$.
+Moreover, since $\Reals_{++}$ is open, we can apply Theorem 10.8 by \cite{Rockafellar1972}, which confirms that $\cFunc$ is concave on $\Reals_{++}$.
+
+Next, note that $\cFunc(\mNrm)>0$ on $\Reals_{++}$ (recall Remark \ref{remark:cStatStrctPos}).
+Thus, we must have that $\frac{\cFunc(\mNrm)}{\mNrm}$ is non-increasing (see Claim \ref{claim:rationondec} in Appendix \ref{sec:realanalysis}) and since  $\cFunc(\mNrm)$ is feasible (Equation \ref{eq:statCbellman}), $0 \leq \frac{\cFunc(\mNrm)}{\mNrm}\leq 1$.
+Because $\frac{\cFunc(\mNrm)}{\mNrm}$ is non-increasing and bounded above and below on $\Reals_{++}$, we can define $\MPCmaxmax\colon = \lim\limits_{\mNrm\downarrow 0}\frac{\cFunc(\mNrm)}{\mNrm}$ and $\MPCminmin \colon= \lim\limits_{\mNrm\rightarrow \infty}\frac{\cFunc(\mNrm)}{\mNrm}$ where $0 \leq \MPCminmin \leq \MPCmaxmax\leq 1$.
+
+
+We fist show $\MPCmaxmax = \MPCmax$ and then show $\MPCminmin = \MPCmin$.
+Since $\cFunc$ satisfies the Euler equation by Claim \ref{eq:EuelrStatC}, we have
+
+\begin{equation}\begin{gathered}\begin{aligned}\label{eq:eFuncEulerStat}
+ \eFunc{(\mNrm)}^{-\CRRA}  & = \DiscFac \Rfree \Ex_{t}{\left(\eFunc({\mNrm}^{\nxt})\left(\frac{\overbrace{\Rfree \aFunc(\mNrm)+{\PermGroFacRnd}{\tranShkAll}}^{={\mNrm}^{\nxt} \PermGroFacRnd}}{\mNrm}\right)\right)}^{-\CRRA }
+\end{aligned}\end{gathered}\end{equation}
+%
+where ${\mNrm}^{\nxt} = \RNrmByGRnd(\mNrm -\cFunc(\mNrm)) +\tranShkAll$.
+The minimal MPC's are obtained by letting $\mNrm \rightarrow \infty$.
+Note that $\lim\limits_{\mNrm\rightarrow \infty} \mNrm^{\nxt} = \infty$ almost surely and thus $\lim\limits_{\mNrm\rightarrow \infty}\eFunc({\mNrm}^{\nxt}) = \MPCminmin$ almost surely.
+Turning to the second term inside the marginal utility on the RHS, we can write
+
+\begin{equation}\begin{gathered}\begin{aligned}
+\lim_{\mNrm\rightarrow \infty}\frac{\Rfree \aFunc(\mNrm)+{\PermGroFacRnd}{\tranShkAll}}{\mNrm_{t}} &  = \lim_{\mNrm \rightarrow \infty}\frac{\Rfree \aFunc(\mNrm)}{\mNrm} + \lim_{\mNrm\rightarrow \infty}\frac{{\PermGroFacRnd}{\tranShkAll}}{\mNrm} \\
+			& = \Rfree (1- \MPCminmin) + 0, 
+\end{aligned}\end{gathered}\end{equation}
+since ${\PermGroFacRnd}{\tranShkAll}$ is bounded.
+Thus, as $\mNrm$ tends to $\infty$, we have
+%
+\begin{equation}\begin{gathered}\begin{aligned} %%% \label{eq:eFuncEulerStat}
+ \lim\limits_{\mNrm\rightarrow \infty}\eFunc{(\mNrm)}^{-\CRRA}  & =  \MPCminmin^{-\CRRA} = \beta\Rfree\MPCminmin^{-\CRRA}\Rfree^{-\CRRA} (1- \MPCminmin) ^{-\CRRA}. 
+\end{aligned}\end{gathered}\end{equation}
+%
+Re-arranging the terms above: whenever $\MPCminmin>0$ (which makes $\MPCminmin^{-\CRRA}$ finite and, with $\eFunc\geq\MPCminmin$ and $\eFunc(\mNrm)\leq\eFunc(1)\leq\MPCmax<1$ for $\mNrm\geq 1$ (Remark \ref{remark:cStatStrctPos}), supplies the dominating constant for the limit above, as in the proof of Lemma \ref{lemm:MPC}), $\MPCminmin^{-\CRRA}$ may be divided out, giving $\MPCminmin =1-  \APFac/\Rfree$. If \hyperlink{RIC}{return impatience} (Assumption \ref{ass:RIC}) holds, $\MPCminmin\geq\MPCmin>0$ (Remark \ref{remark:cStatStrctPos}), so $\MPCminmin=1-\APFac/\Rfree$; if it fails, $\MPCminmin>0$ would give $\MPCminmin=1-\APFac/\Rfree\leq 0$, a contradiction, so $\MPCminmin=0$. In either case $\MPCminmin=\max\{0,1-\APFac/\Rfree\}=\MPCmin$ as required.
+Finally, analogously following the steps before Equation \eqref{eq:mpcmaxiter} and noting $\MPCmaxmax = \lim\limits_{\mNrm\downarrow 0}\frac{\cFunc(\mNrm)}{\mNrm}$, we can conclude $\MPCmaxmax  = \pZero^{-1/\CRRA} {(\DiscFac
+\Rfree)}^{-1/\CRRA}\Rfree(1-\MPCmaxmax)\MPCmaxmax$.
+Whence $\MPCmaxmax = 1- \pZero^{1/\CRRA}\APFac/\Rfree = \MPCmax$.
+
+
+
+
+%
+\end{proof}
+
+\subsection{The Liquidity Constrained Solution as a Limit}\label{sec:LiqConstrAsLimit}
+
+Formally, suppose we change the description of the problem by making
+the following two assumptions:
+\begin{eqnarray*}
+  \pZero   & = 0
+  \\  c_{t} & \leq  \mNrm_{t} \labelsafe{eq:liqconstr},
+\end{eqnarray*}
+and we designate the solution to this consumer's problem $\cnstr{\cFunc}_{t}(\mNrm)$.
+We will henceforth refer to this as the problem of the `restrained' consumer (and, to avoid a common confusion, we will refer to the consumer as `constrained' only in circumstances when the constraint is actually binding).
+
+Redesignate the consumption function that emerges from our original problem for a given fixed $\pZero$ as $\cFunc_{t}(\mNrm;\pZero)$ where we separate the arguments by a semicolon to distinguish between $\mNrm$, which is a state variable, and $\pZero$, which is not.
+The proposition we wish to demonstrate is
+\begin{equation}\begin{gathered}\begin{aligned}
+      \lim_{\pZero \downarrow 0} \cFunc_{t}(\mNrm;\pZero)  & = \cnstr{\cFunc}_{t}(\mNrm). \labelsafe{eq:RestrEqUnrestr} 
+    \end{aligned}\end{gathered}\end{equation}
+
+We will first examine the problem in period $T-1$, then argue that the desired result propagates to earlier periods.
+For simplicity, suppose that the interest, growth, and time-preference factors are $\DiscFac = \Rfree = \PermGroFac = 1$, and there are no permanent shocks, $\permShk=1$; the results below are easily generalized to the full-fledged version of the problem.
+
+The solution to the restrained consumer's optimization problem can be obtained as follows.
+Assuming that the consumer's behavior in period $T$ is given by $\cFunc_{T}(\mNrm)$ (in practice, this will be $\cFunc_{T}(\mNrm)=m$), consider the unrestrained optimization problem
+\begin{equation}\begin{gathered}\begin{aligned}
+      \cnstr{\aFunc}^{*}_{T-1}(\mNrm)  & = \underset{\aNrm}{\arg \max} \left\{\uFunc(\mNrm-\aNrm) +  \int_{\underline{\tranShkEmp}}^{\bar{\tranShkEmp}} \vFunc_{T}(a+\tranShkEmp) d\CDF_{\tranShkEmp} \right\}. \labelsafe{eq:vUnconstr}
+    \end{aligned}\end{gathered}\end{equation}
+
+As usual, the envelope theorem tells us that $\vFunc_{T}^{\prime}(\mNrm)=\uP(\cFunc_{T}(\mNrm))$ so the expected marginal value of ending period $T-1$ with assets $\aNrm$ can be defined as
+\begin{equation}\begin{gathered}\begin{aligned}
+      \cnstr{\mathfrak{v}}_{T-1}^{\prime}(a)  & \equiv  \int_{\underline{\tranShkEmp}}^{\bar{\tranShkEmp}} \uP(\cFunc_{T}(a+\tranShkEmp)) d\CDF_{\tranShkEmp}, \notag
+    \end{aligned}\end{gathered}\end{equation}
+and the solution to~\eqref{eq:vUnconstr} will satisfy
+\begin{equation}\begin{gathered}\begin{aligned}
+      \uP(\mNrm-\aNrm)  & =  \cnstr{\mathfrak{v}}_{T-1}^{\prime}(a) \labelsafe{eq:uPConstr}.
+      % 
+    \end{aligned}\end{gathered}\end{equation}
+
+$\cnstr{\aFunc}_{T-1}^{*}(\mNrm)$ therefore answers the question ``With what level of assets would the restrained consumer like to end period $T-1$ if the constraint $c_{T-1} \leq \mNrm_{T-1}$ did not exist?''  (Note that the restrained consumer's income process remains different from the process for the unrestrained consumer so long as $\pZero>0$.)
+The restrained consumer's actual asset position will be
+\begin{equation}\begin{gathered}\begin{aligned}
+      \cnstr{\aFunc}_{T-1}(\mNrm)  & = \max[0,\cnstr{\aFunc}^{*}_{T-1}(\mNrm)], \notag
+    \end{aligned}\end{gathered}\end{equation}
+reflecting the inability of the restrained consumer to spend more than current resources, and note (as pointed out by \cite{deatonLiqConstr}) that
+\begin{equation}\begin{gathered}\begin{aligned}
+      \mNrm^{1}_{\#}  & = {\left( \cnstr{\mathfrak{v}}_{T-1}^{\prime}(0)\right)}^{-1/\CRRA} \notag
+    \end{aligned}\end{gathered}\end{equation}
+is the cusp value of $\mNrm$ at which the constraint makes the
+transition between binding and non-binding in period $T-1$.
+
+Analogously to~\eqref{eq:uPConstr}, defining
+\begin{equation}\begin{gathered}\begin{aligned}
+      \mathfrak{v}_{T-1}^{\prime}(a;\pZero)  & \equiv  \left[\pZero \aNrm^{-\CRRA}+\pNotZero\int_{\underline{\tranShkEmp}}^{\bar{\tranShkEmp}} {\left(\cFunc_{T}(a+\tranShkEmp/\pNotZero)\right)}^{-\CRRA} d\CDF_{\tranShkEmp}\right], \labelsafe{eq:vFrakPrime}
+    \end{aligned}\end{gathered}\end{equation}
+the Euler equation for the original consumer's problem implies
+\begin{equation}\begin{gathered}\begin{aligned}
+      {(\mNrm-\aNrm)}^{-\CRRA}  & = \mathfrak{v}_{T-1}^{\prime}(a;\pZero) \labelsafe{eq:uPUnconstr}
+    \end{aligned}\end{gathered}\end{equation}
+with solution $\aFunc_{T-1}^{*}(\mNrm;\pZero)$.
+Now note that for any fixed $\aNrm>0$, $\lim_{\pZero \downarrow 0} \mathfrak{v}_{T-1}^{\prime}(a;\pZero) = \cnstr{\mathfrak{v}}_{T-1}^{\prime}(a)$.
+Since the LHS of~\eqref{eq:uPConstr} and~\eqref{eq:uPUnconstr} are identical, this means that $\lim_{\pZero \downarrow 0} \aFunc_{T-1}^{*}(\mNrm;\pZero) = \cnstr{\aFunc}_{T-1}^{*}(\mNrm)$.
+That is, for any fixed value of $\mNrm > \mNrm^{1}_{\#}$ such that the consumer subject to the restraint would voluntarily choose to end the period with positive assets, the level of end-of-period assets for the unrestrained consumer approaches the level for the restrained consumer as $\pZero \downarrow 0$.
+With the same $\aNrm$ and the same $\mNrm$, the consumers must have the same $c$, so the consumption functions are identical in the limit.
+
+Now consider values $\mNrm\leq \mNrm^{1}_{\#}$ for which the restrained consumer is constrained.
+It is obvious that the baseline consumer will never choose $\aNrm \leq 0$ because the first term in~\eqref{eq:vFrakPrime} is $\lim_{\aNrm \downarrow 0} \pZero \aNrm^{-\CRRA} = \infty$, while $\lim_{\aNrm \downarrow 0} {(\mNrm-\aNrm)}^{-\CRRA}$ is finite (the marginal value of end-of-period assets approaches infinity as assets approach zero, but the marginal utility of consumption has a finite limit for $\mNrm>0$).
+The subtler question is whether it is possible to rule out strictly positive $\aNrm$ for the unrestrained consumer.
+
+The answer is yes.
+Suppose, for some $\mNrm < \mNrm^{1}_{\#}$, that the unrestrained consumer is considering ending the period with any positive amount of assets $\aNrm=\delta > 0$.
+For any such $\delta$ we have that $\lim_{\pZero \downarrow 0} \mathfrak{v}_{T-1}^{\prime}(a;\pZero)=\cnstr{\mathfrak{v}}_{T-1}^{\prime}(a)$.
+But by assumption we are considering a set of circumstances in which $\cnstr{\aFunc}_{T-1}^{*}(\mNrm) < 0$, and we showed earlier that $\lim_{\pZero \downarrow 0} \aFunc_{T-1}^{*}(\mNrm;\pZero) = \cnstr{\aFunc}_{T-1}^{*}(\mNrm)$.
+So, having assumed $\aNrm = \delta > 0$, we have proven that the consumer would optimally choose $\aNrm < 0$, which is a contradiction.
+A similar argument holds for $\mNrm = \mNrm^{1}_{\#}$.
+
+These arguments demonstrate that for any $\mNrm>0$, $\lim_{\pZero \downarrow 0} \cFunc_{T-1}(\mNrm;\pZero) = \cnstr{\cFunc}_{T-1}(\mNrm)$ which is the period $T-1$ version of~\eqref{eq:RestrEqUnrestr}.
+But given equality of the period $T-1$ consumption functions, backwards recursion of the same arguments demonstrates that the limiting consumption functions in previous periods are also identical to the constrained function.
+
+Note finally that another intuitive confirmation of the equivalence between the two problems is that our formula~\eqref{eq:MPCmaxDef} for the maximal marginal propensity to consume satisfies
+\begin{eqnarray*}
+  \lim_{\pZero \downarrow 0} \MPCmax  & = 1,
+\end{eqnarray*}
+which makes sense because the marginal propensity to consume for a constrained restrained consumer is 1 by our definitions of `constrained' and `restrained.'
+
+\ifSubfilesClassLoaded{\bibfilesfind{\texname}\bibliography{\bibfilesfound}}{}
+
+\sloppy\end{document}\endinput
+
+\end{document}
+
+
+\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  t  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% tex-bibtex-command: "bibtex.*"
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage).%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:
+
+
+%%% Commented out stuff
+
+\begin{comment}
+First we show that $\cFunc_{t}$ is $\mathbf{C}^{1}$.
+Define $y$ as $y= m+dm$, where $d>0$.
+Noting the definition and properties of $\mathfrak{v}_{t}$ from Equation \eqref{eq:vfFrackdefn}, and since $\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left(
+  \cFunc_{t}(\mNrm)\right) =\mathfrak{v}_{t}^{\prime
+}({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))$ by Equation \eqref{eq:consumptionf} and $
+\frac{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}{dm}=1-\frac{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}{dm}$, we have:
+%
+\begin{multline*}
+  % \lefteqn{
+  \frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)} %  }
+  \\ =   
+    \left( \frac{\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mNrm)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}\right) \frac{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}{dm}.
+\end{multline*}
+
+%
+Next, since $\cFunc_{t}$ and $\aFunc_{t}$ are continuous and increasing, $\underset{
+  dm\rightarrow +0}{\lim }\frac{\uFunc^{\prime }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime
+  }\left( \cFunc_{t}(\mNrm)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}<0$ and we have
+$\underset{dm\rightarrow+0}{\lim }\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{
+  {\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}< 0$
+are satisfied.
+Then $\frac{\uFunc^{\prime }\left(
+    \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mNrm)\right) }{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}+
+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}
+<0$ for sufficiently small $dm$.
+Hence we obtain:
+
+\begin{equation*}
+  \frac{\cFunc_{t}(y)-\cFunc_{t}(\mNrm)}{dm}=\frac{\frac{\mathfrak{v}_{t}^{\prime
+      }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))}{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}}{\frac{\uFunc^{\prime
+      }\left( \cFunc_{t}(y)\right) -\uFunc^{\prime }\left( \cFunc_{t}(\mNrm)\right) }{
+      \cFunc_{t}(y)-\cFunc_{t}(\mNrm)}+\frac{\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(y))-\mathfrak{v}_{t}^{\prime }({\aFunc}_{t}(\mNrm))
+    }{{\aFunc}_{t}(y)-{\aFunc}_{t}(\mNrm)}}.
+\end{equation*}
+This implies that the right-derivative, $\cFunc_{t}^{\prime +}(\mNrm)$ is
+well-defined and we have:
+%
+\begin{equation*}
+  \cFunc_{t}^{\prime +}(\mNrm)=\frac{\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))}{\uFunc^{\prime \prime
+    }(\cFunc_{t}(\mNrm))+\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))}.
+\end{equation*}
+
+Similarly we can show that $\cFunc_{t}^{\prime +}(\mNrm)=\cFunc_{t}^{\prime -}(\mNrm)$,
+which means $\cFunc_{t}^{\prime }(\mNrm)$ exists for any $m\in S$.
+Since $\mathfrak{v}_{t}$ is
+$\mathbf{C}^{3}$, $ \cFunc_{t}^{\prime }(\mNrm)$ exists and is continuous.
+Thus $\cFunc_{t}^{\prime }(\mNrm)$ is differentiable because
+$\mathfrak{v}_{t}^{\prime \prime }$ is $\mathbf{C}^{1}$, $ \cFunc_{t}(\mNrm)$
+is $\mathbf{C}^{1}$ and $\uFunc^{\prime \prime
+}(\cFunc_{t}(\mNrm))+\mathfrak{v}_{t}^{\prime \prime }\left( {\aFunc}_{t}(\mNrm)\right)
+<0$.
+$\cFunc_{t}^{\prime \prime }(\mNrm)$ is given by:
+\begin{equation}
+  \cFunc_{t}^{\prime \prime }(\mNrm)=\frac{{\aNrm}_{t}^{\prime }(\mNrm)\mathfrak{v}_{t}^{\prime \prime
+      \prime }({\aNrm}_{t})\left[ \uFunc^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aNrm}_{t})
+    \right] -\mathfrak{v}_{t}^{\prime \prime }({\aNrm}_{t})\left[ c_{t}^{\prime }\uFunc^{\prime \prime
+        \prime }(c_{t})+{\aNrm}_{t}^{\prime }\mathfrak{v}_{t}^{\prime \prime \prime }({\aNrm}_{t})\right] }{
+    {\left[ \uFunc^{\prime \prime }(c_{t})+\mathfrak{v}_{t}^{\prime \prime }({\aNrm}_{t})\right]}^{2}}.
+\end{equation}
+Since $\mathfrak{v}_{t}^{\prime \prime }({\aFunc}_{t}(\mNrm))$ is continuous,
+$\cFunc_{t}^{\prime \prime }(\mNrm)$ is also continuous.
+\end{proof}
+\end{comment}

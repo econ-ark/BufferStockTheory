@@ -1,0 +1,2867 @@
+{
+  "_meta": {
+    "canonical_base": "https://llorracc.github.io/BufferStockTheory/",
+    "count": 408,
+    "generated_by": "tools/anchor_registry.py",
+    "project": "BufferStockTheory",
+    "variant": "Latest"
+  },
+  "anchors": {
+    "AIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#aic",
+      "html_id": "aic",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#AIC",
+      "title": ""
+    },
+    "APFac": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#apfac",
+      "html_id": "apfac",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#APFac",
+      "title": ""
+    },
+    "Analysis-of-the-Converged-Consumption-Function": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#analysis-of-the-converged-consumption-function",
+      "html_id": "analysis-of-the-converged-consumption-function",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Analysis-of-the-Converged-Consumption-Function",
+      "title": ""
+    },
+    "ApndxBalancedGrowthcNrmAndCov": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#apndxbalancedgrowthcnrmandcov",
+      "html_id": "apndxbalancedgrowthcnrmandcov",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#ApndxBalancedGrowthcNrmAndCov",
+      "title": ""
+    },
+    "ApndxConditionDiagrams": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#apndxconditiondiagrams",
+      "html_id": "apndxconditiondiagrams",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#ApndxConditionDiagrams",
+      "title": ""
+    },
+    "ApndxLiqConstr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#apndxliqconstr",
+      "html_id": "apndxliqconstr",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#ApndxLiqConstr",
+      "title": ""
+    },
+    "ApndxMTargetIsStable": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#apndxmtargetisstable",
+      "html_id": "apndxmtargetisstable",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#ApndxMTargetIsStable",
+      "title": ""
+    },
+    "ApndxPositiveMinimumIncome": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#apndxpositiveminimumincome",
+      "html_id": "apndxpositiveminimumincome",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#ApndxPositiveMinimumIncome",
+      "title": ""
+    },
+    "Appendices": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#appendices",
+      "html_id": "appendices",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Appendices",
+      "title": ""
+    },
+    "Autarky-Value": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#autarky-value",
+      "html_id": "autarky-value",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Autarky-Value",
+      "title": ""
+    },
+    "Balanced-Growth-Of-Covariances": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#balanced-growth-of-covariances",
+      "html_id": "balanced-growth-of-covariances",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Balanced-Growth-Of-Covariances",
+      "title": ""
+    },
+    "BoroCnstNat": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#borocnstnat",
+      "html_id": "borocnstnat",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#BoroCnstNat",
+      "title": ""
+    },
+    "Collective-Stability": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#collective-stability",
+      "html_id": "collective-stability",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Collective-Stability",
+      "title": ""
+    },
+    "Conclusions": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#conclusions",
+      "html_id": "conclusions",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Conclusions",
+      "title": ""
+    },
+    "Conditions-Under-Which-the-Problem-Defines-a-Contraction-Mapping": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#conditions-under-which-the-problem-defines-a-contraction-mapping",
+      "html_id": "conditions-under-which-the-problem-defines-a-contraction-mapping",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Conditions-Under-Which-the-Problem-Defines-a-Contraction-Mapping",
+      "title": ""
+    },
+    "Discussion-Growth-Impatience": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#discussion-growth-impatience",
+      "html_id": "discussion-growth-impatience",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Discussion-Growth-Impatience",
+      "title": ""
+    },
+    "FHWFacDefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fhwfacdefn",
+      "html_id": "fhwfacdefn",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#FHWFacDefn",
+      "title": ""
+    },
+    "FVAC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fvac",
+      "html_id": "fvac",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#FVAC",
+      "title": ""
+    },
+    "Factors-Defined-And-Compared": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#factors-defined-and-compared",
+      "html_id": "factors-defined-and-compared",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Factors-Defined-And-Compared",
+      "title": ""
+    },
+    "GICLivModDefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#giclivmoddefn",
+      "html_id": "giclivmoddefn",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#GICLivModDefn",
+      "title": ""
+    },
+    "GICMod": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#gicmod",
+      "html_id": "gicmod",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#GICMod",
+      "title": ""
+    },
+    "GICModFailsButGICRawHolds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#gicmodfailsbutgicrawholds",
+      "html_id": "gicmodfailsbutgicrawholds",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#GICModFailsButGICRawHolds",
+      "title": ""
+    },
+    "GICRaw": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#gicraw",
+      "html_id": "gicraw",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#GICRaw",
+      "title": ""
+    },
+    "GICSdl": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#gicsdl",
+      "html_id": "gicsdl",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#GICSdl",
+      "title": ""
+    },
+    "GICTheorySetup": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#gictheorysetup",
+      "html_id": "gictheorysetup",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#GICTheorySetup",
+      "title": ""
+    },
+    "GPFacRawDefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#gpfacrawdefn",
+      "html_id": "gpfacrawdefn",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#GPFacRawDefn",
+      "title": ""
+    },
+    "Growth-Rates-of-Aggregate-Income-and-Consumption": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#growth-rates-of-aggregate-income-and-consumption",
+      "html_id": "growth-rates-of-aggregate-income-and-consumption",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Growth-Rates-of-Aggregate-Income-and-Consumption",
+      "title": ""
+    },
+    "Growth-Rates-of-Individual-Income-and-Consumption": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#growth-rates-of-individual-income-and-consumption",
+      "html_id": "growth-rates-of-individual-income-and-consumption",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Growth-Rates-of-Individual-Income-and-Consumption",
+      "title": ""
+    },
+    "InequalityPFGICFHWCRIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#inequalitypfgicfhwcric",
+      "html_id": "inequalitypfgicfhwcric",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#InequalityPFGICFHWCRIC",
+      "title": ""
+    },
+    "InvEPermShkEInv": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#invepermshkeinv",
+      "html_id": "invepermshkeinv",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#InvEPermShkEInv",
+      "title": ""
+    },
+    "It-Is-A-Contraction-Mapping": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#it-is-a-contraction-mapping",
+      "html_id": "it-is-a-contraction-mapping",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#It-Is-A-Contraction-Mapping",
+      "title": ""
+    },
+    "MPCmaxDefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#mpcmaxdefn",
+      "html_id": "mpcmaxdefn",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#MPCmaxDefn",
+      "title": ""
+    },
+    "MPCminDefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#mpcmindefn",
+      "html_id": "mpcmindefn",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#MPCminDefn",
+      "title": ""
+    },
+    "MPCnvrs": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#mpcnvrs",
+      "html_id": "mpcnvrs",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#MPCnvrs",
+      "title": ""
+    },
+    "Modigliani-Lives": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#modigliani-lives",
+      "html_id": "modigliani-lives",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Modigliani-Lives",
+      "title": ""
+    },
+    "Mortality": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#mortality",
+      "html_id": "mortality",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Mortality",
+      "title": ""
+    },
+    "PDV": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#pdv",
+      "html_id": "pdv",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#PDV",
+      "title": ""
+    },
+    "PDVc": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#pdvc",
+      "html_id": "pdvc",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#PDVc",
+      "title": ""
+    },
+    "PF-Constrained-Solution": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#pf-constrained-solution",
+      "html_id": "pf-constrained-solution",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#PF-Constrained-Solution",
+      "title": ""
+    },
+    "PFFVAC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#pffvac",
+      "html_id": "pffvac",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#PFFVAC",
+      "title": ""
+    },
+    "PFFVAF": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#pffvaf",
+      "html_id": "pffvaf",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#PFFVAF",
+      "title": ""
+    },
+    "PFGICHoldsFHWCFailsRICFails": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#pfgicholdsfhwcfailsricfails",
+      "html_id": "pfgicholdsfhwcfailsricfails",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#PFGICHoldsFHWCFailsRICFails",
+      "title": ""
+    },
+    "PFGICHoldsFHWCFailsRICFailsDiscuss": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#pfgicholdsfhwcfailsricfailsdiscuss",
+      "html_id": "pfgicholdsfhwcfailsricfailsdiscuss",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#PFGICHoldsFHWCFailsRICFailsDiscuss",
+      "title": ""
+    },
+    "Perfect-Foresight-Benchmarks": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#perfect-foresight-benchmarks",
+      "html_id": "perfect-foresight-benchmarks",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Perfect-Foresight-Benchmarks",
+      "title": ""
+    },
+    "PermGroFacAdj": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#permgrofacadj",
+      "html_id": "permgrofacadj",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#PermGroFacAdj",
+      "title": ""
+    },
+    "PermGroFacAdjU": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#permgrofacadju",
+      "html_id": "permgrofacadju",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#PermGroFacAdjU",
+      "title": ""
+    },
+    "RIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ric",
+      "html_id": "ric",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#RIC",
+      "title": ""
+    },
+    "RICandFHWCFail": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ricandfhwcfail",
+      "html_id": "ricandfhwcfail",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#RICandFHWCFail",
+      "title": ""
+    },
+    "RelatePFGICFHWCRICPFFVAC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#relatepfgicfhwcricpffvac",
+      "html_id": "relatepfgicfhwcricpffvac",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#RelatePFGICFHWCRICPFFVAC",
+      "title": ""
+    },
+    "Stationary-Bellman-Operator": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#stationary-bellman-operator",
+      "html_id": "stationary-bellman-operator",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Stationary-Bellman-Operator",
+      "title": ""
+    },
+    "Sufficient-Conditions-For-non-degenerate-Solution": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sufficient-conditions-for-non-degenerate-solution",
+      "html_id": "sufficient-conditions-for-non-degenerate-solution",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Sufficient-Conditions-For-non-degenerate-Solution",
+      "title": ""
+    },
+    "The-Aggregate-and-Idiosyncratic-Relationship-Between-Consumption-Growth-and-Income-Growth": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#the-aggregate-and-idiosyncratic-relationship-between-consumption-growth-and-income-growth",
+      "html_id": "the-aggregate-and-idiosyncratic-relationship-between-consumption-growth-and-income-growth",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#The-Aggregate-and-Idiosyncratic-Relationship-Between-Consumption-Growth-and-Income-Growth",
+      "title": ""
+    },
+    "The-Liquidity-Constrained-Solution-as-a-Limit": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#the-liquidity-constrained-solution-as-a-limit",
+      "html_id": "the-liquidity-constrained-solution-as-a-limit",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#The-Liquidity-Constrained-Solution-as-a-Limit",
+      "title": ""
+    },
+    "The-Problem": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#the-problem",
+      "html_id": "the-problem",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#The-Problem",
+      "title": ""
+    },
+    "The-Problem-Can-Be-Rewritten-in-Ratio-Form": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#the-problem-can-be-rewritten-in-ratio-form",
+      "html_id": "the-problem-can-be-rewritten-in-ratio-form",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#The-Problem-Can-Be-Rewritten-in-Ratio-Form",
+      "title": ""
+    },
+    "The-Related-Problem": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#the-related-problem",
+      "html_id": "the-related-problem",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#The-Related-Problem",
+      "title": ""
+    },
+    "Unconstrained-Solution": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#unconstrained-solution",
+      "html_id": "unconstrained-solution",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#Unconstrained-Solution",
+      "title": ""
+    },
+    "VAFacDefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#vafacdefn",
+      "html_id": "vafacdefn",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#VAFacDefn",
+      "title": ""
+    },
+    "WRIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#wric",
+      "html_id": "wric",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#WRIC",
+      "title": ""
+    },
+    "When-the-RIC-Holds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#when-the-ric-holds",
+      "html_id": "when-the-ric-holds",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#When-the-RIC-Holds",
+      "title": ""
+    },
+    "ass-AIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-aic",
+      "html_id": "ass-aic",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-AIC",
+      "title": "*Absolute Impatience*"
+    },
+    "ass-FHWC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-fhwc",
+      "html_id": "ass-fhwc",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-FHWC",
+      "title": "Finite Human Wealth"
+    },
+    "ass-FVAC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-fvac",
+      "html_id": "ass-fvac",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-FVAC",
+      "title": "Finite Value of Autarky"
+    },
+    "ass-GICMod": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-gicmod",
+      "html_id": "ass-gicmod",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-GICMod",
+      "title": "*Strong Growth Impatience*"
+    },
+    "ass-GICRaw": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-gicraw",
+      "html_id": "ass-gicraw",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-GICRaw",
+      "title": "*Growth Impatience*"
+    },
+    "ass-RIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-ric",
+      "html_id": "ass-ric",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-RIC",
+      "title": "*Return Impatience*"
+    },
+    "ass-WRIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-wric",
+      "html_id": "ass-wric",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-WRIC",
+      "title": "*Weak Return Impatience*"
+    },
+    "ass-pfincome": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-pfincome",
+      "html_id": "ass-pfincome",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-pfincome",
+      "title": "Perfect Foresight Income Process"
+    },
+    "ass-shocks": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-shocks",
+      "html_id": "ass-shocks",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-shocks",
+      "title": "Friedman-Muth Income Process"
+    },
+    "ass-shocksPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#ass-shockspositiveminimum",
+      "html_id": "ass-shockspositiveminimum",
+      "kind": "assumption",
+      "md_ref": "BufferStockTheory.md#ass-shocksPositiveMinimum",
+      "title": "Friedman-Muth Income Process with a Positive Minimum"
+    },
+    "balgrostable": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#balgrostable",
+      "html_id": "balgrostable",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#balgrostable",
+      "title": ""
+    },
+    "cFunc-is-Twice-Continuously-Differentiable": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cfunc-is-twice-continuously-differentiable",
+      "html_id": "cfunc-is-twice-continuously-differentiable",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#cFunc-is-Twice-Continuously-Differentiable",
+      "title": ""
+    },
+    "cFuncBounds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cfuncbounds",
+      "html_id": "cfuncbounds",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#cFuncBounds",
+      "title": ""
+    },
+    "cfLiterature": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cfliterature",
+      "html_id": "cfliterature",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#cfLiterature",
+      "title": ""
+    },
+    "checkRestrictions": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#checkrestrictions",
+      "html_id": "checkrestrictions",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#checkRestrictions",
+      "title": ""
+    },
+    "cite-Aliprantis2005": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-aliprantis2005",
+      "html_id": "cite-aliprantis2005",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-Aliprantis2005",
+      "title": ""
+    },
+    "cite-BufferStockTheoryQESubmit": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-bufferstocktheoryqesubmit",
+      "html_id": "cite-bufferstocktheoryqesubmit",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-BufferStockTheoryQESubmit",
+      "title": ""
+    },
+    "cite-Cao2020": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-cao2020",
+      "html_id": "cite-cao2020",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-Cao2020",
+      "title": ""
+    },
+    "cite-Feinberg2012": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-feinberg2012",
+      "html_id": "cite-feinberg2012",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-Feinberg2012",
+      "title": ""
+    },
+    "cite-Jaskiewicz2011": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-jaskiewicz2011",
+      "html_id": "cite-jaskiewicz2011",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-Jaskiewicz2011",
+      "title": ""
+    },
+    "cite-Ma2022": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-ma2022",
+      "html_id": "cite-ma2022",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-Ma2022",
+      "title": ""
+    },
+    "cite-Rockafellar1972": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-rockafellar1972",
+      "html_id": "cite-rockafellar1972",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-Rockafellar1972",
+      "title": ""
+    },
+    "cite-Shanker2017a": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-shanker2017a",
+      "html_id": "cite-shanker2017a",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-Shanker2017a",
+      "title": ""
+    },
+    "cite-StachurskiToda2019JET": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-stachurskitoda2019jet",
+      "html_id": "cite-stachurskitoda2019jet",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-StachurskiToda2019JET",
+      "title": ""
+    },
+    "cite-Sun2009": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-sun2009",
+      "html_id": "cite-sun2009",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-Sun2009",
+      "title": ""
+    },
+    "cite-acCovariance": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-accovariance",
+      "html_id": "cite-accovariance",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-acCovariance",
+      "title": ""
+    },
+    "cite-aiyagari-ge": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-aiyagari-ge",
+      "html_id": "cite-aiyagari-ge",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-aiyagari-ge",
+      "title": ""
+    },
+    "cite-asHomogeneous": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-ashomogeneous",
+      "html_id": "cite-ashomogeneous",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-asHomogeneous",
+      "title": ""
+    },
+    "cite-benhabibWealth": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-benhabibwealth",
+      "html_id": "cite-benhabibwealth",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-benhabibWealth",
+      "title": ""
+    },
+    "cite-bertsekas2012dynamic": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-bertsekas2012dynamic",
+      "html_id": "cite-bertsekas2012dynamic",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-bertsekas2012dynamic",
+      "title": ""
+    },
+    "cite-bewleyPIH": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-bewleypih",
+      "html_id": "cite-bewleypih",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-bewleyPIH",
+      "title": ""
+    },
+    "cite-blanchardFinite": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-blanchardfinite",
+      "html_id": "cite-blanchardfinite",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-blanchardFinite",
+      "title": ""
+    },
+    "cite-carroll-brookings": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-carroll-brookings",
+      "html_id": "cite-carroll-brookings",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-carroll-brookings",
+      "title": ""
+    },
+    "cite-carrollBSLCPIH": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-carrollbslcpih",
+      "html_id": "cite-carrollbslcpih",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-carrollBSLCPIH",
+      "title": ""
+    },
+    "cite-carroll_et_al-proc-scipy-2018": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-carroll_et_al-proc-scipy-2018",
+      "html_id": "cite-carroll_et_al-proc-scipy-2018",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-carroll_et_al-proc-scipy-2018",
+      "title": ""
+    },
+    "cite-chkLiqConstr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-chkliqconstr",
+      "html_id": "cite-chkliqconstr",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-chkLiqConstr",
+      "title": ""
+    },
+    "cite-ckConcavity": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-ckconcavity",
+      "html_id": "cite-ckconcavity",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-ckConcavity",
+      "title": ""
+    },
+    "cite-claridaErgodic": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-claridaergodic",
+      "html_id": "cite-claridaergodic",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-claridaErgodic",
+      "title": ""
+    },
+    "cite-crawleyParsimonious": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-crawleyparsimonious",
+      "html_id": "cite-crawleyparsimonious",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-crawleyParsimonious",
+      "title": ""
+    },
+    "cite-csNature": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-csnature",
+      "html_id": "cite-csnature",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-csNature",
+      "title": ""
+    },
+    "cite-cstwMPC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-cstwmpc",
+      "html_id": "cite-cstwmpc",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-cstwMPC",
+      "title": ""
+    },
+    "cite-cwcUnderUncert": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-cwcunderuncert",
+      "html_id": "cite-cwcunderuncert",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-cwcUnderUncert",
+      "title": ""
+    },
+    "cite-deatonLiqConstr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-deatonliqconstr",
+      "html_id": "cite-deatonliqconstr",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-deatonLiqConstr",
+      "title": ""
+    },
+    "cite-dhmImproving": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-dhmimproving",
+      "html_id": "cite-dhmimproving",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-dhmImproving",
+      "title": ""
+    },
+    "cite-dhprvInequality": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-dhprvinequality",
+      "html_id": "cite-dhprvinequality",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-dhprvInequality",
+      "title": ""
+    },
+    "cite-dmHowMuch": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-dmhowmuch",
+      "html_id": "cite-dmhowmuch",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-dmHowMuch",
+      "title": ""
+    },
+    "cite-duranDiscounting": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-durandiscounting",
+      "html_id": "cite-durandiscounting",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-duranDiscounting",
+      "title": ""
+    },
+    "cite-fisherInterestTheory": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-fisherinteresttheory",
+      "html_id": "cite-fisherinteresttheory",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-fisherInterestTheory",
+      "title": ""
+    },
+    "cite-friedmanATheory": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-friedmanatheory",
+      "html_id": "cite-friedmanatheory",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-friedmanATheory",
+      "title": ""
+    },
+    "cite-gpLifeCycle": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-gplifecycle",
+      "html_id": "cite-gplifecycle",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-gpLifeCycle",
+      "title": ""
+    },
+    "cite-harmenbergAggregating": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-harmenbergaggregating",
+      "html_id": "cite-harmenbergaggregating",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-harmenbergAggregating",
+      "title": ""
+    },
+    "cite-harmenbergInvariant": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-harmenberginvariant",
+      "html_id": "cite-harmenberginvariant",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-harmenbergInvariant",
+      "title": ""
+    },
+    "cite-hendricksBequests": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-hendricksbequests",
+      "html_id": "cite-hendricksbequests",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-hendricksBequests",
+      "title": ""
+    },
+    "cite-hendricksSmallBequests": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-hendrickssmallbequests",
+      "html_id": "cite-hendrickssmallbequests",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-hendricksSmallBequests",
+      "title": ""
+    },
+    "cite-jboydWeighted": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-jboydweighted",
+      "html_id": "cite-jboydweighted",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-jboydWeighted",
+      "title": ""
+    },
+    "cite-jpCins": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-jpcins",
+      "html_id": "cite-jpcins",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-jpCins",
+      "title": ""
+    },
+    "cite-kimball-smallandlarge": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-kimball-smallandlarge",
+      "html_id": "cite-kimball-smallandlarge",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-kimball-smallandlarge",
+      "title": ""
+    },
+    "cite-kmpHandbook": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-kmphandbook",
+      "html_id": "cite-kmphandbook",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-kmpHandbook",
+      "title": ""
+    },
+    "cite-kvwWealthyH2m": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-kvwwealthyh2m",
+      "html_id": "cite-kvwwealthyh2m",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-kvwWealthyH2m",
+      "title": ""
+    },
+    "cite-lsIncFluct": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-lsincfluct",
+      "html_id": "cite-lsincfluct",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-lsIncFluct",
+      "title": ""
+    },
+    "cite-lwComponents": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-lwcomponents",
+      "html_id": "cite-lwcomponents",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-lwComponents",
+      "title": ""
+    },
+    "cite-maTodaRich": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-matodarich",
+      "html_id": "cite-matodarich",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-maTodaRich",
+      "title": ""
+    },
+    "cite-maUnboundedDP": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-maunboundeddp",
+      "html_id": "cite-maunboundeddp",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-maUnboundedDP",
+      "title": ""
+    },
+    "cite-macurdyTimeseries": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-macurdytimeseries",
+      "html_id": "cite-macurdytimeseries",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-macurdyTimeseries",
+      "title": ""
+    },
+    "cite-mnUnique": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-mnunique",
+      "html_id": "cite-mnunique",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-mnUnique",
+      "title": ""
+    },
+    "cite-modiglianiWealth": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-modiglianiwealth",
+      "html_id": "cite-modiglianiwealth",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-modiglianiWealth",
+      "title": ""
+    },
+    "cite-mstIncFluct": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-mstincfluct",
+      "html_id": "cite-mstincfluct",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-mstIncFluct",
+      "title": ""
+    },
+    "cite-muthOptimal": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-muthoptimal",
+      "html_id": "cite-muthoptimal",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-muthOptimal",
+      "title": ""
+    },
+    "cite-mvExistence": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-mvexistence",
+      "html_id": "cite-mvexistence",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-mvExistence",
+      "title": ""
+    },
+    "cite-rabaultBorrowing": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-rabaultborrowing",
+      "html_id": "cite-rabaultborrowing",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-rabaultBorrowing",
+      "title": ""
+    },
+    "cite-riehl2017category": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-riehl2017category",
+      "html_id": "cite-riehl2017category",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-riehl2017category",
+      "title": ""
+    },
+    "cite-rinconZapatero2024": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-rinconzapatero2024",
+      "html_id": "cite-rinconzapatero2024",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-rinconZapatero2024",
+      "title": ""
+    },
+    "cite-rrExistence": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-rrexistence",
+      "html_id": "cite-rrexistence",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-rrExistence",
+      "title": ""
+    },
+    "cite-schectman-fluctuation": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-schectman-fluctuation",
+      "html_id": "cite-schectman-fluctuation",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-schectman-fluctuation",
+      "title": ""
+    },
+    "cite-scheinkman-weiss-borrowing": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-scheinkman-weiss-borrowing",
+      "html_id": "cite-scheinkman-weiss-borrowing",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-scheinkman-weiss-borrowing",
+      "title": ""
+    },
+    "cite-schmitt2003closing": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-schmitt2003closing",
+      "html_id": "cite-schmitt2003closing",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-schmitt2003closing",
+      "title": ""
+    },
+    "cite-seIncFluct": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-seincfluct",
+      "html_id": "cite-seincfluct",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-seIncFluct",
+      "title": ""
+    },
+    "cite-slpMethods": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-slpmethods",
+      "html_id": "cite-slpmethods",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-slpMethods",
+      "title": ""
+    },
+    "cite-stachurski2022": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-stachurski2022",
+      "html_id": "cite-stachurski2022",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-stachurski2022",
+      "title": ""
+    },
+    "cite-szeidlInvariant": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-szeidlinvariant",
+      "html_id": "cite-szeidlinvariant",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-szeidlInvariant",
+      "title": ""
+    },
+    "cite-yaari1965uncertain": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-yaari1965uncertain",
+      "html_id": "cite-yaari1965uncertain",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-yaari1965uncertain",
+      "title": ""
+    },
+    "cite-zeldesStochastic": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cite-zeldesstochastic",
+      "html_id": "cite-zeldesstochastic",
+      "kind": "citation",
+      "md_ref": "BufferStockTheory.md#cite-zeldesStochastic",
+      "title": ""
+    },
+    "claim-MPCMAXKleq1": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#claim-mpcmaxkleq1",
+      "html_id": "claim-mpcmaxkleq1",
+      "kind": "property",
+      "md_ref": "BufferStockTheory.md#claim-MPCMAXKleq1",
+      "title": ""
+    },
+    "claim-PFConspC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#claim-pfconspc",
+      "html_id": "claim-pfconspc",
+      "kind": "property",
+      "md_ref": "BufferStockTheory.md#claim-PFConspC",
+      "title": ""
+    },
+    "claim-gicimpliesharmimp": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#claim-gicimpliesharmimp",
+      "html_id": "claim-gicimpliesharmimp",
+      "kind": "property",
+      "md_ref": "BufferStockTheory.md#claim-gicimpliesharmimp",
+      "title": ""
+    },
+    "claim-noRICGIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#claim-noricgic",
+      "html_id": "claim-noricgic",
+      "kind": "property",
+      "md_ref": "BufferStockTheory.md#claim-noRICGIC",
+      "title": ""
+    },
+    "claim-rationondec": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#claim-rationondec",
+      "html_id": "claim-rationondec",
+      "kind": "property",
+      "md_ref": "BufferStockTheory.md#claim-rationondec",
+      "title": ""
+    },
+    "clm-hiraguchi_cont": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#clm-hiraguchi_cont",
+      "html_id": "clm-hiraguchi_cont",
+      "kind": "property",
+      "md_ref": "BufferStockTheory.md#clm-hiraguchi_cont",
+      "title": ""
+    },
+    "cnclGICRawcnclRICFHWC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cnclgicrawcnclricfhwc",
+      "html_id": "cnclgicrawcnclricfhwc",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#cnclGICRawcnclRICFHWC",
+      "title": ""
+    },
+    "cnclGICRawcnclRICcnclFHWC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#cnclgicrawcnclriccnclfhwc",
+      "html_id": "cnclgicrawcnclriccnclfhwc",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#cnclGICRawcnclRICcnclFHWC",
+      "title": ""
+    },
+    "coro-ConcaveNoWorst": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#coro-concavenoworst",
+      "html_id": "coro-concavenoworst",
+      "kind": "corollary",
+      "md_ref": "BufferStockTheory.md#coro-ConcaveNoWorst",
+      "title": ""
+    },
+    "def-boundfuncspace": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#def-boundfuncspace",
+      "html_id": "def-boundfuncspace",
+      "kind": "definition",
+      "md_ref": "BufferStockTheory.md#def-boundfuncspace",
+      "title": ""
+    },
+    "def-nondegeneracy": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#def-nondegeneracy",
+      "html_id": "def-nondegeneracy",
+      "kind": "definition",
+      "md_ref": "BufferStockTheory.md#def-nondegeneracy",
+      "title": "Non-degenerate Limiting Solution"
+    },
+    "eq-APFac": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-apfac",
+      "html_id": "eq-apfac",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-APFac",
+      "title": ""
+    },
+    "eq-CauchyPerturbed": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cauchyperturbed",
+      "html_id": "eq-cauchyperturbed",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-CauchyPerturbed",
+      "title": ""
+    },
+    "eq-DBCparts": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-dbcparts",
+      "html_id": "eq-dbcparts",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-DBCparts",
+      "title": ""
+    },
+    "eq-EuelrStatC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-euelrstatc",
+      "html_id": "eq-euelrstatc",
+      "kind": "property",
+      "md_ref": "BufferStockTheory.md#eq-EuelrStatC",
+      "title": ""
+    },
+    "eq-EulerGICRawFailsEnd": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-eulergicrawfailsend",
+      "html_id": "eq-eulergicrawfailsend",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-EulerGICRawFailsEnd",
+      "title": ""
+    },
+    "eq-FHWC2": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-fhwc2",
+      "html_id": "eq-fhwc2",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-FHWC2",
+      "title": ""
+    },
+    "eq-FHWCFails": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-fhwcfails",
+      "html_id": "eq-fhwcfails",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-FHWCFails",
+      "title": ""
+    },
+    "eq-FHWCandPFFVACimplyRIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-fhwcandpffvacimplyric",
+      "html_id": "eq-fhwcandpffvacimplyric",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-FHWCandPFFVACimplyRIC",
+      "title": ""
+    },
+    "eq-FHWCfails": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-fhwcfails",
+      "html_id": "eq-fhwcfails",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-FHWCfails",
+      "title": ""
+    },
+    "eq-FiniteMinHumanWealth": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-finiteminhumanwealth",
+      "html_id": "eq-finiteminhumanwealth",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-FiniteMinHumanWealth",
+      "title": ""
+    },
+    "eq-GICLivMod": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-giclivmod",
+      "html_id": "eq-giclivmod",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-GICLivMod",
+      "title": ""
+    },
+    "eq-GICSdl": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-gicsdl",
+      "html_id": "eq-gicsdl",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-GICSdl",
+      "title": ""
+    },
+    "eq-GICStrRICfailst1": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-gicstrricfailst1",
+      "html_id": "eq-gicstrricfailst1",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-GICStrRICfailst1",
+      "title": ""
+    },
+    "eq-GICStrRICfailst2": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-gicstrricfailst2",
+      "html_id": "eq-gicstrricfailst2",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-GICStrRICfailst2",
+      "title": ""
+    },
+    "eq-GICandFHWCimplyPFFVAC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-gicandfhwcimplypffvac",
+      "html_id": "eq-gicandfhwcimplypffvac",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-GICandFHWCimplyPFFVAC",
+      "title": ""
+    },
+    "eq-GPFacMod": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-gpfacmod",
+      "html_id": "eq-gpfacmod",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-GPFacMod",
+      "title": ""
+    },
+    "eq-GPFacRaw": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-gpfacraw",
+      "html_id": "eq-gpfacraw",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-GPFacRaw",
+      "title": ""
+    },
+    "eq-HDef": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-hdef",
+      "html_id": "eq-hdef",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-HDef",
+      "title": ""
+    },
+    "eq-HDefAppx": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-hdefappx",
+      "html_id": "eq-hdefappx",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-HDefAppx",
+      "title": ""
+    },
+    "eq-HarmCDF": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-harmcdf",
+      "html_id": "eq-harmcdf",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-HarmCDF",
+      "title": ""
+    },
+    "eq-HarmImp": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-harmimp",
+      "html_id": "eq-harmimp",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-HarmImp",
+      "title": ""
+    },
+    "eq-HarmTransition": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-harmtransition",
+      "html_id": "eq-harmtransition",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-HarmTransition",
+      "title": ""
+    },
+    "eq-IBCFinite": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-ibcfinite",
+      "html_id": "eq-ibcfinite",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-IBCFinite",
+      "title": ""
+    },
+    "eq-IncomeHorizonBounds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-incomehorizonbounds",
+      "html_id": "eq-incomehorizonbounds",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-IncomeHorizonBounds",
+      "title": ""
+    },
+    "eq-Jensen": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-jensen",
+      "html_id": "eq-jensen",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-Jensen",
+      "title": ""
+    },
+    "eq-KeyCondition": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-keycondition",
+      "html_id": "eq-keycondition",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-KeyCondition",
+      "title": ""
+    },
+    "eq-KeyNoWorst": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-keynoworst",
+      "html_id": "eq-keynoworst",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-KeyNoWorst",
+      "title": ""
+    },
+    "eq-LiqConstrBinds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-liqconstrbinds",
+      "html_id": "eq-liqconstrbinds",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-LiqConstrBinds",
+      "title": ""
+    },
+    "eq-MPCConstrLim": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcconstrlim",
+      "html_id": "eq-mpcconstrlim",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCConstrLim",
+      "title": ""
+    },
+    "eq-MPCInvPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcinvpositiveminimum",
+      "html_id": "eq-mpcinvpositiveminimum",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCInvPositiveMinimum",
+      "title": ""
+    },
+    "eq-MPCMAXKleq1": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcmaxkleq1",
+      "html_id": "eq-mpcmaxkleq1",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCMAXKleq1",
+      "title": ""
+    },
+    "eq-MPCmaxDef": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcmaxdef",
+      "html_id": "eq-mpcmaxdef",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCmaxDef",
+      "title": ""
+    },
+    "eq-MPCmaxDefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcmaxdefn",
+      "html_id": "eq-mpcmaxdefn",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCmaxDefn",
+      "title": ""
+    },
+    "eq-MPCmaxInvApndxIter": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcmaxinvapndxiter",
+      "html_id": "eq-mpcmaxinvapndxiter",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCmaxInvApndxIter",
+      "title": ""
+    },
+    "eq-MPCminDef": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcmindef",
+      "html_id": "eq-mpcmindef",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCminDef",
+      "title": ""
+    },
+    "eq-MPCminDefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcmindefn",
+      "html_id": "eq-mpcmindefn",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCminDefn",
+      "title": ""
+    },
+    "eq-MPCminInv": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcmininv",
+      "html_id": "eq-mpcmininv",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCminInv",
+      "title": ""
+    },
+    "eq-MPCminInvApndx": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcmininvapndx",
+      "html_id": "eq-mpcmininvapndx",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPCminInvApndx",
+      "title": ""
+    },
+    "eq-MPSminDef": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpsmindef",
+      "html_id": "eq-mpsmindef",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MPSminDef",
+      "title": ""
+    },
+    "eq-Mbarddef": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mbarddef",
+      "html_id": "eq-mbarddef",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-Mbarddef",
+      "title": ""
+    },
+    "eq-MeanDeltaLogC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-meandeltalogc",
+      "html_id": "eq-meandeltalogc",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MeanDeltaLogC",
+      "title": ""
+    },
+    "eq-MeanDeltaLogCeqMeanDeltaLogP": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-meandeltalogceqmeandeltalogp",
+      "html_id": "eq-meandeltalogceqmeandeltalogp",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MeanDeltaLogCeqMeanDeltaLogP",
+      "title": ""
+    },
+    "eq-MinIncomeBelowEmployed": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-minincomebelowemployed",
+      "html_id": "eq-minincomebelowemployed",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-MinIncomeBelowEmployed",
+      "title": ""
+    },
+    "eq-NaturalBorrowingLimit": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-naturalborrowinglimit",
+      "html_id": "eq-naturalborrowinglimit",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-NaturalBorrowingLimit",
+      "title": ""
+    },
+    "eq-NoDebtAtDeath": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-nodebtatdeath",
+      "html_id": "eq-nodebtatdeath",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-NoDebtAtDeath",
+      "title": ""
+    },
+    "eq-PFFVAC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-pffvac",
+      "html_id": "eq-pffvac",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-PFFVAC",
+      "title": ""
+    },
+    "eq-PFMPCminInv": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-pfmpcmininv",
+      "html_id": "eq-pfmpcmininv",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-PFMPCminInv",
+      "title": ""
+    },
+    "eq-RICimplies": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-ricimplies",
+      "html_id": "eq-ricimplies",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-RICimplies",
+      "title": ""
+    },
+    "eq-RbarBelowOne": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-rbarbelowone",
+      "html_id": "eq-rbarbelowone",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-RbarBelowOne",
+      "title": ""
+    },
+    "eq-RestrEqUnrestr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-restrequnrestr",
+      "html_id": "eq-restrequnrestr",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-RestrEqUnrestr",
+      "title": ""
+    },
+    "eq-TMapNbl": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-tmapnbl",
+      "html_id": "eq-tmapnbl",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-TMapNbl",
+      "title": ""
+    },
+    "eq-TranShkDef": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-transhkdef",
+      "html_id": "eq-transhkdef",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-TranShkDef",
+      "title": ""
+    },
+    "eq-TranShkDefPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-transhkdefpositiveminimum",
+      "html_id": "eq-transhkdefpositiveminimum",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-TranShkDefPositiveMinimum",
+      "title": ""
+    },
+    "eq-ValuePFAnalyticalAutarky": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-valuepfanalyticalautarky",
+      "html_id": "eq-valuepfanalyticalautarky",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-ValuePFAnalyticalAutarky",
+      "title": ""
+    },
+    "eq-WDef": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-wdef",
+      "html_id": "eq-wdef",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-WDef",
+      "title": ""
+    },
+    "eq-WRICWorst": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-wricworst",
+      "html_id": "eq-wricworst",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-WRICWorst",
+      "title": ""
+    },
+    "eq-WRICandFVAC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-wricandfvac",
+      "html_id": "eq-wricandfvac",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-WRICandFVAC",
+      "title": ""
+    },
+    "eq-WRICapndx": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-wricapndx",
+      "html_id": "eq-wricapndx",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-WRICapndx",
+      "title": ""
+    },
+    "eq-aNrmGrovsCovGronm1": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-anrmgrovscovgronm1",
+      "html_id": "eq-anrmgrovscovgronm1",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-aNrmGrovsCovGronm1",
+      "title": ""
+    },
+    "eq-aNrmGrovscovGro": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-anrmgrovscovgro",
+      "html_id": "eq-anrmgrovscovgro",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-aNrmGrovscovGro",
+      "title": ""
+    },
+    "eq-atp2vsatp1": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-atp2vsatp1",
+      "html_id": "eq-atp2vsatp1",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-atp2vsatp1",
+      "title": ""
+    },
+    "eq-bPound": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-bpound",
+      "html_id": "eq-bpound",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-bPound",
+      "title": ""
+    },
+    "eq-bToInfty": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-btoinfty",
+      "html_id": "eq-btoinfty",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-bToInfty",
+      "title": ""
+    },
+    "eq-balgrostable": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-balgrostable",
+      "html_id": "eq-balgrostable",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-balgrostable",
+      "title": ""
+    },
+    "eq-boundFuncKey": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-boundfunckey",
+      "html_id": "eq-boundfunckey",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-boundFuncKey",
+      "title": ""
+    },
+    "eq-boundFuncPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-boundfuncpositiveminimum",
+      "html_id": "eq-boundfuncpositiveminimum",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-boundFuncPositiveMinimum",
+      "title": ""
+    },
+    "eq-cBounds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cbounds",
+      "html_id": "eq-cbounds",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cBounds",
+      "title": ""
+    },
+    "eq-cBoundsLimitPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cboundslimitpositiveminimum",
+      "html_id": "eq-cboundslimitpositiveminimum",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cBoundsLimitPositiveMinimum",
+      "title": ""
+    },
+    "eq-cBoundsPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cboundspositiveminimum",
+      "html_id": "eq-cboundspositiveminimum",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cBoundsPositiveMinimum",
+      "title": ""
+    },
+    "eq-cFuncPFUnc": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cfuncpfunc",
+      "html_id": "eq-cfuncpfunc",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cFuncPFUnc",
+      "title": ""
+    },
+    "eq-cFuncPFUncAppx": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cfuncpfuncappx",
+      "html_id": "eq-cfuncpfuncappx",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cFuncPFUncAppx",
+      "title": ""
+    },
+    "eq-cGroFac": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cgrofac",
+      "html_id": "eq-cgrofac",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cGroFac",
+      "title": ""
+    },
+    "eq-cLowerUniform": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cloweruniform",
+      "html_id": "eq-cloweruniform",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cLowerUniform",
+      "title": ""
+    },
+    "eq-cNrmvsCov": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cnrmvscov",
+      "html_id": "eq-cnrmvscov",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cNrmvsCov",
+      "title": ""
+    },
+    "eq-cPreHist": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cprehist",
+      "html_id": "eq-cprehist",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cPreHist",
+      "title": ""
+    },
+    "eq-cfunceq1": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cfunceq1",
+      "html_id": "eq-cfunceq1",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cfunceq1",
+      "title": ""
+    },
+    "eq-cnclFHWFacDefnAndcnclRICImplycnclPFFVAC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cnclfhwfacdefnandcnclricimplycnclpffvac",
+      "html_id": "eq-cnclfhwfacdefnandcnclricimplycnclpffvac",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cnclFHWFacDefnAndcnclRICImplycnclPFFVAC",
+      "title": ""
+    },
+    "eq-cnclGICRaw": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cnclgicraw",
+      "html_id": "eq-cnclgicraw",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cnclGICRaw",
+      "title": ""
+    },
+    "eq-cnclRIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-cnclric",
+      "html_id": "eq-cnclric",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-cnclRIC",
+      "title": ""
+    },
+    "eq-condition1": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-condition1",
+      "html_id": "eq-condition1",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-condition1",
+      "title": ""
+    },
+    "eq-consGrowth": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-consgrowth",
+      "html_id": "eq-consgrowth",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-consGrowth",
+      "title": ""
+    },
+    "eq-convgcvftni": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-convgcvftni",
+      "html_id": "eq-convgcvftni",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-convgcvftni",
+      "title": ""
+    },
+    "eq-derivativeConsFunc": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-derivativeconsfunc",
+      "html_id": "eq-derivativeconsfunc",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-derivativeConsFunc",
+      "title": ""
+    },
+    "eq-difFuncsPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-diffuncspositiveminimum",
+      "html_id": "eq-diffuncspositiveminimum",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-difFuncsPositiveMinimum",
+      "title": ""
+    },
+    "eq-difLvlEquiv": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-diflvlequiv",
+      "html_id": "eq-diflvlequiv",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-difLvlEquiv",
+      "title": ""
+    },
+    "eq-difNrmioEquiv": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-difnrmioequiv",
+      "html_id": "eq-difnrmioequiv",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-difNrmioEquiv",
+      "title": ""
+    },
+    "eq-eFuncEuler": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-efunceuler",
+      "html_id": "eq-efunceuler",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-eFuncEuler",
+      "title": ""
+    },
+    "eq-eFuncEulerMPCmax": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-efunceulermpcmax",
+      "html_id": "eq-efunceulermpcmax",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-eFuncEulerMPCmax",
+      "title": ""
+    },
+    "eq-eFuncEulerMPCmaxDCT": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-efunceulermpcmaxdct",
+      "html_id": "eq-efunceulermpcmaxdct",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-eFuncEulerMPCmaxDCT",
+      "title": ""
+    },
+    "eq-eFuncEulerPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-efunceulerpositiveminimum",
+      "html_id": "eq-efunceulerpositiveminimum",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-eFuncEulerPositiveMinimum",
+      "title": ""
+    },
+    "eq-eFuncEulerStat": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-efunceulerstat",
+      "html_id": "eq-efunceulerstat",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-eFuncEulerStat",
+      "title": ""
+    },
+    "eq-emgro": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-emgro",
+      "html_id": "eq-emgro",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-emgro",
+      "title": ""
+    },
+    "eq-emgro2": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-emgro2",
+      "html_id": "eq-emgro2",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-emgro2",
+      "title": ""
+    },
+    "eq-finiteDiff": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-finitediff",
+      "html_id": "eq-finitediff",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-finiteDiff",
+      "title": ""
+    },
+    "eq-finiteDiff2": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-finitediff2",
+      "html_id": "eq-finitediff2",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-finiteDiff2",
+      "title": ""
+    },
+    "eq-hNrmMinRecursion": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-hnrmminrecursion",
+      "html_id": "eq-hnrmminrecursion",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-hNrmMinRecursion",
+      "title": ""
+    },
+    "eq-levelRecProblem": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-levelrecproblem",
+      "html_id": "eq-levelrecproblem",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-levelRecProblem",
+      "title": ""
+    },
+    "eq-liqconstr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-liqconstr",
+      "html_id": "eq-liqconstr",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-liqconstr",
+      "title": ""
+    },
+    "eq-mBalLvl": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mballvl",
+      "html_id": "eq-mballvl",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-mBalLvl",
+      "title": ""
+    },
+    "eq-mNblProcess": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mnblprocess",
+      "html_id": "eq-mnblprocess",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-mNblProcess",
+      "title": ""
+    },
+    "eq-mTargImplicit": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mtargimplicit",
+      "html_id": "eq-mtargimplicit",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-mTargImplicit",
+      "title": ""
+    },
+    "eq-mTarget": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mtarget",
+      "html_id": "eq-mtarget",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-mTarget",
+      "title": ""
+    },
+    "eq-maintmap": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-maintmap",
+      "html_id": "eq-maintmap",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-maintmap",
+      "title": ""
+    },
+    "eq-mpcmaxiter": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-mpcmaxiter",
+      "html_id": "eq-mpcmaxiter",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-mpcmaxiter",
+      "title": ""
+    },
+    "eq-nblDefs": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-nbldefs",
+      "html_id": "eq-nbldefs",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-nblDefs",
+      "title": ""
+    },
+    "eq-pWorst": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-pworst",
+      "html_id": "eq-pworst",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-pWorst",
+      "title": ""
+    },
+    "eq-phinorm": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-phinorm",
+      "html_id": "eq-phinorm",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-phinorm",
+      "title": ""
+    },
+    "eq-reqCondWeak": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-reqcondweak",
+      "html_id": "eq-reqcondweak",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-reqCondWeak",
+      "title": ""
+    },
+    "eq-scaledeuler": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-scaledeuler",
+      "html_id": "eq-scaledeuler",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-scaledeuler",
+      "title": ""
+    },
+    "eq-shnkrdef": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-shnkrdef",
+      "html_id": "eq-shnkrdef",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-shnkrdef",
+      "title": ""
+    },
+    "eq-shnkrdefPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-shnkrdefpositiveminimum",
+      "html_id": "eq-shnkrdefpositiveminimum",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-shnkrdefPositiveMinimum",
+      "title": ""
+    },
+    "eq-shrnkrCond": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-shrnkrcond",
+      "html_id": "eq-shrnkrcond",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-shrnkrCond",
+      "title": ""
+    },
+    "eq-stability": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-stability",
+      "html_id": "eq-stability",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-stability",
+      "title": ""
+    },
+    "eq-stabilityStE": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-stabilityste",
+      "html_id": "eq-stabilityste",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-stabilityStE",
+      "title": ""
+    },
+    "eq-statCbellman": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-statcbellman",
+      "html_id": "eq-statcbellman",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-statCbellman",
+      "title": ""
+    },
+    "eq-stationarybellman": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-stationarybellman",
+      "html_id": "eq-stationarybellman",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-stationarybellman",
+      "title": ""
+    },
+    "eq-tranShkNbl": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-transhknbl",
+      "html_id": "eq-transhknbl",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-tranShkNbl",
+      "title": ""
+    },
+    "eq-uPConstr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-upconstr",
+      "html_id": "eq-upconstr",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-uPConstr",
+      "title": ""
+    },
+    "eq-uPUnconstr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-upunconstr",
+      "html_id": "eq-upunconstr",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-uPUnconstr",
+      "title": ""
+    },
+    "eq-uprimcFOC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-uprimcfoc",
+      "html_id": "eq-uprimcfoc",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-uprimcFOC",
+      "title": ""
+    },
+    "eq-vBold": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-vbold",
+      "html_id": "eq-vbold",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-vBold",
+      "title": ""
+    },
+    "eq-vFrakPrime": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-vfrakprime",
+      "html_id": "eq-vfrakprime",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-vFrakPrime",
+      "title": ""
+    },
+    "eq-vUnconstr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-vunconstr",
+      "html_id": "eq-vunconstr",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-vUnconstr",
+      "title": ""
+    },
+    "eq-valueBoundUniform": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-valuebounduniform",
+      "html_id": "eq-valuebounduniform",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-valueBoundUniform",
+      "title": ""
+    },
+    "eq-veqnNbl": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-veqnnbl",
+      "html_id": "eq-veqnnbl",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-veqnNbl",
+      "title": ""
+    },
+    "eq-veqnNoWorst": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-veqnnoworst",
+      "html_id": "eq-veqnnoworst",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-veqnNoWorst",
+      "title": ""
+    },
+    "eq-veqnNrmRecBellman": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-veqnnrmrecbellman",
+      "html_id": "eq-veqnnrmrecbellman",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-veqnNrmRecBellman",
+      "title": ""
+    },
+    "eq-veqnPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-veqnpositiveminimum",
+      "html_id": "eq-veqnpositiveminimum",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-veqnPositiveMinimum",
+      "title": ""
+    },
+    "eq-vfFrackdefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-vffrackdefn",
+      "html_id": "eq-vffrackdefn",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-vfFrackdefn",
+      "title": ""
+    },
+    "eq-xtp1toinfty": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-xtp1toinfty",
+      "html_id": "eq-xtp1toinfty",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-xtp1toinfty",
+      "title": ""
+    },
+    "eq-xttoinfty": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#eq-xttoinfty",
+      "html_id": "eq-xttoinfty",
+      "kind": "equation",
+      "md_ref": "BufferStockTheory.md#eq-xttoinfty",
+      "title": ""
+    },
+    "fact-compactnt": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fact-compactnt",
+      "html_id": "fact-compactnt",
+      "kind": "remark",
+      "md_ref": "BufferStockTheory.md#fact-compactnt",
+      "title": ""
+    },
+    "fact-normimpliescompact": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fact-normimpliescompact",
+      "html_id": "fact-normimpliescompact",
+      "kind": "remark",
+      "md_ref": "BufferStockTheory.md#fact-normimpliescompact",
+      "title": ""
+    },
+    "fact-xnconvgf": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fact-xnconvgf",
+      "html_id": "fact-xnconvgf",
+      "kind": "proposition",
+      "md_ref": "BufferStockTheory.md#fact-xnconvgf",
+      "title": ""
+    },
+    "fig-GICModFailsButGICRawHolds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-gicmodfailsbutgicrawholds",
+      "html_id": "fig-gicmodfailsbutgicrawholds",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-GICModFailsButGICRawHolds",
+      "title": ""
+    },
+    "fig-Inequalities": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-inequalities",
+      "html_id": "fig-inequalities",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-Inequalities",
+      "title": ""
+    },
+    "fig-InequalitiesApp": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-inequalitiesapp",
+      "html_id": "fig-inequalitiesapp",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-InequalitiesApp",
+      "title": ""
+    },
+    "fig-InequalitiesAppNumer": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-inequalitiesappnumer",
+      "html_id": "fig-inequalitiesappnumer",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-InequalitiesAppNumer",
+      "title": ""
+    },
+    "fig-InequalityPFGICFHWCRIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-inequalitypfgicfhwcric",
+      "html_id": "fig-inequalitypfgicfhwcric",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-InequalityPFGICFHWCRIC",
+      "title": ""
+    },
+    "fig-PFGICHoldsFHWCFailsRICFails": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-pfgicholdsfhwcfailsricfails",
+      "html_id": "fig-pfgicholdsfhwcfailsricfails",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-PFGICHoldsFHWCFailsRICFails",
+      "title": ""
+    },
+    "fig-RelatePFGICFHWCRICPFFVAC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-relatepfgicfhwcricpffvac",
+      "html_id": "fig-relatepfgicfhwcricpffvac",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-RelatePFGICFHWCRICPFFVAC",
+      "title": ""
+    },
+    "fig-cFuncBounds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-cfuncbounds",
+      "html_id": "fig-cfuncbounds",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-cFuncBounds",
+      "title": ""
+    },
+    "fig-cFuncsConverge": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-cfuncsconverge",
+      "html_id": "fig-cfuncsconverge",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-cFuncsConverge",
+      "title": ""
+    },
+    "fig-cNrmTargetFig": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-cnrmtargetfig",
+      "html_id": "fig-cnrmtargetfig",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-cNrmTargetFig",
+      "title": ""
+    },
+    "fig-logcNrm": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-logcnrm",
+      "html_id": "fig-logcnrm",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-logcNrm",
+      "title": ""
+    },
+    "fig-logcov": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-logcov",
+      "html_id": "fig-logcov",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-logcov",
+      "title": ""
+    },
+    "fig-mpclimits": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#fig-mpclimits",
+      "html_id": "fig-mpclimits",
+      "kind": "figure",
+      "md_ref": "BufferStockTheory.md#fig-mpclimits",
+      "title": ""
+    },
+    "item-Artificial": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#item-artificial",
+      "html_id": "item-artificial",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#item-Artificial",
+      "title": ""
+    },
+    "item-NoPointMass": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#item-nopointmass",
+      "html_id": "item-nopointmass",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#item-NoPointMass",
+      "title": ""
+    },
+    "item-Restrained": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#item-restrained",
+      "html_id": "item-restrained",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#item-Restrained",
+      "title": ""
+    },
+    "keywords": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#keywords",
+      "html_id": "keywords",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#keywords",
+      "title": ""
+    },
+    "lemm-MPC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemm-mpc",
+      "html_id": "lemm-mpc",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemm-MPC",
+      "title": "Limiting MPCs"
+    },
+    "lemm-consC2": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemm-consc2",
+      "html_id": "lemm-consc2",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemm-consC2",
+      "title": ""
+    },
+    "lemma-ContinuityIncome": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemma-continuityincome",
+      "html_id": "lemma-continuityincome",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemma-ContinuityIncome",
+      "title": "Continuity in the Income Process"
+    },
+    "lemma-ExcessResources": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemma-excessresources",
+      "html_id": "lemma-excessresources",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemma-ExcessResources",
+      "title": "The Problem in Excess Resources"
+    },
+    "lemma-MPCBoundsConvg": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemma-mpcboundsconvg",
+      "html_id": "lemma-mpcboundsconvg",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemma-MPCBoundsConvg",
+      "title": ""
+    },
+    "lemma-MPCBoundsConvgPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemma-mpcboundsconvgpositiveminimum",
+      "html_id": "lemma-mpcboundsconvgpositiveminimum",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemma-MPCBoundsConvgPositiveMinimum",
+      "title": "The Limiting Consumption Function"
+    },
+    "lemma-MPCPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemma-mpcpositiveminimum",
+      "html_id": "lemma-mpcpositiveminimum",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemma-MPCPositiveMinimum",
+      "title": "Limiting MPCs"
+    },
+    "lemma-NaturalBorrowingLimit": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemma-naturalborrowinglimit",
+      "html_id": "lemma-naturalborrowinglimit",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemma-NaturalBorrowingLimit",
+      "title": "Natural Borrowing Limit"
+    },
+    "lemma-NoWorstFinite": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemma-noworstfinite",
+      "html_id": "lemma-noworstfinite",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemma-NoWorstFinite",
+      "title": "The Finite-Horizon Solution"
+    },
+    "lemma-orderingPartOne": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemma-orderingpartone",
+      "html_id": "lemma-orderingpartone",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemma-orderingPartOne",
+      "title": ""
+    },
+    "lemma-orderingPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#lemma-orderingpositiveminimum",
+      "html_id": "lemma-orderingpositiveminimum",
+      "kind": "lemma",
+      "md_ref": "BufferStockTheory.md#lemma-orderingPositiveMinimum",
+      "title": "Borrowing at the Targets, and Their Order"
+    },
+    "limsolexists": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#limsolexists",
+      "html_id": "limsolexists",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#limsolexists",
+      "title": ""
+    },
+    "mTargImplicit": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#mtargimplicit",
+      "html_id": "mtargimplicit",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#mTargImplicit",
+      "title": ""
+    },
+    "microfounding-macro-needs-ergodicity": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#microfounding-macro-needs-ergodicity",
+      "html_id": "microfounding-macro-needs-ergodicity",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#microfounding-macro-needs-ergodicity",
+      "title": ""
+    },
+    "model-with-uncertainty": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#model-with-uncertainty",
+      "html_id": "model-with-uncertainty",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#model-with-uncertainty",
+      "title": ""
+    },
+    "mpclimits": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#mpclimits",
+      "html_id": "mpclimits",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#mpclimits",
+      "title": ""
+    },
+    "onetarget": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#onetarget",
+      "html_id": "onetarget",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#onetarget",
+      "title": ""
+    },
+    "prop-InfiniteMinHumanWealth": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#prop-infiniteminhumanwealth",
+      "html_id": "prop-infiniteminhumanwealth",
+      "kind": "proposition",
+      "md_ref": "BufferStockTheory.md#prop-InfiniteMinHumanWealth",
+      "title": "Infinite Minimum Human Wealth"
+    },
+    "prop-NoWorstTargets": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#prop-noworsttargets",
+      "html_id": "prop-noworsttargets",
+      "kind": "proposition",
+      "md_ref": "BufferStockTheory.md#prop-NoWorstTargets",
+      "title": "Targets and Aggregates When the Borrowing Limit Can Be Reached"
+    },
+    "prop-PFCExist": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#prop-pfcexist",
+      "html_id": "prop-pfcexist",
+      "kind": "proposition",
+      "md_ref": "BufferStockTheory.md#prop-PFCExist",
+      "title": ""
+    },
+    "prop-cfuncprop": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#prop-cfuncprop",
+      "html_id": "prop-cfuncprop",
+      "kind": "proposition",
+      "md_ref": "BufferStockTheory.md#prop-cfuncprop",
+      "title": ""
+    },
+    "prop-cfuncpropPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#prop-cfuncproppositiveminimum",
+      "html_id": "prop-cfuncproppositiveminimum",
+      "kind": "proposition",
+      "md_ref": "BufferStockTheory.md#prop-cfuncpropPositiveMinimum",
+      "title": ""
+    },
+    "prop-convgGrowth": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#prop-convggrowth",
+      "html_id": "prop-convggrowth",
+      "kind": "proposition",
+      "md_ref": "BufferStockTheory.md#prop-convgGrowth",
+      "title": ""
+    },
+    "prop-invariantPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#prop-invariantpositiveminimum",
+      "html_id": "prop-invariantpositiveminimum",
+      "kind": "proposition",
+      "md_ref": "BufferStockTheory.md#prop-invariantPositiveMinimum",
+      "title": "Invariant Distributions"
+    },
+    "prop-pfUCFHWC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#prop-pfucfhwc",
+      "html_id": "prop-pfucfhwc",
+      "kind": "proposition",
+      "md_ref": "BufferStockTheory.md#prop-pfUCFHWC",
+      "title": ""
+    },
+    "prop-vfc3": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#prop-vfc3",
+      "html_id": "prop-vfc3",
+      "kind": "property",
+      "md_ref": "BufferStockTheory.md#prop-vfc3",
+      "title": ""
+    },
+    "rem-shnkrdef": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#rem-shnkrdef",
+      "html_id": "rem-shnkrdef",
+      "kind": "remark",
+      "md_ref": "BufferStockTheory.md#rem-shnkrdef",
+      "title": ""
+    },
+    "remark-TransformingBack": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#remark-transformingback",
+      "html_id": "remark-transformingback",
+      "kind": "remark",
+      "md_ref": "BufferStockTheory.md#remark-TransformingBack",
+      "title": "Transforming the model back"
+    },
+    "remark-WRICWorstImplied": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#remark-wricworstimplied",
+      "html_id": "remark-wricworstimplied",
+      "kind": "remark",
+      "md_ref": "BufferStockTheory.md#remark-WRICWorstImplied",
+      "title": ""
+    },
+    "remark-cStatStrctPos": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#remark-cstatstrctpos",
+      "html_id": "remark-cstatstrctpos",
+      "kind": "remark",
+      "md_ref": "BufferStockTheory.md#remark-cStatStrctPos",
+      "title": ""
+    },
+    "remark-notCompact": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#remark-notcompact",
+      "html_id": "remark-notcompact",
+      "kind": "remark",
+      "md_ref": "BufferStockTheory.md#remark-notCompact",
+      "title": ""
+    },
+    "remark-ricstationary": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#remark-ricstationary",
+      "html_id": "remark-ricstationary",
+      "kind": "remark",
+      "md_ref": "BufferStockTheory.md#remark-ricstationary",
+      "title": ""
+    },
+    "remark-stochdiscMST": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#remark-stochdiscmst",
+      "html_id": "remark-stochdiscmst",
+      "kind": "remark",
+      "md_ref": "BufferStockTheory.md#remark-stochdiscMST",
+      "title": ""
+    },
+    "sec-ApndxBalancedGrowthcNrmAndCov": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-apndxbalancedgrowthcnrmandcov",
+      "html_id": "sec-apndxbalancedgrowthcnrmandcov",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-ApndxBalancedGrowthcNrmAndCov",
+      "title": ""
+    },
+    "sec-ApndxConcaveCFunc": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-apndxconcavecfunc",
+      "html_id": "sec-apndxconcavecfunc",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-ApndxConcaveCFunc",
+      "title": ""
+    },
+    "sec-ApndxConditionDiagrams": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-apndxconditiondiagrams",
+      "html_id": "sec-apndxconditiondiagrams",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-ApndxConditionDiagrams",
+      "title": ""
+    },
+    "sec-ApndxLiqConstr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-apndxliqconstr",
+      "html_id": "sec-apndxliqconstr",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-ApndxLiqConstr",
+      "title": ""
+    },
+    "sec-ApndxMTargetIsStable": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-apndxmtargetisstable",
+      "html_id": "sec-apndxmtargetisstable",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-ApndxMTargetIsStable",
+      "title": ""
+    },
+    "sec-ApndxPositiveMinimumIncome": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-apndxpositiveminimumincome",
+      "html_id": "sec-apndxpositiveminimumincome",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-ApndxPositiveMinimumIncome",
+      "title": ""
+    },
+    "sec-AppxHarmImpGIC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-appxharmimpgic",
+      "html_id": "sec-appxharmimpgic",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-AppxHarmImpGIC",
+      "title": ""
+    },
+    "sec-Foundations": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-foundations",
+      "html_id": "sec-foundations",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-Foundations",
+      "title": ""
+    },
+    "sec-GICdiscussion": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-gicdiscussion",
+      "html_id": "sec-gicdiscussion",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-GICdiscussion",
+      "title": ""
+    },
+    "sec-LiqConstrAsLimit": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-liqconstraslimit",
+      "html_id": "sec-liqconstraslimit",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-LiqConstrAsLimit",
+      "title": ""
+    },
+    "sec-MPCiterproofs": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-mpciterproofs",
+      "html_id": "sec-mpciterproofs",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-MPCiterproofs",
+      "title": ""
+    },
+    "sec-Mortality": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-mortality",
+      "html_id": "sec-mortality",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-Mortality",
+      "title": ""
+    },
+    "sec-Tcontractionmapping": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-tcontractionmapping",
+      "html_id": "sec-tcontractionmapping",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-Tcontractionmapping",
+      "title": ""
+    },
+    "sec-Theory": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-theory",
+      "html_id": "sec-theory",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-Theory",
+      "title": ""
+    },
+    "sec-individStability": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-individstability",
+      "html_id": "sec-individstability",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-individStability",
+      "title": ""
+    },
+    "sec-intro": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-intro",
+      "html_id": "sec-intro",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-intro",
+      "title": ""
+    },
+    "sec-realanalysis": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-realanalysis",
+      "html_id": "sec-realanalysis",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-realanalysis",
+      "title": ""
+    },
+    "sec-recoverLevels": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sec-recoverlevels",
+      "html_id": "sec-recoverlevels",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#sec-recoverLevels",
+      "title": ""
+    },
+    "sensible": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#sensible",
+      "html_id": "sensible",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#sensible",
+      "title": ""
+    },
+    "subsec-ApndxUCPF": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-apndxucpf",
+      "html_id": "subsec-apndxucpf",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-ApndxUCPF",
+      "title": ""
+    },
+    "subsec-AppxCgrowthFac": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-appxcgrowthfac",
+      "html_id": "subsec-appxcgrowthfac",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-AppxCgrowthFac",
+      "title": ""
+    },
+    "subsec-Covariances": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-covariances",
+      "html_id": "subsec-covariances",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-Covariances",
+      "title": ""
+    },
+    "subsec-ExcessResources": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-excessresources",
+      "html_id": "subsec-excessresources",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-ExcessResources",
+      "title": ""
+    },
+    "subsec-GICTheorySetup": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-gictheorysetup",
+      "html_id": "subsec-gictheorysetup",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-GICTheorySetup",
+      "title": ""
+    },
+    "subsec-MinimumHumanWealth": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-minimumhumanwealth",
+      "html_id": "subsec-minimumhumanwealth",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-MinimumHumanWealth",
+      "title": ""
+    },
+    "subsec-PFBProofs": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-pfbproofs",
+      "html_id": "subsec-pfbproofs",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PFBProofs",
+      "title": ""
+    },
+    "subsec-PFBbenchmark": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-pfbbenchmark",
+      "html_id": "subsec-pfbbenchmark",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PFBbenchmark",
+      "title": ""
+    },
+    "subsec-PFBdiscussion": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-pfbdiscussion",
+      "html_id": "subsec-pfbdiscussion",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PFBdiscussion",
+      "title": ""
+    },
+    "subsec-PFCon": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-pfcon",
+      "html_id": "subsec-pfcon",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PFCon",
+      "title": ""
+    },
+    "subsec-PositiveMinimumAggregate": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-positiveminimumaggregate",
+      "html_id": "subsec-positiveminimumaggregate",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PositiveMinimumAggregate",
+      "title": ""
+    },
+    "subsec-PositiveMinimumExample": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-positiveminimumexample",
+      "html_id": "subsec-positiveminimumexample",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PositiveMinimumExample",
+      "title": ""
+    },
+    "subsec-PositiveMinimumExistence": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-positiveminimumexistence",
+      "html_id": "subsec-positiveminimumexistence",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PositiveMinimumExistence",
+      "title": ""
+    },
+    "subsec-PositiveMinimumFailures": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-positiveminimumfailures",
+      "html_id": "subsec-positiveminimumfailures",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PositiveMinimumFailures",
+      "title": ""
+    },
+    "subsec-PositiveMinimumLiqConstr": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-positiveminimumliqconstr",
+      "html_id": "subsec-positiveminimumliqconstr",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PositiveMinimumLiqConstr",
+      "title": ""
+    },
+    "subsec-PositiveMinimumMPC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-positiveminimummpc",
+      "html_id": "subsec-positiveminimummpc",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PositiveMinimumMPC",
+      "title": ""
+    },
+    "subsec-PositiveMinimumNoWorstEvent": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-positiveminimumnoworstevent",
+      "html_id": "subsec-positiveminimumnoworstevent",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PositiveMinimumNoWorstEvent",
+      "title": ""
+    },
+    "subsec-PositiveMinimumSetup": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-positiveminimumsetup",
+      "html_id": "subsec-positiveminimumsetup",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PositiveMinimumSetup",
+      "title": ""
+    },
+    "subsec-PositiveMinimumTargets": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-positiveminimumtargets",
+      "html_id": "subsec-positiveminimumtargets",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-PositiveMinimumTargets",
+      "title": ""
+    },
+    "subsec-Properties": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-properties",
+      "html_id": "subsec-properties",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-Properties",
+      "title": ""
+    },
+    "subsec-Setup": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-setup",
+      "html_id": "subsec-setup",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-Setup",
+      "title": ""
+    },
+    "subsec-TheModelUncertainty": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-themodeluncertainty",
+      "html_id": "subsec-themodeluncertainty",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-TheModelUncertainty",
+      "title": ""
+    },
+    "subsec-cGroEqPermGroFacQ": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-cgroeqpermgrofacq",
+      "html_id": "subsec-cgroeqpermgrofacq",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-cGroEqPermGroFacQ",
+      "title": ""
+    },
+    "subsec-limSolExists": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-limsolexists",
+      "html_id": "subsec-limsolexists",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-limSolExists",
+      "title": ""
+    },
+    "subsec-microfoundations": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-microfoundations",
+      "html_id": "subsec-microfoundations",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-microfoundations",
+      "title": ""
+    },
+    "subsec-onetarget": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsec-onetarget",
+      "html_id": "subsec-onetarget",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsec-onetarget",
+      "title": ""
+    },
+    "subsubsec-AppxIndividTarget": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-appxindividtarget",
+      "html_id": "subsubsec-appxindividtarget",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-AppxIndividTarget",
+      "title": ""
+    },
+    "subsubsec-AppxPseudoSS": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-appxpseudoss",
+      "html_id": "subsubsec-appxpseudoss",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-AppxPseudoSS",
+      "title": ""
+    },
+    "subsubsec-PFUncon": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-pfuncon",
+      "html_id": "subsubsec-pfuncon",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-PFUncon",
+      "title": ""
+    },
+    "subsubsec-WhenTheRICFails": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-whenthericfails",
+      "html_id": "subsubsec-whenthericfails",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-WhenTheRICFails",
+      "title": ""
+    },
+    "subsubsec-WhenTheRICHolds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-whenthericholds",
+      "html_id": "subsubsec-whenthericholds",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-WhenTheRICHolds",
+      "title": ""
+    },
+    "subsubsec-cFuncBounds": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-cfuncbounds",
+      "html_id": "subsubsec-cfuncbounds",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-cFuncBounds",
+      "title": ""
+    },
+    "subsubsec-casesUC": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-casesuc",
+      "html_id": "subsubsec-casesuc",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-casesUC",
+      "title": ""
+    },
+    "subsubsec-challengesDP": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-challengesdp",
+      "html_id": "subsubsec-challengesdp",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-challengesDP",
+      "title": ""
+    },
+    "subsubsec-deatonIsLimit": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-deatonislimit",
+      "html_id": "subsubsec-deatonislimit",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-deatonIsLimit",
+      "title": ""
+    },
+    "subsubsec-eventuallyCauchy": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-eventuallycauchy",
+      "html_id": "subsubsec-eventuallycauchy",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-eventuallyCauchy",
+      "title": ""
+    },
+    "subsubsec-ratio": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#subsubsec-ratio",
+      "html_id": "subsubsec-ratio",
+      "kind": "section",
+      "md_ref": "BufferStockTheory.md#subsubsec-ratio",
+      "title": ""
+    },
+    "test-Harmenbergs-method": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#test-harmenbergs-method",
+      "html_id": "test-harmenbergs-method",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#test-Harmenbergs-method",
+      "title": ""
+    },
+    "thm-Boyd": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-boyd",
+      "html_id": "thm-boyd",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-Boyd",
+      "title": "Boyd’s Contraction Mapping"
+    },
+    "thm-LiqConstrLimitPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-liqconstrlimitpositiveminimum",
+      "html_id": "thm-liqconstrlimitpositiveminimum",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-LiqConstrLimitPositiveMinimum",
+      "title": "The Liquidity Constrained Solution as a Limit"
+    },
+    "thm-MSSBalExists": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-mssbalexists",
+      "html_id": "thm-mssbalexists",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-MSSBalExists",
+      "title": "‘Pseudo-Target’"
+    },
+    "thm-cmap": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-cmap",
+      "html_id": "thm-cmap",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-cmap",
+      "title": "Contraction Mapping Under Consumption Bounds"
+    },
+    "thm-cmapPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-cmappositiveminimum",
+      "html_id": "thm-cmappositiveminimum",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-cmapPositiveMinimum",
+      "title": "Contraction Mapping Under Consumption Bounds"
+    },
+    "thm-convgtobellman": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-convgtobellman",
+      "html_id": "thm-convgtobellman",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-convgtobellman",
+      "title": "Existence of Non-degenerate Solution"
+    },
+    "thm-existenceNoWorst": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-existencenoworst",
+      "html_id": "thm-existencenoworst",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-existenceNoWorst",
+      "title": "Existence When the Borrowing Limit Can Be Reached"
+    },
+    "thm-existencePositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-existencepositiveminimum",
+      "html_id": "thm-existencepositiveminimum",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-existencePositiveMinimum",
+      "title": "Existence of a Non-degenerate Solution"
+    },
+    "thm-pseudoTargetPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-pseudotargetpositiveminimum",
+      "html_id": "thm-pseudotargetpositiveminimum",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-pseudoTargetPositiveMinimum",
+      "title": "Pseudo-Target"
+    },
+    "thm-target": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-target",
+      "html_id": "thm-target",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-target",
+      "title": "Buffer Stock Target"
+    },
+    "thm-targetPositiveMinimum": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#thm-targetpositiveminimum",
+      "html_id": "thm-targetpositiveminimum",
+      "kind": "theorem",
+      "md_ref": "BufferStockTheory.md#thm-targetPositiveMinimum",
+      "title": "Buffer Stock Target"
+    },
+    "uInvEuPermShk": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#uinveupermshk",
+      "html_id": "uinveupermshk",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#uInvEuPermShk",
+      "title": ""
+    },
+    "uInvEuPermShkDefn": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#uinveupermshkdefn",
+      "html_id": "uinveupermshkdefn",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#uInvEuPermShkDefn",
+      "title": ""
+    },
+    "xtp1toinfty": {
+      "canonical_url": "https://llorracc.github.io/BufferStockTheory/#xtp1toinfty",
+      "html_id": "xtp1toinfty",
+      "kind": "other",
+      "md_ref": "BufferStockTheory.md#xtp1toinfty",
+      "title": ""
+    }
+  }
+}

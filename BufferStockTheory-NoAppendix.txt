@@ -1,0 +1,2364 @@
+1 Theoretical Foundations
+This section formalizes the consumer income fluctuation problem and proves the existence of a limiting non-degenerate solution. In doing so, we also introduce our consumer
+patience conditions and use them to derive the consumer’s MPCs. The MPCs are
+formulae, for any period t earlier than the terminal period T , for the maximum and
+minimum MPCs as wealth approaches zero and infinity. If the environment is that of
+an infinite-horizon ‘income fluctuation problem,’ our formulae yield the limiting upper
+and lower bounds of the limiting non-degenerate solution.
+We first state the finite horizon problem and then define the limiting solution as
+the limit of finite horizon solutions as the terminal period becomes arbitrarily distant.
+This way, the economic intuition of limiting consumer behaviour can be directly linked
+to consumer behaviour in life-cycle models (see Gourinchas and Parker (2002) for an
+instance where buffer stock saving is discussed in the context of a life-cycle model).
+Nonetheless for the class of problems we consider, a non-degenerate limiting solution,
+if it exists, is mathematically equivalent (Bertsekas (2012), Ch. 1.) to a stationary
+solution to an infinite stochastic sequence problem commonly used in the literature (for
+example, Ma, Stachurski, and Toda (2020)).
+
+1.1 Setup
+We start by stating the consumer problem with permanent income growth in levels
+and then normalize by permanent income. The normalized problem then becomes the
+subject of our formal results in the paper.
+Our time index t can take on values in {T, T − 1, T − 2, . . . }. We assume that our
+consumer has a Constant Relative Risk Aversion (CRRA) per-period utility function,
+1−γ
+u(c) = c1−γ , where γ > 1. The term β is the (strictly positive) discount factor. In
+each period t, the consumer faces independently and identically distributed (iid) income
+shocks, with the permanent shock given by ψt ∈ R++ and the transitory shock by
+ξt ∈ R+ .1
+In each t, the finite horizon value function for the problem in levels will be denoted
+by vt , with vt : R2++ → R. Value, vt (mt , pt ), depends on two strictly positive state
+variables: ‘market resources’ mt and permanent income pt . After the terminal period,
+we assume the consumer cannot die in debt:
+cT ≤ mT .
+
+(1)
+
+Letting vT +1 = 0, it follows that the value function for the terminal period satisfies
+vT = u(mT ). For t < T , the finite-horizon value functions are recursively defined by:
+
+1
+
+T
+
+Formally, we assume {ψt , ξt }t=−∞ is a sequence of iid random variables defined on a common
+probability space (Ω, Σ, P). When used without the time subscript, ψ and ξ are the canonical random
+variables with distributions P ◦ ψ0−1 and P ◦ ξ0−1 , respectively.
+
+vt (mt , pt ) : = max u(ct ) + βEt vt+1 (mt+1 , pt+1 ),
+0<ct ≤mt
+
+(mt , pt ) ∈ R2++
+
+(PL )
+
+where i) ct is the level of consumption at time t, ii) Et is the expectation operator over
+the shocks ψt+1 and ξt+1 , and iii) mt+1 is determined from this period’s mt and choice
+of ct as follows:2
+at = mt − ct
+kt+1 = at
+pt+1 = pt Gψt+1
+| {z }
+:=G̃t+1
+
+mt+1 = Rkt+1 + pt+1 ξt+1 .
+| {z } | {z }
+:=bt+1
+
+:=ỹ t+1
+
+The consumer’s assets at the end of t, at , translate one-for-one into capital kt+1 at
+the beginning of the next period. In turn, kt+1 is augmented by a fixed interest factor R
+to become the consumer’s financial (‘bank’) balances bt+1 = Rkt+1 . ‘Market resources,’
+mt+1 , are the sum of financial wealth Rkt+1 and noncapital income y t+1 = pt+1 ξt+1
+(permanent noncapital income pt+1 multiplied by the transitory shock ξt+1 ). Permanent
+noncapital income pt+1 is derived from pt by application of a growth factor G,3 modified
+by the permanent income shock ψt+1 ,4 and the resulting idiosyncratic growth factor for
+permanent income is written as G̃t+1 .
+Letting n denote the planning horizon, the finite-horizon problems furnish a
+sequence of value functions {vT , vT −1 , . . . , vT −n } and associated consumption
+functions {cT , cT −1 , . . . , cT −n }.
+The limiting consumption function, denoted by
+c(m, p) = lim cT −n (m, p), will be called a ‘non-degenerate limiting solution’ if neither
+n→∞
+
+c = 0 everywhere (for all (m, p)) nor c = ∞ everywhere.
+Before turning to the normalized problem, we present the income process and its
+
+2
+For maximal clarity, we have separately described every step in the dynamic budget evolution.
+The steps are broken down also so that the notation of the paper will correspond exactly to the variable
+names in the toolkit, because it is required for solving life cycle problems.
+3
+A time-varying G has straightforward consequences for the analysis below; this is an option allowed
+for in the HARK toolkit.
+4
+While much of the literature employs an income process that is persistent but not permanent,
+evidence of the presence and large size of permanent (or very nearly permanenent) shocks has long been
+observed in micro data. (Lillard and Weiss (1979), MaCurdy (1982); Abowd and Card (1989); Carroll
+and Samwick (1997); Jappelli and Pistaferri 2000; et. seq.) Daly, Hryshko, and Manovskii (2016) show
+that when measurement problems are handled correctly, administrative data yield serial correlation
+coefficients 0.98 − 1.00; and Hryshko and Manovskii (2020) suggests that survey data support the same
+conclusion. Most recently Crawley, Holm, and Tretvoll (2022) use data from the Norwegian national
+registry that encompass millions of observations over along time span, and argue that the parsimonious
+specification with permanent shocks is preferable to one that allows a persistent shock with a serial
+correlation coefficient very close to 1.
+
+2
+
+implications for the consumer problem. The following assumption defines the income
+process.
+Assumption I.1. (Friedman-Muth Income Process). For each t:
+1. The permanent shock, ψt , satisfies E[ψt ] = 1 and ψt ∈ [ψ, ψ] s.t. 0 < ψ ≤ 1 and
+1 ≤ ψ < ∞.
+2. The transitory shock, ξt , satisfies:
+(
+0
+ξt =
+θt /(1 − ℘)
+
+with probability ℘ > 0
+with probability (1 − ℘),
+
+(2)
+
+for iid random variable θt , with E[θt ] = 1 and θt ∈ [θ, θ̄] s.t. θ > 0 and θ ≤ 1 ≤
+θ < ∞.
+Bounded support. The constraints 0 < ψ ≤ ψ < ∞ and 0 < θ ≤ θ < ∞ in
+Assumption I.1 imply that both shocks have bounded support: ψ is supported on the
+compact interval [ψ, ψ] ⊂ R++ , and (conditional on the consumer being employed)
+θ is supported on the compact interval [θ, θ] ⊂ R++ . This excludes lognormal and
+other unbounded-support specifications studied elsewhere5 but is consistent with all
+standard discretizations of unbounded distributions onto a finite grid (Gauss–Hermite,
+equiprobable, etc.). Boundedness plays a substantive role in the long-run stability
+analysis of Section 2: it guarantees a finite natural borrowing constraint m (Section 1.4),
+and it is what permits the contraction-rate arguments used to characterize the stable
+target m̂ to be made globally rather than only asymptotically.
+Following Zeldes (1989), the income process incorporates a small probability ℘ that
+income will be zero (a ‘zero-income event’). At date T − 1, the (strictly positive)
+probability q of zero income in period T will prevent the consumer from spending all
+resources, because saving nothing would mean arriving in the following period with zero
+bank balances and thus facing the possibility of being required to consume 0, which would
+yield utility of −∞. This logic holds recursively from T − 1 back, so the consumer will
+never spend everything, giving rise to what Aiyagari (1994) dubbed a ‘natural borrowing
+constraint.’6 (Thus, the upper-bound constraint on consumption in the problem (PL )
+will not bind.)
+The model looks more special than it is. In particular, a positive probability of zeroincome events may seem objectionable (despite empirical support). However, a nonzero
+minimum value of ξ (motivated, say, by the existence of unemployment insurance) can
+be handled by capitalizing the present discounted value (PDV) of minimum income into
+current market assets.7 Without permanent shocks, that transforms the model back into
+5
+
+Rabault (2002) and Li and Stachurski (2014) analyze cases where the shock processes have
+unbounded support.
+6
+We specify zero as the lowest-possible-income event without loss of generality (Aiyagari, 1994).
+7
+So long as unemployment benefits are proportional to pt , as in Assumption I.4.
+
+3
+
+this one. With permanent shocks it does not, but Appendix E shows that our results
+still hold, with market resources measured from the resulting natural borrowing limit
+and with ℘ replaced by the probability that minimum income and the lowest permanent
+shock occur together (which may be zero, in which case the maximal MPC is one and
+the borrowing limit can be reached), provided that Gψ < R. And no key results would
+change if the transitory shocks were persistent but mean-reverting (instead of iid). Also,
+the assumption of a positive point mass for the worst realization of the transitory shock
+is inessential, but simplifies the proofs and is a powerful aid to intuition.
+1.1.1 Normalized Problem
+Let nonbold variables be the boldface counterpart normalized by pt , allowing us to
+reduce the number of states from two (m and p) to one (m = m/p). Now, in a onetime deviation from the notational convention established in the last sentence, define
+nonbold ‘normalized value’ not as v t /pt but as vt = v t /pt1−γ , because this allows us to
+write nonbold vt , with vt : R++ → R, to denote the ‘normalized value function’:
+vt (mt ) = max
+
+0<ct <mt
+
+1−γ
+u(ct ) + βEt [G̃t+1
+vt+1 (mt+1 )],
+
+mt ∈ R++
+
+s.t.
+at = mt − ct
+
+(PN )
+
+bt+1 = at R/G̃t+1 = R̃t+1 at
+mt+1 = bt+1 + ξt+1 ,
+where R̃t+1 : = (R/G̃t+1 ) is a ‘permanent-income-growth-normalized’ return factor.8
+(Appendix A.1 explains how the solution to the original problem in levels can be
+recovered from the normalized problem.)
+The time t normalized consumption policy function for the finite-horizon problem, ct ,
+is defined by:
+ct (mt ) : = arg max u(ct ) + βEt [G̃1−γ
+t+1 vt+1 (mt+1 )].
+(3)
+0<ct <mt
+
+The normalized problem’s first order condition becomes:
+−γ
+c−γ
+= RβEt [G̃−γ
+t
+t+1 ct+1 ].
+
+(4)
+
+Since our main results pertain to the normalized problem, we define the limiting nondegenerate solution to the normalized problem formally.
+Definition 1. (Non-degenerate Limiting Solution) PN has a non-degenerate limiting
+solution if there exists c, with c : R++ → R++ , and v, with v : R++ → R, such that:
+c(m) = lim cT −n (m),
+n→∞
+
+v(m) = lim vT −n (m),
+n→∞
+
+8
+
+m ∈ R++ .
+
+We omit k from this transition because our assumption that kt+1 = at could lead to confusion
+about whether do denote kt+1 = at or kt+1 = at /G̃t+1 .
+
+4
+
+We use T to denote the stationary Bellman operator for the normalized problem. To
+define T, let R̃ : = R/G̃ and let T denote the mapping vt+1 7→ vt given by Problem PN :
+n
+o
+Tvt+1 (m) = max u(c) + βEG̃1−γ vt+1 (R̃(m − c) + ξ) , m ∈ R++ .
+(5)
+c∈(0,m)
+
+The mapping m 7→ (0, m) defines the feasibility correspondence. To define T, we
+excluded the boundary of the feasible values that consumption can take (0 and m)
+to ensure the maximand above is real-valued for all feasible values of consumption. It
+is straightforward to show (using the Bellman Principle of Optimality) that a finite
+valued solution, v, to the functional equation Tv = v defines a limiting non-degenerate
+solution. However, because the feasibility correspondence does not include the boundary
+of feasible consumption, existing dynamic programming arguments cannot be used to
+show that such a solution (a fixed point to T) exists.
+1.1.2 Dynamic Programming Challenges
+
+Standard dynamic programming (Stachurski, 2022) works by showing that T is a welldefined contraction map on a Banach space, which would allow us to conclude that the
+sequence of value functions given by Problem PN converges to a fixed point of T, a
+non-degenerate solution. At first, we must contend with the fact that both u and v
+are unbounded below. We resolve unboundedness by constructing a weighted-norm (see
+below). Setting aside unboundedness, the natural liquidity constraint introduces a more
+pernicious challenge related to continuity: T will not a be well defined self-map on a
+vector space of continuous functions. In particular, we cannot assert T maps continuous
+functions to continuous functions since the feasiblility correspondence m 7→ (0, m) is not
+compact-valued.
+Remark 1. Since the correspondence m 7→ (0, m) is not compact valued, the conditions
+of Berge’s Maximum Theorem (Lemma 1, Jaśkiewicz and Nowak (2011)) fail and Tf
+may not be continuous for continuous f.
+If we reintroduce the boundary points 0 and m to the feasibility correspondence, the
+operator T will be able to map upper semicontinuous functions to upper semicontinuous
+functions (Lemma 1, Jaśkiewicz and Nowak (2011)). However, v must now be defined on
+R+ and take on values in R+ ∪ {−∞} and spaces of such functions will not be a vector
+space. The approach taken by Ma, Stachurski, and Toda (2022a) is to impose an artificial
+liquidity constraint, which yields a real-valued continuation value, even if c = m, and
+forces the value function to be bounded below as a function of end-of-period assets. This
+allows Ma, Stachurski, and Toda (2022a) to define a functional operator operator within
+which the feasibiltiy correspondence is the compact interval [0, m]. Without an artificial
+constraint, no such strategy is possible.9
+9
+
+The challenge of continuity and compactness remains unresolved in a general setting (RincónZapatero, 2024). Relevant results include Feinberg, Kasyanov, and Zadoianchuk (2012), who generalize
+the requirement of continuity of feasibility correspondences to K-Inf-Compactness of the Bellman
+
+5
+
+A related approach, which uses Euler operators is used by Ma, Stachurski, and Toda
+(2020). While Ma, Stachurski, and Toda (2020) also assume an artificial liquidity
+constraint to bound the marginal utility of consumption, it is useful to consider how
+the structure of our model relates to theirs once the artificial liquidity constraint is
+imposed.
+Remark 2. If ℘ = 0, (PN ) becomes a special case of Ma, Stachurski, and Toda (2020),
+1−γ
+with R̃t+1 = R/G̃t+1 corresponding to the stochastic rate of return on capital and β G̃t+1
+corresponding to the stochastic discount factor.
+Notwithstanding Remark 2, there are important economic consequences relating consumer patience to buffer stock saving due to the fact that in our problem R̃t+1 = R/G̃t+1
+is tightly tied to the ‘normalized stochastic discount factor,’ β G̃1−γ
+t+1 ; these will become
+apparent as we proceed.
+
+1.2 Consumer Patience Conditions
+In order to have a central reference point for them, we now collect conditions relating
+consumer discounting and patience to the rate of return and income growth that underpin results in the remainder of the paper. Assumptions L.1 - L.3 (finite value of autarky,
+return impatience and weak return impatience) will be used to prove the existence of
+limiting solutions in Section 1.4, and Assumptions S.1 - S.2 (growth impatience and
+strong growth impatience) are required for existence of alternative definitions of a stable
+target buffer stock in Section 2.
+We start by generalizing the standard β < 1 condition to our setting with permanent
+income growth and uncertainty.10 The updated condition requires that the expected net
+discounted value of utility from consumption is finite under our definition of ‘autarky’
+– where consumption is always equal to permanent income. A finite value of autarky
+helps guarantee that as the horizon extends, discounted value remains finite along any
+consumption path the consumer might choose. (See Appendix A).
+Assumption L.1. (Finite Value of Autarky). 0 < βG1−γ E(ψ 1−γ ) < 1.
+We now turn to consumer patience and start with ‘absolute (im)patience.’ We will say
+that an unconstrained perfect foresight consumer exhibits absolute impatience if they
+optimally choose to spend so much today that their consumption must decline in the
+future. The growth factor for consumption implied by the Euler equation of a perfect
+foresight model is ct+1 /ct = (Rβ)1/γ ,11 which motivates our definition of an ‘absolute
+operator, yielding a mapping from semi-continuous to semi-continuous functions. Shanker (2017)
+introduces a generalization, mild-Sup-compactness, which can be verified in the weak topology generated
+on the infinite dimensional product space of feasible random variables controlled by the consumers. Our
+approach, by contrast, has the advantage that it can be used to verify existence using more standard
+tools.
+10
+In light of Remark 2, Ma, Stachurski, and Toda (2020) Assumption 2.1 is a generalization of this
+discount condition, albeit in a context with artificial liquidity constraints.
+11
+See (12) below.
+
+6
+
+patience factor’ whose centrality (to everything that is to come later) justifies assigning
+to it a special symbol; we have settled on the archaic letter ‘thorn’:
+Þ : = (Rβ)1/γ .
+
+(6)
+
+We will say that (in the perfect foresight problem) ‘an absolutely impatient’ consumer
+is one for whom Þ < 1; that is an absolutely impatient consumer prefers to consume
+more today than tomorrow (and vice versa for an ‘absolutely patient’ consumer, whose
+consumption will grow over time):
+Assumption L.2. (Absolute Impatience). Þ < 1.
+A consumer who is absolutely impatient, Þ < 1, satisfies the standard impatience
+condition commonly used in the income fluctuation literature, βR < 1, which guarantees
+the existence of a stable asset distribution when there is no permanent income growth.
+However, as pointed out by Szeidl (2013) and Ma, Stachurski, and Toda (2022b), βR < 1
+is not necessary for an infinite-horizon solution.
+Recall now our earlier requirement that the limiting consumption function c(m) in our
+model must be ‘sensible.’ We will show below that for the perfect foresight unconstrained
+problem this requires
+Assumption L.3. (Return Impatience). ÞR < 1.
+Return impatience can be best understood as the tension between the income effect
+of capital income and the substitution effect. As we show below in Section 1.3, in the
+perfect foresight model, it is straightforward to derive the MPC out of overall (human
+plus nonhuman) wealth that would result in next period’s wealth being identical to the
+current period’s wealth. The answer turns out to be an MPC (‘κ’) of κ = (1 − Þ/R).
+The interesting point here is that κ depends both on our absolute patience factor Þ and
+on the return factor. This is the manifestation in this context of the interaction of the
+income effect (higher wealth yields higher interest income if R > 1) and the substitution
+effect (which we have already captured with Þ).
+Next, consider the weaker condition of a consumer whose absolute patience factor
+is suitably adjusted to take account of the probability of zero income is less than the
+market return.
+Assumption L.4. (Weak Return Impatience).
+
+(℘Rβ)1/γ
+< 1.
+R
+| {z }
+1/γ
+
+=℘ R Þ
+
+This condition is ‘weak’ (relative to the plain return impatience) because the probability of the zero income events ℘ is strictly less than 1. The role of ℘ in this equation is
+related to the fact that a consumer with zero end-of-period assets today has a probability
+℘ of having no income and no assets to finance consumption (and mt+1 = 0 would yield
+negative infinite utility). In the case with no artificial constraint, our main results below,
+
+7
+
+in Section 1.4, show weak return impatience and finite value of autarky are sufficient to
+guarantee a sensible (non-degenerate) solution.
+Weak return impatience cannot be relaxed further without an artificial liquidity constraint. Even though ℘1/γ ÞR → 0 as ℘ → 0 the weak return impatience condition does
+not approach irrelevance as the possibility of the zero income event approaches zero.
+Instead, we show below in Section 1.4.3 that the limiting consumption function with a
+natural constraint approaches the solution to a model with an artificial constraint.
+Now that we have finished discussing the requirements for a non-degenerate solution,
+we turn to assumptions required for stability.
+We will call the ratio of the Þ to the
+expected growth factor for permanent income G = E[Gψ]) the growth patience factor:
+ÞG : = Þ/G
+
+(7)
+
+as exhibiting ‘growth impatience:’
+We speak of a consumer whose absolute patience factor is less than the expected
+growth factor for their permanent income G = E[Gψ]) as exhibiting ‘growth impatience:’
+Assumption S.1. (Growth Impatience). ÞG < 1.
+A final useful definition is ‘strong growth impatience’
+E[Þ/G̃] < 1
+
+(8)
+
+which holds for a consumer for whom the expectation of the ratio of the absolute
+patience factor to the (stochastic) growth factor of permanent income is less than one,
+h i
+Þ
+= ÞG E[ψ −1 ] < 1.
+Assumption S.2. (Strong Growth Impatience). E Gψ
+
+(The difference between growth impatience and strong growth impatience is that the
+first is the ratio of an expectation to an expectation, while the latter is the expectation
+of the ratio. With non-degenerate mean-one stochastic shocks to permanent income, the
+expectation of the ratio is strictly larger than the ratio of the expectations).
+Since γ > 1, note that strong growth impatience is weaker than the impatience
+condition β G̃1−γ
+t+1 R̃ < 1 used by Ma, Stachurski, and Toda (2020) to guarantee stability.
+Moreover, while neither growth impatience nor return impatience will by themselves be
+required for the existence of a limiting solution, the finite value of autarky condition
+stops individuals from becoming both growth and return patient.
+Claim 1. If growth impatience fails (ÞG ≥ 1) and return impatience fails (ÞR ≥ 1),
+then finite value of autarky fails (βG1−γ E(ψ 1−γ ) ≥ 1).
+Proof. Since ÞR ≥ 1, ÞR satisfies:
+1
+
+(Rβ) γ
+≥ 1.
+ÞR =
+R
+
+8
+
+(9)
+
+Multiplying both sides by RG1−γ gives us:
+1−γ
+
+βG
+
+1
+γ
+
+R β
+
+1−γ
+γ
+
+1−γ
+
+≥ RG
+
+1−γ
+
+⇒ βG
+
+ γ−1
+Þ
+≥
+.
+G
+
+(10)
+
+Finally, since γ > 1, applying ÞG ≥ 1 gives βG1−γ ≥ 1. Because γ > 1 and E[ψ] = 1,
+Jensen’s inequality gives E[ψ 1−γ ] ≥ 1 (equality iff ψ is degenerate); multiplying yields
+βG1−γ E(ψ 1−γ ) ≥ 1, the result.
+We discuss further intuition for the consumer patience conditions below when they
+are used in the main results.
+The relationship between the conditions and their implications for consumption behaviour will also be be discussed in detail in Section 4.
+
+1.3 Perfect Foresight Benchmarks
+To understand the economic implications of the patience conditions, we begin with the
+perfect foresight case.
+Below, when we say we assume perfect foresight, what we mean mathematically is:
+Assumption I.2. (Perfect Foresight Income Process). ℘ = 0 and θ = θ = θ̄ = ψ =
+ψ=1
+Throughout this sub-section, we assume Assumption I.2 remains in force.
+Under perfect foresight, finite value of autarky reduces to a ‘perfect foresight finite
+value of autarky’ condition:
+βG1−γ < 1
+
+Þ < R1/γ G1−1/γ .
+
+⇐⇒
+
+(11)
+
+1.3.1 Perfect Foresight without Liquidity Constraints
+Consider the familiar analytical solution to the perfect foresight model without liquidity
+constraints. In this case, the consumption Euler Equation always holds as an equality;
+with u′ (c) = c−γ and u′ (ct ) = Rβu′ (ct+1 ), we have:
+ct+1 /ct = (Rβ)1/γ .
+Recalling R = R/G, ‘human wealth’, is the present discounted value of income:
+ht = pt + R−1 pt + R−2 pt + · · · + Rt−T pt
+
+
+1 − R−(T −t+1)
+pt .
+=
+1 − R−1
+|
+{z
+}
+= : ht
+
+For human wealth to have finite value, we must have:
+
+9
+
+(12)
+
+Assumption I.3. (Finite Human Wealth).
+R−1 = G/R < 1.
+
+(13)
+
+If R−1 is less than one, human wealth will be finite in the limit as T → ∞ because
+(noncapital) income growth is smaller than the interest rate at which that income is
+being discounted.
+Under these conditions we can define a normalized finite-horizon perfect foresight
+consumption function (see Appendix D.1 for details) as follows:
+= : bT −n
+
+z }| {
+c̄T −n (mT −n ) = (mT −n − 1 +hT −n )κt−n
+
+(14)
+
+where κt is the marginal propensity to consume (MPC) and satisfies:
+−1
+κ−1
+T −n = 1 + (ÞR ) κT −n+1 .
+
+(15)
+
+Let κ = lim κT −n . For κ to be strictly positive, we must impose return impatience.
+n→∞
+The limiting consumption function then becomes:
+c̄(m) = (m + h − 1)κ,
+
+(16)
+
+where, under return impatience, the limiting MPC becomes:
+κ : = 1 − ÞR .
+
+(17)
+
+In order to rule out the degenerate limiting solution in which c̄(m) = ∞, we also require
+(in the limit as the horizon extends to infinity) that human wealth remain bounded
+(that is, we require ‘finite human wealth’). Thus, while return impatience prevents a
+consumer from saving everything in the limit, ‘finite limiting human wealth’ prevents
+infinite borrowing (against infinite human wealth) in the limit.
+The following two results consider the normalized problem without liquidity constraints and with perfect foresight income (Assumption I.2).
+Proposition 1. A limiting solution that is non-degenerate in the sense of Definition
+1 exists if and only if finite limiting human wealth (R−1 < 1) and return impatience
+(Assumption L.3) hold.
+Proof. See Appendix D.1 for the proof.
+Claim 2. Assume finite human wealth (R−1 < 1). If growth impatience (Assumption
+S.1) holds, then finite value of autarky under perfect foresight (Equation 11) holds. If
+finite value of autarky under perfect foresight (Equation 11) holds, then return impatience
+(Assumption L.3) holds.
+Proof. See Appendix A.2 for the proof.
+
+10
+
+The claim implies that if we impose finite limiting human wealth, then growth impatience is sufficient for nondegeneracy since finite value of autarky under perfect foresight
+and return impatience follow. However, there are circumstances under which return
+impatience and finite limiting human wealth can hold while the finite value of autarky
+under perfect foresight fails. For example, if G = 0, the problem is a standard ‘cakeeating’ problem with a non-degenerate solution under return impatience.
+1.3.2 Perfect Foresight with Liquidity Constraints
+Our ultimate interest is in the unconstrained problem with uncertainty. Here, we show
+that the perfect foresight constrained solution defines a useful limit for the unconstrained
+problem with uncertainty.
+Consider that if a liquidity constraint requiring at ≥ 0 binds at any mt , it must bind
+at the lowest possible level of mt , mt = 1, defined by the lower bound of having arrived
+into the period with bt = 0 (if the constraint were binding at any higher mt , it would
+certainly be binding here, because u′′ < 0 and c′ > 0). At mt = 1 the constraint binds
+if the marginal utility from spending all of today’s resources ct = mt = 1, exceeds the
+marginal utility from doing the same thing next period, ct+1 = 1; that is, if such choices
+would violate the Euler equation, Equation (4), yielding
+1−γ > RβG−γ 1−γ ,
+
+(18)
+
+which is just a restatement of growth impatience. So, the constraint is relevant if and
+only if growth impatience holds.
+For the following result, consider the normalized perfect foresight problem with a
+liquidity constraint (that is, assume ct ≤ mt for each t.)
+Proposition 2. If return impatience (Assumption L.3) holds, then a non-degenerate
+solution exists. Moreover, if return impatience does not hold, then a non-degenerate
+solution exists if and only if growth impatience (Assumption S.1) holds.
+The proof for the result uses the formal notion of non-degeneracy of Definition 1
+(including its value clause v̀ : R++ → R). Sufficiency follows from the discussion in
+Section 4.1.1, which outlines the three cases (return impatience holding, or growth
+impatience holding) under which perfect foresight liquidity constrained solutions are
+non-degenerate. Necessity (the ‘only if’) follows from Claim 1: if both return impatience
+(ÞR ≥ 1) and growth impatience (ÞG ≥ 1) fail, then finite value of autarky fails, so the
+value clause of Definition 1 cannot hold and the solution is degenerate. At the boundary
+ÞG = 1 with ÞR ≥ 1 the constrained consumption function limits to the finite positive
+constant c̀(m) ≡ 1; degeneracy is then visible only through v̀ → −∞.
+Importantly, if return impatience fails (R ≤ Þ) and growth impatience holds (Þ < G),
+then finite human wealth also fails (R ≤ G). Despite the unboundedness of human
+wealth as the horizon extends arbitrarily, for any finite horizon the relevant liquidity
+constraint prevents borrowing. Similarly, when uncertainty is present, the natural
+borrowing constraint plays an analogous role in permitting a finite limiting solution
+
+11
+
+with unbounded limiting human wealth – we discuss the various parametric cases in
+Section 4.
+
+1.4 Main Results for Problem with Uncertainty
+We are now ready to return to our primary interest, the model with permanent and
+transitory income shocks. Throughout this section, we assume the Friedman-Muth
+income process (Assumption I.1 holds) and examine the normalized problem, Problem
+PN .
+1.4.1 Limiting MPCs
+We first establish results regarding the shape of the consumption function.12
+Proposition 3. For each t, ct is twice continuously differentiable, increasing and strictly
+concave.
+Proof. See Appendix A.3 for the proof.
+Next, we note that the ratio of optimal consumption to market resources (c/m) is
+bounded by the minimal and maximal marginal propensities to consume (MPCs). Recall
+that the MPCs answer the question ‘if the consumer had an extra unit of resources, how
+much more spending would occur?’, The minimal and maximal MPCs are the limits of
+the MPC as m → ∞ and m → 0, which we denote by κt and κt respectively. Since the
+consumer spends everything in the terminal period, κT = 1 and κT = 1. Furthermore,
+Proposition 3 will imply:13
+κt mt ≤ ct (mt ) ≤ κt mt .
+
+(19)
+
+κ : = max{0, 1 − ÞR },
+
+(20)
+
+We define:
+κ : = 1 − ℘1/γ ÞR ,
+
+(21)
+
+as the ‘limiting minimal and maximal MPCs’. The following result verifies that the
+consumption share is bounded each period by the minimal and maximal MPCs, that
+the consumption function is asymptotically linear and that the MPCs converge to the
+limiting MPCs as the terminal period recedes.14
+Lemma 1. (Limiting MPCs). If weak return impatience (Assumption L.4) holds, then:
+(i) For each n:
+ −1
+1/γ
+κ−1
+=
+1
++
+℘
+Þ
+κT −n+1 .
+R
+T −n
+
+−1
+κ−1
+T −n = 1 + (ÞR ) κT −n+1 ,
+12
+
+(22)
+
+Carroll and Kimball (1996) proved concavity but not continuous differentiability.
+Note c′t is positive, bounded above by 1 and decreasing, then apply L’Hôpital’s Rule.
+14
+Benhabib, Bisin, and Zhu (2015) show that the consumption function becomes linear as wealth
+approaches infinity in a model with capital income risk and liquidity constraints; Ma and Toda (2021)
+show that these results generalize to the limits derived here if capital income is added to the model.
+13
+
+12
+
+(ii) We have lim κT −n = κ > 0. Moreover, if return impatience (Assumption L.3)
+n→∞
+holds, then lim κT −n = κ = 1 − ÞR > 0.
+n→∞
+
+Proof. See Appendix A.3 for the proof.
+The MPC bound as market resources approach infinity is easy to understand. Recall
+that c̄ from the perfect foresight case will be an upper bound in the problem with
+uncertainty; analogously, κ becomes the MPC’s lower bound. As the proportion of
+consumption that will be financed out of human wealth approaches zero, the proportional
+difference between the solution to the model with uncertainty and the perfect foresight
+model shrinks to zero.
+To understand the maximal limiting MPC, the essence of the argument is that as
+market resources approach zero, the overriding consideration that limits consumption is
+the (recursive) fear of the zero-income events — this is why the probability of the zero
+income event ℘ appears in the expression for the maximal MPC. Weak return impatience
+is too weak to guarantee a lower bound on the share of consumption to market resources;
+it merely prevents the upper bound on the share of consumption to market resources from
+approaching zero. Weak return impatience thereby prevents a situation where everyone
+consumes an arbitrarily small share of current market resources as the terminal period
+recedes. This insight plays a key role in the proof for the existence of a non-degenerate
+solution in what follows.
+1.4.2 Existence of Limiting Non-degenerate Solution
+Let C(R++ , R) be the space of continuous functions from R++ to R. To address the
+challenges posed by unbounded state-spaces, Boyd (1990) provided a weighted contraction mapping theorem. Our strategy is to use this approach to first show that while the
+stationary operator T may be undefined on a suitable Banach space (recall Remark 1),
+operators defining each period’s problem (which we define below) will be contractions on
+a space of continuous functions with a finite weighted norm. We then show the sequence
+of finite horizon value functions given by Problem (PN ) generates a Cauchy sequence;
+since the weighted norm space is complete, the sequence of value functions converges to
+a non-degenerate solution in C(R++ , R).
+Definition 2. Fix f such that f ∈ C(R++ , R) and let 𭟋 be a function such that 𭟋 ∈
+C(R++ , R) and 𭟋 > 0. The function f will be 𭟋-bounded if the 𭟋-norm of f, given by
+
+
+|f(s)|
+,
+(23)
+∥f∥𭟋 = sup
+s∈R++ 𭟋(s)
+
+is finite. We will call C𭟋 (R++ , R) the subspace of functions in C(R++ , R) that are 𭟋bounded.
+We define the weighting function as
+𭟋(x) = ζ + x1−γ ,
+
+13
+
+(24)
+
+where ζ ∈ R++ is a constant derived from the model primitives and the upper and lower
+bound on the consumption share (see Claim 5 in Appendix A.4 for the parametrization
+of ζ).
+Next, for any lower bound ν and upper-bound ν on the share of consumption to market
+resources, define the ‘MPC bounded Bellman operator’ Tν,ν , with Tν,ν : C𭟋 (R++ , R) →
+C𭟋 (R++ , R), as:
+Tν,ν f(m)
+=
+
+max
+
+c∈[νm,νm]
+
+n
+o
+u(c) + βEG̃1−γ f(R̃(m − c) + ξ) , m ∈ R++ , f ∈ C𭟋 (R++ , R) . (25)
+
+The value functions defined by Problem (PN ) will satisfy vt = Tκt ,κt vt+1 for each
+period t < T , since consumption shares are bounded by the minimal and maximal MPCs
+(Lemma 1 and Equation (19)); because vT = u ∈ C𭟋 (R++ , R) and 0 < κt ≤ κt < 1 for
+t < T , backward induction with Claim 5 in Appendix A.4 gives vt ∈ C𭟋 (R++ , R) for
+every t. We now show the operator Tν,ν is a contraction on C𭟋 (R++ , R) for a suitably
+narrow interval [ν, ν].
+Theorem 1. (Contraction Mapping Under Consumption Bounds). If weak return impatience (Assumption L.4) and finite value of autarky (Assumption L.1) hold, then there
+exists k and α ∈ (0, 1) such that for all [ν, ν] with κT −k ≥ ν > ν > 0, Tν,ν is a contraction
+with modulus α.
+Proof. See Appendix A.4 for the proof.
+The theorem says eventually the maximal MPCs will be small enough such that the
+Bellman operators generating the sequence of finite horizon value functions given by
+(PN ) are contraction maps.
+We can now relate the sequence of contraction maps to the limiting solution defined
+in Section 1.1.1.
+Theorem 2. (Existence of Non-degenerate Solution). If weak return impatience (Assumption L.4) and finite value of autarky (Assumption L.1) hold, then (under the maintained shock assumption I.1 and γ > 1):
+(i) There exists k ∈ N such that a) for all n > k and ν with 0 < ν < κT −n , Tν,κT −n
+is a contraction with modulus α < 1 and b) the sequence {vT −n }∞
+n=0 converges
+point-wise to v ∈ C𭟋 (R++ , R).
+(ii) The function v is a fixed point of T and there exists a measurable policy function,
+c, such that c : R++ → R and:
+Tv(m) = u(c(m)) + βEG̃1−γ v(R̃(m − c(m)) + ξ),
+
+m ∈ R++ .
+
+(26)
+
+(iii) The sequence {cT −n }∞
+n=0 converges point-wise to c and c and v are a limiting nondegenerate solution.
+
+14
+
+Proof. Item (i.)(a.) follows from Theorem 1, since 0 < ν < κT −n and for each t,
+κT −n ≤ κT −k by Lemma 1. We now prove Item (i.)(b.), that {vT −n }∞
+n=0 converges pointwise to a limiting non-degenerate solution v. In the proof, to streamline the notation,
+we define tn : = T − n. Now, for all n > k + 2, vtn = Tκtn ,κtn vtn−1 holds by definition of
+Problem (PN ). Moreover, since κtn−1 ≥ κtn by Lemma 1, we have:
+vtn = Tκtn ,κtn−1 vtn−1 ,
+and since κtn ≤ κtn−1 , we have:
+κ
+
+,κ
+
+vtn−1 = T tn−1 tn−1 vtn−2
+= Tκtn ,κtn−1 vtn−2 .
+
+(27)
+
+Next, take the 𭟋-norm distance between vtn and vtn−1 , and note Tκtn ,κtn−1 is a
+contraction. As such, the sequence of finite horizon value functions satisfy:
+∥vtn − vtn−1 ∥𭟋 = ∥Tκtn ,κtn−1 vtn−1 − Tκtn ,κtn−1 vtn−2 ∥𭟋 ≤ α∥vtn−1 − vtn−2 ∥𭟋 .
+As such, ∥vtn − vtn−1 ∥𭟋 ≤ α∥vtn−1 − vtn−2 ∥𭟋 ; because n is arbitrary and α holds for all
+n by Theorem 1, this is a sufficient condition for {vT −n }∞
+n=k+2 to be a Cauchy sequence.
+Since C𭟋 (R++ , R) is a complete metric space, and vtn−2 ∈ C𭟋 (R++ , R) for each n, vtn
+converges to v, with v ∈ C𭟋 (R++ , R). The proof for Item (i) and Item (ii) is continued
+in Appendix A.4.)
+The proof above shows that the sequence of value functions produced by the iteration
+of the per-period Bellman operators TκT −n ,κT −n will be a Cauchy sequence converging
+to the limiting solution. Due to weak return impatience, the upper bound on the perperiod consumption converges to a strictly positive share of market resources, preventing
+consumption from converging to zero.
+Remark 3. Under return impatience, κT −n ≥ κ > 0 for all n, and thus for k ∈ N
+large enough, Tκ,κT −k will be a stationary contraction map and we will have vT −n =
+Tκ,κT −k vT −n+1 for all n > k. However, without return impatience, κ = 0, so the finitehorizon policies are no longer bracketed away from zero by a single positive lower share.
+The stationary operator Tκ,κT −k then degenerates to T0,κT −k , and our Berge-based selfmap argument (Claim 5) no longer applies directly, since the correspondence m 7→ (0, m)
+is not compact-valued (recall Section 1.1.2); one would instead have to invoke the Inada
+condition u(0+ ) = −∞ (which holds under γ > 1) to keep the maximizer interior.
+Finite value of autarky is the second assumption required to show existence of limiting
+solutions and guarantees the value is finite (in levels) for a consumer who spent exactly
+their permanent income every period (see Section 4.2). The intuition for the finite value
+of autarky condition is that, with an infinite-horizon, with any strictly positive initial
+amount of bank balances b0 , in the limit your value can always be made greater than you
+would get by consuming exactly the sustainable amount (say, by consuming (r/R)b0 − ϵ
+for some arbitrarily small ϵ > 0).
+
+15
+
+Remark 4. Since κT −n m ≥ cT −n (m) ≥ κT −n m ≥ κm, κT −n → κ, and cT −n converges
+point-wise to c, κm ≥ c(m) ≥ κm. Moreover, since c satisfies Equation (26) and
+v ∈ C𭟋 (R++ , R), c(m) > 0 for m > 0: because γ > 1 gives u(0+ ) = −∞ while v(m) is
+finite and, with c = 0, the continuation is finite (mnext ≥ R̃m > 0 a.s.), c(m) = 0 would
+force v(m) = −∞.
+Finally, we verify that the converged non-degenerate consumption functions satisfies
+the same marginal propensities to consume the per-period consumption functions.
+Lemma 2. If weak return impatience (Assumption L.4) and finite value of autarky
+(Assumption L.1) hold, then lim c(m)/m = κ and lim c(m)/m = κ.
+m→0
+
+m→∞
+
+Proof. See Appendix A for the proof.
+1.4.3 The Liquidity Constrained Solution as a Limit
+Recall the common assumption (Deaton, 1991; Aiyagari, 1994; Li and Stachurski, 2014;
+Ma, Stachurski, and Toda, 2020) of a strictly positive minimum value of income and
+a non-trivial artificial liquidity constraint, namely at ≥ 0. We will refer to the set-up
+from Section 1.1, with Assumption 2 modified so ℘ = 0 as the “liquidity constrained
+problem.” Let ct (•; ℘) be the consumption function for a problem where Assumption
+I.1 holds for a given fixed ℘, with ℘ > 0. Moreover, let c̀t be the limiting consumption
+function for the liquidity constrained problem (note that the liquidity constraint ct ≤ mt ,
+or at ≥ 0, becomes relevant only when ℘ = 0). The discussion in Appendix A.6 shows
+how an finite-horizon solution to the liquidity constrained problem, c̀t , is the limit of
+the problems as the probability ℘ of the zero-income event approaches zero.
+Intuitively, if we impose the artificial constraint without changing ℘ and maintain
+℘ > 0, it would not affect behavior. This is because the possibility of earning zero income
+over the remaining horizon already prevents the consumer from ending the period with
+zero assets. For precautionary reasons, the consumer will save something. However,
+the extent to which the consumer feels the need to make this precautionary provision
+depends on the probability that it will turn out to matter. As ℘ → 0, the precautionary
+saving induced by the zero-income events approaches zero, and “zero” is the amount of
+precautionary saving that would be induced by a zero-probability event by the impatient
+liquidity constrained consumer. Appendix A.6 gives the argument in a simplified version
+of the problem, and Theorem 7 in Appendix E proves it for the full problem at every
+horizon and, if finite value of autarky holds, for the limiting solutions.
+
+2 Individual Buffer Stock Stability
+In this section we analyse two notions of stability which will be useful for studying either
+an individual or a population of individuals who behave according to the converged
+consumption rule. Consider an individual who at time t holds normalized market
+resources mt , and market resources in levels mt , and follows the converged decision
+
+16
+
+function c. The time-t consumption for the consumer will be ct = c(mt ) and normalized
+market resources in time t+1 will be a random variable mt+1 = R̃t+1 (mt −c(mt ))+ξt+1 .15
+Our first notion of stability concerns the existence of a unique ‘buffer stock target’
+for the individual; we are interested in whether the current level of normalized market
+resources is above or below a ‘target’ level such that the magnitude of the precautionary
+motive (which causes a consumer to save) exactly balances the impatience motive (which
+makes them want to dissave). At the individual target, expected normalized market
+resources in the next period, conditioned on current normalized market resources, will
+be the same as in the current period. The intensifying strength of the precautionary
+motive with decreasing market resources can ensure stability of the target. Below the
+target, the urgency to save due to the precautionary motive leads to an expected rise
+in market resources. Conversely, above the target, impatience prevails, leading to an
+expected reduction of market resources.
+Our second, weaker, notion of stability gives conditions for the invidiual such that
+an aggregate balanced growth path exists. To motivate this notion, consider Figure 1
+which shows the expected growth factors for consumption, the level of market resources,
+and normalized market resources, Et [ct+1 /ct ], Et [mt+1 /mt ], and Et [mt+1 /mt ].16 Begin
+by noting how the figure shows that as mt → ∞ the expected consumption growth
+factor goes to Þ, indicated by the lower bound in Figure 1. Moreover, as mt approaches
+zero, the consumption growth factor approaches ∞. (Proposition 4 in Appendix B.1
+establishes the asymptotic growth factors formally.)
+Next, consider the implications of Figure 1 for individual stability. The figure shows
+a buffer stock target for normalized market resources, mt = m̌, at which the expected
+growth factor of the level of market resources m matches the expected growth factor
+of permanent income G. A distinct and larger target ratio, m̂, also exists. At this
+ratio, Et [mt+1 /mt ] = 1, and the expected growth factor of consumption is less than G.
+Importantly, conditioned on an individual’s time t state, this model does not have a
+single m at which p, m and c are all expected to grow at the same rate. Yet, when we
+aggregate across individuals, balanced growth paths can exist. Importantly, balanced
+growth paths can exist even if a buffer stock target, where Et [mt+1 /mt ] = 1, does not
+exist. What we require for aggregate stability is the weaker notion of a ‘pseudo-target’
+target, namely that there is some m̌ such that if mt > m̌, then Et [mt+1 /mt ] < G.
+
+15
+
+None of the arguments in either of the two prior sections depended on the assumption that the
+consumption functions had converged. With more cumbersome notation, each derivation could have
+been replaced by the corresponding finite-horizon versions. This strongly suggests that it should be
+possible to extend the circumstances under which the problem can be shown to define a contraction
+mapping to the union of the parameter values under which {RIC,FHWC} hold and {FVAC,WRIC}
+hold. That extension is not necessary for our purposes here, so we leave it for future work.
+16
+The figure is generated using parameters discussed in Section 4, Table 2.
+
+17
+
+1.06
+
+Individual Target
+1.05
+
+Growth Factors
+
+1.04
+
+m̌&
+
+1.03
+
+Φ
+
+Et[mt+1/mt]%
+
+1.02
+
+Et[ct+1/ct]
+
+1.01
+
+Þ = (Rβ)1/ρ
+
+1.00 = Et[mt+1/mt] : m̂ →
+
+1.00
+
+Et[mt+1/mt]
+
+0.99
+0.98
+
+1.1
+
+1.2
+
+1.3
+
+1.4
+
+1.5
+
+1.6
+
+1.7
+
+1.8
+
+1.9
+
+Figure 1 Buffer Stock Target and Pseudo-Target
+
+2.1 Existence of Target and Pseudo-Target
+For both results below, consider the problem defined in Section 1.1. The first stabiltiy
+result guarantees the existence of a buffer stock target m̂ such that if mt = m̂, then
+Et [mt+1 ] = mt . Existence of such a target requires strong growth impatience.
+Theorem 3. (Buffer Stock Target). If weak return impatience (Assumption L.4), finite
+value of autarky (Assumption L.1) and strong growth impatience (Assumption S.2) hold,
+then there exists a unique m̂, with m̂ > 0, such that:
+Et [mt+1 /mt ] = 1 if mt = m̂,
+
+(28)
+
+∀mt ∈ (0, m̂), Et [mt+1 ] > mt
+∀mt ∈ (m̂, ∞), Et [mt+1 ] < mt .
+
+(29)
+
+and,
+
+Proof. See Appendix B.2.1 for the proof.
+Since mt+1 = (mt − c(mt ))R̃t+1 + ξt+1 , the implicit equation for m̂ becomes:
+Et [(m̂ − c(m̂))R̃t+1 + ξt+1 ] = m̂
+(m̂ − c(m̂)) REt [ψ −1 ] +1 = m̂.
+| {z }
+
+(30)
+
+¯
+: =R̃
+
+The second, and less restrictive, definition of a target derives from a traditional
+aggregate question in macro models: whether or not there is a ‘balanced growth’ path
+
+18
+
+in which aggregate variables (income, consumption, market resources) all grow by the
+same factor G. In particular, if growth impatience holds, the problem will exhibit a
+‘pseudo-target’, by which we mean that there is some m̌ such that if mt > m̌, then
+Et [mt+1 /mt ] < G. Conversely if mt < m̌ then Et [mt+1 /mt ] > G. The pseudo-target
+m̌ will be such that m growth matches G, allowing us to write the implicit equation for
+m̌ as follows:
+Et [mt+1 ]/mt = Et [pt+1 ]/pt
+Et [mt+1 Gψt+1 pt ]/(mt pt ) = Et [pt Gψt+1 ]/pt
+
+
+
+
+Et ψt+1 ((mt − c(mt )R/(Gψt+1 )) + ξt+1 ) /mt = 1
+|
+{z
+}
+
+
+mt+1
+
+R
+
+
+
+(31)
+
+z}|{
+Et (m̌ − c(m̌)) R/G +ψt+1 ξt+1  = m̌
+
+(m̌ − c(m̌))R + 1 = m̌.
+
+¯ 17 ,
+The only difference between (31) and (30) is the substitution of R for R̃.
+Under the weaker growth impatience condition, we can verify the existence of this
+pseudo-target, m̌.
+Theorem 4. (‘Pseudo-Target’). If weak return impatience (Assumption L.4), finite
+value of autarky (Assumption L.1) and growth impatience (Assumption S.1) hold, then
+there exists a unique m̌, with m̌ > 0 such that:
+Et [ψt+1 mt+1 /mt ] = 1 if mt = m̌.
+
+(32)
+
+∀mt ∈ (0, m̌), Et [mt+1 ]/mt > G
+∀mt ∈ (m̌, ∞), Et [mt+1 ]/mt < G.
+
+(33)
+
+Moreover,
+
+Proof. See Appendix B.2.2 for the proof.
+
+2.2 Example With Balanced-Growth m̌ But No Target m̂
+Because the equations defining the buffer stock target and pseudo-target, (30) and (31),
+¯ = RE[ψ −1 ], if there are no permanent shocks
+differ only by substitution of R for R̃
+
+Ah third
+Et [log mt+1 ] = log Gmt ; this can be conveniently rewritten
+ ‘stable point’ is the m̃ where
+i
+as Et log (m̃ − c(m̃))R̃ + ψt+1 ξt+1
+= log m̃t . Because the expectation of the log of a stochastic
+variable is less than the log of the expectation, if a solution for m̃ exists it will satisfy m̃ > m̌; in turn,
+if m̂ exists, m̂ > m̃. The target m̃ is guaranteed to exist when the log growth impatience condition
+is satisfied (see below). For our purposes, little would be gained by an analysis of this point parallel
+to those of the other points of stability; but to accommodate potential practical uses, the Econ-ARK
+toolkit computes the value of this point (when it exists) as mBalLog.
+17
+
+19
+
+c
+Et[∆mt+1] = 0
+Et[mt+1/mt] = Φ
+
+m̌
+c(mt)
+
+m
+
+Figure 2
+Figure 3 Finite value of autarky and growth impatience hold but strong growth
+impatience fails: No Individaul Target Exists But Aggregate Target Does
+(ψ ≡ 1), the conditions are identical. For many parameterizations (e.g., under the
+baseline parameter values used for constructing figure 1), m̂ and m̌ will not differ much.
+An illuminating exception is exhibited in Figure 3, which modifies the baseline parameter values by quadrupling the variance of the permanent shocks, enough to cause
+failure of strong growth impatience; now there is no target level of market resources
+m̂. Nonetheless, the pseudo-target still exists because it turns off realizations of the
+permanent shock. It is tempting to conclude that the reason target m̂ does not exist is
+that the increase in the size of the shocks induces a precautionary motive that increases
+the consumer’s effective patience. The interpretation is not correct because as market
+resources approach infinity, precautionary saving against noncapital income risk becomes
+negligible (as the proportion of consumption financed out of such income approaches
+zero). The correct explanation is more prosaic: The increase in uncertainty boosts the
+¯ > R which reflects
+expected uncertainty-modified rate of return factor from R to R̃
+the fact that in the presence of uncertainty the expectation of the inverse of the growth
+factor increases: G < G. That is, in the limit as m → ∞ the increase in effective
+impatience reflected in ÞG E[ψ −1 ] > ÞG is entirely due to the elevation of the expected
+normalized return factor under uncertainty, not to a (limiting) change in precaution.
+In fact, the next section will show that an aggregate balanced growth equilibrium will
+
+20
+
+exist even when realizations of the permanent shock are not turned off: The required
+condition for aggregate balanced growth is the regular growth impatience, which ignores
+the magnitude of permanent shocks.18
+Before we get to the formal arguments, the key insight can be understood by considering an economy that starts, at date t, with the entire population at mt = m̌, but then
+evolves according to the model’s assumed dynamics between t and t + 1. Equation (31)
+will still hold, so for this first period, at least, the economy will exhibit balanced growth:
+the growth factor for aggregate M will match the growth factor for permanent income
+G. It is true that there will be people for whom the financial balances ratio, bt+1 , where
+bt+1 = at R/(Gψt+1 ), is boosted by a small draw of ψt+1 . However, their contribution
+to the level of the aggregate variable is given by bt+1 = bt+1 pt Gψt+1 , so their bt+1
+is reweighted by an amount that exactly unwinds that divisor-boosting. This means
+that it is possible for the consumption-to-permanent-income ratio for every consumer to
+be small enough that their market resources ratio is expected to rise, and yet for the
+economy as a whole to exhibit a balanced growth equilibrium with a finite aggregate
+balanced growth steady state M̌ (this is not numerically the same as the individual
+pseudo-target ratio m̌ because the problem’s nonlinearities have consequences when
+aggregated).19
+
+3 Aggregate Invariant Relationships
+In this section, we move from characterizing the individual decision rule to properties of
+a distribution of individuals following the converged non-degenerate consumption rule
+c. Assume a continuum of ex ante identical buffer-stock households, with constant total
+mass normalized to one and indexed by i. Szeidl (2013) proved that such a population,
+following the consumption rule c, will be characterized by invariant distributions of m,
+c, and a under the log growth impatience condition:20
+log ÞG < E[log ψ]
+
+(35)
+
+18
+
+Szeidl (2013)’s impatience condition, discussed below, also tightens as uncertainty increases, but
+this is also not a consequence of a precaution-induced increase in patience – it represents an increase in
+the tightness of the requirements of the ‘mixing condition’ used in his proof.
+19
+Still, the pseudo-target can be calculated from the policy function without any simulation, and
+therefore serves as a low-cost starting point for the numerical simulation process; see HarmenbergAggregation for an example.
+20
+Szeidl (2013)’s equation (9), in our notation, is:
+E log R(1 − κ) < E log Gψ
+
+E log RÞR < E log Gψ
+log ÞG < E log ψ
+
+which, exponentiated, yields (35).
+
+21
+
+(34)
+
+which is stronger than our growth impatience (ÞG < 1), but weaker than our strong
+growth impatience (ÞG E[ψ −1 ] < 1).21
+Harmenberg (2021) substitutes a clever change of probability-measure into
+Szeidl’s proof, with the implication that under growth impatience, invariant
+permanent-income-weighted distributions of m and c exist (see Section C.1 in the
+Appendix). In particular, let Fmt ,pt be the joint CDF of normalized market resources
+and permanent income at time t.22 The permanent-income-weighted CDF of mt , F̃mt ,
+will be:
+Z xZ ∞
+−t
+pFmt ,pt (dm, dp)
+(36)
+F̃mt (x) = G
+0
+
+0
+
+Simply put, the permanent-income-weighted CDF shows how the total ‘mass’ of permanent income is distributed along normalized market resources. The change of variables
+allows Harmenberg (2021) to prove a conjecture from an earlier draft of this paper
+(Carroll (2019, Submitted)) that under growth impatience, aggregate consumption grows
+at the same rate G as aggregate noncapital income in the long run (with the corollary
+that aggregate assets and market resources grow at that same rate). Harmenberg (2021)
+also shows how the reformulation can reduce costs of calculation by over a factor of 100.23
+The remainder of this section draws out the implications of these points for aggregate
+balanced growth factors.
+
+3.1 Aggregate Balanced Growth of Income, Consumption, and Wealth
+Define M to yield the expected value operator with respect to the empirical distribution
+of a variable across the population (as distinct from the operator E which represents
+beliefs about the future for a given individual).24 Using boldface capitals for aggregates,
+the growth factor for aggregate noncapital income becomes:
+Y t+1 /Y t = M [ξt+1 Gψt+1 pt ] /M [pt ξt ] = G
+Under our default (though not required) assumption that log ψ ∼ N (−σψ2 /2, σψ2 ); strong growth
+impatience in this case, is ÞG < exp(−σ 2 ), so if strong growth impatience holds then Szeidl’s condition
+will hold.
+22
+In the notation in Harmenberg (2021), the permanent-income-weighted measures are denoted as
+ψ̃ m .
+23
+The Harmenberg method is implemented in the Econ-ARK; see the last part of
+test_Harmenbergs_method.sh. Confirming the computational advantage of Harmenberg’s method,
+this notebook finds that the Harmenberg method reduces the simulation size required for a given degree
+of accuracy by two orders of magnitude under the baseline parameter values defined above.
+24
+i ∞
+Formally, fix an individual i and let {c̃it }∞
+t=0 and {m̃t }t=0 be a stochastic recursive sequence
+i
+generated by the converged consumption rule as follows, c̃it = c(m̃it ) and m̃it+1 = R̃it+1 (m̃it −c(m̃it ))+ξt+1
+,
+where the sequence of exogenous shocks are each defined on a theoretical probability space (Ω, Σ, P).
+Integration with respect to the measure P in the expected value operator E will be equivalent to
+empirical integration M with Rrespect to a suitable measure
+of agents on a nonatomic agent space. In
+R
+particular, for all j, Eg(c̃jt ) = c̃t dP = Mg(c̃t ) : = g(c̃it )λ(di), where λ is the measure of agents and
+for any measurable function g. For technical steps required to assert this claim, see Shanker (2017),
+which utilizes relatively recent results by Sun and Zhang (2009) and also the detailed construction by
+Cao (2020).
+21
+
+22
+
+because of the independence assumptions we have made about the shocks ξ and ψ.
+Consider an economy that satisfies the Szeidl impatience condition (35) and has existed
+for long enough by date t that we can consider it as Szeidl-converged. In such an economy
+a microeconomist with a population-representative panel dataset could calculate the
+growth factor of consumption for each individual household, and take the average:
+
+
+M [∆ log ct+1 ] = M log ct+1 pt+1 − log ct pt
+
+
+(37)
+= M log pt+1 − log pt + M [log ct+1 − log ct ] .
+
+Because this economy is Szeidl-converged, distributions of ct and ct+1 will be identical,
+so that the second term in (37) disappears; hence, mean cross-sectional growth factors
+of consumption and permanent income are the same:
+
+
+M [∆ log ct+1 ] = M ∆ log pt+1 = log G.
+(38)
+
+In a Harmenberg-invariant economy (and therefore also any Szeidl-invariant economy),
+a similar proposition holds in the cross-section as a direct implication of the fact that a
+constant proportion of total permanent income is accounted for by the successive sets
+of consumers with any particular m (recall Equation (36)). This fact is one way of
+interpreting Harmenberg’s definition of the density of the permanent-income-weighted
+invariant distribution of m; call this density f˜. To understand f˜, we can see how total
+aggregate market resources held by people with given m will be:
+M t = P t f˜(m)m
+
+(39)
+
+By implication of Theorem 4, M t grows at a rate G. We will now use this property of f˜
+to show that aggregate consumption also grows at rate G. Call C t (m) the total amount
+of consumption at date t by persons with market resources m, and note that in the
+invariant economy this is given by the converged consumption function c(m) multiplied
+by the amount of permanent income accruing to such people f˜(m)P t . Since f˜(m) is
+invariant and aggregate permanent income grows according to P t+1 = GP t , for any m,
+the following characterizes the growth of total consumption:
+log C t+1 − log C t = log c(m)f˜(m)P t+1 − log c(m)f˜(m)P t
+= log G.
+
+3.2 Aggregate Balanced Growth and Idiosyncratic Covariances
+Harmenberg shows that the covariance between the individual consumption ratio c and
+the idiosyncratic component of permanent income p does not shrink to zero; thus,
+covariances are another potential measurement for construction of microfoundations.
+Consider a date-t Harmenberg-converged economy, and define the mean value of the
+consumption ratio as c̄t+n ≡ M[ct+n ]. Normalizing period-t aggregate permanent income
+
+23
+
+to P t = 1, total consumption at t + 1 and t + 2 are
+C t+1 = M[ct+1 pt+1 ] = c̄t+1 G1 + covt+1 (ct+1 , pt+1 )
+C t+2 = M[ct+2 pt+2 ] = c̄t+2 G2 + covt+2 (ct+2 , pt+2 )
+
+(40)
+
+and Harmenberg’s proof that C t+2 − GC t+1 = 0 allows us to obtain:
+(c̄t+2 − c̄t+1 ) G2 = G covt+1 − covt+2 .
+
+(41)
+
+In a Szeidl-invariant economy, c̄t+2 = c̄t+1 , so the economy exhibits balanced growth
+in the covariance:
+covt+2 = G covt+1 .
+(42)
+The more interesting case is when the economy is Harmenberg- but not Szeidlinvariant. In that case, if the cov and the c̄ terms have constant growth factors Ωcov
+and Ωc̄ ,25 an equation corresponding to (41) will hold in t + n:
+c̄t+n
+
+z}|{
+
+n
+c̄t )Gn = GΩn−1
+(Ωnc̄ c̄t −Ωn−1
+c̄
+cov − Ωcov covt
+n−1
+(Ωc̄ G)n−1 (Ωc̄ − 1)c̄t G = Ωcov
+(G − Ωcov ) covt
+
+(43)
+
+so for the LHS and RHS to grow at the same rates we need
+Ωcov = Ωc̄ G.
+
+(44)
+
+This is intuitive: In the Szeidl-invariant economy, it just reproduces our result above
+that the covariance exhibits balanced growth because Ωc̄ = 1. The revised result just
+says that in the Harmenberg case where the mean value c̄ of the consumption ratio c
+can grow, the covariance must rise in proportion to any ongoing expansion of c̄ (as well
+as in proportion to the growth in p).
+
+3.3 Implications for Microfoundations
+Thus we have microeconomic propositions, for both growth factors and for covariances
+of observable variables,26 that can be tested in either cross-section or panel microdata
+to judge (and calibrate) the microfoundations that should hold for any macroeconomic
+analysis that requires balanced growth for its conclusions.
+At first blush, these points are reassuring; one of the most persuasive arguments for
+the agenda of building microfoundations of macroeconomics is that newly available ‘big
+data’ allow us to measure cross-sectional covariances with great precision, so that we
+can use microeconomic natural experiments to disentangle questions that are hopelessly
+25
+
+This ‘if’ is a conjecture, not something proven by Harmenberg (or anyone else). But see
+appendix C.2 for an example of a Harmenberg-invariant economy in which simulations suggest this
+proposition holds.
+26
+Parallel results to those for consumption can be obtained for other measures like market assets.
+
+24
+
+entangled in aggregate time-series data. Knowing that such covariances ought to be a
+stable feature of a stably growing economy is therefore encouraging.
+But this discussion also highlights an uncomfortable point: In the model as specified,
+permanent income does not have a limiting distribution; it becomes ever more dispersed
+as the economy with infinite-horizon consumers continues to exist indefinitely.
+A few microeconomic data sources permit direct measurement of ‘permanent income’;
+among the best (in data quality and span) is data from the Norwegian national registry,
+which has a long span of well-measured data for millions of Norwegians. Recent work
+by Crawley, Holm, and Tretvoll (2022) demonstrates that these data point strongly to the
+presence of a component of income shocks that is either truly permanent, or so extremely
+highly serially correlated as to be indistinguishable from permanent shocks. Using IRS
+tax data, DeBacker, Heim, Panousi, Ramnath, and Vidangos (2013) similarly find a large
+permanent (or very nearly permanent) component to income shocks. In quite a different
+exercise Carroll, Slacalek, Tokuoka, and White (2017) show that their calibration of the
+magnitude of permanent shocks (and mortality; see below) yield a simulated distribution
+of permanent income that matches answers in the U.S. Survey of Consumer Finances
+(‘SCF’) to a question designed to elicit a direct measure of respondents’ permanent
+income.
+For macroeconomists who want to build microfoundations by comparing the microeconomic implications of their models to micro data (directly – not in ratios to difficultto-meaure ‘permanent income’), it would be something of a challenge to determine how
+to construct empirical-data-comparable simulated results from a model with no limiting
+distribution of permanent income.
+Death can solve this problem.
+
+3.4 Mortality Yields Invariance
+Most heterogeneous-agent models incorporate a constant positive probability of death,
+following Blanchard (1985) and Yaari (1965). In the Blanchardian model, if the probability of death exceeds a threshold that depends on the size of the permanent shocks, Carroll, Slacalek, Tokuoka, and White (2017) show that the limiting distribution of permanent income has a finite variance. Blanchard (1985) assumes a universal annuitization
+scheme in which estates of dying consumers are redistributed to survivors in proportion
+to survivors’ wealth, giving the recipients a higher effective rate of return. This treatment
+has considerable analytical advantages, most notably that the effect of mortality on the
+time preference factor is the exact inverse of its effect on the (effective) interest factor.
+That is, if the ‘pure’ time preference factor is β and probability of remaining alive (not
+dead) is L, then the assumption that no utility accrues after death makes the effective
+discount factor β̊ = βL while the enhancement to the rate of return from the annuity
+scheme yields an effective interest factor R̊ = R/L (recall that because of white-noise
+mortality, the average wealth of the two groups is identical). Combining these, the
+effective patience factor in the new economy β̊ R̊ is unchanged from its value in the
+
+25
+
+infinite-horizon model:
+β̊ R̊ = (βLR/L)1/γ = (Rβ)1/γ = Þ.
+
+(45)
+
+The only adjustments this requires to the analysis above are therefore to the few
+elements that involve a role for the interest factor distinct from its contribution to Þ
+(principally, the RIC, which becomes Þ/R̊).
+Blanchard (1985)’s innovation was valuable not only for the insight it provided but
+also because when he wrote, the principal alternative, the Life Cycle model of Modigliani
+(1966), was computationally challenging given then-available technologies. Despite its
+(considerable) conceptual value, Blanchard’s analytical solution is now rarely used because essentially all modern modeling incorporates uncertainty, constraints, and other
+features that rule out analytical solutions anyway.
+The simplest alternative to Blanchard is to follow Modigliani in constructing a realistic
+description of income over the life cycle and assuming that any wealth remaining at death
+occurs accidentally (not implausible, given the robust finding that for the great majority
+of households, bequests amount to less than 2 percent of lifetime earnings, Hendricks
+(2001, 2016)).
+Even if bequests are accidental, a macroeconomic model must make some assumption
+about how they are disposed of: As windfalls to heirs, estate tax proceeds, etc. We again
+consider the simplest choice, because it represents something of a polar alternative to
+Blanchard. Without a bequest motive, there are no behavioral effects of a 100 percent
+estate tax; we assume such a tax is imposed and that the revenues are effectively thrown
+in the ocean: The estate-related wealth effectively vanishes from the economy.
+The chief appeal of this approach is the simplicity of the change it makes in the
+condition required for the economy to exhibit a balanced growth equilibrium (for consumers without a life cycle income profile). If L is the probability of remaining alive,
+the condition changes from the plain growth impatience to a looser mortality-adjusted
+version of growth impatience:
+LÞG < 1.
+(46)
+With no income growth, what is required to prohibit unbounded growth in aggregate
+wealth is the condition that prevents the per-capita wealth-to-permanent-income ratio
+of surviving consumers from growing faster than the rate at which mortality diminishes
+their collective population. With income growth, the aggregate wealth-to-income ratio
+will head to infinity only if a cohort of consumers is patient enough to make the desired
+rate of growth of wealth fast enough to counteract combined erosive forces of mortality
+and productivity.
+
+4 Consumer Patience and Limiting Consumption
+Having established our formal results, we are ready to describe how the various patience
+conditions determine the characteristics of the limiting consumption function. To fix
+ideas, we start with a quantitative example using the familiar benchmark case where
+
+26
+
+c
+cT (m) = 45 degree line
+cT −1(m)
+
+cT −5(m)
+cT −10(m)
+c(m)
+
+m
+
+Figure 4 Convergence of the Consumption Rules
+return impatience, growth impatience and finite human wealth all hold, shown by
+Figure 4. The figure depicts the successive consumption rules that apply in the last
+period of life (cT ), the second-to-last period, and earlier periods under parameter values
+listed in Table 2. (The 45 degree line is cT (m) = m because in the last period of life it
+is optimal to spend all remaining resources.)
+Under the same parameter values, Figures 5–6 capture the theoretical bounds and
+MPCs of the converged consumption rule. In Figure 5, as m rises, the marginal propensity to consume approaches κ = (1 − ÞR ) as m → ∞, the same as the perfect foresight
+MPC. Moreover, as m approaches zero, the MPC approaches κ = (1 − ℘1/γ ÞR ).
+While in the presence of a constraint neither return impatience nor growth impatience
+is individually necessary for nondegeneracy of c(m), a key conclusion of this section is
+that if both return impatience and growth impatience fail, the consumption function
+will be degenerate (limiting either to c(m) = 0 or c(m) = ∞ as the horizon recedes). So,
+for a useful solution, at least one of these conditions must hold.27 The case with growth
+impatience but return patience is particularly surprising, because it is not immediately
+clear what prevents our earlier conclusion (in other circumstances) that return patience
+leads c(m) to asymptote to zero. The trick is to note that if return patience holds, R < Þ,
+while growth impatience means Þ < G; together these inequalities tell us that R < G so
+27
+
+Recall Claim 1 showing that a double-impatience failure implies autarky value is not finite; and
+
+see
+
+27
+
+1.0
+
+(1 − ℘1/ρÞ R) ≡ κ
+
+0.8
+
+κ(m) ≡ c0(m)
+
+0.6
+
+0.4
+
+0.2
+
+0.0
+
+κ ≡ (1 − Þ R)
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+m
+
+8
+
+Figure 5 Limiting MPC’s
+(limiting) human wealth is infinite.28 But, if at any m human wealth is unbounded, what
+prevents c from asymptoting to c(m) = ∞ as the horizon gets arbitrarily long? This is
+where the natural borrowing constraint comes in. We will show that growth impatience
+is sufficient, at any fixed m, to guarantee an upper bound to c(m). The insight is best
+understood by first abstracting from uncertainty and studying the perfect foresight case
+(with and without constraints).
+
+4.1 Model with Perfect Foresight
+Claims 1-2 established the relationship between the finite value of autarky, return
+impatience and growth impatience in the context of a model with uncertainty. The
+easiest way to grasp the relations among these conditions is by studying Figure 7. Each
+node represents a quantity defined above. The arrow associated with each inequality
+imposes the condition, which is defined by the originating quantity being smaller than
+the arriving quantity. For example, one way we wrote the finite value of autarky (under
+perfect foresight) in Equation (11) is Þ < R1/γ G1−1/γ , so imposition of finite value of
+autarky is captured by the diagonal arrow connecting Þ and R1/γ G1−1/γ . Traversing
+the boundary of the diagram clockwise starting at Þ involves imposing first growth
+28
+
+This logic holds even if both R and G are less than one – in this case, because the agent can borrow
+at a negative interest rate and always repay with income that shrinks more slowly than their debt.
+
+28
+
+c
+← c(m) = κm = (1 − ℘1/ρÞ R)m
+Upper Bound = Min [c(m), c(m)]
+c(m) = (m − 1 + h)κ
+
+c(m)
+
+Lower Bound: c(m) = (1 − Þ R)κm
+m
+
+Figure 6 Upper and Lower Bounds on the Consumption Function
+impatience (Þ < G) then finite human wealth (G < G(R/G)1/γ ←→ G < R), and
+the consequent arrival at the bottom right node tells us that these two conditions
+jointly imply perfect-foresight-finite-value-of-autarky. Reversal of a condition reverses
+the arrow’s direction; so, for example, the bottom-most arrow going rightwards to
+R1/γ G1−1/γ implies finite human wealth fails; but we can cancel the cancellation and
+reverse the arrow. This would allow us to traverse the diagram clockwise from Þ
+through G to R1/γ G1−1/γ to R, revealing that imposition of growth impatience and finite
+human wealth (and, redundantly, finite human wealth again) let us conclude that return
+impatience holds because the starting point is Þ and the endpoint is R (and we have
+traversed a chain of ‘is greater than’ relations).29
+In the unconstrained case, finite human wealth was necessary since, without constraints, only this condition could prevent infinite borrowing in the limit (Proposition
+1). Looking at Figure 7, following the diagonal from Þ to the bottom-right corner
+corresponds to the direct of imposition of the finite value of autarky, which implies
+that the existence of a non-degenerate solution requires return impatience to hold. To
+see why, if return impatience failed, proceeding clockwise from the bottom left node of
+R would lead to R > R1/γ G1−1/γ , (equivalently (G/R)1−1/γ < 1) which corresponds to
+failure of finite human wealth (see also Case 3 in Section 4.2.1).
+29
+
+Consult Appendix F for an exposition of diagrams of this type, which are a simple application of
+Category Theory (Riehl (2017)).
+
+29
+
+Þ
+
+<
+VA
+-F
+
+PF
+F
+
+̸=
+
+Infinite Human Wealth: G > R
+
+G
+Finite Human Wealth: G < G(R/G)1/γ
+
+̸=
+
+:Þ
+C
+VA
+-F
+PF
+
+Return Impatience: Þ < R
+
+R
+
+Growth Impatience: Þ < G
+
+G(R/G)1/γ
+| {z }
+FVAF
+
+Figure 7 Perfect Foresight Relation of Consumer Patience Conditions
+The acronyms in this figure refer to each of the consumer patience conditions in the perfect foresight
+case. Refer to Table 3 for their definitions. An arrowhead points to the larger of the two quantities
+being compared; so, following the diagonal arrow imposes that absolute patience is smaller than the
+limit defined by the finite value of autarky factor, Þ < G(R/G)1/γ (this is one way of writing the
+PFFVAC, equation (11)). (The ̸= symbols indicate that the diagram is not commutative; that is, the
+different ways of reaching the conclusion that the PFFVAC holds are not equivalent to each other).
+
+We can understand how failure of finite human wealth leads to infinite borrowing
+thinking about growth impatience. From Figure 7, let finite value of autarky hold
+(traverse the diagonal from Þ) and then reverse the downward arrow from G, signifying
+the failure of finite human wealth, so that as the horizon extends and income grows
+faster than the rate at which it is discounted, there is no upper bound to the present
+discounted value of future income (cf. Equation (18)). But the cancellation of finite
+human wealth also indirectly implies that growth impatience holds Þ > R1/γ G1−γ > G
+which tells us that this is a consumer who wants to spend out of their human wealth.
+And therefore, at any fixed level of market resources, there is no upper bound to how
+much the consumer would choose to borrow as the horizon recedes.
+Thus, in the perfect foresight unconstrained model, return impatience is the only
+condition at our disposal that can prevent consumption from limiting to zero as the
+
+30
+
+terminal period recedes. However, when we impose a liquidity constraint, the range of
+admissible parameters becomes more interesting.
+4.1.1 Perfect Foresight Constrained Solution
+We now sketch the perfect foresight constrained solution and demonstrate that a solution
+can exist either under return impatience or without return impatience but with growth
+impatience (Proposition 2). Our discussion proceeds by examining implications of
+possible configurations of the patience conditions. (Tables 3 and 4 codify.)
+Case 1: Growth impatience fails and return impatience holds. If growth impatience fails but return impatience holds, Appendix D shows that, for some m# , with
+0 < m# < 1, an unconstrained consumer behaving according to the perfect foresight
+solution (16) would choose c < m for all m > m# . In this case the solution to the
+constrained consumer’s problem is simple; for any m ≥ m# the constraint does not bind
+(and will never bind in the future). For such m the constrained consumption function
+is identical to the unconstrained one. If the consumer were somehow30 to arrive at
+an m# such that m < m# < 1 the constraint would bind and the consumer would
+consume c = m. Using c̀ for the perfect foresight consumption function in the presence
+of constraints (and analogously for all other functions):
+(
+m
+if m < m#
+c̀(m) =
+c̄(m) if m ≥ m#
+where c̄(m) is the unconstrained perfect foresight solution.
+Case 2: Growth impatience holds and return impatience holds. When return
+impatience and growth impatience both hold, Appendix D shows that the limiting
+constrained consumption function is piecewise linear, with c̀(m) = m up to a first
+‘kink point’ at m0# > 1, and with discrete declines in the MPC at a set of kink
+points {m1# , m2# , . . .}. As m → ∞ the constrained consumption function c̀(m) becomes
+arbitrarily close to the unconstrained c̄(m), and the marginal propensity to consume,
+c̀′ (m), limits to κ.31 Similarly, the value function v̀(m) is non-degenerate and limits to
+the value function of the unconstrained consumer.
+This logic holds even when finite human wealth fails, because the constraint prevents
+the (limiting) consumer32 from borrowing against unbounded human wealth to finance
+unbounded current consumption. Under these circumstances, the consumer who starts
+with any bt > 0 will, over time, run those resources down so that after some finite
+number of periods τ the consumer will reach bt+τ = 0, and thereafter will set c = p for
+30
+
+“Somehow” because m < 1 could only be obtained by entering the period with b < 0 which the
+constraint forbids.
+31
+See Carroll, Holm, and Kimball (2019) for details.
+32
+That is, one obeying c(m) = lim ct−n (m).
+n→∞
+
+31
+
+eternity (which finite value of autarky says yields finite value). Using the same steps as
+for Equation (98), value of the interim program is also finite:
+!
+1−γ T −(t+τ )+1
+1
+−
+(βG
+)
+v t+τ = Gτ (1−γ) u(pt )
+.
+(47)
+1 − βG1−γ
+So, even when finite human wealth fails, the limiting consumer’s value for any finite m
+will be the sum of two finite numbers: One due to the unconstrained choice made over
+the finite-horizon leading up to bt+τ = 0, and one reflecting the value of consuming pt+τ
+thereafter.
+Case 3: Growth impatience holds and return impatience fails. The most peculiar
+possibility occurs only when return impatience fails. As noted above, this possibility is
+unavailable to us without a constraint. Without return impatience, finite human wealth
+must also fail (Appendix D), and the constrained consumption function is (surprisingly)
+non-degenerate. (See appendix Figure 11 for a numerical example). Even though
+human wealth is unbounded at any given level of m, since borrowing is ruled out,
+consumption cannot become unbounded at that m in the limit as the horizon recedes.
+However, the failure of return impatience does have some power: It means that as m
+rises without bound, the MPC approaches zero ( lim c̀′ (m) = 0). Nevertheless c̀(m) is
+m→∞
+finite, strictly positive, and strictly increasing in m. This result reconciles the conflicting
+intuitions from the unconstrained case, where failure of return impatience would suggest
+a degenerate limit of c̀(m) = 0 while failure of finite human wealth would suggest a
+degenerate limit of c̀(m) = ∞.
+
+4.2 Model with Uncertainty
+We now examine the case with uncertainty but without constraints, which we argued
+was a close parallel to the model with constraints but without uncertainty (recall Section
+1.4.3).
+Tables 1 and 2 present calibrations and values of model conditions in the case with
+uncertainty, where return impatience, growth impatience and finite value of autarky all
+hold. The full relationship among conditions is represented in Figure 8. Though the
+diagram looks complex, it is merely a modified version of the earlier simple diagram
+(Figure 7) with further (mostly intermediate) inequalities inserted. (Arrows with a
+“because” now label relations that always hold under the model’s assumptions.)33
+Beyond finite value of autarky, the additional condition sufficient for contraction, weak
+return impatience, can be seen to be weak by asking ‘under what circumstances would
+the finite value of autarky hold but the weak return impatience fail?’ Algebraically, the
+requirement becomes:
+βG1−γ M1−γ [ψ]1−γ < 1 < (℘β)1/γ /R1−1/γ .
+33
+
+(48)
+
+Again, readers unfamiliar with such diagrams should see Appendix F for a more detailed exposition.
+
+32
+
+Table 1 Microeconomic Model Calibration
+Calibrated Parameters
+Description
+Permanent Income Growth Factor
+Interest Factor
+Time Preference Factor
+Coefficient of Relative Risk Aversion
+Probability of Zero Income
+Std Dev of Log Permanent Shock
+Std Dev of Log Transitory Shock
+
+Parameter
+G
+R
+β
+γ
+℘
+σψ
+σθ
+
+Value
+Source
+1.03 PSID: Carroll (1992)
+1.04
+Conventional
+0.96
+Conventional
+2
+Conventional
+0.005 PSID: Carroll (1992)
+0.1
+PSID: Carroll (1992)
+0.1
+PSID: Carroll (1992)
+
+Table 2 Model Characteristics Calculated from Parameters
+Approximate
+Calculated
+Description
+Finite Human Wealth Factor
+PF Value of Autarky Factor
+Growth Compensated Permanent Shock
+Uncertainty-Adjusted Growth
+Utility Compensated Permanent Shock
+Utility Compensated Growth
+
+Symbol and Formula
+−1
+
+R̃
+
+ℶ
+
+M−1 [ψ]
+G
+
+M1−γ [ψ]
+
+βG
+
+≡
+
+GM−1 [ψ]
+
+≡
+
+≡
+
+0.932
+
+−1
+
+−1
+
+(E[ψ ])
+
+1.020
+
+1/(1−γ)
+
+1.020
+
+1/γ
+
+0.999
+
+≡
+
+ÞG E[ψ ] ≡
+
+Þ/G
+
+ÞG
+−1
+
+ℶ
+
+℘1/γ Þ
+
+33
+
+(E[ψ
+
+1−γ
+
+0.990
+0.990
+
+ÞR
+
+Value of Autarky Factor
+
+≡
+
+])
+
+Return Patience Factor
+
+Weak Return Impatience Factor
+
+0.990
+
+1−γ
+
+GM1−γ [ψ]
+
+Þ
+
+Modified Growth Patience Factor
+
+G/R
+
+≡
+
+Gu
+
+Absolute Patience Factor
+Growth Patience Factor
+
+≡
+
+Value
+
+≡
+
+(Rβ)
+Þ/R
+
+0.961
+
+≡
+
+Þ/G
+
+0.970
+
+≡
+
+≡
+
+1−γ
+
+βG
+
+0.980
+1−γ
+
+M1−γ [ψ]
+
+(℘βR)1/γ
+
+0.941
+0.071
+
+G
+
+be
+
+GIC-Mod
+
+℘1/ρ Þ
+
+because ℘ < 1
+
+ca
+us
+eψ
+
+<
+
+1a
+nd
+
+G
+
+≡
+
+GIC
+
+Þ
+
+ψG
+G
+
+FVAC
+
+R1/γ G1−1/γ
+RIC
+
+PFFVAC
+
+R
+
+FHWC
+
+because G < G
+
+WRIC
+
+FHWC
+
+1/γ 1−1/γ
+R
+G
+|
+{z
+}
+PFVAF
+
+Figure 8 Relation of All Inequality Conditions
+Refer to Table 3 for definitions of acronyms. See Table 2 for Numerical Values of Nodes Under Baseline Parameters
+where M1−γ [ψ] : = (E[ψ 1−γ ])1/(1−γ) < 1. If we require R ≥ 1, the weak return
+impatience is ‘redundant’ because now β < 1 < Rγ−1 , so that (with γ > 1 and β < 1)
+return impatience (and weak return impatience) must hold. But neither theory nor
+evidence demand that R ≥ 1. We can therefore approach the question of the relevance
+of weak return impatience by asking just how low R must be for the condition to be
+relevant. Suppose for illustration that γ = 2, M1−γ [ψ]1−γ = 1.01, G1−γ = 1.01−1 and
+℘ = 0.10. In that case (48) reduces to:
+β < 1 < (0.1β/R)1/2 ,
+
+(49)
+
+but since β < 1 by assumption, the binding requirement becomes:
+R < β/10,
+so that for example if β = 0.96 we would need R < 0.096 (that is, a perpetual riskfree
+rate of return of worse than -90 percent a year) in order for weak return impatience to
+be nonredundant.
+Perhaps the best way of thinking about this is to note that the space of parameter
+values for which the weak return impatience remains relevant shrinks out of existence
+as ℘ → 0, which Section 1.4.3 showed was the precise limiting condition under which
+behavior becomes arbitrarily close to the liquidity constrained solution (in the absence
+of other risks). On the other hand, when ℘ = 1, the consumer has no noncapital income
+(so finite human wealth holds) and with ℘ = 1 weak return impatience is identical to
+
+34
+
+weak return impatience. However, weak return impatience is the only condition required
+for a solution to exist for a perfect foresight consumer with no noncapital income. Thus
+weak return impatience forms a sort of ‘bridge’ between the liquidity constrained and
+the unconstrained problems as ℘ moves from 0 to 1.
+4.2.1 Behavior Under Cases of Conditions
+Case 1: Return impatience fails and growth impatience holds In the unconstrained perfect foresight problem (Section 1.3), return impatience was necessary for
+existence of a non-degenerate solution. It is surprising, therefore, that in the presence
+of uncertainty, the much weaker weak return impatience is sufficient for nondegeneracy
+(assuming that finite value of autarky holds). Given finite value of autarky, we can derive
+the features the problem must exhibit for return impatience to fail (that is, R < (Rβ)1/γ )
+(given that growth impatience holds) as follows:
+1/γ
+
+R < (Rβ)1/γ < (R(GM1−γ [ψ])γ−1 )
+⇒ R < (R/G)1/γ GM1−γ [ψ]1−1/γ
+⇒ R/G < M1−γ [ψ]
+
+(50)
+
+but since M1−γ [ψ] < 1 (for γ > 1 and non-degenerate ψ), this requires R/G < 1.
+Thus, given finite value of autarky, return impatience can fail only if human wealth is
+unbounded and growth impatience holds.34
+As in the perfect foresight constrained problem, unbounded limiting human wealth
+here does not lead to a degenerate limiting consumption function (finite human wealth
+is not required for Theorem 2). But, from equation (15) and the discussion surrounding
+it, an implication of the failure of return impatience is that lim c′ (m) = 0. Thus,
+m→∞
+
+interestingly, in this case (unavailable in the perfect foresight unconstrained) model the
+presence of uncertainty both permits unlimited human wealth (in the n → ∞ limit) and
+at the same time prevents unlimited human wealth from resulting in (limiting) infinite
+consumption (at any finite m). Intuitively, the utility-imposed ‘natural constraint’ that
+arises from the possibility of a zero income event prevents infinite borrowing and at
+the same time allows infinite human wealth to prevent patience from resulting, as it
+does under other conditions, in the degenerate c(m) = 0 as the terminal period recedes.
+Thus, in presence of uncertainty of the kind we assume, pathological patience (which
+in the perfect foresight model results in a limiting consumption function of c(m) = 0)
+plus unbounded human wealth (which the perfect foresight model prohibits because it
+leads to a limiting consumption function c(m) = ∞ for any finite m) combine to yield
+34
+
+This algebraically complicated conclusion could be easily reached diagrammatically in Figure 8
+by starting at the R node and imposing the failure of return impatience, which reverses the return
+impatience arrow and lets us traverse the diagram along any clockwise path to the perfect foresight
+finite value of autarky node at which point we realize that we cannot impose finite human wealth
+because that would let us conclude R > R.
+
+35
+
+a unique finite limiting (as n → ∞) level of consumption and MPC for any finite value
+of m.
+Note the close parallel to the conclusion in the perfect foresight liquidity constrained
+model in the case where return impatience fails (Case 3 in Section 4.1.1). There, too,
+the tension between infinite human wealth and pathological patience was resolved with
+a non-degenerate consumption function whose limiting MPC was zero.35
+Case 2: Return impatience holds and growth impatience holds with finite human
+wealth This is the benchmark case we presented at the start of the Section. If return
+impatience and finite human wealth both hold, a perfect foresight solution exists (Section
+1.3). As m → ∞ the limiting c and v functions become arbitrarily close to those in the
+perfect foresight model, because human wealth pays for a vanishingly small portion of
+spending (Section 1.4.1).
+Case 3: Return impatience holds and growth impatience holds with infinite
+human wealth The more exotic case is where finite human wealth fails but both growth
+impatience and return impatience also hold. In the unconstrained perfect foresight
+model, this is the degenerate case with limiting c̄(m) = ∞. Here, infinite human wealth
+and finite value of autarky implies that (perfect foresight) finite value of autarky holds
+and that Þ < G. To see why, traverse Figure 8 clockwise from Þ by imposing perfect
+foresight finite value of autarky to reach the PF-FVAF node. Because the bottom arrow
+pointing to the right, connecting the R and perfect foresight finite value of autarky nodes,
+imposes the failure of finite human wealth (and here we are assuming that condition
+holds), we can reverse the bottom arrow and traverse the resulting clockwise path from
+FVAC to see that
+(51)
+Þ < (R/G)1/γ G ⇒ Þ < G
+where the transition from the first to the second lines is justified because failure of finite
+human wealth implies ⇒ (R/G)1/γ < 1. So, under return impatience and finite human
+wealth, we must have growth impatience.
+However, we are not entitled to conclude that strong growth impatience holds: Þ < G
+does not imply Þ < M−1 [ψ]G where M−1 [ψ] < 1.
+We have now established the principal points of comparison between the perfect foresight solutions and the solutions under uncertainty; these are codified in the remaining
+parts of Tables 3 and 4.
+
+35
+
+Ma and Toda (2021) derive conditions under which the limiting MPC is zero in an even more
+general case where there is also capital income risk.
+
+36
+
+Table 3 Definitions and Comparisons of Patience Conditions
+Perfect Foresight Versions
+Uncertainty Versions
+Finite Limiting Human Wealth (FHWC)
+G/R < 1
+G/R < 1
+The growth factor for permanent income
+G must be smaller than the discounting
+factor R for human wealth to be finite.
+
+The model’s risks are mean-preserving
+spreads, so the PDV of future income is
+unchanged by their introduction.
+
+Absolute Impatience Condition
+Þ<1
+
+Þ<1
+
+The unconstrained consumer is
+sufficiently impatient that the level of
+consumption will be declining over time:
+
+If wealth is large enough, the expectation
+of consumption next period will be
+smaller than this period’s consumption:
+
+lim Et [ct+1 ] < ct
+
+ct+1 < ct
+
+mt →∞
+
+Return Impatience
+Return Impatience Condition (RIC)
+Þ/R < 1
+
+Weak RIC (WRIC)
+℘1/γ Þ/R < 1
+
+The growth factor for consumption Þ
+must be smaller than the discounting
+factor R, so that the PDV of current and
+future consumption will be finite:
+
+If the probability of the zero-income
+event is ℘ = 1 then income is always zero
+and the condition becomes identical to
+the RIC. Otherwise, weaker.
+
+c′ (m) = 1 − Þ/R < 1
+
+c′ (m) < 1 − ℘1/γ Þ/R < 1
+
+Growth Impatience
+Growth Impatience Condition (GIC)
+Strong Growth Impatience (GIC-Mod)
+Þ/G < 1
+ÞE[ψ −1 ]/G < 1
+For an unconstrained PF consumer, the
+ratio of c to p will fall over time. For
+constrained, guarantees the constraint
+eventually binds. Guarantees
+lim Et [ψt+1 mt+1 /mt ] = ÞG
+
+By Jensen’s inequality stronger than GIC.
+Ensures consumers will not expect to
+accumulate m unboundedly.
+
+lim Et [mt+1 /mt ] = ÞG E[ψ −1 ]
+
+mt ↑∞
+
+mt →∞
+
+Finite Value of Autarky
+PFFVAC
+βG1−γ < 1
+equivalently Þ < R1/γ G1−1/γ
+
+FVAC
+βG1−γ E[ψ 1−γ ] < 1
+
+The discounted utility of constrained
+consumers who spend their permanent
+income each period should be finite.
+
+By Jensen’s inequality, stronger than the
+PFFVAC because for γ > 1 and
+nondegenerate ψ, E[ψ 1−γ ] > 1.
+
+37
+
+Table 4 Sufficient Conditions for Nondegenerate‡ Solution
+Consumption Model(s)
+c̄(m): PF Unconstrained
+c(m) = κm
+
+Conditions
+RIC, FHWC◦
+
+Comments
+RIC⇒ |v(m)| < ∞; FHWC⇒ 0 < |v(m)|
+PF model with no human wealth (h = 0)
+
+RIC prevents c̄(m) = c(m) = 0
+FHWC prevents c̄(m) = ∞
+PFFVAC+FHWC ⇒ RIC
+GIC+FHWC ⇒ PFFVAC
+FHWC holds (G < Þ < R ⇒ G < R)
+c̀(m) = c̄(m) for m > m# < 1
+ would yield m = 0 so c̀(m) = 0)
+
+(
+RIC
+#
+κ(m) = κ
+GIC,RIC
+limm→∞ c̀(m) = c̄(m), limm→∞ κ̀
+kinks where horizon to b = 0 changes∗
+
+
+κ(m) = 0
+GIC,
+RIC
+limm→∞ κ̀
+kinks where horizon to b = 0 changes∗
+Section 1.4.1, c(m) < c(m) < c̄(m)
+Section 1.4.1
+v(m) < v(m) < v̄(m)
+FVAC, WRIC Sufficient for Contraction
+WRIC is weaker than RIC
+FVAC is stronger than PFFVAC
+
+FHWC+RIC
+⇒GIC, limm→∞ κ (m) = κ
+
+
+
+
+
+
+
+RIC ⇒
+FHWC, limm→∞ κ (m) = 0
+“Buffer Stock Saving” Conditions
+GIC ⇒ ∃ m̌ s.t. 0 < m̌ < ∞
+GIC-Mod ⇒ ∃ m̂ s.t. 0 < m̂ < ∞
+
+Section 1.3.1:
+Section 1.3.1:
+Eq (54):
+Eq (53):
+ RIC
+
+
+c̀(m): PF Constrained
+GIC,
+Section 4.1.1:
+Appendix D:
+Appendix D:
+c(m): Friedman/Muth
+Section 1:
+Section 4.2.1:
+Figure 8:
+Section 4.2.1:
+Section 4.2.1:
+Section 2.1:
+Theorem 4:
+Theorem 3:
+‡
+
+For feasible m satisfying 0 < m < ∞, a nondegenerate limiting consumption function defines a
+unique optimal value of c satisfying 0 < c(m) < ∞; a nondegenerate limiting value function defines a
+corresponding unique value of −∞ < v(m) < 0 .
+◦
+RIC, FHWC are necessary as well as sufficient for the perfect foresight case. ∗ That is, the first kink
+point in c(m) is m# s.t. for m < m# the constraint will bind now, while for m > m# the constraint
+will bind one period in the future. The second kink point corresponds to the m where the constraint
+will bind two periods in the future, etc.
+∗∗
+In the Friedman/Muth model, the RIC+FHWC are sufficient, but not necessary for nondegeneracy
+
+38
+
+5 Conclusions
+Numerical solutions to optimal consumption problems, in both life cycle and infinitehorizon contexts, have become standard tools since the first reasonably realistic models
+were constructed in the late 1980s. One contribution of this paper is to show that
+finite-horizon (‘life cycle’) versions of the simplest such models, with assumptions about
+income shocks (transitory and permanent) dating back to Friedman (1957) and standard specifications of preferences — and without plausible (but computationally and
+mathematically inconvenient) complications like liquidity constraints — have attractive
+properties (like continuous differentiability of the consumption function, and analytical
+limiting MPC’s as resources approach their minimum and maximum possible values).
+The main focus of the paper, though, is on the limiting solution of the finite-horizon
+model as the time horizon approaches infinity. This simple model has other appealing
+features: A ‘Finite Value of Autarky’ condition guarantees convergence of the consumption function, under the mild additional requirement of a ‘Weak Return Impatience
+Condition’ that will never bind for plausible parameterizations, but provides intuition
+for the bridge between this model and models with explicit liquidity constraints. The
+paper also provides a roadmap for the model’s relationships to the perfect foresight
+model without and with constraints. The constrained perfect foresight model provides
+an upper bound to the consumption function (and value function) for the model with
+uncertainty, which explains why the conditions for the model to have a non-degenerate
+solution closely parallel those required for the perfect foresight constrained model to
+have a non-degenerate solution.
+The main use of infinite-horizon versions of such models is in heterogeneous-agent
+macroeconomics. The paper articulates intuitive ‘Growth Impatience Conditions’ under
+which populations of such agents, with Blanchardian (tighter) or Modiglianian (looser)
+mortality will exhibit balanced growth. Finally, the paper provides the analytical basis
+for many results about buffer-stock saving models that are so well understood that even
+without analytical foundations researchers uncontroversially use them as explanations of
+real-world phenomena like the cross-sectional pattern of consumption dynamics in the
+Great Recession.
+
+References
+Abowd, John M., and David Card (1989): “On the Covariance Structure of Earnings
+and Hours Changes,” Econometrica, 57, 411–445.
+Aiyagari, S. Rao (1994): “Uninsured Idiosyncratic Risk and Aggregate Saving,”
+Quarterly Journal of Economics, 109, 659–684.
+Benhabib, Jess, Alberto Bisin, and Shenghao Zhu (2015): “The wealth
+distribution in Bewley economies with capital income risk,” Journal of Economic
+Theory, 159, 489–515, Available at https://www.nber.org/papers/w20157.pdf.
+
+39
+
+Bertsekas, D. (2012): Dynamic Programming and Optimal Control: Volume II;
+Approximate Dynamic Programming, Athena Scientific optimization and computation
+series. Athena Scientific.
+Blanchard, Olivier J. (1985): “Debt, Deficits, and Finite Horizons,” Journal of
+Political Economy, 93(2), 223–247.
+Boyd, John H. (1990): “Recursive Utility and the Ramsey Problem,” Journal of
+Economic Theory, 50(2), 326–345.
+Cao, Dan (2020): “Recursive equilibrium in Krusell and Smith (1998),” Journal of
+Economic Theory, 186, 104978.
+Carroll, Christopher D. (2019, Submitted): “Theoretical Foundations of Buffer
+Stock Saving,” Quantitative Economics.
+Carroll, Christopher D., Martin Holm, and Miles S. Kimball (2019): “Liquidity Constraints and Precautionary Saving,” Manuscript, Johns Hopkins University,
+https://www.econ2.jhu.edu/people/ccarroll/papers/LiqConstr.
+Carroll, Christopher D., and Miles S. Kimball (1996):
+“On the
+Concavity of the Consumption Function,” Econometrica, 64(4), 981–992, https:
+//www.econ2.jhu.edu/people/ccarroll/concavity.pdf.
+Carroll, Christopher D., and Andrew A. Samwick (1997): “The Nature of
+Precautionary Wealth,” Journal of Monetary Economics, 40(1), 41–71.
+Carroll, Christopher D., Jiri Slacalek, Kiichi Tokuoka, and Matthew N. White (2017): “The Distribution of Wealth and the Marginal
+Propensity to Consume,” Quantitative Economics, 8(3), 977–1020, At https:
+//llorracc.github.io/cstwMPC.
+Crawley, Edmund, Martin Blomhoff Holm, and Håkon Tretvoll (2022):
+“A Parsimonious Model of Idiosyncratic Income,” Finance and Economics Discussion
+Series 2022-026, Board of Governors of the Federal Reserve System.
+Daly, Moira, Dmytro Hryshko, and Iourii Manovskii (2016): “Improving the
+measurement of earnings dynamics,” Discussion paper, National Bureau of Economic
+Research.
+Deaton, Angus S. (1991): “Saving and Liquidity Constraints,” Econometrica, 59,
+1221–1248, https://www.jstor.org/stable/2938366.
+DeBacker, Jason, Bradley Heim, Vasia Panousi, Shanthi Ramnath, and
+Ivan Vidangos (2013): “Rising Inequality: Transitory or Persistent? New Evidence
+from a Panel of U.S. Tax Returns,” Brookings Papers on Economic Activity, Spring,
+67–122.
+
+40
+
+Feinberg, Eugene A, Pavlo O Kasyanov, and Nina V Zadoianchuk (2012):
+“Average Cost Markov Decision Processes with Weakly Continuous Transition
+Probabilities,” Mathematics of Operations Research, 37, 591–607.
+Friedman, Milton A. (1957): A Theory of the Consumption Function. Princeton
+University Press.
+Gourinchas, Pierre-Olivier, and Jonathan Parker (2002): “Consumption Over
+the Life Cycle,” Econometrica, 70(1), 47–89.
+Harmenberg, Karl (2021):
+“Aggregating heterogeneous-agent models with
+permanent income shocks,” Journal of Economic Dynamics and Control, 129, 104185.
+Hendricks, Lutz (2001): Bequests and Retirement Wealth in the United States.
+University of Arizona.
+(2016): “Wealth Distribution and Bequests,” Lecture Notes, Economics 821,
+University of North Carolina.
+Hryshko, Dmytro, and Iourii Manovskii (2020): “How much consumption
+insurance in the US?,” Manuscript, University of Alerta.
+Jappelli, Tullio, and Luigi Pistaferri (2000): “Intertemporal Choice and
+Consumption Mobility,” Econometric Society World Congress 2000 Contributed Paper
+Number 0118.
+Jaśkiewicz, Anna, and Andrzej S. Nowak (2011): “Discounted dynamic
+programming with unbounded returns: Application to economic models,” Journal
+of Mathematical Analysis and Applications, 378(2), 450–462.
+Li, Huiyu, and John Stachurski (2014): “Solving the income fluctuation problem
+with unbounded rewards,” Journal of Economic Dynamics and Control, 45, 353–365.
+Lillard, Lee A., and Yoram Weiss (1979): “Components of Variation in Panel
+Earnings Data: American Scientists 1960-70,” Econometrica, 47(2), 437–454.
+Ma, Qingyin, John Stachurski, and Alexis Akira Toda (2020): “The income
+fluctuation problem and the evolution of wealth,” Journal of Economic Theory, 187.
+(2022a): “Unbounded dynamic programming via the Q-transform,” Journal of
+Mathematical Economics, 100, 102652.
+(2022b): “Unbounded dynamic programming via the Q-transform,” Journal of
+Mathematical Economics, 100, 102652.
+Ma, Qingyin, and Alexis Akira Toda (2021): “A Theory of the Saving Rate of the
+Rich,” Journal of Economic Theory, 192, 105193.
+
+41
+
+MaCurdy, Thomas (1982): “The Use of Time Series Processes to Model the Error
+Structure of Earnings in a Longitudinal Data Analysis,” Journal of Econometrics,
+18(1), 83–114.
+Modigliani, Franco (1966): “The Life Cycle Hypothesis, the Demand for Wealth,
+and the Supply of Capital,” Social Research, 33, 160–217.
+Rabault, Guillaume (2002): “When do borrowing constraints bind? Some new
+results on the income fluctuation problem,” Journal of Economic Dynamics and
+Control, 26(2), 217–245.
+Riehl, Emily (2017): Category theory in context. Courier Dover Publications.
+Rincón-Zapatero, Juan Pablo (2024): “Existence and uniqueness ofsolutions to the
+Bellman equation in stochastic dynamic programming,” Theoretical Economics, 19(3),
+184–197.
+Shanker, Akshay (2017): “Existence of Recursive Constrained Optima in the
+Heterogenous Agent Neoclassical Growth Model,” SSRN Working Paper 3011662.
+Stachurski, J. (2022): Economic Dynamics, second edition: Theory and Computation.
+MIT Press.
+Sun, Yeneng, and Yongchao Zhang (2009): “Individual Risk and Lebesgue
+Extension Without Aggregate Uncertainty,” Journal of Economic Theory, 144, 432–
+443.
+Szeidl, Adam (2013): “Stable Invariant Distribution in Buffer-Stock Saving and Stochastic Growth Models,” Manuscript, Central European University.
+Yaari, Menahem E (1965): “Uncertain lifetime, life insurance, and the theory of the
+consumer,” The Review of Economic Studies, 32(2), 137–150.
+Zeldes, Stephen P. (1989): “Optimal Consumption with Stochastic Income:
+Deviations from Certainty Equivalence,” Quarterly Journal of Economics, 104(2), 275–
+298.
+
+42
+

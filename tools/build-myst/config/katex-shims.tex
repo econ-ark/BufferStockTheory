@@ -1,0 +1,61 @@
+% katex-shims.tex — KaTeX-friendly shims for LaTeX builtins and a handful of
+% paper macros that are defined inline in body .tex files (where Phase 00
+% wouldn't otherwise see them).
+%
+% Loaded LAST by Phase 00 (00_emit_math_macros.sh) so these definitions
+% override anything earlier. KaTeX has no native \ifthenelse, \ensuremath,
+% etc.; we substitute the closest renderable equivalent.
+
+% LaTeX builtins KaTeX rejects --------------------------------------------
+
+% \ensuremath{X} forces math mode in LaTeX; in KaTeX every macro body is
+% already in math mode, so it's a no-op pass-through.
+\renewcommand{\ensuremath}[1]{#1}
+
+% Conditional-content macros: paper sources use \ifthenelse{\boolean{Web}}
+% to render different content for HTML vs PDF. KaTeX has neither
+% \ifthenelse nor \boolean. Rather than provide stubs (which produced
+% subtle macro-expansion errors via #N argument leakage), short-circuit
+% the four wrapper macros directly to their PDF-mode branches: KaTeX is
+% rendering for HTML but we want the published math to match the PDF
+% paper exactly.
+\renewcommand{\PDFOnly}[1]{#1}
+\renewcommand{\WebOnly}[1]{}
+\renewcommand{\BothVersions}[2]{#2}
+\renewcommand{\BSTcondref}[2]{\textsf{\textrm{#2}}}
+
+% Paper macros defined inline in body files (not in @resources or @local) -
+
+% Introduction.tex:159 inlines this; surface it here so Phase 00 picks
+% it up regardless of whether body files are walked for definitions.
+\newcommand{\APFacRaw}{(\Rfree\DiscFac)^{1/\CRRA}}
+
+% \usual is defined in @local/local.sty as an empty
+% no-op marker; keep it as such for KaTeX so any usage renders nothing
+% rather than erroring.
+\newcommand{\usual}[1]{#1}
+
+% \cancel: KaTeX has \cancel built in, but some sources alias it via
+% \cncl (already provided by econark-shortcuts). Defensive provideCommand
+% — this is a no-op if \cancel is already in scope.
+\providecommand{\cancel}[1]{#1}
+
+% \colon: the version of KaTeX bundled with mystmd 1.8.x has an
+% incomplete \colon definition that calls \@binrel internally and
+% errors with "Can't use function '\@binrel' in text mode" whenever the
+% paper writes `\colon=` (definition-operator). Override with a plain
+% `:` glyph in math relation spacing — visually matches `:=` exactly.
+\renewcommand{\colon}{\mathrel{:}}
+
+% Symbol simplifications --------------------------------------------------
+% The econark sources define paper-symbol macros via deeply nested expansions
+% that mix text and math mode (e.g. \APFac -> \text{\pmb{\Thorn}} ->
+% \text{\pmb{\pmb{\TH}}}). KaTeX 1.8.x's renderer chokes on these mixings
+% with "Can't use function '\@binrel' in text mode" errors. Override each
+% with the literal Unicode character it represents — visually identical,
+% no expansion chain.
+\renewcommand{\Thorn}{Ϸ}
+\renewcommand{\APFac}{Ϸ}
+\renewcommand{\Pat}{Ϸ}
+\renewcommand{\APRte}{Ϸ}
+\renewcommand{\APFacRaw}{(\Rfree\DiscFac)^{1/\CRRA}}

@@ -1,0 +1,53 @@
+% econark math macros — shipped to MyST renderers via _static/econark-math-macros.tex
+% so KaTeX/MathJax can resolve macros that appear raw in the converted markdown.
+% Keep this list in sync with config/frontmatter-template.yml's `math:` block.
+
+\newcommand{\Rfree}{\mathsf{R}}
+\newcommand{\DiscFac}{\beta}
+\newcommand{\CRRA}{\rho}
+\newcommand{\PermGroFac}{\Gamma}
+\newcommand{\PermGroFacRnd}{\boldsymbol{\Gamma}}
+\newcommand{\TranShkFac}{\theta}
+\newcommand{\PermShkFac}{\psi}
+\newcommand{\Ex}{\mathbb{E}}
+
+\newcommand{\mLvl}{\mathbf{m}}
+\newcommand{\pLvl}{\mathbf{p}}
+\newcommand{\cLvl}{\mathbf{c}}
+\newcommand{\permLvl}{\mathbf{p}}
+
+\newcommand{\mNrm}{m}
+\newcommand{\cNrm}{c}
+\newcommand{\aNrm}{a}
+
+\newcommand{\vFunc}{v}
+\newcommand{\cFunc}{c}
+\newcommand{\vFuncLvl}{\mathbf{v}}
+\newcommand{\uFunc}{u}
+
+\newcommand{\APFac}{\unicode{1417}}
+\newcommand{\APFacRaw}{(\Rfree\DiscFac)^{1/\CRRA}}
+\newcommand{\Thorn}{\unicode{1417}}
+\newcommand{\RPFac}{\Thorn_{R}}
+\newcommand{\GPFacRaw}{\Thorn_{\Gamma}}
+\newcommand{\GPFacMod}{\Thorn_{\boldsymbol{\Gamma}}}
+
+\newcommand{\GIC}{\textsf{GIC}}
+\newcommand{\GICMod}{\textsf{GIC-Mod}}
+\newcommand{\GICNrm}{\textsf{GIC-Nrm}}
+\newcommand{\PFGIC}{\textsf{PF{-}GIC}}
+\newcommand{\PFGICMod}{\textsf{PF{-}GIC{-}Mod}}
+\newcommand{\FHWC}{\textsf{FHWC}}
+\newcommand{\FVAC}{\textsf{FVAC}}
+\newcommand{\PFFVAC}{\textsf{PF{-}FVAC}}
+\newcommand{\RIC}{\textsf{RIC}}
+\newcommand{\WRIC}{\textsf{WRIC}}
+
+\newcommand{\boundFunc}{\digamma}
+
+% Defensive fallback: \BSTcondref is the source-side conditional shim used
+% by named-condition macros in @local/local.sty. Phase 3d normally
+% intercepts the named-condition macros (\GIC, \FHWC, …) before they
+% reach the .md, but if a raw \BSTcondref slips through (e.g. via direct
+% usage in source body math), this gives KaTeX a renderable fallback.
+\newcommand{\BSTcondref}[2]{\textsf{#2}}

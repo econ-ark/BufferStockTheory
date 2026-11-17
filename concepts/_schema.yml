@@ -1,0 +1,96 @@
+# concepts/_schema.yml — schema for concept-atlas entries.
+#
+# Every file in concepts/ matching the pattern `<id>.yml` (and not
+# starting with `_`) must conform to this shape. The validator at
+# tools/concepts_validate.py enforces it.
+#
+# Fields are listed below in canonical order. `(required)` / `(optional)`
+# is marked at the top of each.
+
+# -- required fields ---------------------------------------------------
+
+# id (required, string, slug form)
+#   Must equal the filename stem. Lowercase, hyphen-separated.
+id: growth-impatience-condition
+
+# name (required, string)
+#   Human-readable title; preferred form for prose references.
+name: Growth Impatience Condition (GIC)
+
+# short (optional, string)
+#   Abbreviation. May appear inside `name` already; fine to repeat.
+short: GIC
+
+# defining_equation (required, mapping)
+#   anchor:  must be an `(X)=` anchor that exists in BufferStockTheory.md.
+#            Validator dereferences and confirms.
+#   latex:   the inequality / equation as it appears in source. Used
+#            verbatim by concepts_render.py for the rendered preview.
+#   english: prose paraphrase. Single sentence preferred.
+defining_equation:
+  anchor: eq-GICRaw
+  latex: \GPFacRaw < 1
+  english: 'The absolute patience factor falls short of the permanent income growth factor.'
+
+# gloss (required, multi-line string)
+#   ~3-6 sentence English-language explanation of the concept aimed at a
+#   mathematically-literate reader who hasn't read the paper yet.
+#   Convention: one paragraph = one (possibly long) line in the YAML,
+#   blank lines separate paragraphs. The renderer (concepts_render.py)
+#   normalises hard-wrapped lines back to flowing paragraphs anyway, so
+#   wrapping doesn't break anything; it's just easier to read in the
+#   rendered preview when the source is already unwrapped.
+gloss: |
+  Multi-paragraph explanation goes here. The render layer treats this as the "body" of the concept page.
+
+  Subsequent paragraphs after a blank line. Math like $\Ex[\permShk^{-1}]$ renders fine; KaTeX macros are loaded by the editor's preview extension via tools/katex_macros_for_mpe.py.
+
+# relations (required, list; may be empty)
+#   Typed cross-references to other concepts or paper anchors.
+#   `kind` MUST be one of:
+#     - implies
+#     - implied-by
+#     - assumed-by
+#     - requires
+#     - contrasts-with
+#     - special-case-of
+#     - generalises
+#     - calibrated-via
+#   `target` is either:
+#     - the `id` of another concepts/*.yml file, or
+#     - a paper anchor of the form `thm-X`, `ass-X`, `eq-X`, etc.
+#       (the validator checks the anchor exists in BufferStockTheory.md).
+#   `note` is optional prose.
+relations:
+  - kind: assumed-by
+    target: thm-MSSBalExists
+    note: 'Required for existence of the pseudo-target.'
+  - kind: contrasts-with
+    target: return-impatience-condition
+    note: 'GIC is about growth; RIC is about return.'
+
+# sources (required, list of {file, anchor})
+#   Where in the corpus this concept is defined / discussed.
+#   Anchors must exist in the named file. For now `file` is always
+#   `BufferStockTheory.md`.
+sources:
+  - file: BufferStockTheory.md
+    anchor: GICRaw
+  - file: BufferStockTheory.md
+    anchor: ass-GICRaw
+
+# -- optional fields ---------------------------------------------------
+
+# bellman_ddsl (optional, mapping)
+#   RESERVED, and currently DEFERRED for the ENTIRE atlas: every one of the 42
+#   concepts carries perch: '(deferred)', stage: '(deferred)'. The cross-repo
+#   correspondence with bellman-ddsl perches/stages has NOT been authored. Do not
+#   present DDSL correspondence as delivered while these values are '(deferred)'.
+#   The renderer (tools/concepts_render.py) prints an explicit "deferred" note on
+#   each concept page, and benchmark q17 tests cross-repo *retrieval*, not
+#   completed atlas metadata (see evaluation/benchmark.yml). Filling even a
+#   minimal high-confidence mapping requires the bellman-ddsl perch/stage
+#   vocabulary plus domain-expert approval — do not fabricate it.
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

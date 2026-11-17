@@ -1,0 +1,39 @@
+# Non-degenerate Limiting Solution
+
+## Defining equation
+
+Anchor: [`def-nondegeneracy`](../../BufferStockTheory.md#def-nondegeneracy)
+
+$$
+\usual{\cFunc}(\mNrm) =  \lim_{n \rightarrow \infty} \cFunc_{T-n}(\mNrm), \quad \usual{\vFunc}(\mNrm)  =  \lim_{n \rightarrow \infty} \vFunc_{T-n}(\mNrm), \qquad \mNrm \in \Reals_{++}
+$$
+
+*The limiting consumption and value functions are the pointwise limits of the finite-horizon solutions, with the limiting consumption function strictly positive and the limiting value function real-valued at every reachable resource level.*
+
+## Gloss
+
+This definition fixes the object whose existence the paper's first set of results is about. The normalized Bellman problem `eq-veqnNrmRecBellman` is said to have a *non-degenerate limiting solution* if, as the terminal period $T$ recedes ($n \to \infty$), the finite-horizon consumption and value functions converge pointwise to limits $\usual{\cFunc}\colon \Reals_{++} \to \Reals_{++}$ and $\usual{\vFunc}\colon \Reals_{++} \to \Reals$. The codomain restrictions carry the whole content of "non-degeneracy": $\usual{\cFunc}$ must be strictly positive (ruling out the degenerate limit $\usual{\cFunc} \equiv 0$, in which the consumer spends nothing) and $\usual{\vFunc}$ must be finite-valued (ruling out the degenerate limit $\usual{\cFunc} \equiv \infty$, in which unbounded human wealth finances unbounded consumption).
+
+The definition itself imposes no behavioural restrictions on preferences or the income process; it is purely a target. What *guarantees* that the target is hit is supplied separately by the existence theorem `thm-convgtobellman`, whose conclusion is precisely that $\cFunc$ and $\vFunc$ "are a limiting non-degenerate solution." Because a finite-valued fixed point of the stationary Bellman operator $\TMap$ defines such a limit (via the Bellman Principle of Optimality), the existence problem reduces to showing $\TMap$ has a fixed point — which is obstructed by the fact that the natural feasibility correspondence $\mNrm \mapsto (0,\mNrm)$ is not compact-valued.
+
+In the unconstrained perfect-foresight benchmark the two codomain requirements pin down exactly two conditions: a non-degenerate limiting solution exists *if and only if* finite human wealth (FHWC) and return impatience (RIC) both hold (proposition `prop-pfUCFHWC`). RIC is what prevents the degenerate $\usual{\cFunc} \equiv 0$, and FHWC is what prevents the degenerate $\usual{\cFunc} \equiv \infty$. As noted by [(Szeidl, 2013)](#cite-szeidlInvariant), the impatience condition $(\Rfree\DiscFac)<1$ commonly imposed in Bewley models is in general neither necessary nor sufficient for this non-degeneracy.
+
+## Relations
+
+- **requires** [return-impatience-condition](return-impatience-condition.md) — In the unconstrained perfect-foresight benchmark, RIC is necessary for a non-degenerate limiting solution; it rules out the degenerate limit $\usual{\cFunc}\equiv 0$ (prop-pfUCFHWC).
+- **requires** [finite-human-wealth-condition](finite-human-wealth-condition.md) — In the unconstrained perfect-foresight benchmark, FHWC is necessary for a non-degenerate limiting solution; it rules out the degenerate limit $\usual{\cFunc}\equiv \infty$ (prop-pfUCFHWC).
+- **implied-by** [nondegenerate-solution-existence](nondegenerate-solution-existence.md) — Under WRIC and FVAC the theorem's (thm-convgtobellman) conclusion is that the converged $\cFunc,\vFunc$ are a limiting non-degenerate solution, so those conditions are sufficient for the object defined here.
+- **contrasts-with** [buffer-stock-target](buffer-stock-target.md) — Non-degeneracy is the weaker, prior result (the solution exists and is finite/positive); the buffer-stock target is the stronger, subsequent result about stable dynamics of $\mNrm$.
+
+## Sources
+
+- [BufferStockTheory.md#def-nondegeneracy](../../BufferStockTheory.md#def-nondegeneracy)
+- [BufferStockTheory.md#eq-veqnNrmRecBellman](../../BufferStockTheory.md#eq-veqnNrmRecBellman)
+- [BufferStockTheory.md#thm-convgtobellman](../../BufferStockTheory.md#thm-convgtobellman)
+
+## bellman-ddsl correspondence
+
+> *Reserved field — the bellman-ddsl perch/stage mapping is **deferred** for every concept in this atlas; the cross-repo bridge has not been authored. This is not a delivered correspondence.*
+
+- perch: `(deferred)`
+- stage: `(deferred)`

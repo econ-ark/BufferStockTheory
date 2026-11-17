@@ -1,0 +1,33 @@
+id: absolute-impatience-condition
+name: Absolute Impatience Condition (AIC)
+short: AIC
+defining_equation:
+  anchor: ass-AIC
+  latex: \APFac < 1
+  english: 'The absolute patience factor is less than one — perfect-foresight consumption falls over time.'
+gloss: |
+  AIC says the absolute patience factor $\APFac := (\Rfree\DiscFac)^{1/\CRRA}$ is below 1. By the Euler equation of the perfect-foresight model, this is exactly the condition that consumption growth $\cLvl_{t+1}/\cLvl_{t} = \APFac$ is below 1 — the consumer would optimally choose to spend more today than tomorrow.
+
+  AIC is the simplest of the four named patience conditions: while RIC compares $\APFac$ to the gross interest factor $\Rfree$ and GIC compares it to the permanent income growth factor $\PermGroFac$, AIC compares it to 1. In standard income-fluctuation-literature notation, AIC corresponds to $\DiscFac\Rfree < 1$, which guarantees the existence of a stable asset distribution when there is no permanent income growth (Szeidl 2013; Ma-Stachurski-Toda 2022). With permanent income growth in the model, however, AIC is neither necessary nor sufficient for the paper's existence theorems — those use the more nuanced RIC, WRIC, and the FVAC/GIC family.
+
+  AIC is therefore a useful reference point and a sanity-check (does the consumer want to spend more today than tomorrow at all?) rather than a load-bearing condition for the main results.
+relations:
+  - kind: requires
+    target: absolute-patience-factor
+    note: 'AIC is defined in terms of $\APFac$.'
+  - kind: contrasts-with
+    target: return-impatience-condition
+    note: 'AIC compares $\APFac$ to 1; RIC compares it to $\Rfree$. RIC is the binding condition in the paper.'
+  - kind: contrasts-with
+    target: growth-impatience-condition
+    note: 'AIC compares $\APFac$ to 1; GIC compares it to $\PermGroFac$.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: AIC
+  - file: BufferStockTheory.md
+    anchor: ass-AIC
+  - file: BufferStockTheory.md
+    anchor: eq-APFac
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

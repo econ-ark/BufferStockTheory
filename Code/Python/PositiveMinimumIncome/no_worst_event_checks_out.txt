@@ -1,0 +1,71 @@
+=== (a) No point mass: xi_u = 0.3, unemployment probability 0.005; permanent shock = N equiprobable points of the truncated lognormal ===
+    (with N points the lowest point is above the infimum, so the limit binds below some x; that x goes to 0 as N grows)
+  no point mass, N=  7: limit h=0.7992  binds below x=8.841e-01  c(x)/x at x=1e-9: 1.000000  c(1)=1.1065  target=0.3741  pseudo-target=0.3975  a(target)=-0.6141  one root each, decreasing: True  six signs equal: True
+  no point mass, N= 15: limit h=0.7992  binds below x=8.775e-01  c(x)/x at x=1e-9: 1.000000  c(1)=1.1030  target=0.3850  pseudo-target=0.4095  a(target)=-0.6031  one root each, decreasing: True  six signs equal: True
+  no point mass, N= 50: limit h=0.7992  binds below x=8.708e-01  c(x)/x at x=1e-9: 1.000000  c(1)=1.1014  target=0.3909  pseudo-target=0.4157  a(target)=-0.5973  one root each, decreasing: True  six signs equal: True
+  no point mass, N=200: limit h=0.7992  binds below x=8.625e-01  c(x)/x at x=1e-9: 1.000000  c(1)=1.1010  target=0.3926  pseudo-target=0.4174  a(target)=-0.5956  one root each, decreasing: True  six signs equal: True
+  no point mass, N=800: limit h=0.7992  binds below x=8.453e-01  c(x)/x at x=1e-9: 1.000000  c(1)=1.1009  target=0.3931  pseudo-target=0.4179  a(target)=-0.5951  one root each, decreasing: True  six signs equal: True
+  point mass Phi(-3), N=  7: target=0.3814 pseudo-target=0.4049 c(1)=1.1050   difference from no point mass: target +7.32e-03, pseudo-target +7.35e-03
+  point mass Phi(-3), N= 15: target=0.3920 pseudo-target=0.4166 c(1)=1.1015   difference from no point mass: target +6.99e-03, pseudo-target +7.02e-03
+  point mass Phi(-3), N= 50: target=0.3976 pseudo-target=0.4225 c(1)=1.0999   difference from no point mass: target +6.72e-03, pseudo-target +6.76e-03
+  point mass Phi(-3), N=200: target=0.3991 pseudo-target=0.4240 c(1)=1.0996   difference from no point mass: target +6.48e-03, pseudo-target +6.57e-03
+  where the limit binds in the next-to-last period: R beta E[(G psi Y)^-rho] is finite iff E[(psi - inf)^-rho] is finite
+    permanent shock = 0.7 + 0.6 Beta(1.0,1.0): E[(psi - inf)^-rho ; psi - inf > eps] for eps = 1e-3,1e-5,1e-7,1e-9: 2775, 2.778e+05, 2.778e+07, 2.5e+09   (finite iff 1.0 > rho = 2.0: False)
+    permanent shock = 0.7 + 0.6 Beta(2.0,2.0): E[(psi - inf)^-rho ; psi - inf > eps] for eps = 1e-3,1e-5,1e-7,1e-9: 98.48, 175.2, 252, 328.7   (finite iff 2.0 > rho = 2.0: False)
+    permanent shock = 0.7 + 0.6 Beta(2.5,2.5): E[(psi - inf)^-rho ; psi - inf > eps] for eps = 1e-3,1e-5,1e-7,1e-9: 42.06, 44.21, 44.42, 44.44   (finite iff 2.5 > rho = 2.0: True)
+    permanent shock = 0.7 + 0.6 Beta(3.0,3.0): E[(psi - inf)^-rho ; psi - inf > eps] for eps = 1e-3,1e-5,1e-7,1e-9: 27.69, 27.78, 27.78, 27.78   (finite iff 3.0 > rho = 2.0: True)
+    permanent shock = 0.7 + 0.6 Beta(4.0,4.0): E[(psi - inf)^-rho ; psi - inf > eps] for eps = 1e-3,1e-5,1e-7,1e-9: 19.44, 19.44, 19.44, 19.44   (finite iff 4.0 > rho = 2.0: True)
+
+=== The bound c <= cbar and the key inequality of the existence proof (no point mass, N=200) ===
+  beta E[Gtilde^(1-rho)] = 0.9414 (finite value of autarky); theta = 1 - G psi_min/R = 0.2729; alpha = 0.9707; delta = 0.5949; zeta = 54.01
+  key inequality: max over x and both extreme horizons of beta E[Gtilde^(1-rho) F(x')] / (alpha F(x)) at a = abar(x): 0.9752 (must be <= 1)
+  c_t <= cbar at horizons 1..40 and in the limit: max(c_t - cbar) = 0.00e+00 (<= 0 up to interpolation); min(c_t - c_lower) = 9.851e-07 (>= 0)
+
+=== Existence needs only finite value of autarky: return impatience fails (R=0.95), no point mass, xi_u = 0.05 ===
+  return patience factor 1.0052 (return impatience fails); beta E[Gtilde^(1-rho)] = 0.9414; G psi_min/R = 0.7959; iterations 83
+  c at x = 0.5, 1, 2, 5, 20: [0.5     0.91772 1.26362 1.69336 2.80013];  c(x)/x at 1e-9: 1.000000;  c(300)/300 = 0.0386
+  targets: limit h=0.1950  binds below x=5.305e-01  c(x)/x at x=1e-9: 1.000000  c(1)=1.0229  target=0.9580  pseudo-target=0.9588  a(target)=-0.0451  one root each, decreasing: True  six signs equal: True
+
+=== The restrained consumer as the limit when the unemployment probability goes to zero ===
+  xi_u=0.3, point mass at the infimum: restrained consumer's limit binds below x = 0.9250; c(x)/x at 1e-9 = 1.0000
+     p=  5e-02: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 1.16e-01 1.25e-01 1.22e-01;  in the limit: 1.18e-01
+     p=  5e-03: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 3.89e-02 3.90e-02 3.15e-02;  in the limit: 2.56e-02
+     p=  5e-04: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 8.68e-03 7.34e-03 6.11e-03;  in the limit: 4.90e-03
+     p=  5e-05: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 1.32e-03 2.00e-03 1.53e-03;  in the limit: 1.38e-03
+     p=  5e-06: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 4.05e-04 7.30e-04 3.69e-04;  in the limit: 4.52e-04
+  xi_u=0.3, no point mass (N=50): restrained consumer's limit binds below x = 0.9211; c(x)/x at 1e-9 = 1.0000
+     p=  5e-02: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 1.16e-01 1.25e-01 1.20e-01;  in the limit: 1.16e-01
+     p=  5e-03: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 3.90e-02 4.00e-02 3.11e-02;  in the limit: 2.44e-02
+     p=  5e-04: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 8.79e-03 7.07e-03 4.07e-03;  in the limit: 2.85e-03
+     p=  5e-05: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 1.20e-03 7.15e-04 4.25e-04;  in the limit: 2.92e-04
+     p=  5e-06: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 1.27e-04 7.26e-05 4.25e-05;  in the limit: 2.93e-05
+  xi_u=0 (the claim of the text): restrained consumer's limit binds below x = 0.9769; c(x)/x at 1e-9 = 1.0000
+     p=  5e-02: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 2.10e-01 2.62e-01 2.91e-01;  in the limit: 2.96e-01
+     p=  5e-03: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 1.01e-01 1.22e-01 1.33e-01;  in the limit: 1.36e-01
+     p=  5e-04: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 4.64e-02 5.51e-02 5.88e-02;  in the limit: 5.97e-02
+     p=  5e-05: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 2.08e-02 2.42e-02 2.52e-02;  in the limit: 2.56e-02
+     p=  5e-06: max |c_t(.;p) - restrained| at horizons 1, 2, 6: 8.99e-03 1.02e-02 1.06e-02;  in the limit: 1.09e-02
+
+=== (c) The constraint c <= m kept in every period, with xi_u > 0 ===
+  artificial, xi_u=0.05, point-mass law: limit h=0.0000  binds below x=5.604e-01  c(x)/x at x=1e-9: 1.000000  c(1)=0.8860  target=1.3179  pseudo-target=1.3068  a(target)=0.3119  one root each, decreasing: True  six signs equal: True
+  artificial, xi_u=0.30, point-mass law: limit h=0.0000  binds below x=9.459e-01  c(x)/x at x=1e-9: 1.000000  c(1)=0.9677  target=1.1001  pseudo-target=1.0967  a(target)=0.0982  one root each, decreasing: True  six signs equal: True
+  artificial, xi_u=0.50, point-mass law: limit h=0.0000  binds below x=9.688e-01  c(x)/x at x=1e-9: 1.000000  c(1)=0.9814  target=1.0523  pseudo-target=1.0509  a(target)=0.0513  one root each, decreasing: True  six signs equal: True
+  against HARK (BoroCnstArt=0, IncUnemp=0.3, HARK's equiprobable laws): max |c - c_HARK| = 3.59e-05; constraint binds below m = 0.9466
+  targets: here 1.0979, 1.0947; HARK mNrmTrg=1.0979 mNrmStE=1.0948
+
+=== Finite value of autarky and G psi_min < R imply weak return impatience at the probability of the worst event (xi_u > 0) ===
+  random draws satisfying both hypotheses: 54221; violations of (p_worst)^(1/rho) * return patience factor < 1: 0; largest value 0.9732
+
+=== Minimum human wealth not finite (G psi_min >= R): consumption is flat in resources, relative to its level ===
+  return impatience holds: G psi_min/R = 1.0205; R beta E[Gtilde^-rho] = 0.6856 (a constant limit would need exactly 1)
+     n=  5: limit -     0.266  c_n(1)=   1.1085  c_n(5)/c_n(1)=2.05539  bound 1 + 4/(1+h) = 4.16002
+     n= 20: limit -     1.246  c_n(1)=   1.6482  c_n(5)/c_n(1)=1.60231  bound 1 + 4/(1+h) = 2.78080
+     n= 50: limit -     4.379  c_n(1)=   2.8671  c_n(5)/c_n(1)=1.29606  bound 1 + 4/(1+h) = 1.74368
+     n=100: limit -    16.466  c_n(1)=   6.7850  c_n(5)/c_n(1)=1.10911  bound 1 + 4/(1+h) = 1.22901
+     n=200: limit -   141.948  c_n(1)=  44.1688  c_n(5)/c_n(1)=1.01528  bound 1 + 4/(1+h) = 1.02798
+  return impatience fails, APF >= G psi_min: G psi_min/R = 1.0205; R beta E[Gtilde^-rho] = 0.7856 (a constant limit would need exactly 1)
+     n=  5: limit -     0.266  c_n(1)=   1.0605  c_n(5)/c_n(1)=1.84993  bound 1 + 4/(1+h) = 4.16002
+     n= 20: limit -     1.246  c_n(1)=   1.5099  c_n(5)/c_n(1)=1.45793  bound 1 + 4/(1+h) = 2.78080
+     n= 50: limit -     4.379  c_n(1)=   2.4899  c_n(5)/c_n(1)=1.22902  bound 1 + 4/(1+h) = 1.74368
+     n=100: limit -    16.466  c_n(1)=   5.5702  c_n(5)/c_n(1)=1.08586  bound 1 + 4/(1+h) = 1.22901
+     n=200: limit -   141.948  c_n(1)=  34.6449  c_n(5)/c_n(1)=1.01212  bound 1 + 4/(1+h) = 1.02798

@@ -1,0 +1,18 @@
+# The numerical settings the default methods file of natural.bl reads (declaration/stages/natural/methods.bl).
+# - Nodes: seven per shock, the paper's seven equiprobable points for the continuous part of each law (the appendix
+#   "Positive Minimum Income", subsection "An Example"); the zero-income event's point mass is exact and needs none.
+# - Grids: 960 points from 0.001 to 20 for the savings a and for the assets k, the grids of the HARK solution of this
+#   model in the QuantEcon community library that Bellman's buffer-stock application uses
+#   (econ-ark/bellman, applications/buffer-stock/declaration/settings/buffer_stock.yml). The savings must stay
+#   above −h_min[>], which is zero here (a > 0), so the grid starts just above zero. Each grid is stated by its bounds
+#   and its count; the paper's HARK notebook nests its grid exponentially, a choice this language states by a spacing
+#   word, not used here.
+settings:
+  n_ψ_nodes: 7
+  n_ξ_nodes: 7
+  n_a: 960
+  a_min: 0.001
+  a_max: 20.0
+  n_k: 960
+  k_min: 0.001
+  k_max: 20.0

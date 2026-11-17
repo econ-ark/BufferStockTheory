@@ -1,0 +1,49 @@
+# Named-condition macros: text-mode occurrences are replaced with English glosses
+# by Phase 8b (08b_named_condition_glosses.py).
+#
+# `short`: surface form used everywhere ("the GIC", "the FHWC")
+# `long`:  English long form; injected parenthetically on FIRST occurrence only.
+#
+# Math-mode occurrences ($\GIC$, $\PFGIC$, etc.) are NOT touched: they remain
+# raw inside `$...$` and are resolved by KaTeX/MathJax via
+# config/econark-math-macros.tex.
+
+GIC:
+  short: GIC
+  long: growth impatience condition
+
+GICMod:
+  short: GIC-Mod
+  long: modified growth impatience condition
+
+GICNrm:
+  short: GIC-Nrm
+  long: normalized growth impatience condition
+
+PFGIC:
+  short: PF-GIC
+  long: perfect-foresight growth impatience condition
+
+PFGICMod:
+  short: PF-GIC-Mod
+  long: modified perfect-foresight growth impatience condition
+
+FHWC:
+  short: FHWC
+  long: finite human wealth condition
+
+FVAC:
+  short: FVAC
+  long: finite value of autarky condition
+
+PFFVAC:
+  short: PF-FVAC
+  long: perfect-foresight finite value of autarky condition
+
+RIC:
+  short: RIC
+  long: return impatience condition
+
+WRIC:
+  short: WRIC
+  long: weak return impatience condition

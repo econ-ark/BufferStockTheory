@@ -1,0 +1,184 @@
+Theoretical Foundations of Buffer Stock Saving
+Chris Carroll
+Johns Hopkins University
+
+September 12, 2019
+Powered By
+
+Introduction
+
+Motivation
+
+Drawbacks of Numerical Solutions
+A Black Box
+Can Construct Solution to Model Without Really Understanding It
+Hard Even To Be Sure Your Numerical Solution Is Right
+Little Intuition for How Results Might Change With
+Calibration
+Structure
+Þ
+
+Very Hard To Teach!
+I Am A Big Fan Of Numerical Methods
+Have Done A Good Deal Of Work With Them Myself
+But As A Result, Have Felt All These Drawbacks Keenly
+
+Carroll
+
+Buffer Stock Theory
+
+Introduction
+
+Motivation
+
+Drawbacks of Numerical Solutions
+A Black Box
+Can Construct Solution to Model Without Really Understanding It
+Hard Even To Be Sure Your Numerical Solution Is Right
+Little Intuition for How Results Might Change With
+Calibration
+Structure
+Þ
+
+Very Hard To Teach!
+I Am A Big Fan Of Numerical Methods
+Have Done A Good Deal Of Work With Them Myself
+But As A Result, Have Felt All These Drawbacks Keenly
+
+Carroll
+
+Buffer Stock Theory
+
+Introduction
+
+Motivation
+
+Drawbacks of Numerical Solutions
+A Black Box
+Can Construct Solution to Model Without Really Understanding It
+Hard Even To Be Sure Your Numerical Solution Is Right
+Little Intuition for How Results Might Change With
+Calibration
+Structure
+Þ
+
+Very Hard To Teach!
+I Am A Big Fan Of Numerical Methods
+Have Done A Good Deal Of Work With Them Myself
+But As A Result, Have Felt All These Drawbacks Keenly
+
+Carroll
+
+Buffer Stock Theory
+
+Introduction
+
+Motivation
+
+Drawbacks of Numerical Solutions
+A Black Box
+Can Construct Solution to Model Without Really Understanding It
+Hard Even To Be Sure Your Numerical Solution Is Right
+Little Intuition for How Results Might Change With
+Calibration
+Structure
+Þ
+
+Very Hard To Teach!
+I Am A Big Fan Of Numerical Methods
+Have Done A Good Deal Of Work With Them Myself
+But As A Result, Have Felt All These Drawbacks Keenly
+
+Carroll
+
+Buffer Stock Theory
+
+Introduction
+
+Motivation
+
+The Gap This Paper Fills
+
+Foundations For Microeconomic Household’s Problem With
+Uncertain Labor Income
+No Liquidity Constraints
+CRRA Utility
+(Problem with Liquidity Constraints Is A Limiting Case)
+
+Carroll
+
+Buffer Stock Theory
+
+Introduction
+
+Motivation
+
+The Gap This Paper Fills
+
+Foundations For Microeconomic Household’s Problem With
+Uncertain Labor Income
+No Liquidity Constraints
+CRRA Utility
+(Problem with Liquidity Constraints Is A Limiting Case)
+
+Carroll
+
+Buffer Stock Theory
+
+Introduction
+
+Motivation
+
+Key Result
+
+Restrictions On Parameter Values Such That
+Problem Defines A Contraction Mapping
+⇒ ∃ A Unique Consumption Function c(m)
+
+There Is A ‘Target’ Ratio Of Assets to Permanent Income
+Requires A Key ‘Impatience’ Condition To Hold
+Good News
+Condition Is Weaker (Easier To Satisfy) Than Previous Papers Imposed
+
+Carroll
+
+Buffer Stock Theory
+
+Introduction
+
+Motivation
+
+Key Result
+
+Restrictions On Parameter Values Such That
+Problem Defines A Contraction Mapping
+⇒ ∃ A Unique Consumption Function c(m)
+
+There Is A ‘Target’ Ratio Of Assets to Permanent Income
+Requires A Key ‘Impatience’ Condition To Hold
+Good News
+Condition Is Weaker (Easier To Satisfy) Than Previous Papers Imposed
+
+Carroll
+
+Buffer Stock Theory
+
+Introduction
+
+Motivation
+
+Key Result
+
+Restrictions On Parameter Values Such That
+Problem Defines A Contraction Mapping
+⇒ ∃ A Unique Consumption Function c(m)
+
+There Is A ‘Target’ Ratio Of Assets to Permanent Income
+Requires A Key ‘Impatience’ Condition To Hold
+Good News
+Condition Is Weaker (Easier To Satisfy) Than Previous Papers Imposed
+
+Carroll
+
+Buffer Stock Theory
+
