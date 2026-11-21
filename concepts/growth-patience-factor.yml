@@ -1,0 +1,34 @@
+id: growth-patience-factor
+name: Growth Patience Factor (GPF)
+short: GPF
+defining_equation:
+  anchor: eq-GPFacRaw
+  latex: \GPFacRaw := \APFac/\PermGroFac
+  english: 'Ratio of the absolute patience factor to the (unconditional) permanent-income growth factor.'
+gloss: |
+  The growth patience factor $\GPFacRaw := \APFac/\PermGroFac$ is the patience-factor analogue of the consumption-growth-vs-income-growth comparison: it asks how the consumer's preferred consumption-growth rate (encoded in $\APFac$) compares to the expected permanent-income growth rate $\PermGroFac$. When the ratio is below 1, consumption is growing more slowly than permanent income, so the wealth-to-permanent-income ratio drifts down — exactly the condition the GIC turns into a formal assumption.
+
+  $\GPFac$ and $\GPFacRaw$ are macro aliases for the same quantity (both bodies are `\APFac/\PermGroFac`); the "Raw" suffix emphasises that this is the *unmodified* factor — the non-stochastic version. Its modified sibling $\GPFacMod := \Ex[\APFac/(\PermGroFac \permShk)]$ takes the expectation over the permanent shock and is what GIC-Mod tests against 1.
+
+  Operationally, GPF is one of *four* patience factors the paper tests against 1: $\APFac$ itself (AIC), $\GPFacRaw = \APFac/\PermGroFac$ (GIC), $\GPFacMod = \APFac/\PermGroFacAdj$ (GIC-Mod), and $\RPFac = \APFac/\Rfree$ (RIC). All four share the common numerator $\APFac$ and differ only in their denominators — the four rates against which "is the consumer patient enough?" gets asked: $1$, $\PermGroFac$, $\PermGroFacAdj$, $\Rfree$.
+relations:
+  - kind: requires
+    target: absolute-patience-factor
+    note: '$\GPFac = \APFac/\PermGroFac$ is built from $\APFac$.'
+  - kind: assumed-by
+    target: growth-impatience-condition
+    note: 'GIC is exactly the inequality $\GPFacRaw < 1$.'
+  - kind: contrasts-with
+    target: modified-growth-patience-factor
+    note: 'GPF uses denominator $\PermGroFac$; GPF-Mod uses the harmonic-mean uncertainty-adjusted version $\PermGroFacAdj := \PermGroFac/\Ex[1/\permShk]$. Since $\PermGroFacAdj \leq \PermGroFac$, GPF-Mod $\geq$ GPF.'
+  - kind: contrasts-with
+    target: return-patience-factor
+    note: 'GPF and RPF share the numerator $\APFac$ and differ in denominator: GPF uses $\PermGroFac$, RPF uses $\Rfree$.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: GPFacRawDefn
+  - file: BufferStockTheory.md
+    anchor: eq-GPFacRaw
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

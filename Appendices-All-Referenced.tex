@@ -1,0 +1,39 @@
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{.econtexRoot}
+\documentclass[BufferStockTheory]{subfiles}
+\usepackage{econark-ifsubfile}
+
+\xrsetup{\econtexRoot/\texname}
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
+
+\begin{document}
+\appendix % Declare beginning of appendices
+\addcontentsline{toc}{section}{Appendices} % print label "Appendices"
+
+\hypertarget{Appendices}{}       % Creates link to [url-of-paper]#Appendices
+\ifthenelse{\boolean{Web}}{}{    % Web version has no page headers
+  \chead[Appendices]{Appendices} % unlike {Web} PDF version does
+  \appendixpage                  % Reset formatting for appendices on Web
+} % Web
+
+Below are the paper's appendices referenced in the text.
+% Each appendix ends with \ifSubfilesClassLoaded{...\bibliography...}{} for its own standalone
+% build. This file is itself a subfiles document, so that test is true for them here too, and
+% each would add a \bibdata (with a path relative to Appendices/) and a reference list. Silence
+% theirs while they are included; this file issues the one bibliography below.
+\let\ApndxAllRefBibliography\bibliography
+\renewcommand{\bibliography}[1]{}
+\subfile{\ApndxDir/ApndxConcaveCFunc}
+\subfile{\ApndxDir/ApndxMTargetIsStable}
+\subfile{\ApndxDir/ApndxBalancedGrowthcNrmAndCov}
+\subfile{\ApndxDir/ApndxLiqConstr}
+\subfile{\ApndxDir/ApndxPositiveMinimumIncome}
+\subfile{\ApndxDir/ApndxConditionDiagrams}
+\subfile{\ApndxDir/ApndxSupportingAnalysis}
+\let\bibliography\ApndxAllRefBibliography
+
+\pagebreak
+%\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{}\econarkcollectbibs{\econtexRoot/\texname}\bibliography{\bibfiles}\end{document}
+\ifSubfilesClassLoaded{\bibfilesfind{\texname}\bibliography{\bibfilesfound}}{}
+
+\end{document}

@@ -1,0 +1,30 @@
+# The baseline calibration of the problem with uncertainty, in the names of natural.bl: the table "Microeconomic Model
+# Calibration" of Theoretical Foundations of Buffer Stock Saving (Tables/Parameters.tex), an annual period.
+# - From the table as it stands: Γ 1.03 (𝒢), R 1.04, β 0.96, ρ 2 (ϱ), and the probability of zero income ℘ 0.005
+#   (p_zero). Lives are infinite, so ℒ = 1.
+# - Solved for, from the table's standard deviations of the log shocks, 0.1 each: each shock is a lognormal of mean one
+#   truncated at three standard deviations of its log, and its standard deviation after truncation is 0.1. That is
+#   the construction of the appendix "Positive Minimum Income", subsection "An Example", and it agrees with the bounded
+#   support of the paper's assumption on the shocks. The scale before truncation is then s = 0.10136…, the location
+#   μ = −0.004999… (so that the mean is one), and the bounds exp(μ ∓ 3s) = 0.7341… and 1.3486…. θ has the same law
+#   as ψ. Checked 2026-11-14: these values give a standard deviation of log 0.1 after truncation and a mean of 1.
+# - The same numbers as llorracc/wg1-buffer-stock's schemas/bst/natural/bellman/community-library.yml, and as its
+#   checker's calibration of the member bst-p-zero-0.005 (check.py --bellman-calibration 0).
+# The text's figures were computed by BufferStockTheory.ipynb under an old HARK, with laws that are not truncated, so
+# its numbers differ slightly from a solution of this calibration. The derived parameters of natural.bl (ξ_scale, μ_ξ,
+# ξ_emp_min, ξ_emp_max) are computed when the stage is calibrated and are not given here.
+calibration:
+  β: 0.96
+  ℒ: 1.0
+  ϱ: 2.0
+  R: 1.04
+  𝒢: 1.03
+  μ_ψ: -0.004999286685676656
+  s_ψ: 0.10136041976422071
+  ψ_min: 0.7341216370993559
+  ψ_max: 1.3486201688530763
+  μ_θ: -0.004999286685676656
+  s_θ: 0.10136041976422071
+  θ_min: 0.7341216370993559
+  θ_max: 1.3486201688530763
+  p_zero: 0.005

@@ -1,0 +1,46 @@
+id: finite-value-of-autarky
+name: Finite Value of Autarky (FVAC)
+short: FVAC
+defining_equation:
+  anchor: ass-FVAC
+  latex: 0 < \DiscFac \PermGroFac^{1-\CRRA}\Ex(\permShk^{1-\CRRA}) < 1
+  english: 'The discounted, growth-adjusted, shock-adjusted utility weight is in (0, 1).'
+gloss: |
+  FVAC generalises the standard $\DiscFac < 1$ time-preference assumption to a setting with permanent income growth and uncertainty. It states that the discount factor times the permanent-growth factor (raised to $1-\CRRA$) times the expectation of the permanent shock (raised to $1-\CRRA$) lies strictly between 0 and 1.
+
+  The condition has the operational meaning that the expected net discounted utility a consumer gets from "autarky" — consuming exactly permanent income every period — is finite. (Under CRRA utility with $\CRRA>1$ the autarky value is itself *negative*; the $0<$ in `ass-FVAC` bounds the discounted-utility *weight* into $(0,1)$, not the value itself — the autarky *level* value $\vFuncLvl_{t}$, which for $\CRRA>1$ is finite and negative.) A finite value of autarky guarantees that as the horizon extends, the discounted value of utility remains finite along *any* consumption path the consumer might choose, which is the central technical requirement for the contraction-mapping arguments underlying existence of an infinite-horizon solution.
+
+  Under finite human wealth (FHWC), the perfect-foresight patience chain [pf-consumption-function-properties](#pf-consumption-function-properties) shows GIC ⇒ FVAC ⇒ RIC — a chain that runs through the *perfect-foresight reduction* PF-FVAC ($\DiscFac\PermGroFac^{1-\CRRA}<1$, `eq-PFFVAC`), since under perfect foresight FVAC collapses to PF-FVAC; the (uncertainty) FVAC defined here is strictly *stronger* than PF-FVAC (the paper notes "FVAC is stronger than PF-FVAC"). FVAC itself is the condition that all three of the stochastic-problem existence theorems (`pseudo-target-existence`, `buffer-stock-target`, and `contraction-mapping-consumption-bounds`) require.
+relations:
+  - kind: implied-by
+    target: growth-impatience-condition
+    note: 'Under FHWC, GIC implies FVAC via the perfect-foresight chain claim-PFConspC (concept pf-consumption-function-properties); strictly, GIC delivers the perfect-foresight reduction PF-FVAC, and the uncertainty FVAC is the stronger condition.'
+  - kind: implies
+    target: return-impatience-condition
+    note: 'Under FHWC, FVAC implies RIC (claim-PFConspC, concept pf-consumption-function-properties).'
+  - kind: implied-by
+    target: pf-consumption-function-properties
+    note: 'Reciprocal edge: under FHWC the perfect-foresight patience chain (claim-PFConspC) gives GICRaw⇒FVAC, so the chain delivers FVAC (its PF reduction PFFVAC).'
+  - kind: assumed-by
+    target: pseudo-target
+    note: 'Pseudo-target existence theorem requires FVAC (with WRIC and GIC).'
+  - kind: assumed-by
+    target: buffer-stock-target
+    note: 'Buffer-stock target existence theorem requires FVAC (with WRIC and GIC-Mod).'
+  - kind: assumed-by
+    target: pseudo-target-existence
+    note: 'Reciprocal edge: the pseudo-target existence theorem (thm-MSSBalExists) requires FVAC (with WRIC and GIC).'
+  - kind: assumed-by
+    target: contraction-mapping-consumption-bounds
+    note: 'Reciprocal edge: the contraction-mapping theorem (thm-cmap) requires FVAC, which forces the second term of the shrink factor below one, giving a strict contraction modulus.'
+  - kind: special-case-of
+    target: stochastic-discount-factor-mst
+    note: 'Per footnote 19 / remark-stochdiscMST, the FVAC discount condition is a special case of MST (2020) Assumption 2.1 (which the paper calls a generalization of it). The accompanying contrast: MST impose an artificial liquidity constraint, whereas FVAC here keeps the natural constraint.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: FVAC
+  - file: BufferStockTheory.md
+    anchor: ass-FVAC
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

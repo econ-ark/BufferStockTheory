@@ -1,0 +1,772 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+
+\newcommand{\subname}{TheoreticalFoundations}
+\input{\econtexRoot/@local/dir-paths}
+\usepackage{econark-ifsubfile}
+\usepackage{econark-xrsetup}
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
+
+\xrsetup{\econtexRoot/\texname}
+
+\begin{document}
+
+\hypertarget{The-Problem}{}
+\section{Theoretical Foundations}\label{sec:Theory}
+
+This section formalizes the consumer income fluctuation problem and proves the existence of a limiting non-degenerate solution. In doing so, we also introduce our consumer patience conditions and use them to derive the consumer's MPCs. The MPCs are formulae, for any period $t$ earlier than the terminal period $T$, for the maximum and minimum MPCs as wealth approaches zero and infinity.  If the environment is that of an infinite-horizon `income fluctuation problem,' our formulae yield the limiting upper and lower bounds of the limiting non-degenerate solution.
+
+%% Text before latest AS pass: "This section formalizes our problem and derives formulae, for any period $t$ earlier than the terminal period $T$, for the maximum and minimum MPCs as wealth approaches zero and infinity (these formulae are derived recursively backward from $T$).  If the environment is that of an infinite-horizon `income fluctuation problem,' our formulae yield the limiting upper and lower bounds of the non-degenerate stationary solution."
+
+We first state the finite horizon problem and then define the limiting solution as the limit of finite horizon solutions as the terminal period becomes arbitrarily distant. This way, the economic intuition of limiting consumer behaviour can be directly linked to consumer behaviour in life-cycle models (see \cite{gpLifeCycle} for an instance where buffer stock saving is discussed in the context of a life-cycle model). Nonetheless for the class of problems we consider, a non-degenerate limiting solution, if it exists, is mathematically equivalent (\cite{bertsekas2012dynamic}, Ch. 1.) to a stationary solution to an infinite stochastic sequence problem commonly used in the literature (for example, \cite{mstIncFluct}). 
+
+\label{sec:Foundations}
+\subsection{Setup}\label{subsec:Setup}
+
+We start by stating the consumer problem with permanent income growth in levels and then normalize by permanent income. The normalized problem then becomes the subject of our formal results in the paper. 
+
+Our time index $t$ can take on values in $\{T,T-1,T-2,\dots \}$. We assume that our consumer has a Constant Relative Risk Aversion (CRRA) per-period utility function, $\uFunc(c)=\frac{c^{1-\CRRA}}{1-\CRRA}$, where $\CRRA>1$. The term $\DiscFac$ is the (strictly positive) discount factor. In each period $t$, the consumer faces independently and identically distributed (iid) income shocks, with the permanent shock given by $\permShk_{t} \in \Reals_{++}$ and the transitory shock by $\tranShkAll_{t} \in \Reals_{+}$.\footnote{Formally, we assume $\left\{\permShk_{t},\tranShkAll_{t}\right\}_{t=-\infty}^{T}$ is a sequence of iid random variables defined on a common probability space $(\Omega, \Sigma, \mathbb{P})$. When used without the time subscript, $\permShk$ and $\tranShkAll$ are the canonical random variables with distributions $\mathbb{P}\circ \permShk_{0}^{-1}$ and $\mathbb{P}\circ \tranShkAll_{0}^{-1}$, respectively.}
+
+In each $t$, the finite horizon value function for the problem in levels will be denoted by $\vFuncLvl_{t}$, with $\vFuncLvl_{t}\colon \Reals_{++}^{2}\rightarrow \Reals$. Value, $\vFunc_{t}(\mLvl_{t}, \permLvl_{t})$, depends on two strictly positive state variables: `market resources' $\mLvl_{t}$ and permanent income $\permLvl_{t}$.
+After the terminal period, we assume the consumer cannot die in debt:
+%
+\begin{equation}\label{eq:NoDebtAtDeath}
+\cLvl_{T} \leq  \mLvl_{T} .
+\end{equation}
+%
+Letting $\vFuncLvl_{T+1} = 0$, it follows that the value function for the terminal period satisfies $\vFuncLvl_{T} = \uFunc(\mNrm_{T})$.
+For $t<T$, the finite-horizon value functions are recursively defined by:
+
+%% AS TO CDC: I removed the following footnote. Should we just state HARK linkages once in the intro footnote? Your call whether or not to keep the footnote in or not: \footnote{Notation throughout follows guidelines specified for the {\ARKurl} toolkit; see \href{https://github.com/econ-ark/HARK/blob/master/Documentation/NARK/NARK.pdf}{Notation in the ARK} for rationales and details.  Consequently, there is an exact mapping between objects in the paper and objects in the code.}
+%
+\begin{verbatimwrite}{\EqDir/supfn}
+  \begin{equation}\begin{gathered}\begin{aligned}\label{eq:levelRecProblem}
+    \vFuncLvl_{t}(\mLvl_{t}, \permLvl_{t})\colon & = \max_{0 < \cLvl_{t} \leq \mLvl_{t}} \uFunc(\cLvl_{t}) + \DiscFac \Ex_{t}\vFuncLvl_{t+1}(\mLvl_{t+1}, \permLvl_{t+1}), \qquad (\mLvl_{t}, \permLvl_{t})\in \Reals_{++}^{2} 
+  \end{aligned}\end{gathered}
+\tag{$\mathscr{P}_{L}$}
+\end{equation}
+\end{verbatimwrite} \unskip
+\input{\LtxDir\EqDir/supfn}
+\noindent{where} i) $\cLvl_{t}$ is the level of consumption at time $t$, ii) $\Ex_{t}$ is the expectation operator over the shocks $\permShk_{t+1}$ and $\tranShkAll_{t+1}$\hypertarget{checkRestrictions}{}\hypertarget{DBCparts}{}, and iii) $\mLvl_{t+1}$ is determined from this period's $\mLvl_{t}$ and choice of $\cLvl_{t}$ as follows:\footnote{For maximal clarity, we have separately described every step in the dynamic budget evolution.
+The steps are broken down also so that the notation of the paper will correspond exactly to the variable names in the \href{https://github.com/econ-ark/HARK} toolkit, because it is required for solving life cycle problems.}%$^{,}$\footnote{Allowing a stochastic interest factor would complicate the notation but not affect the points we want to address; however, see~\cite{benhabibWealth},~\cite{maTodaRich}, and~\cite{mstIncFluct} for the implications of capital income risk for the distribution of wealth and other interesting questions not considered here.}
+%
+%\ifSubfilesClassLoaded{\bibfilesfind{\texname}\bibliography{\bibfilesfound}}{}\end{document}\endinput
+
+\begin{verbatimwrite}{\EqDir/DBCparts}
+  \begin{equation}\label{eq:DBCparts} % Don't define it if already defined
+    \begin{aligned}
+      \aLvl_{t}     & = \mLvl_{t}-\cLvl_{t}  \\
+      \kLvl_{t+1}   & = \aLvl_{t} \notag \\
+      \permLvl_{t+1}  & = \permLvl_{t} \underbrace{\PermGroFac\permShk_{t+1}}_{:= \Rnd{\PermGroFac}_{t+1}} \notag \\
+      \mLvl_{t+1}  & =   \underbrace{\Rfree \kLvl_{t+1}}_{:= \bLvl_{t+1}}  +\underbrace{\permLvl_{t+1}\tranShkAll_{t+1}}_{:= \Rnd{\yLvl}_{t+1}}. \notag
+    \end{aligned}
+  \end{equation}
+\end{verbatimwrite}\unskip
+\input{\LtxDir\EqDir/DBCparts}
+
+The consumer's assets at the end of $t$, $\aLvl_{t}$, translate one-for-one into capital $\kLvl_{t+1}$ at the beginning of the next period.
+In turn, $\kLvl_{t+1}$ is augmented by a fixed interest factor $\Rfree$ to become the consumer's financial (`bank') balances $\bLvl_{t+1} = \Rfree \kLvl_{t+1}$.  `Market resources,' $\mLvl_{t+1}$,  are the sum of financial wealth $\Rfree \kLvl_{t+1}$ and noncapital income $\yLvl_{t+1}=\permLvl_{t+1}\tranShkAll_{t+1}$ (permanent noncapital income $\permLvl_{t+1}$ multiplied by the transitory shock $\tranShkAll_{t+1}$).
+Permanent noncapital income $\permLvl_{t+1}$ is derived from $\permLvl_{t}$ by application of a growth factor $\PermGroFac$,\footnote{A time-varying $\PermGroFac$ has straightforward consequences for the analysis below; this is an option allowed for in the \href{https://econ-ark.org}{HARK} toolkit.} modified by the permanent income shock $\permShk_{t+1}$,\footnote{While much of the literature employs an income process that is persistent but not permanent, evidence of the presence and large size of permanent (or very nearly permanenent) shocks has long been observed in micro data.
+  (\cite{lwComponents}, MaCurdy~\citeyearpar{macurdyTimeseries}; Abowd and Card~\citeyearpar{acCovariance}; Carroll and Samwick~\citeyearpar{csNature}; Jappelli and Pistaferri~\citeyear{jpCins}; et. seq.)
+  \cite{dhmImproving} show that when measurement problems are handled correctly, administrative data yield serial correlation coefficients $0.98-1.00$; and~\cite{dmHowMuch} suggests that survey data support the same conclusion.  Most recently \cite{crawleyParsimonious} use data from the Norwegian national registry that encompass millions of observations over along time span, and argue that the parsimonious specification with permanent shocks is preferable to one that allows a persistent shock with a serial correlation coefficient very close to 1.
+  } and the resulting idiosyncratic growth factor for permanent income is written as $\Rnd{\PermGroFac}_{t+1}$.
+
+Letting $n$ denote the planning horizon, the finite-horizon problems furnish a sequence of value functions $\{\vFuncLvl_{T},\vFuncLvl_{T-1},\ldots,\vFuncLvl_{T-n}\}$ and associated consumption functions $\{\cFuncLvl_{T},\cFuncLvl_{T-1},\ldots,\cFuncLvl_{T-n}\}$.
+The limiting consumption function, denoted by $\usual{\cFuncLvl}(\mLvl,\permLvl) = \lim\limits_{n \rightarrow \infty} \cFuncLvl_{T-n}(\mLvl,\permLvl)$, will be called a `non-degenerate limiting solution' if  neither $\usual{\cFuncLvl}=0$ everywhere (for all $(\mLvl,\permLvl)$) nor $\usual{\cFuncLvl}=\infty$ everywhere.
+
+Before turning to the normalized problem, we present the income process and its implications for the consumer problem.
+The following assumption defines the income process.
+
+\begin{assumI}\label{ass:shocks}(Friedman-Muth Income Process).
+For each $t$:
+\begin{enumerate}
+\item The permanent shock, $\permShk_{t}$, satisfies $\Ex[{\permShk}_{t}]=1$ and  $\permShk_{t}\in [\permShkIndMin,\permShkIndMax]$ s.t. $0 < \permShkIndMin \leq 1$ and $1 \leq \permShkIndMax < \infty$. 
+\item The transitory shock, $\tranShkAll_{t}$, satisfies: 
+\begin{verbatimwrite}{\EqDir/TranShkDef}
+  \begin{equation}
+    \tranShkAll_{t}=
+    \begin{cases}
+      0\phantom{_{t+1}/\pNotZero} & \text{with probability $\pZero > 0$} \\
+      \tranShkEmp_{t}/\pNotZero      & \text{with probability $\pNotZero  $}, % \equiv 1-\pZero
+    \end{cases} \label{eq:TranShkDef}
+  \end{equation}
+\end{verbatimwrite}\unskip
+\input{\LtxDir\EqDir/TranShkDef}
+\noindent for iid random variable $\tranShkEmp_{t}$,  with $\Ex[{\tranShkEmp}_{t}]=1$ and $ \tranShkEmp_{t} \in [\Min{\tranShkEmp}, \bar{\tranShkEmp}]$ s.t.
+$\tranShkEmpMin >0$ and $\Min{\tranShkEmp} \leq 1 \leq \Max{\tranShkEmp} < \infty$.
+
+\end{enumerate} 
+\end{assumI}
+
+\paragraph{Bounded support.}
+The constraints $0 < \permShkIndMin \leq \permShkIndMax < \infty$ and $0 < \tranShkEmpMin \leq \Max{\tranShkEmp} < \infty$ in Assumption~\ref{ass:shocks} imply that both shocks have \textit{bounded support}: $\permShk$ is supported on the compact interval $[\permShkIndMin,\permShkIndMax]\subset\Reals_{++}$, and (conditional on the consumer being employed) $\tranShkEmp$ is supported on the compact interval $[\tranShkEmpMin,\Max{\tranShkEmp}]\subset\Reals_{++}$.
+This excludes lognormal and other unbounded-support specifications studied elsewhere\footnote{\cite{rabaultBorrowing} and \cite{lsIncFluct} analyze cases where the shock processes have unbounded support.} but is consistent with all standard discretizations of unbounded distributions onto a finite grid (Gauss--Hermite, equiprobable, etc.).
+Boundedness plays a substantive role in the long-run stability analysis of Section~\ref{sec:individStability}: it guarantees a finite natural borrowing constraint $\underline{\mNrm}$ (Section~\ref{subsec:limSolExists}), and it is what permits the contraction-rate arguments used to characterize the stable target $\hat{\mNrm}$ to be made globally rather than only asymptotically.
+
+Following~\cite{zeldesStochastic}, the income process incorporates a small probability $\pZero$ that income will be zero (a `zero-income event').
+At date $T-1$, the (strictly positive) probability $q$ of zero income in period $T$ will prevent the consumer from spending all resources, because saving nothing would mean arriving in the following period with zero bank balances and thus facing the possibility of being required to consume 0, which would yield utility of $-\infty$.
+This logic holds recursively from $T-1$ back, so  the consumer will never spend everything, giving rise to what \cite{aiyagari:ge} dubbed a `natural borrowing constraint.'\footnote{We specify zero as the lowest-possible-income event without loss of generality \citep{aiyagari:ge}.} (Thus, the upper-bound constraint on consumption in the problem \eqref{eq:levelRecProblem} will not bind.)
+
+%% AS to AS: note that consumer does not spend everythign given a finite horizon. Key is to understand whether in the limit the consumer spends (or saves???) everything. What is the respective role of FVAC and WRIC here. 
+
+\hypertarget{PDV}{}
+
+The model looks more special than it is.
+In particular, a positive probability of zero-income events may seem objectionable (despite empirical support).
+However, a nonzero minimum value of $\tranShkAll$ (motivated, say, by the existence of unemployment insurance) can be handled by capitalizing the present discounted value (PDV) of minimum income into current market assets.\footnote{So long as unemployment benefits are proportional to $\permLvl_{t}$, as in Assumption~\ref{ass:shocksPositiveMinimum}.}
+Without permanent shocks, that transforms the model back into this one.
+With permanent shocks it does not, but Appendix~\ref{sec:ApndxPositiveMinimumIncome} shows that our results still hold, with market resources measured from the resulting natural borrowing limit and with $\pZero$ replaced by the probability that minimum income and the lowest permanent shock occur together (which may be zero, in which case the maximal MPC is one and the borrowing limit can be reached), provided that $\PermGroFac\permShkIndMin<\Rfree$.
+And no key results would change if the transitory shocks were persistent but mean-reverting (instead of iid).\@ Also, the assumption of a positive point mass for the worst realization of the transitory shock is inessential, but simplifies the proofs and is a powerful aid to intuition.
+
+
+\begin{comment}
+Following footnotes and text were removed from the discussion above
+
+
+\footnote{\cite{rabaultBorrowing} and~\cite{lsIncFluct} analyze cases where the shock processes have unbounded support.} 
+
+and when $\permShkIndMin=\permShkIndMax=1$ the model becomes the degenerate case with no permanent shocks
+\end{comment}
+
+\hypertarget{The-Problem-Can-Be-Rewritten-in-Ratio-Form}{}
+\hypertarget{The-Problem-Can-Be-Normalized-By-Permanent-Income}{}
+\subsubsection{Normalized Problem}\label{subsubsec:ratio}
+
+Let nonbold variables be the boldface counterpart normalized by $\permLvl_{t}$, allowing us to reduce the number of states from two ($\mLvl$ and $\permLvl$) to one $(\mNrm = \mLvl/\permLvl)$.
+Now, in a one-time deviation from the notational convention established in the last sentence, define nonbold `normalized value' not as $\vLvl_{t}/\permLvl_{t}$ but as $\vNrm_{t} = \vLvl_{t}/\permLvl_{t}^{1-\CRRA}$, because this allows us to write nonbold $\vFunc_{t}$, with $\vFunc_{t}\colon \Reals_{++}\rightarrow \Reals$, to denote the `normalized value function':
+%
+%
+\begin{equation}\label{eq:veqnNrmRecBellman}
+  \begin{aligned}
+    % \begin{equation}\begin{gathered}\begin{aligned}
+    \vFunc_{t}(\mNrm_{t})  & = \max_{0<\cNrm_{t}< \mNrm_{t}}~  \uFunc(\cNrm_{t}) +\DiscFac \Ex_{t}[\Rnd{\PermGroFac}_{t+1}^{1-\CRRA}\vFunc_{t+1}({\mNrm}_{t+1})],\qquad  \mNrm_{t}\in \Reals_{++}\\
+    & \mbox{s.t.}
+    \\ {\aNrm}_{t}  & = \mNrm_{t}-c_{t}
+%     \\ {\kNrm}_{t+1} & = \aNrm_{t} /\Rnd{\PermGroFac}_{t+1} =  \RNrmByGRnd_{t+1}\aNrm_{t}  % AS to review
+    \\ {\bNrm}_{t+1} & = \aNrm_{t} \Rfree/\Rnd{\PermGroFac}_{t+1} = ~  \RNrmByGRnd_{t+1}\aNrm_{t} % AS to review
+    \\ \mNrm_{t+1}  & = \bNrm_{t+1} +\tranShkAll_{t+1} ,
+                      %       \end{aligned}\end{gathered}\end{equation}
+  \end{aligned}  \tag{$\mathscr{P}_{N}$}
+\end{equation}
+where $\RNrmByGRnd_{t+1}\colon = (\Rfree/\PermGroFacRnd_{t+1})$ is a `permanent-income-growth-normalized' return factor.\footnote{We omit $\kNrm$ from this transition because our assumption that $\kLvl_{t+1}=\aLvl_{t}$ could lead to confusion about whether do denote $\kNrm_{t+1}=\aNrm_{t}$ or $\kNrm_{t+1}=a_{t}/\PermGroFacRnd_{t+1}$.} % AS to review
+(Appendix \ref{sec:recoverLevels} explains how the solution to the original problem in levels can be recovered from the normalized problem.)
+
+The time $t$ normalized consumption \textit{policy function} for the finite-horizon problem, $\cFunc_{t}$, is defined by:
+%
+\begin{equation}\label{eq:cfunceq1}
+  \begin{aligned}
+    \cFunc_{t}(\mNrm_{t})\colon & = \argmax_{0<\cNrm_{t}< \mNrm_{t}}~  \uFunc(\cNrm_{t}) +\DiscFac \Ex_{t}[\Rnd{\PermGroFac}_{t+1}^{1-\CRRA}\vFunc_{t+1}(\mNrm_{t+1} )].
+  \end{aligned}
+\end{equation}
+% 
+The normalized problem's first order condition becomes:
+\begin{equation}\begin{gathered}\begin{aligned}
+  c_{t}^{-\CRRA}  & = \Rfree \DiscFac \Ex_{t}[ \Rnd{\PermGroFac}_{t+1}^{-\CRRA} \cNrm_{t+1}^{-\CRRA}].  \label{eq:scaledeuler}
+\end{aligned}\end{gathered}\end{equation}
+
+\hypertarget{sensible}{}\hypertarget{useful}{}
+\hypertarget{Definition-of-a-Nondegenerate-Solution and Bellman}{}
+Since our main results pertain to the normalized problem, we define the limiting non-degenerate solution to the normalized problem formally.
+
+\begin{definition}\label{def:nondegeneracy}(Non-degenerate Limiting Solution)
+\ref{eq:veqnNrmRecBellman} has a non-degenerate limiting solution if there exists $ \usual{\cFunc}$, with $\usual{\cFunc}\colon \Reals_{++}\rightarrow \Reals_{++}$, and $ \usual{\vFunc}$, with $\usual{\vFunc}\colon \Reals_{++}\rightarrow \Reals$, such that:
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+  \usual{\cFunc}(\mNrm) =  \lim_{n \rightarrow \infty} \cFunc_{T-n}(\mNrm), \quad \usual{\vFunc}(\mNrm)  =  \lim_{n \rightarrow \infty} \vFunc_{T-n}(\mNrm), \qquad \mNrm \in \Reals_{++} \notag.
+\end{aligned}\end{gathered}\end{equation}
+\end{definition}
+
+
+\hypertarget{Stationary-Bellman-Operator}{}
+
+We use $\TMap$ to denote the stationary Bellman operator for the normalized problem.
+To define $\TMap$, let $\RNrmByGRnd \colon = \Rfree/\PermGroFacRnd$ and let $\TMap$ denote the mapping $\vFunc_{t+1} \mapsto \vFunc_{t}$ given by Problem \ref{eq:veqnNrmRecBellman}:
+%
+\begin{equation}\label{eq:maintmap}
+  \TMap \vFunc_{t+1}(\mNrm) = \max_{\cNrm \in (0, \mNrm) }  \left\{
+    \uFunc(c) + \DiscFac\Ex\Rnd{\PermGroFac}^{1-\CRRA}\vFunc_{t+1}(\RNrmByGRnd(m - c) + \tranShkAll)
+  \right\}, \quad m \in \Reals_{++}.  
+\end{equation}
+%
+The mapping $\mNrm\mapsto (0, \mNrm)$ defines the feasibility correspondence.
+To define $\TMap$, we excluded the boundary of the feasible values that consumption can take ($0$ and $\mNrm$) to ensure the maximand above is real-valued for all feasible values of consumption.
+It is straightforward to show (using the Bellman Principle of Optimality) that a finite valued solution, $\vFunc$, to the functional equation $\TMap\vFunc = \vFunc$ defines a \hyperlink{sensible}{limiting non-degenerate solution}.
+However, because the feasibility correspondence does not include the boundary of feasible consumption, existing dynamic programming arguments cannot be used to show that such a solution (a fixed point to $\TMap$) exists.
+
+
+\subsubsection{Dynamic Programming Challenges}\label{subsubsec:challengesDP} \hypertarget{challengesDP}{} Standard dynamic programming \citep{stachurski2022} works by showing that $\TMap$ is a well-defined contraction map on a Banach space, which would allow us to conclude that the sequence of value functions given by Problem \ref{eq:veqnNrmRecBellman} converges to a fixed point of $\TMap$, a non-degenerate solution.
+At first, we must contend with the fact that both $\uFunc$ and $\vFunc$ are unbounded below.
+We resolve unboundedness by constructing a weighted-norm (see below).
+Setting aside unboundedness, the natural liquidity constraint introduces a more pernicious challenge related to continuity: $\TMap$ will not a be well defined self-map on a vector space of continuous functions.
+In particular, we cannot assert $\TMap$ maps continuous functions to continuous functions since the feasiblility correspondence $\mNrm\mapsto (0, \mNrm)$ is not compact-valued.
+
+\begin{remark}\label{remark:notCompact}
+Since the correspondence $\mNrm\mapsto (0, \mNrm)$ is not compact valued, the conditions of Berge's Maximum Theorem (Lemma 1, \cite{Jaskiewicz2011}) fail and $\TMap \fFunc$ may not be continuous for continuous $\fFunc$.
+\end{remark}
+
+If we reintroduce the boundary points $0$ and $\mNrm$ to the feasibility correspondence, the operator $\TMap$ will be able to map upper semicontinuous functions to upper semicontinuous functions (Lemma 1, \cite{Jaskiewicz2011}).
+However, $\vFunc$ must now be defined on $\Reals_{+}$ and take on values in $\mathbb{R}_{+}\cup\{-\infty\}$ and spaces of such functions will not be a vector space.
+The approach taken by \cite{Ma2022} is to impose an artificial liquidity constraint, which yields a real-valued continuation value, even if $\cNrm= \mNrm$, and forces the value function to be bounded below as a function of end-of-period assets.
+This allows \cite{Ma2022} to define a functional operator operator within which the feasibiltiy correspondence is the compact interval $[0, \mNrm]$.
+Without an artificial constraint, no such strategy is possible.\footnote{The challenge of continuity and compactness remains unresolved in a general setting \citep{rinconZapatero2024}.
+Relevant results include \cite{Feinberg2012}, who generalize the requirement of continuity of feasibility correspondences to K-Inf-Compactness of the Bellman operator, yielding a mapping from semi-continuous to semi-continuous functions.
+\cite{Shanker2017a} introduces a generalization, mild-Sup-compactness, which can be verified in the weak topology generated on the infinite dimensional product space of feasible random variables controlled by the consumers.
+Our approach, by contrast, has the advantage that it can be used to verify existence using more standard tools.} 
+
+
+A related approach, which uses Euler operators is used by \cite{mstIncFluct}.
+While \cite{mstIncFluct} also assume an artificial liquidity constraint to bound the marginal utility of consumption, it is useful to consider how the structure of our model relates to theirs  once the artificial liquidity constraint is imposed.
+
+
+\begin{remark}\label{remark:stochdiscMST}
+If $\pZero=0$, \eqref{eq:veqnNrmRecBellman} becomes a special case of \cite{mstIncFluct}, with $\RNrmByGRnd_{t+1}=\Rfree/\Rnd{\PermGroFac}_{t+1}$ corresponding to the stochastic rate of return on capital and $\DiscFac \Rnd{\PermGroFac}_{t+1}^{1-\CRRA}$  corresponding to the stochastic discount factor.
+\end{remark}
+
+Notwithstanding Remark \ref{remark:stochdiscMST},  there are important economic consequences relating consumer patience to buffer stock saving due to the fact that in our problem $\RNrmByGRnd_{t+1}=\Rfree/\Rnd{\PermGroFac}_{t+1}$ is tightly tied to the `normalized stochastic discount factor,' $\DiscFac \Rnd{\PermGroFac}_{t+1}^{1-\CRRA}$; these will become apparent as we proceed.
+
+
+\hypertarget{GICTheorySetup}{}
+\hypertarget{Uncertainty-Modified-Conditions}{}
+\subsection{Consumer Patience Conditions}\label{subsec:GICTheorySetup}
+
+In order to have a central reference point for them, we now collect conditions relating consumer discounting and patience to the rate of return and income growth that underpin results in the remainder of the paper.
+Assumptions \ref{ass:FVAC} - \ref{ass:RIC}  (finite value of autarky, return impatience and weak return impatience) will be used to prove the existence of limiting solutions in Section \ref{subsec:limSolExists}, and Assumptions \ref{ass:GICRaw} - \ref{ass:GICMod} (growth impatience and strong growth impatience) are required for existence of alternative definitions of a stable target buffer stock in Section \ref{sec:individStability}.
+
+
+We start by generalizing the standard $\DiscFac<1$ condition to our setting with permanent income growth and uncertainty.\footnote{In light of Remark \ref{remark:stochdiscMST}, \cite{mstIncFluct} Assumption 2.1 is a generalization of this discount condition, albeit in a context with artificial liquidity constraints.} The updated condition requires that the expected net discounted value of utility from consumption is finite under our definition of `autarky' -- where consumption is always equal to permanent income.
+A finite value of autarky helps guarantee that as the horizon extends, discounted value remains finite along \textit{any} consumption path the consumer might choose.
+(See Appendix~\ref{sec:ApndxConcaveCFunc}).
+
+
+%% [x] FVAC is really about conusmption paths along path of strictly positive income shocks? Explain this somewhere in the paper.  CDC2AS: No, strictly positive _permanent income_ which requires strictly positive permanent shocks $\permShk > 0$ which we impose.  I think it IS explained somewhere, right?
+%% AS TO AS: come back and triple check this in the final final pass. 
+
+\hypertarget{FVAC}{}
+\begin{assumL}\label{ass:FVAC}(Finite Value of Autarky). 
+%
+$0 < \DiscFac \PermGroFac^{1-\CRRA}\Ex(\permShk^{1-\CRRA}) < 1 $.
+%
+\end{assumL}
+
+
+We now turn to consumer patience and start with `absolute (im)patience.'
+We will say that an unconstrained perfect foresight consumer exhibits absolute impatience if they optimally choose to spend so much today that their consumption must decline in the future.
+The growth factor for consumption implied by the Euler equation of a perfect foresight model is $\cLvl_{t+1}/\cLvl_{t} = {(\Rfree\DiscFac)}^{1/\CRRA}$,\footnote{See \eqref{eq:cGroFac} below.} which motivates our definition of an `absolute patience factor' whose centrality (to everything that is to come later) justifies assigning to it a special symbol; we have settled on the archaic letter \href{https://en.wikipedia.org/wiki/Thorn_(letter)}{`thorn'}:
+\hypertarget{APFac}{}
+\hypertarget{APFacDefn}{}
+\begin{equation}\label{eq:APFac}
+    \APFac \colon= {(\Rfree\DiscFac)}^{1/\CRRA}.
+\end{equation}
+
+We will say that (in the perfect foresight problem) `an absolutely impatient' consumer is one for whom $\APFac < 1$; that is an absolutely impatient consumer prefers to consume more today than tomorrow (and vice versa for an `absolutely patient' consumer, whose consumption will grow over time):
+\hypertarget{AIC}{}
+\begin{assumL} (\textit{Absolute Impatience}). \label{ass:AIC}
+$\APFac  < 1$. 
+\end{assumL}
+
+A consumer who is absolutely impatient, $\APFac<1$, satisfies the standard impatience condition commonly used in the income fluctuation literature, $\DiscFac\Rfree<1$, which guarantees the existence of a stable asset distribution when there is no permanent income growth.
+However, as pointed out by \cite{szeidlInvariant} and \cite{maUnboundedDP}, $\DiscFac\Rfree<1$ is not necessary for an infinite-horizon solution.
+
+\hypertarget{RIC}{}
+\hypertarget{RPFacDefn}{}
+Recall now our earlier requirement that the limiting consumption function $\cFunc(\mNrm)$ in our model must be `sensible.'
+We will show below that for the perfect foresight unconstrained problem this requires
+\begin{assumL} (\textit{Return Impatience}).\label{ass:RIC}
+$\RPFac  < 1$. 
+\end{assumL}
+
+Return impatience can be best understood as the tension between the income effect of capital income and the substitution effect.
+As we show below in Section \ref{subsec:PFBbenchmark}, in the perfect foresight model, it is straightforward to derive the MPC out of overall (human plus nonhuman) wealth that would result in next period's wealth being identical to the current period's wealth.
+The answer turns out to be an MPC (`$\MPC$') of $\MPC=(1-\APFac/\Rfree)$.
+The interesting point here is that $\MPC$ depends both on our absolute patience factor $\APFac$ and on the return factor.
+This is the manifestation in this context of the interaction of the income effect (higher wealth yields higher interest income if $\Rfree>1$) and the substitution effect (which we have already captured with $\APFac$).
+
+
+Next, consider the weaker condition of a consumer whose \hyperlink{APFac}{absolute patience factor} is suitably adjusted to take account of the probability of zero income is less than the market return.
+
+%
+\hypertarget{WRIC}{}
+\begin{assumL} (\textit{Weak Return Impatience}). \label{ass:WRIC}
+$\underbrace{\frac{(\pZero \Rfree \DiscFac)^{1/\CRRA}}{\Rfree}}_{ = \frac{\pZero^{1/\CRRA} \APFac}{\Rfree}} < 1. \phantom{\text{{\WRIC}:~~}}$
+%
+\end{assumL}
+
+This condition is `weak' (relative to the plain return impatience) because the probability of the zero income events $\pZero$ is strictly less than 1.
+The role of $\pZero$ in this equation is related to the fact that a consumer with zero end-of-period assets today has a probability $\pZero$ of having no income and no assets to finance consumption (and $\mNrm_{t+1}=0$ would yield negative infinite utility).
+In the case with no artificial constraint, our main results below, in Section \ref{subsec:limSolExists},  show weak return impatience and finite value of autarky are sufficient to guarantee a sensible (non-degenerate) solution.
+
+Weak return impatience cannot be relaxed further without an artificial liquidity constraint.
+Even though $\pZero^{1/\CRRA} \RPFac\rightarrow 0$ as $\pZero\rightarrow 0$ the weak return impatience condition \textit{does not} approach irrelevance as the possibility of the zero income event approaches zero.
+Instead, we show below in Section \ref{subsubsec:deatonIsLimit} that the limiting consumption function with a natural constraint approaches the solution to a model with an artificial constraint.
+% 
+
+Now that we have finished discussing the requirements for a non-degenerate solution, we turn to assumptions required for stability.
+%% AS TO AS: By "does not approach irrelevance", we mean that even with p is very small, WRIC is required. In a sense the problem's consumption functions go from being C1 to C0 as p goes to zero. 
+\hypertarget{GPFacRawDefn}{}
+\providecommand{\GPFacRawName}{growth patience factor} % allowed-inline: idempotent body copy; canonical def in @local/bst-macros.sty
+We will call the ratio of the $\APFac$ to the expected growth factor for permanent income $\PermGroFac = \Ex[\PermGroFac \permShk])$
+the \GPFacRawName:
+\begin{equation}\label{eq:GPFacRaw}
+    \GPFacRaw \colon= \APFac/\PermGroFac
+\end{equation}
+as exhibiting `growth impatience:' 
+
+We speak of a consumer whose \hyperlink{APFac}{absolute patience factor} is less than the expected growth factor for their permanent income $\PermGroFac = \Ex[\PermGroFac \permShk])$ as exhibiting `growth impatience:' 
+\hypertarget{GICRaw}{}
+\begin{assumS}\label{ass:GICRaw} (\textit{Growth Impatience}).
+$ \GPFacRaw  < 1$.
+\end{assumS}
+
+\begin{comment}
+\begin{verbatimwrite}{\EqDir/GICRaw}
+  \begin{equation}\begin{gathered}\begin{aligned}
+        \text{\GICRaw:~~}  &&  \GPFacRaw  < 1 . \phantom{/\PermGroFac}&  \phantom{\text{\GICRaw:~~}} \label{eq:GICRaw}
+      \end{aligned}\end{gathered}\end{equation}
+\end{verbatimwrite}\unskip
+\input{\LtxDir\EqDir/GICRaw}
+\end{assumS}
+\end{comment}
+
+A final useful definition is `strong growth impatience'
+\begin{verbatimwrite}{\EqDir/GPFacMod}
+  \begin{equation}\label{eq:GPFacMod}
+    \Ex[\APFac/\PermGroFacRnd] < 1
+  \end{equation}
+\end{verbatimwrite}
+\input{\EqDir/GPFacMod}
+which holds for a consumer for whom the expectation of the \textit{ratio} of the \hyperlink{APFac}{absolute patience factor} to the (stochastic) growth factor of permanent income is less than one, 
+\hypertarget{GICMod}{}
+\begin{assumS}(\textit{Strong Growth Impatience}). \label{ass:GICMod}
+$ \Ex\left[\frac{\APFac}{\PermGroFac \permShk}\right] = \GPFacMod  < 1.$
+\end{assumS}
+
+(The difference between growth impatience and strong growth impatience is that the first is the ratio of an expectation to an expectation, while the latter is the expectation of the ratio.
+With non-degenerate mean-one stochastic shocks to permanent income, the expectation of the ratio is strictly larger than the ratio of the expectations).
+
+\begin{comment}
+\begin{verbatimwrite}{\EqDir/GICMod}
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \text{{\GICMod}:~~}    \GPFacMod  & < 1 .  \phantom{\text{{\GICMod}:~~}}\label{eq:GICMod}
+  \end{aligned}\end{gathered}\end{equation}\end{verbatimwrite} \unskip
+\input{\LtxDir\EqDir/GICMod}
+\end{comment}
+
+
+%% AS TO CDC can we remove the comment below? No need to state the results in this Section before they are presented.
+%%\begin{comment}
+%%below stuff goes in growth section.
+%%Strong growth impatience guarantees that the \textit{expectation} of normalized market resources becomes less than one market resources limit to infinity, since the condition will imply $\min \{\Ex\frac{\APFac}{\Rnd{\PermGroFac}}, \Ex\frac{R}{\Rnd{\PermGroFac}}\}< \GPFacMod<1$.
+%%
+%%
+%%The growth impatience condition relates the \textit{expected} growth factor of permanent income to the \hyperlink{APFac}{absolute patience factor}.
+%%Following the discussion below Assumption \ref{ass:RIC}, the growth factor of the ratio of expected market resources to expected permanent income as $m$ limits to infinity becomes $\min \{\frac{\APFac}{\PermGroFac}, \frac{R}{\PermGroFac}\}$, and we have $\min \{\frac{\APFac}{\PermGroFac}, \frac{R}{\PermGroFac}\}< \GPFacRaw$.
+%%Thus, growth impatience ensures the ratio of \textit{expected} market resources to \textit{expected} permanent income eventually falls as $\mNrm$ grows.
+%%\end{comment}
+
+Since $\CRRA>1$, note that strong growth impatience is weaker than the impatience condition $\DiscFac \Rnd{\PermGroFac}_{t+1}^{1-\CRRA}\RNrmByGRnd<1$ used by \cite{mstIncFluct} to guarantee stability. Moreover, while neither growth impatience nor return impatience will by themselves be required for the existence of a limiting solution, the finite value of autarky condition stops individuals from becoming \textit{both} growth and return patient.
+
+\hypertarget{VAFacDefn}{}
+\begin{claim}\label{claim:noRICGIC}
+If \hyperlink{GICRaw}{growth impatience} fails ($\GPFacRaw  \geq 1$) and \hyperlink{RIC}{return impatience} fails ($\RPFac \geq 1$), then \hyperlink{FVAC}{finite value of autarky} fails ($\DiscFac \PermGroFac^{1-\CRRA}\Ex(\permShk^{1-\CRRA})\geq 1$).
+\end{claim}
+
+\begin{proof}
+Since $\RPFac  \geq 1$, $\RPFac $ satisfies:
+%
+%
+\begin{equation}
+\RPFac = \frac{\left(\Rfree\DiscFac\right)^{\frac{1}{\CRRA}}}{\Rfree}\geq 1.
+\end{equation}
+%
+Multiplying both sides by $\Rfree\PermGroFac^{1-\CRRA}$ gives us:
+%
+\begin{equation}
+\DiscFac\PermGroFac^{1-\CRRA}\Rfree^{\frac{1}{\CRRA}}\DiscFac^{\frac{1-\CRRA}{\CRRA}}{}\geq\Rfree \PermGroFac^{1-\CRRA} \Rightarrow \DiscFac\PermGroFac^{1-\CRRA}\geq\left(\frac{\APFac}{\PermGroFac}\right)^{\CRRA-1}.
+\end{equation}
+%
+Finally, since $\CRRA>1$, applying $\GPFacRaw  \geq 1$ gives $\DiscFac\PermGroFac^{1-\CRRA}\geq 1$.
+Because $\CRRA>1$ and $\Ex[\permShk]=1$, Jensen's inequality gives $\Ex[\permShk^{1-\CRRA}]\geq 1$ (equality iff $\permShk$ is degenerate); multiplying yields $\DiscFac\PermGroFac^{1-\CRRA}\Ex(\permShk^{1-\CRRA})\geq 1$, the result.
+
+\end{proof}
+
+We discuss further intuition for the consumer patience conditions below when they are used in the main results.
+
+The relationship between the conditions and their implications for consumption behaviour will also be be discussed in detail in Section \ref{sec:GICdiscussion}.
+
+\hypertarget{Perfect-Foresight-Benchmarks}{}
+\subsection{Perfect Foresight Benchmarks}\label{subsec:PFBbenchmark}
+To understand the economic implications of the patience conditions, we begin with the perfect foresight case.
+
+Below, when we say we assume perfect foresight, what we mean mathematically is:
+%
+\begin{assumI}\label{ass:pfincome}(Perfect Foresight Income Process).
+$\pZero=0$ and $\tranShkEmpMin=\tranShkEmpMax=\bar{\tranShkEmp}=\permShkIndMin=\permShkIndMax=1$
+\end{assumI}
+
+Throughout this sub-section, we assume Assumption \ref{ass:pfincome} remains in force.
+
+%
+Under perfect foresight,  \hyperlink{FVAC}{finite value of autarky} reduces to a `perfect foresight finite value of autarky' condition: 
+%
+\hypertarget{PFFVAC}{}
+\begin{equation}\begin{gathered}\begin{aligned}
+         \DiscFac \PermGroFac^{1-\CRRA}  & <  1
+         \quad\Longleftrightarrow\quad
+         \APFac  <  \Rfree^{1/\CRRA}\PermGroFac^{1-1/\CRRA}.
+\end{aligned}\end{gathered}\label{eq:PFFVAC}\end{equation}
+
+
+\subsubsection{Perfect Foresight without Liquidity Constraints}\label{subsubsec:PFUncon}\label{subsec:PFUncon}% subsec:PFUncon alias kept after subsec->subsubsec rename; referenced by Tables/Required
+
+%% AS to CDC: We have not really formally written out the maximization problem for the PF model without constraints. It seems trivial, so we do not need to?
+
+Consider the familiar analytical solution to the perfect foresight model without liquidity constraints.
+In this case, the consumption Euler Equation always holds as an equality; with $\uP(\cLvl)=\cLvl^{-\CRRA}$ and $\uFunc^{\prime}(\cLvl_{t})=\Rfree\DiscFac\uFunc^{\prime}(\cLvl_{t+1})$, we have:
+%
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+  \cLvl_{t+1}/\cLvl_{t}  & = {(\Rfree\DiscFac)}^{1/\CRRA}. \label{eq:cGroFac}
+\end{aligned}\end{gathered}\end{equation} 
+%
+
+Recalling $\RNrmByG  = \Rfree/\PermGroFac$, `human wealth', is the present discounted value of income:
+%
+% 
+\begin{equation}\begin{gathered}\begin{aligned}
+  \hLvl_{t}  & = \permLvl_{t}+\RNrmByG^{-1} \permLvl_{t} + \RNrmByG^{-2} \permLvl_{t} + \cdots + \RNrmByG^{t-T} \permLvl_{t} \notag
+  \\  & = \underbrace{\left(\frac{1-\RNrmByG^{-(T-t+1)}}{1-\RNrmByG^{-1}}\right)}_{ = \colon \hNrm_{t}}\permLvl_{t} \label{eq:HDef}.
+\end{aligned}\end{gathered}\end{equation}
+
+For human wealth to have finite value, we must have:
+%
+\begin{assumI}\label{ass:FHWC}(Finite Human Wealth).
+\begin{equation}\begin{gathered}\begin{aligned}\hypertarget{FHWC}{}
+   \RNrmByG^{-1} = \PermGroFac/\Rfree  & < 1. \phantom{\text{{\FHWC}:~~}}\label{eq:FHWC2}
+\end{aligned}\end{gathered}\end{equation}
+\end{assumI}
+%
+If $\RNrmByG^{-1}$ is less than one, human wealth will be finite in the limit as $T \rightarrow \infty$ because (noncapital) income growth is smaller than the interest rate at which that income is being discounted.
+
+Under these conditions we can define a normalized finite-horizon perfect foresight consumption function (see Appendix \ref{subsec:ApndxUCPF} for details) as follows:\hypertarget{MPCminDefn}{}
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+  \bar{\cFunc}_{T-n}(\mNrm_{T-n})  & = (\overbrace{\mNrm_{T-n}-1}^{
+                                     = \colon  \bNrm_{T-n}}+\hNrm_{T-n})\MPCmin_{t-n}
+\end{aligned}\end{gathered}\end{equation}
+%
+where $\MPCmin_{t}$ is the marginal propensity to consume (MPC) and satisfies:
+%
+\begin{equation}\begin{gathered}\begin{aligned}\label{eq:PFMPCminInv}
+\MPCmin_{T-n}^{-1}  = 1+\left(\MPSmax\right) \MPCmin_{T-n+1}^{-1}.
+\end{aligned}\end{gathered}\end{equation}
+%
+
+Let $\MPCmin = \lim\limits_{n\rightarrow\infty}\MPCmin_{T-n}$.
+For $\Min{\MPC}$ to be strictly positive, we must impose \hyperlink{RIC}{return impatience}.
+The limiting consumption function then becomes:
+%
+\begin{equation}\begin{gathered}\begin{aligned}\label{eq:cFuncPFUnc}
+  \bar{\cFunc}(\mNrm)  & = (\mNrm+\hNrm-1)\MPCmin,
+\end{aligned}\end{gathered}\end{equation}
+%
+where, under return impatience, the limiting MPC becomes:
+%
+%
+\begin{equation}\label{eq:MPCminDef}
+%\MPCmin \colon = \max\{0,1- \RPFac\}.
+\MPCmin \colon = 1-\RPFac.
+\end{equation}
+%
+%
+%
+In order to rule out the degenerate limiting solution in which $\bar{\cFunc}(\mNrm) = \infty$, we also require (in the limit as the horizon extends to infinity) that human wealth remain bounded (that is, we require \hyperlink{FHWC}{`finite human wealth'}).
+Thus, while \hyperlink{RIC}{return impatience} prevents a consumer from saving everything in the limit,  \hyperlink{FHWC}{`finite limiting  human wealth'} prevents infinite borrowing (against infinite human wealth) in the limit.
+
+The following two results consider the normalized problem without liquidity constraints and with perfect foresight income (Assumption \ref{ass:pfincome}).
+
+\begin{proposition}\label{prop:pfUCFHWC}
+ A limiting solution that is non-degenerate in the sense of Definition \ref{def:nondegeneracy} exists if and only if \hyperlink{FHWC}{finite limiting  human wealth} ($\RNrmByG^{-1}<1$) and \hyperlink{RIC}{return impatience} (Assumption \ref{ass:RIC}) hold.
+\end{proposition}
+\begin{proof}\let\qed\relax
+  See Appendix \ref{subsec:ApndxUCPF} for the proof.
+
+\end{proof}
+  
+
+\begin{claim}\label{claim:PFConspC}
+Assume \hyperlink{FHWC}{finite human wealth} ($\RNrmByG^{-1}<1$). If \hyperlink{GICRaw}{growth impatience} (Assumption \ref{ass:GICRaw}) holds, then \hyperlink{PFFVAC}{finite value of autarky under perfect foresight} (Equation \ref{eq:PFFVAC}) holds. If \hyperlink{PFFVAC}{finite value of autarky under perfect foresight} (Equation \ref{eq:PFFVAC}) holds, then \hyperlink{RIC}{return impatience} (Assumption \ref{ass:RIC}) holds. 
+\end{claim}
+\begin{proof}\let\qed\relax
+See Appendix \ref{subsec:PFBProofs} for the proof.
+\end{proof}
+
+The claim implies that if we impose \hyperlink{FHWC}{finite limiting  human wealth}, then  \hyperlink{GICRaw}{growth impatience} is sufficient for nondegeneracy since \hyperlink{PFFVAC}{finite value of autarky under perfect foresight} and \hyperlink{RIC}{return impatience} follow.
+However, there are circumstances under which \hyperlink{RIC}{return impatience} and \hyperlink{FHWC}{finite limiting  human wealth} can hold while the \hyperlink{PFFVAC}{finite value of autarky under perfect foresight} fails.
+For example, if $\PermGroFac=0$, the problem is a standard `cake-eating' problem with a non-degenerate solution under \hyperlink{RIC}{return impatience}.
+
+%% AS to AS chktex 10 cf. Stachurski and Ma JET 2021 claim of neccessity of FVAC. 
+
+\subsubsection{Perfect Foresight with Liquidity Constraints}
+
+Our ultimate interest is in the unconstrained problem with uncertainty.
+Here, we show that the perfect foresight constrained solution defines a useful limit for the unconstrained problem with uncertainty.
+
+Consider that if a liquidity constraint requiring $\aNrm_{t} \geq 0$ binds at any $\mNrm_{t}$, it must bind at the lowest possible level of $\mNrm_{t}$, $\mNrm_{t}=1$, defined by the lower bound of having arrived into the period with $\bNrm_{t}=0$ (if the constraint were binding at any higher $\mNrm_{t}$, it would certainly be binding here, because $\uFunc^{\prime\prime}<0$ and $\cFunc^{\prime}>0$).
+At $\mNrm_{t}=1$ the constraint binds if the marginal utility from spending all of today's resources $c_{t}=m_{t}=1$, exceeds the marginal utility from doing the same thing next period, $\cNrm_{t+1}=1$; that is, if such choices would violate the Euler equation, Equation ~\eqref{eq:scaledeuler}, yielding
+\begin{equation}\begin{gathered}\begin{aligned}
+  1^{-\CRRA}  & > \Rfree \DiscFac \PermGroFac^{-\CRRA}1^{-\CRRA},  \label{eq:LiqConstrBinds}
+\end{aligned}\end{gathered}\end{equation}
+which is just a restatement of \hyperlink{GICRaw}{growth impatience}.
+So, the constraint is relevant if and only if \hyperlink{GICRaw}{growth impatience} holds.
+
+For the following result, consider the normalized perfect foresight problem with a liquidity constraint (that is, assume $\cNrm_{t}\leq \mNrm_{t}$ for each $t$.)
+
+\begin{proposition}\label{prop:PFCExist}
+ If \hyperlink{RIC}{return impatience} (Assumption \ref{ass:RIC}) holds, then a non-degenerate solution exists. Moreover, if \hyperlink{RIC}{return impatience} does not hold, then a non-degenerate solution exists if and only if \hyperlink{GICRaw}{growth impatience} (Assumption \ref{ass:GICRaw}) holds. 
+\end{proposition}
+
+The proof for the result uses the formal notion of non-degeneracy of Definition~\ref{def:nondegeneracy} (including its value clause $\cnstr{\vFunc}\colon\Reals_{++}\to\Reals$). Sufficiency follows from the discussion in Section~\ref{subsec:PFCon}, which outlines the three cases (\hyperlink{RIC}{return impatience} holding, or \hyperlink{GICRaw}{growth impatience} holding) under which perfect foresight liquidity constrained solutions are non-degenerate. Necessity (the `only if') follows from Claim~\ref{claim:noRICGIC}: if both \hyperlink{RIC}{return impatience} ($\RPFac \geq 1$) and \hyperlink{GICRaw}{growth impatience} ($\GPFacRaw \geq 1$) fail, then \hyperlink{FVAC}{finite value of autarky} fails, so the value clause of Definition~\ref{def:nondegeneracy} cannot hold and the solution is degenerate. At the boundary $\GPFacRaw = 1$ with $\RPFac \geq 1$ the constrained consumption function limits to the finite positive constant $\cnstr{\cFunc}(\mNrm)\equiv 1$; degeneracy is then visible only through $\cnstr{\vFunc}\to-\infty$.
+
+Importantly, if \hyperlink{RIC}{return impatience} fails ($\Rfree\leq \APFac$) and \hyperlink{GICRaw}{growth impatience} holds ($\APFac<\PermGroFac$), then \hyperlink{FHWC}{finite human wealth} also fails $(\Rfree \leq \PermGroFac)$.
+Despite the unboundedness of human wealth as the horizon extends arbitrarily, for any finite horizon the relevant liquidity constraint prevents borrowing.
+Similarly, when uncertainty is present, the natural borrowing constraint plays an analogous role in permitting a finite limiting solution with unbounded limiting human wealth -- we discuss the various parametric cases in Section \ref{sec:GICdiscussion}.
+
+
+\hypertarget{limsolexists}{}
+\subsection{Main Results for Problem with Uncertainty}\label{subsec:limSolExists}
+
+We are now ready to return to our primary interest, the model with permanent and transitory income shocks.
+Throughout this section, we assume the Friedman-Muth income process (Assumption \ref{ass:shocks} holds) and examine the normalized problem, Problem \ref{eq:veqnNrmRecBellman}.
+
+
+
+\subsubsection{Limiting MPCs}\label{subsubsec:cFuncBounds}\label{subsec:LimitsAsmtToInfty}\label{subsec:LimitsAsmtToZero}% Limits-as-m->inf/->0 results live here now; the standalone subsections (deletion-candidate) are commented out in IndividualBufferStockStability; referenced by Tables/Required
+
+We first establish results regarding the shape of the consumption function.\footnote{\cite{ckConcavity} proved concavity but not continuous differentiability.}
+
+\begin{proposition} \label{prop:cfuncprop} For each $t$, $\cFunc_{t}$ is twice continuously differentiable, increasing and strictly concave.
+\end{proposition}
+\begin{proof}\let\qed\relax
+See Appendix~\ref{sec:MPCiterproofs} for the proof.
+
+\end{proof}
+
+Next, we note that the ratio of optimal consumption to market resources ($\cNrm/\mNrm$) is bounded by the minimal and maximal marginal propensities to consume (MPCs).
+Recall that the MPCs answer the question `if the consumer had an extra unit of resources, how much more spending would occur?', The minimal and maximal MPCs are the limits of the MPC as $\mNrm \rightarrow \infty$ and $\mNrm \rightarrow 0$, which we denote by $\MPCmin_{t}$ and $\MPCmax_{t}$ respectively.
+Since the consumer spends everything in the terminal period, $\MPCmin_{T}=1$ and $\MPCmax_{T}=1$.
+Furthermore, Proposition \ref{prop:cfuncprop} will imply:\footnote{Note $\usual{\cFunc}_{t}^{\prime}$ is positive, bounded above by 1 and decreasing, then apply L'H\^{o}pital's Rule.}
+%
+\begin{equation}\begin{gathered}\begin{aligned}\label{eq:cBounds}
+  \MPCmin_{t} \mNrm_{t} ~ \leq & ~  \usual{\cFunc}_{t}(\mNrm_{t})  \leq  ~ \MPCmax_{t} \mNrm_{t} .
+\end{aligned}\end{gathered}\end{equation} 
+
+%% AS to AS: [] put in explicit proof reference above.
+
+We define:
+%
+\hypertarget{MPCmaxDefn}{}\hypertarget{MPCminDefn}{}
+\begin{equation}
+\MPCmin \colon = \max\{0,1- \RPFac\}, \label{eq:MPCminDefn}
+\end{equation}
+\begin{equation}
+\MPCmax \colon = 1 - \pZero^{1/\gamma}\RPFac, \label{eq:MPCmaxDefn}
+\end{equation}
+as the `limiting minimal and maximal MPCs'.
+The following result verifies that the consumption share is bounded each period by the minimal and maximal MPCs, that the consumption function is asymptotically linear and that the MPCs converge to the limiting MPCs as the terminal period recedes.\footnote{\cite{benhabibWealth} show that the consumption function becomes linear as wealth approaches infinity in a model with capital income risk and liquidity constraints;~\cite{maTodaRich} show that these results generalize to the limits derived here if capital income is added to the model.} 
+\hypertarget{cFuncBounds}{}
+
+\begin{lemma}(Limiting MPCs).
+\label{lemm:MPC}
+If \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC}) holds, then:
+
+\begin{enumerate}[label=(\roman*)]
+\item For each $n$:
+%
+\begin{equation}\label{eq:MPCminInv}
+\MPCmin_{T-n}^{-1}  = 1+\left(\MPSmax\right) \MPCmin_{T-n+1}^{-1}, \qquad \MPCmax_{T-n}^{-1}   = 1+\left(\MPSmin\right) \MPCmax_{T-n+1}^{-1}.
+\end{equation}
+
+\item  We have $\lim\limits_{n \rightarrow \infty }\MPCmax_{T-n} = \MPCmax>0$.
+Moreover, if \hyperlink{RIC}{return impatience} (Assumption \ref{ass:RIC}) holds, then $\lim\limits_{n \rightarrow  \infty}\MPCmin_{T-n} = \MPCmin = 1- \RPFac>0$.
+
+\end{enumerate}
+\end{lemma}
+\begin{proof}\let\qed\relax
+  See Appendix~\ref{sec:MPCiterproofs} for the proof.
+
+  \end{proof}
+
+The MPC bound as market resources approach infinity is easy to understand.
+Recall that $\bar{\cFunc}$ from the perfect foresight case will be an upper bound in the problem with uncertainty; analogously, $\MPCmin$ becomes the MPC's lower bound.
+As the \textit{proportion} of consumption that will be financed out of human wealth approaches zero, the proportional difference between the solution to the model with uncertainty and the perfect foresight model shrinks to zero.
+
+%% AS to AS: The second sentence above comes out of nowhere. Can we link to a formal result? The stuff that was in the start of the "properties of the consumption function section"?
+
+To understand the maximal limiting MPC, the essence of the argument is that as market resources approach zero, the overriding consideration that limits consumption is the (recursive) fear of the zero-income events --- this is why the probability of the zero income event $\pZero$ appears in the expression for the maximal MPC.
+\hyperlink{WRIC}{Weak return impatience} is too weak to guarantee a lower bound on the share of consumption to market resources; it merely prevents the upper bound on the share of consumption to market resources from approaching zero.
+Weak return impatience thereby prevents a situation where \textit{everyone} consumes an arbitrarily small share of current market resources as the terminal period recedes.
+This insight plays a key role in the proof for the existence of a non-degenerate solution in what follows.
+
+
+\begin{comment}
+Next, define the `Value of Autarky Factor:'\hypertarget{VAFacDefn}{} 
+
+$DiscFac \PermGroFac^{1-\CRRA}\Ex(\permShk^{1-\CRRA})$
+\end{aligned}\end{gathered}\end{equation}
+
+\end{comment}
+
+\hypertarget{Conditions-Under-Which-the-Problem-Defines-a-Contraction-Mapping}{}
+\subsubsection{Existence of Limiting Non-degenerate Solution}\label{subsubsec:eventuallyCauchy}
+
+Let $\mathcal{C}(\Reals_{++},\Reals)$ be the space of continuous functions from $\Reals_{++}$ to $\Reals$.
+To address the challenges posed by unbounded state-spaces, Boyd~\citeyearpar{jboydWeighted} provided a weighted contraction mapping theorem.
+Our strategy is to use this approach to first show that while the \hyperlink{Stationary-Bellman-Operator}{stationary operator} $\TMap$ may be undefined on a suitable Banach space (recall Remark \ref{remark:notCompact}), operators defining each period's problem (which we define below) will be contractions on a space of continuous functions with a finite weighted norm.
+We then show the sequence of finite horizon value functions given by Problem \eqref{eq:veqnNrmRecBellman} generates a Cauchy sequence; since the weighted norm space is complete, the sequence of value functions converges to a non-degenerate solution in $\mathcal{C}(\Reals_{++},\Reals)$.
+
+
+\begin{definition}\label{def:boundfuncspace}
+  Fix $\fFunc$ such that $\fFunc \in \mathcal{C}(\Reals_{++},\Reals)$ and let $\boundFunc$ be a function such that $\boundFunc\in \mathcal{C}(\Reals_{++},\Reals)$ and $\boundFunc >0$. The function $\fFunc$ will be $\boundFunc$-bounded if the $\boundFunc$-norm of $\fFunc$, given by
+  \begin{equation}
+    \Vert \fFunc\Vert _{\boundFunc }=\sup_{s\in \Reals_{++}}\left[ \frac{|\fFunc(s)|}{\boundFunc (s)}\right],
+    \label{eq:phinorm}
+  \end{equation}%
+  is finite.
+We will call $\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$ the subspace of functions in $\mathcal{C}(\Reals_{++},\Reals)$ that are $\boundFunc$-bounded.
+\end{definition}
+
+We define the weighting function as
+%
+\begin{verbatimwrite}{\econtexRoot/Equations/boundFunc}
+\begin{equation}
+\boundFunc(x) = \zeta + x^{1-\gamma},
+\end{equation}
+\end{verbatimwrite} \unskip
+\input{\EqDir/boundFunc}
+where $\zeta \in \Reals_{++}$ is a constant derived from the model primitives and the upper and lower bound on the consumption share (see Claim \ref{rem:shnkrdef} in Appendix \ref{sec:Tcontractionmapping} for the parametrization of $\zeta$).
+  
+Next, for any lower bound $\MPCminInf$ and upper-bound $\MPCmaxInf$ on the share of consumption to market resources, define the `MPC bounded Bellman operator' $\TMap^{\MPCminInf, \MPCmaxInf}$, with \textit{$\TMap^{\MPCminInf, \MPCmaxInf}:\mathcal{C}_{\boundFunc }\left( \Reals_{++},\Reals\right) \rightarrow \mathcal{C}_{\boundFunc }\left( \Reals_{++},\Reals\right) $}, as:
+%
+\begin{multline}
+\TMap^{\MPCminInf, \MPCmaxInf} \fFunc(m) \\  = \max_{\cNrm \in
+    [\MPCminInf \mNrm, \MPCmaxInf \mNrm]
+  }  \left\{\uFunc(c) + \DiscFac\Ex\Rnd{\PermGroFac}^{1-\CRRA}\fFunc(\RNrmByGRnd(m - c) + \tranShkAll)\right\}, \,\,  \mNrm\in \Reals_{++}, \fFunc\in \mathcal{C}_{\boundFunc }\left(\Reals_{++},\Reals\right).
+\end{multline}
+
+The value functions defined by Problem \eqref{eq:veqnNrmRecBellman} will satisfy  $\vFunc_{t} = \TMap^{\MPCmin_{t}, \MPCmax_{t}}\vFunc_{t+1}$ for each period $t<T$, since consumption shares are bounded by the minimal and maximal MPCs (Lemma \ref{lemm:MPC} and Equation \eqref{eq:cBounds}); because $\vFunc_{T}=\uFunc\in\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$ and $0<\MPCmin_{t}\leq\MPCmax_{t}<1$ for $t<T$, backward induction with Claim \ref{clm:hiraguchi_cont} in Appendix \ref{sec:Tcontractionmapping} gives $\vFunc_{t}\in\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$ for every $t$.
+We now show the operator $\TMap^{\MPCminInf, \MPCmaxInf}$ is a contraction on $\mathcal{C}_{\boundFunc }\left( \Reals_{++},\Reals\right)$ for a suitably narrow interval $[\MPCminInf, \MPCmaxInf]$.
+
+\begin{theorem}(Contraction Mapping Under Consumption Bounds).
+\label{thm:cmap}\label{subsec:contraction}% subsec:contraction re-added here after restructure; referenced by Tables/Required
+If \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC})  and  \hyperlink{FVAC}{finite value of autarky} (Assumption \ref{ass:FVAC}) hold, then there exists $k$ and $\alpha\in (0,1)$ such that for all $[\MPCminInf, \MPCmaxInf]$ with $\MPCmax_{T-k}\geq \MPCmaxInf> \MPCminInf>0$, $\TMap^{\MPCminInf, \MPCmaxInf}$ is a contraction with modulus $\alpha$.
+\end{theorem}
+\begin{proof}
+See Appendix \ref{sec:Tcontractionmapping} for the proof.
+
+\end{proof}
+
+The theorem says eventually the maximal MPCs will be small enough such that the Bellman operators generating the sequence of finite horizon value functions given by \eqref{eq:veqnNrmRecBellman} are contraction maps.
+
+We can now relate the sequence of contraction maps to the limiting solution defined in Section \ref{subsubsec:ratio}.
+
+\hypertarget{Sufficient-Conditions-For-non-degenerate-Solution}{}
+\begin{theorem}(Existence of Non-degenerate Solution).
+\label{thm:convgtobellman}
+If \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC}) and \hyperlink{FVAC}{finite value of autarky} (Assumption \ref{ass:FVAC}) hold, then (under the maintained shock assumption \ref{ass:shocks} and $\CRRA>1$):
+%
+\begin{enumerate}[label=(\roman*)]
+\item There exists $k\in \mathbb{N}$ such that a) for all $n>k$ and $\MPCminInf$ with $0<\MPCminInf<\MPCmax_{T-n}$, $\TMap^{\MPCminInf, \MPCmax_{T-n}}$ is a contraction with modulus $\Shrinker<1$ and b) the sequence $\left\{\vFunc_{T-n}\right\}_{n=0}^{\infty}$ converges point-wise to $\vFunc \in \mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$.
+\item The function $\vFunc$ is a fixed point of $\TMap$ and there exists a measurable policy function, $\cFunc$, such that $\cFunc\colon \Reals_{++}\rightarrow \Reals$ and:
+\begin{equation}\label{eq:stationarybellman}
+\TMap\vFunc(m) =  \uFunc(\cFunc(m)) + \DiscFac\Ex \Rnd{\PermGroFac}^{1-\CRRA}\vFunc(\RNrmByGRnd(m-\cFunc(m)) + \tranShkAll) , \qquad m\in \Reals_{++}. 
+\end{equation}
+\item  The sequence $\left\{\cFunc_{T-n}\right\}_{n=0}^{\infty}$ converges point-wise to $\cFunc$ and $\cFunc$ and $\vFunc$ are a \hyperref[def:nondegeneracy]{limiting non-degenerate solution}.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+
+Item (i.)(a.) follows from Theorem \ref{thm:cmap}, since $0<\MPCminInf<\MPCmax_{T-n}$ and for each $t$, $\MPCmax_{T-n}\leq \MPCmax_{T-k}$ by Lemma \ref{lemm:MPC}.
+We now prove Item (i.)(b.), that $\left\{\vFunc_{T-n}\right\}_{n=0}^{\infty}$ converges point-wise to a \hyperref[def:nondegeneracy]{limiting non-degenerate solution} $\vFunc$.
+In the proof, to streamline the notation, we define $t_{n}\colon = T - n$.
+Now, for all $n>k+2$, $\vFunc_{t_{n}} = \TMap^{\MPCmin_{t_{n}}, \MPCmax_{t_{n}}}\vFunc_{t_{n-1}}$ holds by definition of Problem \eqref{eq:veqnNrmRecBellman}.
+Moreover, since $\MPCmax_{t_{n-1}}\geq \MPCmax_{t_{n}}$ by Lemma \ref{lemm:MPC}, we have:
+%
+\begin{equation*}
+\vFunc_{t_{n}} = \TMap^{\MPCmin_{t_{n}}, \MPCmax_{t_{n-1}}}\vFunc_{t_{n-1}}, 
+\end{equation*}
+%
+and since $\MPCmin_{t_{n}}\leq \MPCmin_{t_{n-1}}$, we have:
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+\vFunc_{t_{n-1}} &  = \TMap^{\MPCmin_{t_{n-1}}, \MPCmax_{t_{n-1}}}\vFunc_{t_{n-2}}\\ &  = \TMap^{\MPCmin_{t_{n}}, \MPCmax_{t_{n-1}}}\vFunc_{t_{n-2}}. 
+\end{aligned}\end{gathered}\end{equation}
+
+Next, take the $\boundFunc$-norm distance between $\vFunc_{t_{n}}$ and $\vFunc_{t_{n-1}}$, and note  $\TMap^{\MPCmin_{t_{n}}, \MPCmax_{t_{n-1}}}$ is a contraction.
+As such, the sequence of finite horizon value functions satisfy:
+%
+\begin{equation*}
+\Vert\vFunc_{t_{n}} - \vFunc_{t_{n-1}}\Vert_{\boundFunc} = \Vert\TMap^{\MPCmin_{t_{n}}, \MPCmax_{t_{n-1}}}\vFunc_{t_{n-1}} - \TMap^{\MPCmin_{t_{n}}, \MPCmax_{t_{n-1}}}\vFunc_{t_{n-2}}\Vert_{\boundFunc} \leq \Shrinker \Vert \vFunc_{t_{n-1}} - \vFunc_{t_{n-2}}\Vert_{\boundFunc}. 
+\end{equation*}
+%
+As such, $\Vert \vFunc_{t_{n}} - \vFunc_{t_{n-1}}\Vert_{\boundFunc } \leq \Shrinker \Vert \vFunc_{t_{n-1}} - \vFunc_{t_{n-2}}\Vert_{\boundFunc } $; because $n$ is arbitrary and $\alpha$ holds for all $n$ by Theorem \ref{thm:cmap}, this is a sufficient condition for  $\left\{\vFunc_{T-n}\right\}_{n=k+2}^{\infty}$ to be a Cauchy sequence.
+
+Since $\mathcal{C}_{\boundFunc }\left(\Reals_{++},\Reals\right) $ is a complete metric space, and $\vFunc_{t_{n-2}} \in \mathcal{C}_{\boundFunc }\left(\Reals_{++},\Reals\right)$ for each $n$, $\vFunc_{t_{n}}$ converges to $v$, with $v\in \mathcal{C}_{\boundFunc }\left(\Reals_{++},\Reals\right)$.
+The proof for Item (i) and Item (ii) is continued in Appendix \ref{sec:Tcontractionmapping}.)
+\end{proof}
+
+The proof above shows that the sequence of value functions produced by the iteration of the per-period Bellman operators $\TMap^{\MPCmin_{T-n}, \MPCmax_{T-n}}$  will be a Cauchy sequence converging to the limiting solution.
+Due to \hyperlink{WRIC}{weak return impatience}, the upper bound on the per-period consumption converges to a strictly positive share of market resources, preventing consumption from converging to zero.
+
+
+%% AS TO AS: LEAVE AS comment \footnote{Assumption 2.1 by \cite{mstIncFluct} specializes to \hyperlink{FVAC}{finite value of autarky} in our case.
+%% Assumption 2.2 by \cite{mstIncFluct} specializes to $\DiscFac\Rfree<1$.
+%% Our proofs do not require $\DiscFac\Rfree<1$.}
+
+%% AS TO AS: IMPORTATNT FOR LATER: Should we say here that even though RIC gives us an eventually compact stationary operator, existing results cannot be used. Should we pre-empt this remark in the intro or else where? Deal with in final pass. 
+
+\begin{remark}\label{remark:ricstationary}
+Under \hyperlink{RIC}{return impatience}, $\MPCmin_{T-n}\geq \MPCmin>0$ for all $n$, and thus for $k\in \mathbb{N}$ large enough, $\TMap^{\MPCmin, \MPCmax_{T-k}}$ will be a stationary contraction map and we will  have $\vFunc_{T-n} = \TMap^{\MPCmin, \MPCmax_{T-k}}\vFunc_{T-n+1}$ for all $n>k$. However, without \hyperlink{RIC}{return impatience}, $\MPCmin = 0$, so the finite-horizon policies are no longer bracketed away from zero by a single positive lower share. The stationary operator $\TMap^{\MPCmin, \MPCmax_{T-k}}$ then degenerates to $\TMap^{0, \MPCmax_{T-k}}$, and our Berge-based self-map argument (Claim \ref{clm:hiraguchi_cont}) no longer applies directly, since the correspondence $\mNrm\mapsto(0,\mNrm)$ is not compact-valued (recall Section \ref{subsubsec:challengesDP}); one would instead have to invoke the Inada condition $\uFunc(0^{+})=-\infty$ (which holds under $\CRRA>1$) to keep the maximizer interior.
+\end{remark}
+
+%% AS TO CDC: Intuition for FVAC below does not make sense. 
+
+Finite value of autarky is the second assumption required to show existence of limiting solutions and guarantees the value is finite (in levels) for a consumer who spent exactly their permanent income every period (see Section \ref{subsec:TheModelUncertainty}).
+The intuition for the finite value of autarky condition is that, with an infinite-horizon, with any strictly positive initial amount of bank balances $\bNrm_{0}$, in the limit your value can always be made greater than you would get by consuming exactly the sustainable amount (say, by consuming $(\rfree/\Rfree)\bNrm_{0}-\epsilon$ for some arbitrarily small $\epsilon>0$).
+
+\begin{remark}\label{remark:cStatStrctPos}
+Since $\MPCmax_{T-n} m \geq \cFunc_{T-n}(\mNrm)\geq \MPCmin_{T-n} m\geq \MPCmin m$, $\MPCmax_{T-n}\rightarrow\MPCmax$, and $\cFunc_{T-n}$ converges point-wise to $\cFunc$, $\MPCmax m \geq \cFunc(\mNrm)\geq \MPCmin m$. Moreover, since $\cFunc$ satisfies Equation \eqref{eq:stationarybellman} and $\vFunc \in \mathcal{C}_{\boundFunc }\left(\Reals_{++},\Reals\right)$, $\cFunc(\mNrm)>0$ for $\mNrm>0$: because $\CRRA>1$ gives $\uFunc(0^{+})=-\infty$ while $\vFunc(\mNrm)$ is finite and, with $\cNrm=0$, the continuation is finite ($\mNrm^{\nxt}\geq\RNrmByGRnd\mNrm>0$ a.s.), $\cFunc(\mNrm)=0$ would force $\vFunc(\mNrm)=-\infty$.
+\end{remark}
+
+Finally, we verify that the converged non-degenerate consumption functions satisfies the same marginal propensities to consume the per-period consumption functions.
+
+\begin{lemma}\label{lemma:MPCBoundsConvg}
+If \hyperlink{WRIC}{weak return impatience} (Assumption \ref{ass:WRIC}) and \hyperlink{FVAC}{finite value of autarky} (Assumption \ref{ass:FVAC}) hold, then $\lim\limits_{m\rightarrow \infty} \cFunc (m)/m =\MPCmin$ and $\lim\limits_{m\rightarrow 0} \cFunc (m)/m =\MPCmax$.
+
+\end{lemma}
+\begin{proof}\let\qed\relax
+See Appendix~\ref{sec:ApndxConcaveCFunc} for the proof.
+
+\end{proof}
+
+
+\hypertarget{The-Liquidity-Constrained-Solution-as-a-Limit}{}
+\subsubsection{The Liquidity Constrained Solution as a Limit}\label{subsubsec:deatonIsLimit}
+
+Recall the common assumption \citep{deatonLiqConstr,aiyagari:ge, lsIncFluct, mstIncFluct} of a strictly positive minimum value of income and a non-trivial artificial liquidity constraint, namely $\aNrm_{t}\geq 0$.
+We will refer to the set-up from Section \ref{subsec:Setup}, with Assumption \ref{thm:convgtobellman} modified so $\pZero=0$ as the ``liquidity constrained problem.'' Let $\cFunc_{t}(\bullet;\pZero)$ be the consumption function for a problem where Assumption \ref{ass:shocks} holds for a given fixed $\pZero$, with $\pZero>0$.
+Moreover, let $\cnstr{\cFunc}_{t}$ be the limiting consumption function for the liquidity constrained problem (note that the liquidity constraint $\cNrm_{t}\leq \mNrm_{t}$, or $\aNrm_{t}\geq 0$, becomes relevant only when $\pZero= 0$).
+The discussion in Appendix \ref{sec:LiqConstrAsLimit} shows how an finite-horizon solution to the liquidity constrained problem, $\cnstr{\cFunc}_{t}$ , is the limit of the problems as the probability $\pZero$ of the zero-income event approaches zero.
+
+
+Intuitively, if we impose the artificial constraint without changing $\pZero$ and maintain $\pZero>0$, it would not affect behavior.
+This is because the possibility of earning zero income over the remaining horizon already prevents the consumer from ending the period with zero assets.
+For precautionary reasons, the consumer will save something.
+However, the \textit{extent} to which the consumer feels the need to make this precautionary provision depends on the \textit{probability} that it will turn out to matter.
+As  $\pZero \rightarrow 0$, the   precautionary saving induced by the zero-income events approaches zero, and ``zero'' is the amount of precautionary saving that would be induced by a zero-probability event by the impatient liquidity constrained consumer.
+Appendix~\ref{sec:LiqConstrAsLimit} gives the argument in a simplified version of the problem, and Theorem~\ref{thm:LiqConstrLimitPositiveMinimum} in Appendix~\ref{sec:ApndxPositiveMinimumIncome} proves it for the full problem at every horizon and, if \hyperlink{FVAC}{finite value of autarky} holds, for the limiting solutions.
+
+%% AS to AS: Following saved as a comment: Another way to understand this is just to think of the liquidity constraint reflecting a component of the utility function that is zero whenever the consumer ends the period with (strictly) positive assets, but negative infinity if the consumer ends the period with (weakly) negative assets.  The conditions required for convergence and nondegeneracy are thus strikingly similar between the liquidity constrained perfect foresight model and the model with uncertainty but no explicit constraints: The liquidity constrained perfect foresight model is just the limiting case of the model with uncertainty as the degree of all three kinds of uncertainty (zero-income events, other transitory shocks, and permanent shocks) approaches zero.
+
+
+\end{document}\endinput

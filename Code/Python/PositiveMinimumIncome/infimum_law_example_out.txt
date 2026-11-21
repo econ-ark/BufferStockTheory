@@ -1,0 +1,6 @@
+base law: infimum 0.73412 supremum 1.34862 mean of atoms 1.000000; point-mass probability Phi(-3) = 0.001350
+xi_u=0.00 N= 7: psi_min=0.85021 (next 0.91788) E[psi]=1.000000 E[xi]=1.000000 p_worst=5.000e-03 h_min=0.0000 kappa_max=0.932063 (solver 0.932063) c(1)=0.8527 target=1.3920 pseudo=1.3782 a(target)=0.3846 a(pseudo)=0.3746 unique&decreasing=True
+xi_u=0.05 N= 7: psi_min=0.73412 (next 0.85051) E[psi]=1.000000 E[xi]=1.000000 p_worst=6.749e-06 h_min=0.1332 kappa_max=0.997504 (solver 0.997504) c(1)=0.9423 target=1.1899 pseudo=1.1831 a(target)=0.1863 a(pseudo)=0.1814 unique&decreasing=True
+xi_u=0.30 N= 7: psi_min=0.73412 (next 0.85051) E[psi]=1.000000 E[xi]=1.000000 p_worst=6.749e-06 h_min=0.7992 kappa_max=0.997504 (solver 0.997504) c(1)=1.1050 target=0.3814 pseudo=0.4049 a(target)=-0.6069 a(pseudo)=-0.5894 unique&decreasing=True
+xi_u=0.30 N=15: psi_min=0.73412 (next 0.82110) E[psi]=1.000000 E[xi]=1.000000 p_worst=6.749e-06 h_min=0.7992 kappa_max=0.997504 (solver 0.997504) c(1)=1.1012 target=0.3941 pseudo=0.4186 a(target)=-0.5942 a(pseudo)=-0.5759 unique&decreasing=True
+xi_u=0.50 N= 7: psi_min=0.73412 (next 0.85051) E[psi]=1.000000 E[xi]=1.000000 p_worst=6.749e-06 h_min=1.3319 kappa_max=0.997504 (solver 0.997504) c(1)=1.1520 target=-0.1260 pseudo=-0.0805 a(target)=-1.1046 a(pseudo)=-1.0701 unique&decreasing=True

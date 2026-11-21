@@ -1,0 +1,27 @@
+# LaTeX `\begin{ENV}...\end{ENV}` → MyST `:::{prf:KIND} ... :::` mapping
+# used by Phase 7 (07_theorem_envs.py).
+#
+# Any environment name not listed here is left untouched; pandoc's default
+# rendering of unknown environments (a plain block of text) is used as fallback.
+
+theorem:      theorem
+proposition:  proposition
+corollary:    corollary
+lemma:        lemma
+definition:   definition
+assumption:   assumption
+# Paper-specific assumption environments declared in @local/local.sty
+# (\newtheorem{assumL}{Assumption} etc.). All three render as the
+# generic "assumption" directive — the L/S/I distinction was used in
+# the LaTeX source to number them in independent counters but carries
+# no semantic difference in the published markdown.
+assumL:       assumption
+assumS:       assumption
+assumI:       assumption
+conjecture:   conjecture
+remark:       remark
+example:      example
+property:     property
+claim:        property        # "claim" is non-standard in sphinx-proof; mapped to property
+fact:         remark          # "fact" has no sphinx-proof equivalent; closest is remark
+proof:        proof

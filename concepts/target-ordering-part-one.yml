@@ -1,0 +1,38 @@
+id: target-ordering-part-one
+name: Ordering of Pseudo-Target and Buffer-Stock Target
+defining_equation:
+  anchor: lemma-orderingPartOne
+  latex: \BalGroFac{\mNrm} \leq \TargetNrm{\mNrm}
+  english: 'Whenever both the pseudo-target $\mBalLvl=\BalGroFac{\mNrm}$ and the individual buffer-stock target $\mTrgNrm=\TargetNrm{\mNrm}$ exist, the pseudo-target is weakly below the target.'
+gloss: |
+  This lemma orders the paper's two distinct notions of a stable point. In the paper's notation the macro $\BalGroFac{\cdot}=\check{\cdot}$ marks the balanced-growth object and $\TargetNrm{\cdot}=\hat{\cdot}$ marks the target, so the lemma's $\BalGroFac{\mNrm}$ is the pseudo-target written elsewhere as $\mBalLvl$, and $\TargetNrm{\mNrm}=\mTrgNrm$ is the individual buffer-stock target. The pseudo-target $\mBalLvl$ is the point at which the *level* of market resources grows in expectation at the permanent-income factor, $\Ex_t[\mLvl_{t+1}/\mLvl_{t}]=\PermGroFac$ (section Collective-Stability), while the individual target $\mTrgNrm$ is the point at which *normalised* resources are stationary, $\Ex_t[\mNrm_{t+1}/\mNrm_{t}]=1$ (thm-target). The lemma states that the former lies weakly below the latter.
+
+  The lemma is stated conditionally — "if $\BalGroFac{\mNrm}$ and $\TargetNrm{\mNrm}$ both exist" — so it ASSUMES the hypotheses under which each object is guaranteed: the pseudo-target via `thm-MSSBalExists` (WRIC, FVAC, and growth impatience GICRaw) and the individual target via `thm-target` (WRIC, FVAC, and the stronger strong-growth-impatience GICMod). When permanent-shock variance is large enough that GICMod fails while GICRaw still holds, only the pseudo-target exists and the ordering is vacuous; when both hold, the inequality has content.
+
+  The paper records that the two objects' implicit equations differ only by one substitution: comparing the target equation `eq-mTargImplicit` with the pseudo-target equation `eq-balgrostable`, "the only difference is the substitution of $\RNrmByG$ for $\bar{\RNrmByGRnd}$," where $\bar{\RNrmByGRnd}:=\RNrmByG\,\Ex_t[\permShk^{-1}]$. Since $\Ex_t[\permShk]=1$, Jensen's inequality gives $\Ex_t[\permShk^{-1}]\geq 1$ and hence $\bar{\RNrmByGRnd}\geq\RNrmByG$; the two objects coincide exactly when there are no permanent shocks ($\permShk\equiv 1$, so $\bar{\RNrmByGRnd}=\RNrmByG$). The same direction is corroborated by footnote [^26], which places the log-balanced-growth point $\mBalLog$ between them: if it exists, $\mBalLog>\mBalLvl$, and in turn if $\mTrgNrm$ exists, $\mTrgNrm>\mBalLog$. The lemma itself is stated without a separate proof in this build, recorded as a supporting fact alongside Theorems `thm-target`–`thm-MSSBalExists` in Appendix `sec-individStability`.
+relations:
+  - kind: requires
+    target: pseudo-target-existence
+    note: 'The lemma is conditional on $\mBalLvl=\BalGroFac{\mNrm}$ existing, which is exactly thm-MSSBalExists (WRIC, FVAC, GICRaw).'
+  - kind: requires
+    target: buffer-stock-target-existence
+    note: 'The lemma is conditional on $\mTrgNrm=\TargetNrm{\mNrm}$ existing, which is exactly thm-target (WRIC, FVAC, GICMod).'
+  - kind: implies
+    target: pseudo-target
+    note: 'Conclusion locates the pseudo-target $\mBalLvl$ weakly below the buffer-stock target $\mTrgNrm$.'
+  - kind: implies
+    target: buffer-stock-target
+    note: 'Conclusion: the individual buffer-stock target $\mTrgNrm$ is weakly above the pseudo-target $\mBalLvl$.'
+  - kind: contrasts-with
+    target: strong-growth-impatience-condition
+    note: 'The gap has content precisely in the GICMod regime where both objects exist; under only GICRaw the individual target need not exist and the ordering is vacuous.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: lemma-orderingPartOne
+  - file: BufferStockTheory.md
+    anchor: sec-individStability
+  - file: BufferStockTheory.md
+    anchor: eq-mTargImplicit
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

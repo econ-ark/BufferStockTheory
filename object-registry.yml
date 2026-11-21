@@ -1,0 +1,834 @@
+_meta:
+  count: 89
+  derived_from: anchor-registry.yml
+  generated_by: tools/object_registry.py
+  in_atlas_count: 68
+  kinds:
+    assumption: 10
+    corollary: 1
+    definition: 2
+    equation: 28
+    lemma: 11
+    property: 8
+    proposition: 9
+    remark: 9
+    theorem: 11
+  needs_title_count: 55
+  note: 'In-scope named scholarly objects + atlas-referenced named equations. A derived VIEW of anchor-registry.yml;
+    the mechanical registry is preserved separately. TODO: enrich the needs_title entries (assumptions/properties/remarks
+    whose prf directive carried no rendered title) with curated titles before relying on `title` for display.'
+  project: BufferStockTheory
+  variant: Latest
+objects:
+  ass-AIC:
+    aliases:
+    - AIC
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-aic
+    html_id: ass-aic
+    in_atlas: true
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-AIC
+    needs_title: false
+    title: '*Absolute Impatience*'
+  ass-FHWC:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-fhwc
+    html_id: ass-fhwc
+    in_atlas: true
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-FHWC
+    needs_title: false
+    title: Finite Human Wealth
+  ass-FVAC:
+    aliases:
+    - FVAC
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-fvac
+    html_id: ass-fvac
+    in_atlas: true
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-FVAC
+    needs_title: false
+    title: Finite Value of Autarky
+  ass-GICMod:
+    aliases:
+    - GICMod
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-gicmod
+    html_id: ass-gicmod
+    in_atlas: true
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-GICMod
+    needs_title: false
+    title: '*Strong Growth Impatience*'
+  ass-GICRaw:
+    aliases:
+    - GICRaw
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-gicraw
+    html_id: ass-gicraw
+    in_atlas: true
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-GICRaw
+    needs_title: false
+    title: '*Growth Impatience*'
+  ass-RIC:
+    aliases:
+    - RIC
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-ric
+    html_id: ass-ric
+    in_atlas: true
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-RIC
+    needs_title: false
+    title: '*Return Impatience*'
+  ass-WRIC:
+    aliases:
+    - WRIC
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-wric
+    html_id: ass-wric
+    in_atlas: true
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-WRIC
+    needs_title: false
+    title: '*Weak Return Impatience*'
+  ass-pfincome:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-pfincome
+    html_id: ass-pfincome
+    in_atlas: true
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-pfincome
+    needs_title: false
+    title: Perfect Foresight Income Process
+  ass-shocks:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-shocks
+    html_id: ass-shocks
+    in_atlas: true
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-shocks
+    needs_title: false
+    title: Friedman-Muth Income Process
+  ass-shocksPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#ass-shockspositiveminimum
+    html_id: ass-shockspositiveminimum
+    in_atlas: false
+    kind: assumption
+    md_ref: BufferStockTheory.md#ass-shocksPositiveMinimum
+    needs_title: false
+    title: Friedman-Muth Income Process with a Positive Minimum
+  claim-MPCMAXKleq1:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#claim-mpcmaxkleq1
+    html_id: claim-mpcmaxkleq1
+    in_atlas: true
+    kind: property
+    md_ref: BufferStockTheory.md#claim-MPCMAXKleq1
+    needs_title: true
+    title: ''
+  claim-PFConspC:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#claim-pfconspc
+    html_id: claim-pfconspc
+    in_atlas: true
+    kind: property
+    md_ref: BufferStockTheory.md#claim-PFConspC
+    needs_title: true
+    title: ''
+  claim-gicimpliesharmimp:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#claim-gicimpliesharmimp
+    html_id: claim-gicimpliesharmimp
+    in_atlas: true
+    kind: property
+    md_ref: BufferStockTheory.md#claim-gicimpliesharmimp
+    needs_title: true
+    title: ''
+  claim-noRICGIC:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#claim-noricgic
+    html_id: claim-noricgic
+    in_atlas: true
+    kind: property
+    md_ref: BufferStockTheory.md#claim-noRICGIC
+    needs_title: true
+    title: ''
+  claim-rationondec:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#claim-rationondec
+    html_id: claim-rationondec
+    in_atlas: true
+    kind: property
+    md_ref: BufferStockTheory.md#claim-rationondec
+    needs_title: true
+    title: ''
+  clm-hiraguchi_cont:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#clm-hiraguchi_cont
+    html_id: clm-hiraguchi_cont
+    in_atlas: true
+    kind: property
+    md_ref: BufferStockTheory.md#clm-hiraguchi_cont
+    needs_title: true
+    title: ''
+  coro-ConcaveNoWorst:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#coro-concavenoworst
+    html_id: coro-concavenoworst
+    in_atlas: false
+    kind: corollary
+    md_ref: BufferStockTheory.md#coro-ConcaveNoWorst
+    needs_title: true
+    title: ''
+  def-boundfuncspace:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#def-boundfuncspace
+    html_id: def-boundfuncspace
+    in_atlas: true
+    kind: definition
+    md_ref: BufferStockTheory.md#def-boundfuncspace
+    needs_title: true
+    title: ''
+  def-nondegeneracy:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#def-nondegeneracy
+    html_id: def-nondegeneracy
+    in_atlas: true
+    kind: definition
+    md_ref: BufferStockTheory.md#def-nondegeneracy
+    needs_title: false
+    title: Non-degenerate Limiting Solution
+  eq-APFac:
+    aliases:
+    - APFac
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-apfac
+    html_id: eq-apfac
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-APFac
+    needs_title: true
+    title: ''
+  eq-EuelrStatC:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-euelrstatc
+    html_id: eq-euelrstatc
+    in_atlas: true
+    kind: property
+    md_ref: BufferStockTheory.md#eq-EuelrStatC
+    needs_title: true
+    title: ''
+  eq-FHWC2:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-fhwc2
+    html_id: eq-fhwc2
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-FHWC2
+    needs_title: true
+    title: ''
+  eq-GPFacMod:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-gpfacmod
+    html_id: eq-gpfacmod
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-GPFacMod
+    needs_title: true
+    title: ''
+  eq-GPFacRaw:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-gpfacraw
+    html_id: eq-gpfacraw
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-GPFacRaw
+    needs_title: true
+    title: ''
+  eq-HarmImp:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-harmimp
+    html_id: eq-harmimp
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-HarmImp
+    needs_title: true
+    title: ''
+  eq-Jensen:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-jensen
+    html_id: eq-jensen
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-Jensen
+    needs_title: true
+    title: ''
+  eq-LiqConstrBinds:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-liqconstrbinds
+    html_id: eq-liqconstrbinds
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-LiqConstrBinds
+    needs_title: true
+    title: ''
+  eq-MPCMAXKleq1:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-mpcmaxkleq1
+    html_id: eq-mpcmaxkleq1
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-MPCMAXKleq1
+    needs_title: true
+    title: ''
+  eq-MPCmaxDefn:
+    aliases:
+    - MPCmaxDefn
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-mpcmaxdefn
+    html_id: eq-mpcmaxdefn
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-MPCmaxDefn
+    needs_title: true
+    title: ''
+  eq-MPCminInv:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-mpcmininv
+    html_id: eq-mpcmininv
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-MPCminInv
+    needs_title: true
+    title: ''
+  eq-Mbarddef:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-mbarddef
+    html_id: eq-mbarddef
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-Mbarddef
+    needs_title: true
+    title: ''
+  eq-PFFVAC:
+    aliases:
+    - PFFVAC
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-pffvac
+    html_id: eq-pffvac
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-PFFVAC
+    needs_title: true
+    title: ''
+  eq-TranShkDef:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-transhkdef
+    html_id: eq-transhkdef
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-TranShkDef
+    needs_title: true
+    title: ''
+  eq-cBounds:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-cbounds
+    html_id: eq-cbounds
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-cBounds
+    needs_title: true
+    title: ''
+  eq-cFuncPFUnc:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-cfuncpfunc
+    html_id: eq-cfuncpfunc
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-cFuncPFUnc
+    needs_title: true
+    title: ''
+  eq-cFuncPFUncAppx:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-cfuncpfuncappx
+    html_id: eq-cfuncpfuncappx
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-cFuncPFUncAppx
+    needs_title: true
+    title: ''
+  eq-convgcvftni:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-convgcvftni
+    html_id: eq-convgcvftni
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-convgcvftni
+    needs_title: true
+    title: ''
+  eq-mBalLvl:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-mballvl
+    html_id: eq-mballvl
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-mBalLvl
+    needs_title: true
+    title: ''
+  eq-mTargImplicit:
+    aliases:
+    - mTargImplicit
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-mtargimplicit
+    html_id: eq-mtargimplicit
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-mTargImplicit
+    needs_title: true
+    title: ''
+  eq-mTarget:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-mtarget
+    html_id: eq-mtarget
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-mTarget
+    needs_title: true
+    title: ''
+  eq-maintmap:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-maintmap
+    html_id: eq-maintmap
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-maintmap
+    needs_title: true
+    title: ''
+  eq-phinorm:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-phinorm
+    html_id: eq-phinorm
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-phinorm
+    needs_title: true
+    title: ''
+  eq-scaledeuler:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-scaledeuler
+    html_id: eq-scaledeuler
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-scaledeuler
+    needs_title: true
+    title: ''
+  eq-stability:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-stability
+    html_id: eq-stability
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-stability
+    needs_title: true
+    title: ''
+  eq-statCbellman:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-statcbellman
+    html_id: eq-statcbellman
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-statCbellman
+    needs_title: true
+    title: ''
+  eq-stationarybellman:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-stationarybellman
+    html_id: eq-stationarybellman
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-stationarybellman
+    needs_title: true
+    title: ''
+  eq-veqnNrmRecBellman:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-veqnnrmrecbellman
+    html_id: eq-veqnnrmrecbellman
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-veqnNrmRecBellman
+    needs_title: true
+    title: ''
+  eq-xtp1toinfty:
+    aliases:
+    - xtp1toinfty
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#eq-xtp1toinfty
+    html_id: eq-xtp1toinfty
+    in_atlas: true
+    kind: equation
+    md_ref: BufferStockTheory.md#eq-xtp1toinfty
+    needs_title: true
+    title: ''
+  fact-compactnt:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#fact-compactnt
+    html_id: fact-compactnt
+    in_atlas: true
+    kind: remark
+    md_ref: BufferStockTheory.md#fact-compactnt
+    needs_title: true
+    title: ''
+  fact-normimpliescompact:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#fact-normimpliescompact
+    html_id: fact-normimpliescompact
+    in_atlas: true
+    kind: remark
+    md_ref: BufferStockTheory.md#fact-normimpliescompact
+    needs_title: true
+    title: ''
+  fact-xnconvgf:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#fact-xnconvgf
+    html_id: fact-xnconvgf
+    in_atlas: true
+    kind: proposition
+    md_ref: BufferStockTheory.md#fact-xnconvgf
+    needs_title: true
+    title: ''
+  lemm-MPC:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemm-mpc
+    html_id: lemm-mpc
+    in_atlas: true
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemm-MPC
+    needs_title: false
+    title: Limiting MPCs
+  lemm-consC2:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemm-consc2
+    html_id: lemm-consc2
+    in_atlas: true
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemm-consC2
+    needs_title: true
+    title: ''
+  lemma-ContinuityIncome:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemma-continuityincome
+    html_id: lemma-continuityincome
+    in_atlas: false
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemma-ContinuityIncome
+    needs_title: false
+    title: Continuity in the Income Process
+  lemma-ExcessResources:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemma-excessresources
+    html_id: lemma-excessresources
+    in_atlas: false
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemma-ExcessResources
+    needs_title: false
+    title: The Problem in Excess Resources
+  lemma-MPCBoundsConvg:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemma-mpcboundsconvg
+    html_id: lemma-mpcboundsconvg
+    in_atlas: true
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemma-MPCBoundsConvg
+    needs_title: true
+    title: ''
+  lemma-MPCBoundsConvgPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemma-mpcboundsconvgpositiveminimum
+    html_id: lemma-mpcboundsconvgpositiveminimum
+    in_atlas: false
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemma-MPCBoundsConvgPositiveMinimum
+    needs_title: false
+    title: The Limiting Consumption Function
+  lemma-MPCPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemma-mpcpositiveminimum
+    html_id: lemma-mpcpositiveminimum
+    in_atlas: false
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemma-MPCPositiveMinimum
+    needs_title: false
+    title: Limiting MPCs
+  lemma-NaturalBorrowingLimit:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemma-naturalborrowinglimit
+    html_id: lemma-naturalborrowinglimit
+    in_atlas: false
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemma-NaturalBorrowingLimit
+    needs_title: false
+    title: Natural Borrowing Limit
+  lemma-NoWorstFinite:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemma-noworstfinite
+    html_id: lemma-noworstfinite
+    in_atlas: false
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemma-NoWorstFinite
+    needs_title: false
+    title: The Finite-Horizon Solution
+  lemma-orderingPartOne:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemma-orderingpartone
+    html_id: lemma-orderingpartone
+    in_atlas: true
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemma-orderingPartOne
+    needs_title: true
+    title: ''
+  lemma-orderingPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#lemma-orderingpositiveminimum
+    html_id: lemma-orderingpositiveminimum
+    in_atlas: false
+    kind: lemma
+    md_ref: BufferStockTheory.md#lemma-orderingPositiveMinimum
+    needs_title: false
+    title: Borrowing at the Targets, and Their Order
+  prop-InfiniteMinHumanWealth:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#prop-infiniteminhumanwealth
+    html_id: prop-infiniteminhumanwealth
+    in_atlas: false
+    kind: proposition
+    md_ref: BufferStockTheory.md#prop-InfiniteMinHumanWealth
+    needs_title: false
+    title: Infinite Minimum Human Wealth
+  prop-NoWorstTargets:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#prop-noworsttargets
+    html_id: prop-noworsttargets
+    in_atlas: false
+    kind: proposition
+    md_ref: BufferStockTheory.md#prop-NoWorstTargets
+    needs_title: false
+    title: Targets and Aggregates When the Borrowing Limit Can Be Reached
+  prop-PFCExist:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#prop-pfcexist
+    html_id: prop-pfcexist
+    in_atlas: true
+    kind: proposition
+    md_ref: BufferStockTheory.md#prop-PFCExist
+    needs_title: true
+    title: ''
+  prop-cfuncprop:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#prop-cfuncprop
+    html_id: prop-cfuncprop
+    in_atlas: true
+    kind: proposition
+    md_ref: BufferStockTheory.md#prop-cfuncprop
+    needs_title: true
+    title: ''
+  prop-cfuncpropPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#prop-cfuncproppositiveminimum
+    html_id: prop-cfuncproppositiveminimum
+    in_atlas: false
+    kind: proposition
+    md_ref: BufferStockTheory.md#prop-cfuncpropPositiveMinimum
+    needs_title: true
+    title: ''
+  prop-convgGrowth:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#prop-convggrowth
+    html_id: prop-convggrowth
+    in_atlas: true
+    kind: proposition
+    md_ref: BufferStockTheory.md#prop-convgGrowth
+    needs_title: true
+    title: ''
+  prop-invariantPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#prop-invariantpositiveminimum
+    html_id: prop-invariantpositiveminimum
+    in_atlas: false
+    kind: proposition
+    md_ref: BufferStockTheory.md#prop-invariantPositiveMinimum
+    needs_title: false
+    title: Invariant Distributions
+  prop-pfUCFHWC:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#prop-pfucfhwc
+    html_id: prop-pfucfhwc
+    in_atlas: true
+    kind: proposition
+    md_ref: BufferStockTheory.md#prop-pfUCFHWC
+    needs_title: true
+    title: ''
+  prop-vfc3:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#prop-vfc3
+    html_id: prop-vfc3
+    in_atlas: true
+    kind: property
+    md_ref: BufferStockTheory.md#prop-vfc3
+    needs_title: true
+    title: ''
+  rem-shnkrdef:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#rem-shnkrdef
+    html_id: rem-shnkrdef
+    in_atlas: true
+    kind: remark
+    md_ref: BufferStockTheory.md#rem-shnkrdef
+    needs_title: true
+    title: ''
+  remark-TransformingBack:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#remark-transformingback
+    html_id: remark-transformingback
+    in_atlas: false
+    kind: remark
+    md_ref: BufferStockTheory.md#remark-TransformingBack
+    needs_title: false
+    title: Transforming the model back
+  remark-WRICWorstImplied:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#remark-wricworstimplied
+    html_id: remark-wricworstimplied
+    in_atlas: false
+    kind: remark
+    md_ref: BufferStockTheory.md#remark-WRICWorstImplied
+    needs_title: true
+    title: ''
+  remark-cStatStrctPos:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#remark-cstatstrctpos
+    html_id: remark-cstatstrctpos
+    in_atlas: true
+    kind: remark
+    md_ref: BufferStockTheory.md#remark-cStatStrctPos
+    needs_title: true
+    title: ''
+  remark-notCompact:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#remark-notcompact
+    html_id: remark-notcompact
+    in_atlas: true
+    kind: remark
+    md_ref: BufferStockTheory.md#remark-notCompact
+    needs_title: true
+    title: ''
+  remark-ricstationary:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#remark-ricstationary
+    html_id: remark-ricstationary
+    in_atlas: true
+    kind: remark
+    md_ref: BufferStockTheory.md#remark-ricstationary
+    needs_title: true
+    title: ''
+  remark-stochdiscMST:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#remark-stochdiscmst
+    html_id: remark-stochdiscmst
+    in_atlas: true
+    kind: remark
+    md_ref: BufferStockTheory.md#remark-stochdiscMST
+    needs_title: true
+    title: ''
+  thm-Boyd:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-boyd
+    html_id: thm-boyd
+    in_atlas: true
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-Boyd
+    needs_title: false
+    title: Boyd’s Contraction Mapping
+  thm-LiqConstrLimitPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-liqconstrlimitpositiveminimum
+    html_id: thm-liqconstrlimitpositiveminimum
+    in_atlas: false
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-LiqConstrLimitPositiveMinimum
+    needs_title: false
+    title: The Liquidity Constrained Solution as a Limit
+  thm-MSSBalExists:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-mssbalexists
+    html_id: thm-mssbalexists
+    in_atlas: true
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-MSSBalExists
+    needs_title: false
+    title: ‘Pseudo-Target’
+  thm-cmap:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-cmap
+    html_id: thm-cmap
+    in_atlas: true
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-cmap
+    needs_title: false
+    title: Contraction Mapping Under Consumption Bounds
+  thm-cmapPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-cmappositiveminimum
+    html_id: thm-cmappositiveminimum
+    in_atlas: false
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-cmapPositiveMinimum
+    needs_title: false
+    title: Contraction Mapping Under Consumption Bounds
+  thm-convgtobellman:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-convgtobellman
+    html_id: thm-convgtobellman
+    in_atlas: true
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-convgtobellman
+    needs_title: false
+    title: Existence of Non-degenerate Solution
+  thm-existenceNoWorst:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-existencenoworst
+    html_id: thm-existencenoworst
+    in_atlas: false
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-existenceNoWorst
+    needs_title: false
+    title: Existence When the Borrowing Limit Can Be Reached
+  thm-existencePositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-existencepositiveminimum
+    html_id: thm-existencepositiveminimum
+    in_atlas: false
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-existencePositiveMinimum
+    needs_title: false
+    title: Existence of a Non-degenerate Solution
+  thm-pseudoTargetPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-pseudotargetpositiveminimum
+    html_id: thm-pseudotargetpositiveminimum
+    in_atlas: false
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-pseudoTargetPositiveMinimum
+    needs_title: false
+    title: Pseudo-Target
+  thm-target:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-target
+    html_id: thm-target
+    in_atlas: true
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-target
+    needs_title: false
+    title: Buffer Stock Target
+  thm-targetPositiveMinimum:
+    aliases: []
+    canonical_url: https://llorracc.github.io/BufferStockTheory/#thm-targetpositiveminimum
+    html_id: thm-targetpositiveminimum
+    in_atlas: false
+    kind: theorem
+    md_ref: BufferStockTheory.md#thm-targetPositiveMinimum
+    needs_title: false
+    title: Buffer Stock Target

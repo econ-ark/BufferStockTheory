@@ -1,0 +1,32 @@
+cff-version: "1.2.0"
+message: "BufferStockTheory problems in notebook context"
+authors:
+  - family-names: "Carroll"
+    given-names: "Christopher D."
+    orcid: "https://orcid.org/0000-0003-3732-9312"
+title: "Theoretical Foundations of Buffer Stock Saving"
+abstract: |
+  The BufferStockTheory directory contains code to reproduce the figures of the
+  paper Theoretical Foundations of Buffer Stock Saving by Christopher Carroll,
+  and the LaTeX source to produce the paper once the figures have been created.
+date-released: 2022-01-24
+
+references:
+  - type: software
+    authors:
+    - family-names: "Carroll"
+      given-names: "Christopher D."
+      orcid: "https://orcid.org/0000-0003-3732-9312"
+    title: Theoretical Foundations of Buffer Stock Saving
+    doi: "10.5281/zenodo.4088918"
+    date-released: 2020-10-14
+
+repository-code: https://github.com/econ-ark/BufferStockTheory
+identifiers:
+   - type: url
+     value: https://llorracc.github.io/BufferStockTheory
+   - type: doi
+     value: "10.5281/zenodo.4088918"
+
+keywords:
+  - Problems

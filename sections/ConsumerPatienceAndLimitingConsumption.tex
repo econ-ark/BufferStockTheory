@@ -1,0 +1,277 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+
+\newcommand{\subname}{ConsumerPatienceAndLimitingConsumption}
+\input{\econtexRoot/@local/dir-paths}
+\usepackage{econark-ifsubfile}
+\usepackage{econark-xrsetup}
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
+
+\xrsetup{\econtexRoot/\texname}
+
+\begin{document}
+
+\hypertarget{Discussion-Growth-Impatience}{}
+\section{Consumer Patience and Limiting Consumption}\label{sec:GICdiscussion}
+
+\renewcommand{\figName}{cFuncsConverge} 
+\input{\FigDir/cFuncsConverge} 
+
+Having established our formal results, we are ready to describe how the various patience conditions determine the characteristics of the limiting consumption function.
+To fix ideas, we start with a quantitative example using the familiar benchmark case where \hyperlink{RIC}{return impatience}, \hyperlink{GICRaw}{growth impatience} and \hyperlink{FHWC}{finite human wealth} all hold, shown by Figure~\ref{fig:cFuncsConverge}.
+The figure depicts the successive consumption rules that apply in the last period of life $(\cFunc_{T})$, the second-to-last period, and earlier periods under parameter values listed in Table~\ref{table:Calibration}.
+(The 45 degree line is $\cFunc_{T}(\mNrm) = m$ because in the last period of life it is optimal to spend all remaining resources.)
+
+Under the same parameter values, Figures~\ref{fig:mpclimits}--\ref{fig:cFuncBounds} capture the theoretical bounds and MPCs of the converged consumption rule.
+In Figure~\ref{fig:mpclimits}, as $\mNrm$ rises, the marginal propensity to consume approaches $\MPCmin=(1-\RPFac)$ as $m \rightarrow \infty$, the same as the perfect foresight MPC.
+Moreover, as $\mNrm$ approaches zero, the MPC approaches $\MPCmax=(1-\pZero^{1/\CRRA}\RPFac)$.
+
+
+\renewcommand{\figFile}{mpclimits}
+\hypertarget{\figFile}{}
+\input{\FigDir/MPCLimits}
+%%% debug - AS: what's the bug?
+\renewcommand{\figFile}{cFuncBounds}
+\hypertarget{\figFile}{}
+\input{\FigDir/cFuncBounds}
+
+While in the presence of a constraint neither \hyperlink{RIC}{return impatience} nor \hyperlink{GICRaw}{growth impatience} is individually necessary for nondegeneracy of $\cFunc(m)$, a key conclusion of this section is that if \emph{both} \hyperlink{RIC}{return impatience} and \hyperlink{GICRaw}{growth impatience} fail, the consumption function \emph{will} be degenerate (limiting either to $\cFunc(m)=0$ or $c(\mNrm)=\infty$ as the horizon recedes).
+So, for a useful solution, at least one of these conditions must hold.\footnote{Recall Claim \ref{claim:noRICGIC} showing that a double-impatience failure implies autarky value is not finite; and see } The case with \hyperlink{GICRaw}{growth impatience} but \hyperlink{RIC}{return \emph{patience}} is particularly surprising, because it is not immediately clear what prevents our earlier conclusion (in other circumstances) that return patience leads $\cFunc(m)$ to asymptote to zero.
+The trick is to note that if return patience holds, $\Rfree < \APFac$, while growth impatience means $\APFac < \PermGroFac$; together these inequalities tell us that $\Rfree < \PermGroFac$ so (limiting) human wealth is infinite.\footnote{This logic holds even if both $\Rfree$ and $\PermGroFac$ are less than one -- in this case, because the agent can \emph{borrow} at a negative interest rate and always repay with income that shrinks more slowly than their debt.}
+But, if at any $\mNrm$ human wealth is unbounded, what prevents $\cFunc$ from asymptoting to $\cFunc(m)=\infty$ as the horizon gets arbitrarily long?
+This is where the natural borrowing constraint comes in.
+We will show that \hyperlink{GICRaw}{growth impatience} is sufficient, at any fixed $\mNrm$, to guarantee an upper bound to $\cFunc(m)$.
+The insight is best understood by first abstracting from uncertainty and studying the perfect foresight case (with and without constraints).
+
+\subsection{Model with Perfect Foresight}\label{subsec:PFBdiscussion}
+
+\begin{comment}
+Should we define the unconstrained problem?
+\end{comment}
+
+\hypertarget{ValuePFAnalytical}{}
+\hypertarget{Autarky-Value-PF}{}
+
+%\footnote{This is related to the key impatience condition in~\cite{asHomogeneous}.} % chktex 13<-- how(akshay)$
+
+Claims \ref{claim:noRICGIC}-\ref{claim:PFConspC} established the relationship between the \hyperlink{PFFVAC}{finite value of autarky}, \hyperlink{RIC}{return impatience} and \hyperlink{GICRaw}{growth impatience} in the context of a model with uncertainty.
+The easiest way to grasp the relations among these conditions is by studying Figure~\ref{fig:RelatePFGICFHWCRICPFFVAC}.
+Each node represents a quantity defined above.
+The arrow associated with each inequality imposes the condition, which is defined by the originating quantity being smaller than the arriving quantity.
+For example, one way we wrote the \hypertarget{PFFVAC}{finite value of autarky} (under perfect foresight) in Equation~\eqref{eq:PFFVAC} is $\APFac < \Rfree^{1/\CRRA} \PermGroFac^{1-1/\CRRA}$, so imposition of \hypertarget{PFFVAC}{finite value of autarky} is captured by the diagonal arrow connecting $\APFac$ and $\Rfree^{1/\CRRA}\PermGroFac^{1-1/\CRRA}$.
+Traversing the boundary of the diagram clockwise starting at $\APFac$ involves imposing first \hyperlink{GICRaw}{growth impatience} ($\APFac < \PermGroFac$) then \hypertarget{FHWC}{finite human wealth} ($\PermGroFac < \PermGroFac(\Rfree/\PermGroFac)^{1/\CRRA} \longleftrightarrow \PermGroFac < \Rfree $), and the consequent arrival at the bottom right node tells us that these two conditions jointly imply \hypertarget{PFFVAC}{perfect-foresight-finite-value-of-autarky}.
+Reversal of a condition reverses the arrow's direction; so, for example, the bottom-most arrow going rightwards to $\Rfree^{1/\CRRA}\PermGroFac^{1-1/\CRRA}$ implies  \hypertarget{FHWC}{finite human wealth} fails; but we can cancel the cancellation and reverse the arrow.
+This would allow us to traverse the diagram clockwise from $\APFac$  through $\PermGroFac$ to $\Rfree^{1/\CRRA}\PermGroFac^{1-1/\CRRA}$ to $\Rfree$, revealing that imposition of \hyperlink{GICRaw}{growth impatience} and \hypertarget{FHWC}{finite human wealth} (and, redundantly, \hypertarget{FHWC}{finite human wealth} again) let us conclude that \hyperlink{RIC}{return impatience} holds because the starting point is $\APFac$ and the endpoint is $\Rfree$ (and we have traversed a chain of `is greater than' relations).\footnote{Consult Appendix~\ref{sec:ApndxConditionDiagrams} for an exposition of diagrams of this type, which are a simple application of Category Theory~(\cite{riehl2017category}).}
+
+% \figName allows generic definition of hypertargets based on title of figure
+\renewcommand{\figName}{RelatePFGICFHWCRICPFFVAC} 
+\hypertarget{\figName}{}
+\input{\FigDir/\figName} % Read in the tex to generate the figure
+
+In the unconstrained case, \hyperlink{FHWC}{finite human wealth} was necessary since, without constraints, only  this condition could prevent infinite borrowing in the limit (Proposition \ref{prop:pfUCFHWC}).
+Looking at Figure~\ref{fig:RelatePFGICFHWCRICPFFVAC}, following the diagonal from $\APFac$ to the bottom-right corner corresponds to the direct of imposition of the \hyperlink{PFFVAC}{finite value of autarky}, which implies that the existence of a non-degenerate solution \textit{requires} \hyperlink{RIC}{return impatience} to hold.
+To see why, if \hyperlink{RIC}{return impatience} failed, proceeding clockwise from the bottom left node of $\Rfree$ would lead to $\Rfree> \Rfree^{1/\CRRA}\PermGroFac^{1-1/\CRRA}$, (equivalently $(\PermGroFac/\Rfree)^{1-{1/\CRRA}}<1$) which corresponds to failure of \hyperlink{FHWC}{finite human wealth} (see also Case 3 in Section \ref{subsubsec:casesUC}).
+
+
+We can understand how failure of \hyperlink{FHWC}{finite human wealth} leads to infinite borrowing thinking about \hyperlink{GICRaw}{growth impatience}.
+From Figure~\ref{fig:RelatePFGICFHWCRICPFFVAC}, let \hyperlink{PFFVAC}{finite value of autarky} hold (traverse the diagonal from $\APFac$)  and then reverse the downward arrow from $\PermGroFac$, signifying the failure of \hyperlink{FHWC}{finite human wealth}, so that as the horizon extends and income grows faster than the rate at which it is discounted, there is no upper bound to the present discounted value of future income (cf.\ Equation \eqref{eq:LiqConstrBinds}).
+But the cancellation of \hyperlink{FHWC}{finite human wealth} also indirectly implies that \hyperlink{GICRaw}{growth impatience} holds $\APFac > \Rfree^{1/\CRRA}\PermGroFac^{1-\CRRA} > \PermGroFac$ which tells us that this is a consumer who wants to spend out of their human wealth.
+And therefore, at any fixed level of market resources, there is no upper bound to how much the consumer would choose to borrow as the horizon recedes.
+
+
+\begin{comment}
+An argument similar to the discussion pertaining to Equation \eqref{eq:LiqConstrBinds}, \textit{any} arbitrarily low (negative) constraint on $\bNrm_{t}$ becomes relevant.
+Relaxing any constraint becomes always preferred and since income is guaranteed to grow faster than the rate of return, the consumer can continue to borrow without violating the no-ponzi condition (Equation \eqref{eq:NoDebtAtDeath}).
+\end{comment}
+
+Thus, in the perfect foresight unconstrained model, \hyperlink{RIC}{return impatience} is the only condition at our disposal that can prevent consumption from limiting to zero as the terminal period recedes.
+However, when we impose a liquidity constraint, the range of admissible parameters becomes more interesting.
+
+\hypertarget{PF-Constrained-Solution}{}
+\hypertarget{Constrained-Solution}{}
+\subsubsection{Perfect Foresight Constrained Solution}\label{subsec:PFCon}
+
+We now sketch the perfect foresight constrained solution and demonstrate that a solution can exist either under \hyperlink{RIC}{return impatience} or without \hyperlink{RIC}{return impatience} but with \hyperlink{GICRaw}{growth impatience} (Proposition \ref{prop:PFCExist}).
+Our discussion proceeds by examining implications of possible configurations of the patience conditions.
+(Tables~\ref{table:Comparison} and~\ref{table:Required} codify.)
+
+
+\paragraph{Case 1: Growth impatience fails and return impatience holds.} If \hyperlink{GICRaw}{growth impatience} fails but \hyperlink{RIC}{return impatience} holds, Appendix~\ref{sec:ApndxLiqConstr} shows that, for some $\mNrm_{\#}$, with $0 < \mNrm_{\#} < 1$, an unconstrained consumer behaving according to the perfect foresight solution~\eqref{eq:cFuncPFUnc} would choose $\cNrm < \mNrm$ for all $\mNrm > \mNrm_{\#}$.
+In this case the solution to the constrained consumer's problem is simple; for any $\mNrm \geq \mNrm_{\#}$ the constraint does not bind (and will never bind in the future).
+For such $\mNrm$ the constrained consumption function is identical to the unconstrained one.
+If the consumer were somehow\footnote{``Somehow'' because $\mNrm<1$ could only be obtained by entering the period with $\bNrm < 0$ which the constraint forbids.} to arrive at an $\mNrm_{\#}$ such that $\mNrm < \mNrm_{\#} < 1$ the constraint would bind and the consumer would consume $\cNrm=\mNrm$.
+Using $\cnstr{\cFunc}$ for the perfect foresight consumption function in the presence of constraints  (and analogously for all other functions):
+\begin{equation*}
+  \cnstr{\cFunc}(\mNrm)=
+  \begin{cases}
+    \mNrm & \text{if $\mNrm < \mNrm_{\#}$} \\
+    \bar{\cFunc}(\mNrm)  & \text{if $\mNrm \geq \mNrm_{\#}$}
+  \end{cases}
+\end{equation*}
+where $\bar{\cFunc}(\mNrm)$ is the unconstrained perfect foresight solution.
+
+
+\paragraph{Case 2: Growth impatience holds and return impatience holds.}
+When  \hyperlink{RIC}{return impatience} and  \hyperlink{GICRaw}{growth impatience} both hold, Appendix~\ref{sec:ApndxLiqConstr} shows that the limiting constrained consumption function is piecewise linear, with $\cnstr{\cFunc}(\mNrm)=\mNrm$ up to a first `kink point' at $\mNrm_{\#}^{0}>1$, and with discrete declines in the MPC at a set of kink points $\{\mNrm_{\#}^{1},\mNrm_{\#}^{2},\ldots\}$.
+As $\mNrm \rightarrow \infty$ the constrained consumption function $\cnstr{\cFunc}(\mNrm)$ becomes arbitrarily close to the unconstrained $\bar{\cFunc}(\mNrm)$, and the marginal propensity to consume, $\cnstr{\cFunc}^{\prime}(\mNrm)$, limits to $\MPCmin$.\footnote{See~\cite{chkLiqConstr} for details.}
+Similarly, the value function $\cnstr{\vFunc}(\mNrm)$ is non-degenerate and limits to the value function of the unconstrained consumer.
+
+
+This logic holds even when \hyperlink{FHWC}{finite human wealth fails}, because the constraint prevents the (limiting) consumer\footnote{That is, one obeying $\cFunc(\mNrm) = \lim\limits_{n \rightarrow \infty} \cFunc_{t-n}(\mNrm)$.} from borrowing against unbounded human wealth to finance unbounded current consumption.
+Under these circumstances, the consumer who starts with any $\bNrm_{t} > 0$ will, over time, run those resources down so that after some finite number of periods $\tau$ the consumer will reach $\bNrm_{t+\tau} = 0$, and thereafter will set $\cLvl = \permLvl$ for eternity (which \hypertarget{PFFVAC}{finite value of autarky} says yields finite value).
+Using the same steps as for Equation~\eqref{eq:ValuePFAnalyticalAutarky}, value of the interim program is also finite: \hypertarget{PFFVAC}{}
+\begin{equation}\begin{gathered}\begin{aligned}
+  \vLvl_{t+\tau} 
+  & = \PermGroFac^{\tau(1-\CRRA)} \uFunc(\permLvl_{t})\left(\frac{1-{(\DiscFac \PermGroFac^{1-\CRRA})}^{T-(t+\tau)+1}}{1-\DiscFac \PermGroFac^{1-\CRRA}}\right).
+\end{aligned}\end{gathered}\end{equation}
+% Note that the last version of the \PFFVAC~in~\eqref{eq:PFFVAC} implies the \GICRaw~$\GPFacRaw < 1$ whenever \cncl{\FHWC} ($\Rfree < \PermGroFac$) holds.
+So, even when \hyperlink{FHWC}{finite human wealth fails}, the limiting consumer's value for any finite $\mNrm$ will be the sum of two finite numbers: One due to the unconstrained choice made over the finite-horizon leading up to $\bNrm_{t+\tau} = 0$, and one reflecting the value of consuming $\permLvl_{t+\tau}$ thereafter.
+
+\hypertarget{RICandFHWCFail}{}
+\paragraph{Case 3: Growth impatience holds and return impatience fails.} The most peculiar possibility occurs only when \hyperlink{RIC}{return impatience} fails.
+As noted above, this possibility is unavailable to us without a constraint.
+Without return impatience, \hyperlink{FHWC}{finite human wealth} must also fail (Appendix~\ref{sec:ApndxLiqConstr}), and the constrained consumption function is (surprisingly) non-degenerate.
+(See appendix Figure~\ref{fig:PFGICHoldsFHWCFailsRICFails} for a numerical example).
+Even though human wealth is unbounded at any given level of $\mNrm$, since borrowing is ruled out, consumption cannot become unbounded at that $\mNrm$ in the limit as the horizon recedes.
+However, the failure of return impatience does have some power: It means that as $\mNrm$ rises without bound, the MPC approaches zero ( $\lim\limits_{m \rightarrow \infty} \cnstr{\cFunc}^{\prime}(\mNrm) = 0$).
+Nevertheless $\cnstr{\cFunc}(\mNrm)$ is finite, strictly positive, and strictly increasing in $\mNrm$.
+This result reconciles the conflicting intuitions from the unconstrained case, where failure of \hyperlink{RIC}{return impatience} would suggest a degenerate limit of $\cnstr{\cFunc}(\mNrm)=0$ while failure of \hyperlink{FHWC}{finite human wealth} would suggest a degenerate limit of $\cnstr{\cFunc}(\mNrm)=\infty$.
+
+
+%%% For future work (Akshay): The consumer's patience in the continuation value remains finite, as the planning horizon recedes, the consumer will never take consumption to zero due to excessive patience.
+
+%% Below are things for AS to think about
+%% AS: This par below seems redundant and does not fit in its "Case 3" in any case
+
+%% [x] AS to AS: %\textcolor{red}{Per Claims \ref{claim:noRICGIC}-\ref{claim:PFConspC}, \hyperlink{RIC}{return impatience}  and \hyperlink{GICRaw}{growth impatience} fail, so \hypertarget{PFFVAC}{finite value of autarky} no longer holds. Even when there is a borrowing constraint, Appendix \ref{subsec:ApndxUCPF} demonstrates how a non-degenerate solution cannot exist since \hyperlink{FHWC}{human wealth} becomes infinite and at the same time the marginal propensity to consume limits to zero. In this case, the limiting degenerate solution depends on the balance of the `speeds' at which these limits converge. }
+
+\hypertarget{model-with-uncertainty}{}
+\subsection{Model with Uncertainty}\label{subsec:TheModelUncertainty}
+
+We now examine the case with uncertainty but without constraints, which we argued was a close parallel to the model with constraints but without uncertainty (recall Section \ref{subsubsec:deatonIsLimit}).
+\hypertarget{Calibration}{}
+\input{\TableDir/Parameters}
+
+\hypertarget{Symbols}{}
+\input{\TableDir/Calibration}
+
+%\hypertarget{Relations-Between-Parametric-Restrictions}{}
+%\subsubsection{Relations Between Parametric Restrictions}
+
+Tables~\ref{table:Parameters} and~\ref{table:Calibration} present calibrations and values of model conditions in the case with uncertainty, where \hyperlink{RIC}{return impatience}, \hyperlink{GICRaw}{growth impatience} and \hyperlink{FVAC}{finite value of autarky} all hold.
+The full relationship among conditions is represented in Figure~\ref{fig:Inequalities}.
+Though the diagram looks complex, it is merely a modified version of the earlier simple diagram (Figure~\ref{fig:RelatePFGICFHWCRICPFFVAC}) with further (mostly intermediate) inequalities inserted.
+(Arrows with a ``because'' now label relations that always hold under the model's assumptions.)\footnote{Again, readers unfamiliar with such diagrams should see Appendix~\ref{sec:ApndxConditionDiagrams} for a more detailed exposition.}
+
+\renewcommand{\figName}{Inequalities} 
+\renewcommand{\figFile}{\figName} 
+\hypertarget{\figFile}{}
+\input{\FigDir/\figName} % Read in the tex to generate the figure
+
+Beyond \hyperlink{FVAC}{finite value of autarky},
+the additional condition sufficient for contraction, \hyperlink{WRIC}{weak return impatience}, can be seen to be weak by asking `under what circumstances would the \hyperlink{FVAC}{finite value of autarky} hold but the \hyperlink{WRIC}{weak return impatience} fail?'  Algebraically, the requirement becomes:
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+  \DiscFac \PermGroFac^{1-\CRRA}\uInvEuPermShk^{1-\CRRA} & < ~ 1 ~ <  {(\pZero \DiscFac)}^{1/\CRRA}/\Rfree^{1-1/\CRRA}. \label{eq:WRICandFVAC}
+\end{aligned}\end{gathered}\end{equation}
+%
+\hypertarget{uInvEuPermShk}{}
+where $\uInvEuPermShk \colon = (\Ex[\permShk^{1-\CRRA}])^{1/(1-\CRRA)} < 1$.
+If we require $\Rfree \geq 1$, the \hyperlink{WRIC}{weak return impatience} is `redundant' because now $\DiscFac <1<\Rfree^{\CRRA-1}$, so that (with $\CRRA > 1$ and $\DiscFac<1$) \hyperlink{RIC}{return impatience} (and \hyperlink{WRIC}{weak return impatience}) must hold.
+But neither theory nor evidence demand that $\Rfree \geq 1$.
+We can therefore approach the question of the relevance of \hyperlink{WRIC}{weak return impatience}  by asking just how low $\Rfree$ must be for the condition to be relevant.
+Suppose for illustration that $\CRRA=2$, $\uInvEuPermShk^{1-\CRRA}=1.01$, $\PermGroFac^{1-\CRRA}=1.01^{-1}$ and $\pZero = 0.10$.
+In that case~\eqref{eq:WRICandFVAC} reduces to:
+\begin{equation}\begin{gathered}\begin{aligned}
+  \DiscFac  & < 1 < {(0.1 \DiscFac/\Rfree)}^{1/2},
+\end{aligned}\end{gathered}\end{equation}
+but since $\DiscFac < 1$ by assumption, the binding requirement becomes:
+\begin{equation}\begin{gathered}\begin{aligned}
+  \Rfree  & < \DiscFac/10, \notag
+\end{aligned}\end{gathered}\end{equation}
+so that for example if $\DiscFac=0.96$ we would need $\Rfree < 0.096$ (that is, a perpetual riskfree rate of return of worse than -90 percent a year) in order for \hyperlink{WRIC}{weak return impatience} to be nonredundant.
+
+
+Perhaps the best way of thinking about this is to note that the space of parameter values for which the \hyperlink{WRIC}{weak return impatience}  remains relevant shrinks out of existence as $\pZero \rightarrow 0$, which Section~\ref{subsubsec:deatonIsLimit} showed was the precise limiting condition under which behavior becomes arbitrarily close to the liquidity constrained solution (in the absence of other risks).
+On the other hand, when $\pZero = 1$, the consumer has no noncapital income (so \hyperlink{FHWC}{finite human wealth} holds) and with $\pZero=1$ \hyperlink{WRIC}{weak return impatience} is identical to \hyperlink{WRIC}{weak return impatience}.
+However, \hyperlink{WRIC}{weak return impatience} is the only condition required for a solution to exist for a perfect foresight consumer with no noncapital income.
+Thus \hyperlink{WRIC}{weak return impatience} forms a sort of `bridge' between the liquidity constrained and the unconstrained problems as $\pZero$ moves from 0 to 1.
+
+\subsubsection{Behavior Under Cases of Conditions}\label{subsubsec:casesUC}\label{sec:discussConvergence}% sec:discussConvergence re-added here after restructure; referenced by Tables/Required
+
+\hypertarget{IntuitionRIC}{}
+%\subsubsection{When the {RIC}~Fails}\label{subsubsec:WhenTheRICFails}
+\paragraph{Case 1: Return impatience fails and growth impatience holds}\label{subsubsec:WhenTheRICFails}
+
+In the unconstrained perfect foresight problem (Section~\ref{subsec:PFBbenchmark}), \hyperlink{RIC}{return impatience} was necessary for existence of a non-degenerate solution.
+It is surprising, therefore, that in the presence of uncertainty, the much weaker \hyperlink{WRIC}{weak return impatience} is sufficient for nondegeneracy (assuming that \hyperlink{FVAC}{finite value of autarky}  holds).
+Given \hyperlink{FVAC}{finite value of autarky}, we can derive the features the problem must exhibit for \hyperlink{RIC}{return impatience} to fail (that is, $\Rfree < {(\Rfree \DiscFac)}^{1/\CRRA}$) (given that growth impatience holds) as follows:
+%
+\begin{equation}\label{eq:RICimplies}
+  \begin{aligned}
+    \Rfree   & < {(\Rfree \DiscFac)}^{1/\CRRA} ~ < ~ {(\Rfree {(\PermGroFac \uInvEuPermShk)}^{\CRRA-1})}^{1/\CRRA}
+    \\ \Rightarrow \Rfree   & < {(\Rfree/\PermGroFac)}^{1/\CRRA}\PermGroFac \uInvEuPermShk^{1-1/\CRRA}
+                   %         \\  \Rfree/\PermGroFac  & < {(\Rfree/\PermGroFac)}^{1/\CRRA}\uInvEuPermShk^{1-1/\CRRA}
+    \\  \qquad\qquad\qquad \Rightarrow  \Rfree/\PermGroFac  & < \uInvEuPermShk
+  \end{aligned}
+\end{equation}
+%
+but since $\uInvEuPermShk < 1$ (for $\CRRA>1$ and non-degenerate $\permShk$), this requires $\Rfree/\PermGroFac < 1$.
+Thus, given \hyperlink{FVAC}{finite value of autarky}, \hyperlink{RIC}{return impatience} can fail only if human wealth is unbounded and \hyperlink{GICRaw}{growth impatience} holds.\footnote{This algebraically complicated conclusion could be easily reached diagrammatically in Figure~\ref{fig:Inequalities} by starting at the $\Rfree$ node and imposing the failure of \hyperlink{RIC}{return impatience}, which reverses the \hyperlink{RIC}{return impatience} arrow and lets us traverse the diagram along any clockwise path to the \hyperlink{PFFVAC}{perfect foresight finite value of autarky} node at which point we realize that we \textit{cannot} impose \hyperlink{FHWC}{finite human wealth} because that would let us conclude $\Rfree > \Rfree$.}
+
+As in the perfect foresight constrained problem, unbounded limiting human wealth here does not lead to a degenerate limiting consumption function (finite human wealth is not required for Theorem \ref{thm:convgtobellman}).
+But, from equation~\eqref{eq:PFMPCminInv} and the discussion surrounding it, an implication of the failure of \hyperlink{RIC}{return impatience} is that $\lim\limits_{m \rightarrow \infty} \usual{\cFunc}^{\prime}(\mNrm) = 0$.
+Thus, interestingly, in this case (unavailable in the perfect foresight unconstrained) model the presence of uncertainty both permits unlimited human wealth (in the $n\rightarrow\infty$ limit) and at the same time prevents unlimited human wealth from resulting in (limiting) infinite consumption (at any finite $\mNrm$).
+Intuitively, the utility-imposed `natural constraint' that arises from the possibility of a zero income event prevents infinite borrowing and at the same time allows infinite human wealth to prevent patience from resulting, as it does under other conditions, in the degenerate $\usual{\cFunc}(\mNrm)=0$ as the terminal period recedes.
+Thus, in presence of uncertainty of the kind we assume, pathological patience (which in the perfect foresight model results in a limiting consumption function of $\usual{\cFunc}(\mNrm)=0$) plus unbounded human wealth (which the perfect foresight model prohibits because it leads to a limiting consumption function $\usual{\cFunc}(\mNrm)=\infty$ for any finite $\mNrm$) combine to yield a unique finite limiting (as $n \rightarrow \infty$) level of consumption and MPC for any finite value of $\mNrm$.
+
+
+Note the close parallel to the conclusion in the perfect foresight liquidity constrained model in the case where \hyperlink{RIC}{return impatience} fails (Case 3 in Section \ref{subsec:PFCon}).
+There, too, the tension between infinite human wealth and pathological patience was resolved with a non-degenerate consumption function whose limiting MPC was zero.\footnote{\cite{maTodaRich} derive conditions under which the limiting MPC is zero in an even more general case where there is also capital income risk.}
+
+\hypertarget{When-the-RIC-Holds}{}
+%\subsubsection{When the {RIC} Holds}\label{subsubsec:WhenTheGICModFails}\label{subsubsec:WhenTheRICHolds}
+\paragraph{Case 2: Return impatience holds and growth impatience holds with finite human wealth}\label{subsubsec:WhenTheRICHolds}
+This is the benchmark case we presented at the start of the Section.
+If \hyperlink{RIC}{return impatience}  and \hyperlink{FHWC}{finite human wealth} both hold, a perfect foresight solution exists (Section \ref{subsec:PFBbenchmark}).
+As $\mNrm \rightarrow \infty$ the limiting $\cFunc$ and $\vFunc$ functions become arbitrarily close to those in the perfect foresight model, because human wealth pays for a vanishingly small portion of spending (Section \ref{subsubsec:cFuncBounds}).
+
+\hypertarget{PFFVAF}{}
+\paragraph{Case 3: Return impatience holds and growth impatience holds with infinite human wealth} The more exotic case is where \hyperlink{FHWC}{finite human wealth} fails but both \hyperlink{GICRaw}{growth impatience} and \hyperlink{RIC}{return impatience} also hold.
+In the unconstrained perfect foresight model, this is the degenerate case with limiting $\bar{\cFunc}(\mNrm)=\infty$.
+Here, \hyperlink{FHWC}{infinite human wealth} and \hyperlink{FVAC}{finite value of autarky} implies that \hyperlink{PFFVAC}{(perfect foresight) finite value of autarky} holds and that $ \APFac < \PermGroFac$.
+To see why, traverse Figure~\ref{fig:Inequalities} clockwise from $\APFac$ by imposing \hyperlink{PFFVAC}{perfect foresight finite value of autarky} to reach the \hyperlink{PFFVAF}{PF-FVAF}  node.
+Because the bottom arrow pointing to the right, connecting the $\Rfree$ and \hyperlink{PFFVAC}{perfect foresight finite value of autarky} nodes, imposes the failure of finite human wealth (and here we are assuming that condition holds), we can reverse the bottom arrow and traverse the resulting clockwise path from {FVAC} to see that 
+%
+\begin{equation}\begin{gathered}\begin{aligned}
+  & \APFac < {(\Rfree/\PermGroFac)}^{1/\CRRA}\PermGroFac \Rightarrow  \APFac < \PermGroFac
+\end{aligned}\end{gathered}\end{equation}
+%
+where the transition from the first to the second lines is justified because failure of \hyperlink{FHWC}{finite human wealth} implies $\Rightarrow {(\Rfree/\PermGroFac)}^{1/\CRRA}<1$.
+So, under \hyperlink{RIC}{return impatience} and \hyperlink{FHWC}{finite human wealth}, we must have \hyperlink{GICRaw}{growth impatience}.
+
+\hypertarget{InvEPermShkEInv}{}
+However, we are not entitled to conclude that \hyperlink{GICMod}{strong growth impatience} holds: $\APFac < \PermGroFac$ does not imply $\APFac < \InvEPermShkInv \PermGroFac$ where $\InvEPermShkInv<1$.
+ 
+ \begin{comment}
+ (traverse Figure~\ref{fig:Inequalities} clockwise from $\APFac$ by imposing {\FVAC} and continue to the {\PFVAFacDefn} node):  Reversing the arrow connecting the $\Rfree$ and {\PFVAFacDefn} nodes implies that under $\cncl{\FHWC}$:
+\begin{equation}\begin{gathered}\begin{aligned}
+  & \overbrace{\APFac < {(\Rfree/\PermGroFac)}^{1/\CRRA}\PermGroFac}^{\PFFVAC}
+  \\ & \APFac < \PermGroFac
+\end{aligned}\end{gathered}\end{equation}
+where the transition from the first to the second lines is justified because $\cncl{\FHWC} \Rightarrow {(\Rfree/\PermGroFac)}^{1/\CRRA}<1$.
+So, \{\RIC, \cncl{\FHWC}\} implies the {\GICRaw} holds.
+
+\end{comment}
+
+We have now established the principal points of comparison between the perfect foresight solutions and the solutions under uncertainty; these are codified in the remaining parts of Tables~\ref{table:Comparison} and~\ref{table:Required}.
+
+\hypertarget{Factors-Defined-And-Compared}{}
+\input{\TableDir/Comparison}
+
+\hypertarget{Required}{}
+\input{\TableDir/Required}
+
+
+\end{document}\endinput

@@ -1,0 +1,79 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{./.econtexRoot}
+\documentclass[BufferStockTheory]{subfiles}
+%%% WARNING: AuCTeX local variables only get reset when emacs loads 
+%%% file, and differ between this file and BufferStockTheory.tex
+%%% so must re-load whichever file you want to compile with C-x C-v
+   
+%%% WARNING: Different AucTeX execution depending on whether
+%%% 0. Being compiled as standalone document
+%%% * Compile main to completion
+%%% * Then compile this one
+%%% * Keep compiling until nothing changes
+%%% 0. Being compiled as subfile of main document
+%%% * Just compile main document repeatedly
+
+\input{./.econtexRoot}
+
+% \usepackage{econark-ifsubfile} is in main preamble
+% where it sets macros indicating that the doc being
+% compiled is NOT a subfile.
+% \usepackage{econark-ifsubfile} in the subfile preamble
+% is NOT EXECUTED when the content is read in by main
+% so this correctly defines what is needed
+%\usepackage{econark-ifsubfile}
+
+% Get xrefs -- esp to apndx -- from main file; only works if main file has already been compiled
+\xrsetup{\LaTeXGenerated/BufferStockTheory}
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
+  
+\begin{document}
+
+\subfile{sections/TheoreticalFoundations}
+\subfile{sections/IndividualBufferStockStability}
+\subfile{sections/AggregateInvariantRelationships}
+\subfile{sections/ConsumerPatienceAndLimitingConsumption}
+\subfile{sections/Conclusions}
+
+
+
+% Do not include appendix figures and tables in ToC unless for Web version
+\PDFOnly{
+\notinsubfile{\captionsetup[figure]{list=no}} % Web
+\notinsubfile{\captionsetup[table]{list=no}}  % Web
+} % end \PDFOnly
+
+\ifSubfilesClassLoaded{\bibfilesfind{\texname}\bibliography{\bibfilesfound}}{}\end{document}\endinput
+
+\end{document}\endinput
+
+% If you are editing in Emacs-AucTeX, modify the lines below for your system (otherwise ignore)
+% What do they do (beyond what is obvious)?
+% - replace the default in which the user is required on every recompilation to choose between bibtex and biber
+%   - hard wire use of bibtex
+% - set the PDF viewer:
+%   - on MacOS, use Skim
+%   - on unix, use evince
+% 
+% Local Variables:
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex %s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex %s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin")    (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) %o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% eval: (prettify-symbols-mode 1)
+% eval: (setq prettify-symbols-unprettify-at-point 'right-edge)
+% TeX-parse-all-errors: t
+% eval: (setq debug-on-error t)
+% End:

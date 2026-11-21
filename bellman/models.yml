@@ -1,0 +1,44 @@
+# The manifest of bellman/, the Bellman description of the models of Theoretical Foundations of Buffer Stock Saving:
+# what the layout of Bellman's model folders does not state. Each model is one stage, so no model has a recipe
+# (declaration/spec.yml), and the manifest names its files. `folder` is written from this file's folder, and a model's
+# other paths from its own folder; no path holds `..`. A model's `version` changes when its stage's ids or its free
+# parameters change, and at no other time. bellman/README.md explains the folder.
+format: 1
+bellman:
+  repository: https://github.com/econ-ark/bellman
+  # the public export of 2026-11-16, which publishes specification 0.8; no tag marks an export. Its package trees are
+  # packages/bellman 682400d21be2, packages/asva 6ab045975d98 and packages/bellman-workbench efe07924f943. The
+  # repository's branches were started again on 2026-11-15, which left 6421a439, the commit this manifest pinned
+  # before, on no branch. If they are started again, the trees identify the code.
+  commit: ac243808ef18ef8a9792eb8cbc892abf26188dca
+  specification: "0.8"
+paper:
+  title: Theoretical Foundations of Buffer Stock Saving
+  url: https://llorracc.github.io/BufferStockTheory/
+models:
+  natural-borrowing-constraint:
+    stated_in: the subsection "Model with Uncertainty"
+    version: 2
+    folder: natural-borrowing-constraint
+    stage: declaration/stages/natural/natural.bl
+    methods: declaration/stages/natural/methods.bl
+    settings: declaration/settings/natural.yml
+    calibrations:
+      baseline:
+        file: declaration/calibration/baseline.yml
+        baseline: true
+        stated_in: the table "Microeconomic Model Calibration"
+        period: year
+  artificial-borrowing-constraint:
+    stated_in: the subsubsection and the appendix "The Liquidity Constrained Solution as a Limit"
+    version: 1
+    folder: artificial-borrowing-constraint
+    stage: declaration/stages/artificial/artificial.bl
+    methods: declaration/stages/artificial/methods.bl
+    settings: declaration/settings/artificial.yml
+    calibrations:
+      restrained_consumer:
+        file: declaration/calibration/restrained_consumer.yml
+        baseline: true
+        stated_in: the table "Microeconomic Model Calibration", with no unemployment event and the limit a_Art = 0
+        period: year

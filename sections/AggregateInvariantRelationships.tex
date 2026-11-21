@@ -1,0 +1,291 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+
+\newcommand{\subname}{AggregateInvariantRelationships}
+\input{\econtexRoot/@local/dir-paths}
+\usepackage{econark-ifsubfile}
+\usepackage{econark-xrsetup}
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
+
+\xrsetup{\econtexRoot/\texname}
+
+\begin{document}
+
+\hypertarget{The-Aggregate-and-Idiosyncratic-Relationship-Between-Consumption-Growth-and-Income-Growth}{}
+\section{Aggregate Invariant Relationships}
+In this section, we move from characterizing the individual decision rule to properties of a distribution of individuals following the converged non-degenerate consumption rule $\cFunc$.
+Assume a continuum of \textit{ex ante} identical buffer-stock households, with constant total mass normalized to one and indexed by $i$.
+Szeidl~\citeyearpar{szeidlInvariant} proved that such a population, following the consumption rule $\cFunc$, will be characterized by invariant distributions of $\mNrm$, $\cNrm$, and $\aNrm$ under the log growth impatience condition:\footnote{\cite{szeidlInvariant}'s equation (9), in our notation, is:
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \Ex \log \Rfree (1-\MPC) & < \Ex \log \PermGroFac \permShk
+    \\  \Ex \log \Rfree \RPFac  &  < \Ex \log \PermGroFac \permShk
+    \\ \log \GPFacRaw & < \Ex \log \permShk
+  \end{aligned}\end{gathered}\end{equation}
+  which, exponentiated, yields~\eqref{eq:GICSdl}.}
+\hypertarget{GICSdl}{}
+\begin{equation}\begin{gathered}\begin{aligned}
+   \log~\GPFacRaw & < \Ex [\log \permShk] \label{eq:GICSdl}
+\end{aligned}\end{gathered}\end{equation}
+which is stronger than our \hyperlink{GICRaw}{growth impatience} ($\GPFacRaw < 1$), but weaker than our \hyperlink{GICMod}{strong growth impatience}  ($\GPFacMod < 1$).\footnote{Under our default (though not required) assumption that $\log \permShk \sim \mathcal{N}(-\sigma^{2}_{\permShk}/2,\sigma^{2}_{\permShk})$; \hyperlink{GICMod}{strong growth impatience} in this case, is $\GPFacRaw < \exp(-\sigma^{2})$, so if \hyperlink{GICMod}{strong growth impatience} holds then Szeidl's condition will hold.}
+
+\hypertarget{Growth-Rates-of-Aggregate-Income-and-Consumption}{}
+
+\cite{harmenbergInvariant} substitutes a clever change of probability-measure into Szeidl's proof, with the implication that under \hyperlink{GICRaw}{growth impatience}, invariant \emph{permanent-income-weighted} distributions of $\mNrm$ and $\cNrm$ exist (see Section \ref{sec:AppxHarmImpGIC} in the Appendix).
+In particular, let $\CDF_{\mNrm_{t},\permLvl_{t}}$ be the joint CDF of normalized market resources and permanent income at time $t$.\footnote{In the notation in \cite{harmenbergInvariant}, the \emph{permanent-income-weighted} measures are denoted as $\tilde{\psi}^{\mNrm}$.} The permanent-income-weighted CDF of $\mNrm_{t}$, $\Harm{\CDF}_{\mNrm_{t}}$, will be:
+%
+\begin{equation}\label{eq:HarmCDF}
+\Harm{\CDF}_{\mNrm_{t}}(x) = \PermGroFac^{-t}\int_{0}^{x}\int_{0}^{\infty} \permLvl\CDF_{\mNrm_{t},\permLvl_{t}}(d\mNrm,d\permLvl)
+\end{equation}
+
+Simply put, the permanent-income-weighted CDF shows how the total `mass' of permanent income is distributed along normalized market resources. The change of variables allows \cite{harmenbergInvariant} to prove a conjecture from an earlier draft of this paper (\cite{BufferStockTheoryQESubmit}) that under \hyperlink{GICRaw}{growth impatience}, aggregate consumption grows at the same rate $\PermGroFac$ as aggregate noncapital income in the long run (with the corollary that aggregate assets and market resources grow at that same rate).\hypertarget{test-Harmenbergs-method}{} \cite{harmenbergInvariant} also shows how the reformulation can reduce costs of calculation by over a factor of 100.\footnote{The Harmenberg method is implemented in the {\ARKurl}; see the last part of \href{https://github.com/econ-ark/BufferStockTheory/blob/master/Code/Python/test_Harmenbergs_method.sh}{\texttt{test\_Harmenbergs\_method.sh}}.
+Confirming the computational advantage of Harmenberg's method, \href{https://econ-ark.org/materials/harmenberg-aggregation}{this notebook} finds that the Harmenberg method reduces the simulation size required for a given degree of accuracy by two orders of magnitude under the baseline parameter values defined above.} The remainder of this section draws out the implications of these points for aggregate balanced growth factors.
+
+
+%% AS to CDC: can we delete the below? 
+
+%% Commented out text from the first part of this section is all collected below. 
+
+%% A large (infinite) collection of small (infinitesimal) buffer-stock consumers with identical parameter values can be thought of as a subset of the population within a single country (say, members of a given education or occupation group), or as the whole population in a small open economy with an exogenous (constant) interest rate.\footnote{It is also possible, and only slightly more difficult, to solve for the steady-state of a closed-economy version of the model where the interest rate is endogenous.}
+
+%% Until now for convenience we have assumed infinite-horizons, with the implicit understanding that white noise mortality could be handled by adjusting the effective discount factor.  On that basis, Section~\ref{subsec:cGroEqPermGroFacIndQ} continues to omit mortality.  But a reason mortality may be useful will appear at the end of Section~\ref{subsec:cGroEqPermGroFacQ}, so alternative mortality treatments are briefly examined in section~\ref{sec:Mortality-And-Redistribution}.
+
+%% Attanasio and Weber~\citeyearpar{aw95} point out that concavity of the consumption function can imply that it is quantitatively important to distinguish between the growth factor of average consumption and the average growth factor of  consumption.\footnote{Since we assume number of the households are   normalized to 1, aggregate and average variables are identical.}  We have just examined the average growth factor; we now examine the growth factor of the average.
+
+%% Microeconomic distributional relationships are increasingly central to macroeconomic research (see, e.g., \cite{violante_marginal_2021}'s recent Laffont lectures on relationship between the marginal propensity to consume and the distribution of assets).  But mapping from micro data to macro models can be subtle.  Hence this final section's aim of carefully describing those relationships in the paper's simple model.
+
+
+%%In a nutshell:\footnote{See \ref{sec:ApndxHarKmenberg} for a less abbreviated treatment in this paper's notation.} If $\permShk$ is described by density function $f_\permShk(\permShk)$, Harmenberg defines the \emph{permanent-income-neutral measure} by $\Harm{f}_\permShk(\permShk) \equiv \permShk f_\permShk(\permShk)$.  Following derivations parallel to those in the previous footnote, the condition for the existence of invariant permanent-income-weighted distributions is\hypertarget{GICHarm}{}
+%% \begin{equation}\begin{gathered}\begin{aligned} 
+%%    \text{\GICHarm:~~} \log \GPFacRaw  & < \Harm{\Ex}[ \log \permShk] \label{eq:GICHarm}
+%% \end{aligned}\end{gathered}\end{equation}
+%% where the {$\sim$} over the expectations operator indicates that the expectation is being taken with respect to $\Harm{f}_{\permShk}(\permShk)$.  Under our baseline assumption that the permanent shocks are lognormally distributed, it is possible to show that $\Harm{\Ex} [\log \permShk] = \permShkStd^{2}/2,$ so exponentiating both sides of this equation turns it into $\GPFacRaw < e^{\permShkVar/2}$ which is \textit{weaker} than the {\GICRaw} because $1 < e^{\permShkVar/2}$.\footnote{{\GICHarm} is always weaker than the {\GICRaw} because $x \log x$ is a convex function, so the expectation of the permanent-income-weighted distribution is always greater when there is risk than in the absence of risk (thanks again to the invaluable Mr Jensen).}$^{,}$\footnote{The fact that }
+
+
+%% Given the terminology developed earlier, the natural designation for the stable ratio of aggregate market resources to noncapital income is the `aggregate steady state' ratio, $\BalGroFac{M}$.  This is not numerically the same as the individual \hyperlink{pseudo-steady-state}{pseudo-steady-state} ratio $\mBalLvl$ because the nonlinearities involved in simulation and aggregation will have consequences.\footnote{Still, the pseudo-steady-state can be calculated immediately from the policy function without any simulation, and therefore would likely serve as an excellent and low-cost starting point for the numerical simulation process.}
+
+%% The idea also appears to be promisingly generalizable: For any statistic $\mathcal{S}$ that is the key focus of an analysis, it should be possible to improve the efficiency of simulations aimed at calculating that statistic by constructing an $\mathcal{S}$-weighted distribution rather than a neutral distribution.
+
+%%Such an economy will exhibit an \textit{aggregate} `steady-state' ratio of market resources to income $\MBalLvl$ (different from the individual `pseudo-steady-state' $\mBalLvl$).  Corresponding ratios for $\CLvl$ and other also exist even if the {\GICRaw} fails (so that the idiosyncratic pseudo-steady-state does not exist).
+
+
+\hypertarget{Growth-Rates-of-Individual-Income-and-Consumption}{}
+\subsection{Aggregate Balanced Growth of  Income, Consumption, and Wealth}\label{subsec:cGroEqPermGroFacQ}
+
+Define $\Mean$ to yield the expected value operator with respect to the empirical distribution of a variable across the population (as distinct from the operator $\Ex$ which represents beliefs about the future for a given individual).\footnote{Formally, fix an individual $i$ and let $\{\tilde{c}^{i}_{t}\}_{t=0}^{\infty}$ and $\{\tilde{m}^{i}_{t}\}_{t=0}^{\infty}$ be a stochastic recursive sequence generated by the converged consumption rule as follows, $\tilde{c}^{i}_{t} = \cFunc(\tilde{\mNrm}^{i}_{t})$ and $\tilde{\mNrm}^{i}_{t+1} = \RNrmByGRnd^{i}_{t+1}(\tilde{\mNrm}^{i}_{t} -\cFunc(\tilde{\mNrm}^{i}_{t})) + \tranShkAll^{i}_{t+1}$, where the sequence of exogenous shocks are each defined on a \textit{theoretical probability space} $(\Omega, \Sigma, \mathbb{P})$.
+Integration with respect to the measure $\mathbb{P}$ in the expected value operator $\Ex$ will be equivalent to \textit{empirical} integration $\mathbb{M}$ with respect to a suitable measure of agents on a nonatomic agent space.
+In particular, for all $j$, $\Ex\gFunc(\tilde{\cNrm}_{t}^{j})  = \int \tilde{\cNrm}_{t}\,d\mathbb{P} =  \Mean\gFunc(\tilde{c}_{t})\colon = \int \gFunc(\tilde{\cNrm}_{t}^{i}) \lambda(di)$, where $\lambda$ is the measure of agents and  for any measurable function $\gFunc$.
+For technical steps required to assert this claim, see \cite{Shanker2017a}, which utilizes  relatively recent results by \cite{Sun2009} and also the detailed construction by \cite{Cao2020}.} Using boldface capitals for aggregates, the growth factor for aggregate noncapital income becomes:
+\begin{equation*}
+  \YLvl_{t+1}/\YLvl_{t}  = \Mean\left[\tranShkAll_{t+1}\PermGroFac \permShk_{t+1}\permLvl_{t}\right]/\Mean\left[\permLvl_{t}\tranShkAll_{t}\right] = \PermGroFac
+\end{equation*}
+because of the independence assumptions we have made about the shocks $\tranShkAll$ and $\permShk$.
+
+Consider an economy that satisfies the Szeidl impatience condition~\eqref{eq:GICSdl} and has existed for long enough by date~$t$ that we can consider it as Szeidl-converged.
+In such an economy a microeconomist with a population-representative panel dataset could calculate the growth factor of consumption for each individual household, and take the average:
+\begin{equation}\label{eq:MeanDeltaLogC}
+  \begin{aligned}
+    \Mean\left[\Delta \log \cLvl_{t+1}\right]  & = \Mean\left[ \log {\cNrm}_{t+1}\permLvl_{t+1} - \log c_{t}\permLvl_{t}\right]  \\
+        %                            & = \Mean\left[ \log \permLvl_{t+1}- \log \permLvl_{t} + \log {\cNrm}_{t+1} - \log c_{t}\right]  \notag \\
+    & = \Mean\left[ \log \permLvl_{t+1}- \log \permLvl_{t}\right] + \Mean\left[ \log {\cNrm}_{t+1} - \log c_{t}\right].
+  \end{aligned}
+\end{equation}
+
+Because this economy is Szeidl-converged, distributions of $\cNrm_{t}$ and $\cNrm_{t+1}$ will be identical, so that the second term in  \eqref{eq:MeanDeltaLogC} disappears; hence, mean cross-sectional growth factors of consumption and permanent income are the same:
+\begin{equation}\begin{gathered}\begin{aligned}
+  \Mean\left[\Delta \log \cLvl_{t+1}\right]  & = \Mean\left[ \Delta \log \permLvl_{t+1}\right] = \log \PermGroFac \label{eq:MeanDeltaLogCeqMeanDeltaLogP}.
+\end{aligned}\end{gathered}\end{equation}
+
+In a Harmenberg-invariant economy (and therefore also any Szeidl-invariant economy), a similar proposition holds in the cross-section as a direct implication of the fact that a constant proportion of total permanent income is accounted for by the successive sets of consumers with any particular $\mNrm$ (recall Equation \eqref{eq:HarmCDF}).
+This fact is one way of interpreting Harmenberg's definition of the density of the permanent-income-weighted invariant distribution of $\mNrm$; call this density~$\Harm{f}$.
+To understand $\Harm{f}$, we can see how total aggregate market resources held by people with given $\mNrm$ will be:
+%
+%
+\begin{equation}
+\MLvl_{t}=\PermLvlAgg_{t}\Harm{f}(m)m
+\end{equation}
+%
+%
+By implication of Theorem \ref{thm:MSSBalExists}, $\MLvl_{t}$ grows at a rate $\PermGroFac$.
+We will now use this property of $\Harm{f}$ to show that aggregate consumption also grows at rate $\PermGroFac$.
+Call $\CLvl_{t}(\mNrm)$ the total amount of consumption at date $t$ by persons with market resources $\mNrm$, and note that in the invariant economy this is given by the converged consumption function $\cFunc(\mNrm)$ multiplied by the amount of permanent income accruing to such people $\Harm{f}(\mNrm)\PermLvlAgg_{t}$.
+Since $\Harm{f}(\mNrm)$ is invariant and aggregate permanent income grows according to $\PermLvlAgg_{t+1} = \PermGroFac \PermLvlAgg_{t}$, for any $\mNrm$, the following characterizes the growth of total consumption:
+%
+%
+\begin{equation*}
+  \begin{aligned}
+    \log \CLvl_{t+1} - \log \CLvl_{t} &  \notag
+    = \log \cFunc(\mNrm) \Harm{f}(\mNrm)\PermLvlAgg_{t+1} - \log \cFunc(\mNrm)\Harm{f}(\mNrm)\PermLvlAgg_{t} \\
+    & = \log \PermGroFac.
+  \end{aligned}
+\end{equation*}
+
+
+
+\hypertarget{Balanced-Growth-Of-Covariances}{}
+\subsection{Aggregate Balanced Growth and Idiosyncratic Covariances}\label{subsec:Covariances}
+
+Harmenberg shows that the covariance between the individual consumption ratio $\cNrm$ and the idiosyncratic component of permanent income $\permLvl$ does not shrink to zero; thus, covariances are another potential measurement for construction of microfoundations.
+% Here we draw out some of those implications.
+
+Consider a date-$t$ Harmenberg-converged economy, and define the mean value of the consumption ratio as $\cNrmAvg_{t+n} \equiv \Mean[\cNrm_{t+n}]$.
+Normalizing period-$t$ aggregate permanent income to $\PermLvlAgg_{t}=1$, total consumption at $t+1$ and $t+2$ are
+\begin{equation}\label{eq:atp2vsatp1}
+  \begin{aligned}
+      %       \CLvl_{t}  % & l= \bar{\tilde{\cNrm}}_{t} = \Mean[\cNrm_{t}\permLvl_{t}] = \Mean[\cNrm_{t}]\Mean[\permLvl_{t}] + \cov_{t}(\cNrm_{t}, \permLvl_{t}) \\
+        %                            & = %\bar{\tilde{\cNrm}}_{t} =
+                                       %                                        \Mean[\cNrm_{t}\permLvl_{t}] = \Mean[\cNrm_{t}]\overbrace{\Mean[\permLvl_{t}]}^{=1} + \cov_{t}(\cNrm_{t}, \permLvl_{t})  \\
+    \CLvl_{t+1} & = \Mean[\cNrm_{t+1}\permLvl_{t+1}] = \cNrmAvg_{t+1}\PermGroFac^{1} + \cov_{t+1}(\cNrm_{t+1}, \permLvl_{t+1})
+    \\  \CLvl_{t+2} & = \Mean[\cNrm_{t+2}\permLvl_{t+2}] = \cNrmAvg_{t+2}\PermGroFac^{2} + \cov_{t+2}(\cNrm_{t+2}, \permLvl_{t+2})
+  \end{aligned}
+\end{equation}
+and Harmenberg's proof that $\CLvl_{t+2}-\PermGroFac \CLvl_{t+1}=0$ allows us to obtain:
+\begin{equation} \label{eq:cNrmvsCov}\begin{aligned}
+                      %                       0 & = \cNrmAvg_{t+2}\PermGroFac^{2} + \cov_{t+2}-\PermGroFac\left(\PermGroFac\cNrmAvg_{t+1} + \cov_{t+1}\right)\\ %
+        %         \cNrmAvg_{t+2}\PermGroFac^{2} + \cov_{t+2}   & =\cNrmAvg_{t+1}\PermGroFac^{2} + \PermGroFac \cov_{t+1}\\
+    \left(\cNrmAvg_{t+2} - \cNrmAvg_{t+1}\right)\PermGroFac^{2} & = \PermGroFac \cov_{t+1} - \cov_{t+2} .
+  \end{aligned}\end{equation}
+
+In a Szeidl-invariant economy, $\cNrmAvg_{t+2} = \cNrmAvg_{t+1}$, so the economy exhibits balanced growth in the covariance:
+\begin{equation}\begin{gathered}\begin{aligned}
+  \cov_{t+2} & = \PermGroFac \cov_{t+1}.
+\end{aligned}\end{gathered}\end{equation}
+
+The more interesting case is when the economy is Harmenberg- but not Szeidl-invariant.
+In that case, if the $\cov$ and the $\cNrmAvg$ terms have constant growth factors $\GroFac_{\cov}$ and $\GroFac_{\cNrmAvg}$,\footnote{This `if' is a conjecture, not something proven by Harmenberg (or anyone else).
+But see appendix~\ref{sec:ApndxBalancedGrowthcNrmAndCov} for an example of a Harmenberg-invariant economy in which simulations suggest this proposition holds.} an equation corresponding to \eqref{eq:cNrmvsCov} will hold in $t+n$:
+\begin{equation} \label{eq:aNrmGrovsCovGronm1}
+  \begin{aligned}
+    (\overbrace{\GroFac_{\cNrmAvg}^{n}\cNrmAvg_{t}}^{\cNrmAvg_{t+n}}-\GroFac^{n-1}_{\cNrmAvg}\cNrmAvg_{t})\PermGroFac^{n} & = \left(\PermGroFac\GroFac_{\cov}^{n-1} -\GroFac_{\cov}^{n}\right)\cov_{t}
+    \\ (\GroFac_{\cNrmAvg}\PermGroFac)^{n-1} (\GroFac_{\cNrmAvg}-1)\cNrmAvg_{t}\PermGroFac & = \GroFac_{\cov}^{n-1}(\PermGroFac - \GroFac_{\cov}) \cov_{t}
+  \end{aligned}
+\end{equation}
+so for the LHS and RHS to grow at the same rates we need
+\begin{equation}\begin{gathered}\begin{aligned}
+  \GroFac_{\cov}  & = \GroFac_{\cNrmAvg}\PermGroFac \label{eq:aNrmGrovscovGro}.
+\end{aligned}\end{gathered}\end{equation}
+This is intuitive:  In the Szeidl-invariant economy, it just reproduces our result above that the covariance exhibits balanced growth because $\GroFac_{\cNrmAvg}=1$.
+The revised result just says that in the Harmenberg case where the mean value $\cNrmAvg$ of the consumption ratio $\cNrm$ can grow, the covariance must rise in proportion to any ongoing expansion of $\cNrmAvg$ (as well as in proportion to the growth in $\permLvl$).
+
+\begin{comment}
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \overbrace{\GroFac_{\cNrmAvg}^{n} \cNrmAvg_{t}}^{\cNrmAvg_{t+n}}(\GroFac_{\cNrmAvg} - 1)\PermGroFac^{n} & =(\GroFac_{\cov} - \PermGroFac) \overbrace{\cov_{t}\GroFac_{\cov}^{n}}^{\cov_{t+n}}
+    \\
+    (\GroFac_{\cNrmAvg}\PermGroFac/\GroFac_{\cov})^{n} \cNrmAvg_{t}(\GroFac_{\cNrmAvg} - 1) & =(\GroFac_{\cov} - \PermGroFac) \cov_{t}
+  \end{aligned}\end{gathered}\end{equation}
+  and a corresponding equation will hold in $t+1$:
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \\  \overbrace{\GroFac_{\cNrmAvg} \cNrmAvg_{t}}^{\cNrmAvg_{t+1}}(\GroFac_{\cNrmAvg} - 1)\PermGroFac & =(\GroFac_{\cov} - \PermGroFac) \overbrace{\cov_{t}\GroFac_{\cov}}^{\cov_{t+1}}
+  \end{aligned}\end{gathered}\end{equation}
+  \begin{equation}\begin{gathered}\begin{aligned}
+    (\GroFac_{\cNrmAvg} - 1)\cNrmAvg_{t}(\GroFac_{\cNrmAvg} - 1)\PermGroFac & =(\GroFac_{\cov} - \PermGroFac) \cov_{t}(\GroFac_{\cov} - 1)
+  \end{aligned}\end{gathered}\end{equation}
+
+  \begin{equation}\begin{gathered}\begin{aligned}
+    (\GroFac_{\cNrmAvg} - 1)\cNrmAvg_{t}(\GroFac_{\cNrmAvg} - 1)\PermGroFac & =(\GroFac_{\cov} - \PermGroFac) \cov_{t}(\GroFac_{\cov} - 1)
+  \end{aligned}\end{gathered}\end{equation}
+  \begin{equation}\begin{gathered}\begin{aligned}
+                                                                              %                                                                               \GroFac_{\cNrmAvg} - 1 & = \GroFac_{\cov} - \PermGroFac \\
+        %         \GroFac_{\cNrmAvg} + \PermGroRte & = \GroFac_{\cov}  \\
+    \GroFac_{\cov} & = \GroFac_{\cNrmAvg} + (\PermGroFac - 1) \label{eq:aNrmGroVscov}
+  \end{aligned}\end{gathered}\end{equation}
+  \begin{equation}\begin{gathered}\begin{aligned}
+    \CLvl_{t}  % & l= \bar{\tilde{\cNrm}}_{t} = \Harm{\Mean}_{t+1}[\cNrm_{t}\permLvl_{t}] = \Harm{\Mean}_{t+1}[\cNrm_{t}]\Harm{\Mean}_{t+1}[\permLvl_{t}] + \cov_{t}(\cNrm_{t}, \permLvl_{t}) \\
+                 & = %\bar{\tilde{\cNrm}}_{t} =
+                   \Harm{\Mean}_{t\phantom{+1}}[\cNrm]\phantom{\PermGroFac} = \Mean[\cNrm_{t\phantom{t+1}}]\phantom{\PermGroFac} + \cov_{t}(\cNrm_{t}, \permLvl_{t})  \\
+    \CLvl_{t+1} & = \Harm{\Mean}_{t         +1 }[\cNrm]         \PermGroFac  = \cNrmAvg_{t+1}\PermGroFac  + \cov_{t+1}(\cNrm_{t+1}, \permLvl_{t+1})
+  \end{aligned}\end{gathered}\end{equation}
+
+  Still, both of these quantitites are in priniciple measurable in microdata.
+%Indeed, in principle, the Harmenberg-invariant distribution itself could be measured in such data.
+
+\end{comment}
+
+\begin{comment}
+  which is the point where $\HarmWide{\cov}_{t}$ is the covariance calculated according to the Harmenberg measure.
+
+  As Harmenberg points out, a convenient feature of his measure is that $\Harm{\Mean}_{t+n}[\permLvl_{t+n}]=\PermGroFac^{n}$.
+Using this, if by date $t=0$ the economy had achieved a Harmenberg-invariant state then we could define $\cNrmAvg=\Harm{\Mean}_{t}[\cNrm_ {t}]$ and use the fact that thereafter assets grow at the constant rate $\PermGroFac$ to obtain
+  \begin{equation}
+    \begin{aligned}\label{eq:covProblem}
+      \CLvl_{t+1} & = \PermGroFac \CLvl_{t}\notag \\
+      \cNrmAvg\PermGroFac +\HarmWide{\cov}(\cNrm_{t+1},\permLvl_{t+1})   & = \PermGroFac \left( \cNrmAvg    +  \HarmWide{\cov}(\cNrm_{t},\permLvl_{t})\right)
+      \\  \HarmWide{\cov}(\cNrm_{t+1},\permLvl_{t+1})   & = \HarmWide{\cov}(\cNrm_{t},\permLvl_{t})  \notag
+    \end{aligned}
+  \end{equation}
+
+  A corresponding argument shows that $\cov(\mNrm,\permLvl)$ also grows by $\PermGroFac$.
+\end{comment}
+
+
+\hypertarget{microfounding-macro-needs-ergodicity}{}
+\subsection{Implications for Microfoundations}\label{subsec:microfoundations}
+
+Thus we have microeconomic propositions, for both growth factors and for covariances of observable variables,\footnote{Parallel results to those for consumption can be obtained for other measures like market assets.} that can be tested in either cross-section or panel microdata to judge (and calibrate) the microfoundations that should hold for any macroeconomic analysis that requires balanced growth for its conclusions.
+
+At first blush, these points are reassuring; one of the most persuasive arguments for the agenda of building microfoundations of macroeconomics is that newly available `big data' allow us to measure cross-sectional covariances with great precision, so that we can use microeconomic natural experiments to disentangle questions that are hopelessly entangled in aggregate time-series data.
+Knowing that such covariances ought to be a stable feature of a stably growing economy is therefore encouraging.
+
+But this discussion also highlights an uncomfortable point: In the model as specified, permanent income does not have a limiting distribution; it becomes ever more dispersed as the economy with infinite-horizon consumers continues to exist indefinitely.
+
+A few microeconomic data sources permit direct measurement of `permanent income'; among the best (in data quality and span) is data from the Norwegian national registry, which has a long span of well-measured data for millions of Norwegians. Recent work by~\cite{crawleyParsimonious} demonstrates that these data point strongly to the presence of a component of income shocks that is either truly permanent, or so extremely highly serially correlated as to be indistinguishable from permanent shocks.  Using IRS tax data, \cite{dhprvInequality} similarly find a large permanent (or very nearly permanent) component to income shocks. In quite a different exercise \cite{cstwMPC} show that their calibration of the magnitude of permanent shocks (and mortality; see below) yield a simulated distribution of permanent income that matches answers in the U.S.\ \emph{Survey of Consumer Finances} (`SCF') to a question designed to elicit a direct measure of respondents' permanent income. %They use those results to calibrate a model to match empirical facts about the distribution of permanent income and wealth, showing that the model also does fits empirical facts about the marginal propensity to consume.
+%The quantitative credibility of the argument depends on the model's match to the distribution of permanent income inequality, which would not be possible in a model without a non-degenerate steady-state distribution of permanent income.
+
+For macroeconomists who want to build microfoundations by comparing the microeconomic implications of their models to micro data (directly -- not in ratios to difficult-to-meaure `permanent income'), it would be something of a challenge to determine how to construct empirical-data-comparable simulated results from a model with no limiting distribution of permanent income.
+
+\begin{comment}
+  \hypertarget{Consumption-and-Income-Growth-at-the-Household-Level}{}
+  \subsection{Identical Growth in Income, Consumption, and Wealth}\label{subsec:cGroEqPermGroFacIndQ}
+
+  Unfortunately, the \hyperlink{GICMod}{strong growth impatience} condition that we imposed which yielded all of these intuitive propositions at once is rather restrictive.
+Modeling experience indicates that it is not always possible to find plausible combinations of parameter values that satisfy that condition.
+Furthermore, while the {\GICRaw} is a considerably looser condition, as noted above (and as
+
+  % The foregoing analysis is motivated by the emerging realization of the importance of understanding of covariance relationships in microeconomic populations (between the marginal propensity to consume and the level of wealth, e.g.).
+\end{comment}
+
+Death can solve this problem.
+
+
+\hypertarget{Mortality}{}
+\subsection{Mortality Yields Invariance}\label{sec:Mortality}
+
+\hypertarget{Blanchard-Lives}{}
+Most heterogeneous-agent models incorporate a constant positive probability of death, following \cite{blanchardFinite} and \cite{yaari1965uncertain}.
+In the Blanchardian model, if the probability of death exceeds a threshold that depends on the size of the permanent shocks,~\cite{cstwMPC} show that the limiting distribution of permanent income has a finite variance.
+\cite{blanchardFinite} assumes a universal annuitization scheme in which estates of dying consumers are redistributed to survivors in proportion to survivors' wealth, giving the recipients a higher effective rate of return.
+This treatment has considerable analytical advantages, most notably that the effect of mortality on the time preference factor is the exact inverse of its effect on the (effective) interest factor.
+That is, if the `pure' time preference factor is $\DiscFacRaw$ and probability of remaining alive (not dead) is $\Alive$, then the assumption that no utility accrues after death makes the effective discount factor $\DiscFacLiv=\DiscFacRaw\Alive$  while the enhancement to the rate of return from the annuity scheme yields an effective interest factor $\RfreeEff=\Rfree/\Alive$ (recall that because of white-noise mortality, the average wealth of the two groups is identical).
+Combining these, the effective patience factor in the new economy $\DiscFacLiv \RfreeEff$ is unchanged from its value in the infinite-horizon model:% chktex 2
+\begin{equation}
+  \DiscFacLiv \RfreeEff = {\left(\DiscFac \Alive \Rfree / \Alive\right)}^{1/\CRRA} = {\left(\Rfree \DiscFacRaw\right)}^{1/\CRRA} = \APFac.
+\end{equation}
+
+The only adjustments this requires to the analysis above are therefore to the few elements that involve a role for the interest factor distinct from its contribution to $\APFac$ (principally, the {\RIC}, which becomes $\APFac/\RfreeEff$).
+%These would need to be adjusted to incorporate in interest factor with a higher rate of return.  %For example, the {\RIC}~($\APFac/(\Rfree /\Alive) < 1$) will be somewhat easier to satisfy because $\Rfree/\Alive > \Rfree$.
+
+% The numerical finding that the covariance term above is approximately zero allows us to conclude again that the key requirement for aggregate balanced growth is presumably the {\GICRaw}.
+
+\hypertarget{Modigliani-Lives}{}
+
+\cite{blanchardFinite}'s innovation was valuable not only for the insight it provided but also because when he wrote, the principal alternative, the Life Cycle model of~\cite{modiglianiWealth}, was computationally challenging given then-available technologies.
+Despite its (considerable) conceptual value, Blanchard's analytical solution is now rarely used because essentially all modern modeling incorporates uncertainty, constraints, and other features that rule out analytical solutions anyway.% chktex 2  %Modern models can can easily handle assumptions more realistic than Blanchard's about the disposition of assets at death.
+
+The simplest alternative to Blanchard is to follow Modigliani in constructing a realistic description of income over the life cycle and assuming that any wealth remaining at death occurs accidentally (not implausible, given the robust finding that for the great majority of households, bequests amount to less than 2 percent of lifetime earnings,~\cite{hendricksBequests,hendricksSmallBequests}).
+
+Even if bequests are accidental, a macroeconomic model must make some assumption about how they are disposed of: As windfalls to heirs, estate tax proceeds, etc.
+We again consider the simplest choice, because it represents something of a polar alternative to Blanchard.
+Without a bequest motive, there are no behavioral effects of a 100 percent estate tax; we assume such a tax is imposed and that the revenues are effectively thrown in the ocean:  The estate-related wealth effectively vanishes from the economy.
+
+The chief appeal of this approach is the simplicity of the change it makes in the condition required for the economy to exhibit a balanced growth equilibrium (for consumers without a life cycle income profile).
+If $\Alive$ is the probability of remaining alive, the condition changes from the plain \hyperlink{GICRaw}{growth impatience} to a looser mortality-adjusted version of \hyperlink{GICRaw}{growth impatience}:
+\hypertarget{GICLivModDefn}{}
+\begin{equation}\begin{gathered}\begin{aligned}
+  \Alive  \APFac_{\PermGroFac} & < 1. \label{eq:GICLivMod}
+\end{aligned}\end{gathered}\end{equation}
+
+With no income growth, what is required to prohibit unbounded growth in aggregate wealth is the condition that prevents the per-capita wealth-to-permanent-income ratio of surviving consumers from growing faster than the rate at which mortality diminishes their collective population.
+With income growth, the aggregate wealth-to-income ratio will head to infinity only if a cohort of consumers is patient enough to make the desired rate of growth of wealth fast enough to counteract combined erosive forces of mortality and productivity.
+
+
+\end{document}\endinput

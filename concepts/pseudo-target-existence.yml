@@ -1,0 +1,42 @@
+id: pseudo-target-existence
+name: "‘Pseudo-Target’"
+short: m-bal exists
+defining_equation:
+  anchor: thm-MSSBalExists
+  latex: \Ex_t [\permShk_{t+1}{\mNrm}_{t+1}/\mNrm_t] = 1 ~if~ \mNrm_t = \mBalLvl.
+  english: 'Under WRIC, FVAC, and the ordinary GIC there exists a unique strictly positive pseudo-target $\mBalLvl$ at which expected $\permShk$-weighted normalised resources are unchanged, equivalently at which the level of market resources grows in expectation at the permanent-income growth factor.'
+gloss: |
+  Theorem `thm-MSSBalExists` is the existence-and-uniqueness result for the pseudo-target $\mBalLvl$ — the paper's second, less restrictive notion of stability, which asks whether the level of market resources $\mLvl$ grows in expectation at the permanent-income growth factor $\PermGroFac$ (a 'balanced growth' path) rather than whether normalised individual resources are stationary. The theorem *assumes* weak return impatience (WRIC), finite value of autarky (FVAC), and the ordinary growth impatience condition (GIC), and *implies* the existence of a unique $\mBalLvl > 0$ solving $\Ex_t[\permShk_{t+1}\mNrm_{t+1}/\mNrm_t] = 1$, together with the level-stability inequalities ($\Ex_t[\mLvl_{t+1}]/\mLvl_t$ exceeds $\PermGroFac$ below $\mBalLvl$ and falls short above it).
+
+  Existence (Part i of the proof) is an Intermediate-Value-Theorem argument: the bounded-support assumption on $\permShk$ carries the continuity and the $\mNrm_t \to 0$ divergence over from the individual-target proof, while the limit of $\Ex_t[\permShk_{t+1}\mNrm_{t+1}/\mNrm_t]$ as $\mNrm_t \to \infty$ equals $\GPFacRaw$, which is below 1 precisely because GIC holds; a continuous function crossing 1 from above must equal 1 somewhere. Uniqueness shows the level-gap function $\difFunc(\mNrm_t) := \Ex_t[\permShk_{t+1}\mNrm_{t+1}] - \mNrm_t$ is strictly decreasing on $(0,\infty)$: when return impatience (RIC) holds this follows from the marginal-propensity-to-consume bound, and when RIC fails the same monotonicity holds because the only non-degenerate case with RIC failing is one where finite human wealth also fails, which forces $\Rfree/\PermGroFac < 1$.
+
+  The hypothesis here is exactly the ordinary GIC, *weaker* than the strong growth impatience (GIC-Mod) that the individual buffer-stock target requires (theorem `thm-target`). The implicit equations for the two targets differ only by the substitution of $\RNrmByG$ for $\bar{\RNrmByGRnd} = \RNrmByG\,\Ex[\permShk^{-1}]$, so they coincide when there are no permanent shocks ($\permShk \equiv 1$); when permanent-shock variance is large enough that GIC-Mod fails but GIC still holds, this theorem still delivers $\mBalLvl$ while no individual target $\mTrgNrm$ exists — the case in Figure `fig-GICModFailsButGICRawHolds`.
+relations:
+  - kind: requires
+    target: weak-return-impatience-condition
+    note: 'The theorem assumes WRIC (Assumption WRIC).'
+  - kind: requires
+    target: finite-value-of-autarky
+    note: 'The theorem assumes FVAC (Assumption FVAC).'
+  - kind: requires
+    target: growth-impatience-condition
+    note: 'The theorem assumes the ordinary GIC; the $\mNrm_t\to\infty$ limit of the expected $\permShk$-weighted ratio equals $\GPFacRaw < 1$ exactly by GIC.'
+  - kind: implies
+    target: pseudo-target
+    note: 'This is the existence/uniqueness theorem for the pseudo-target $\mBalLvl$; it establishes the object that concept defines.'
+  - kind: contrasts-with
+    target: buffer-stock-target
+    note: 'Sibling existence theorem thm-target requires the stronger GIC-Mod; the pseudo-target needs only GIC, so it can exist when the individual target does not.'
+  - kind: contrasts-with
+    target: strong-growth-impatience-condition
+    note: 'GIC-Mod is the strengthened condition the individual target needs; this theorem deliberately relies only on the weaker GIC.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: thm-MSSBalExists
+  - file: BufferStockTheory.md
+    anchor: eq-mBalLvl
+  - file: BufferStockTheory.md
+    anchor: subsubsec-AppxPseudoSS
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

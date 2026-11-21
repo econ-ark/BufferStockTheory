@@ -1,0 +1,13 @@
+% -*- coding: utf-8; mode: latex -*-
+      \node (pffvafNEQpfgicPfhwc) [xshift=4cm,yshift=-1.5cm]{$\neq$};
+      \node (pffvafNEQricPcancelfhwc) [xshift=1.5cm,yshift=-3.8cm]{$\neq$};
+      \node (thorn) {$\APFac$};
+      \node (gamma) [right of = thorn] {$\PermGroFac$};
+      \node (rfree) [below of = thorn]{$\Rfree$};
+%      \node (pffvacFac) [right of = rfree] {$\underbrace{\Rfree^{1/\CRRA}\PermGroFac^{1 - 1/\CRRA}}_{\equiv \PermGroFac} $}; % \left(\equiv (\Rfree \PermGroFac)^{1/\CRRA}\PermGroFac\right)
+      \node (pffvacFac) [right of = rfree] {$\underbrace{\PermGroFac (\Rfree/\PermGroFac)^{1/\CRRA}}_{\text{FVAF}}$}; % \left(\equiv (\Rfree \PermGroFac)^{1/\CRRA}\PermGroFac \right)
+      \draw[->] (thorn) to node {\small Growth Impatience: $\APFac < \PermGroFac$} (gamma);
+      \draw[->] (thorn) to node [swap] [rotate=-90,yshift=-0.3cm,xshift=2.0cm]{\footnotesize Return Impatience: $\APFac < \Rfree$} (rfree);
+      \draw[->] (thorn) to node [swap] [rotate=-45,xshift=1.9cm,yshift=+0.5cm] {\small PF-FVAC: $\APFac < \text{PF-FVAF}$} (pffvacFac);
+      \draw[->] (gamma) to node [rotate=-90,xshift=-2.7cm,yshift=+0.3cm]{\footnotesize Finite Human Wealth: $\PermGroFac < \PermGroFac (\Rfree/\PermGroFac)^{1/\CRRA}$} (pffvacFac);
+      \draw[<-] (pffvacFac) to node{\footnotesize Infinite Human Wealth: $\PermGroFac > \Rfree$} (rfree); 

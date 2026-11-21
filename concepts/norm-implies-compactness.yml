@@ -1,0 +1,32 @@
+id: norm-implies-compactness
+name: Weighted-Norm Convergence Implies Uniform Convergence on Compact Sets
+defining_equation:
+  anchor: fact-normimpliescompact
+  latex: \Vert \fFunc \Vert_\gFunc := \sup_{x \in X} \frac{\vert \fFunc(x)\vert }{\gFunc(x)}.
+  english: 'The weighted supremum norm of $\fFunc$ rescales its absolute value pointwise by a strictly positive continuous weight $\gFunc$; convergence to zero in this norm is the hypothesis whose consequence — uniform convergence on every compact subset of the domain — the fact delivers.'
+gloss: |
+  This fact is a piece of real-analysis plumbing that licenses the move from convergence in a *weighted* supremum norm to ordinary *uniform* convergence on compact sets. Let $X\subseteq\Reals^{n}$ be open and convex, let $\gFunc:X\to\Reals_{+}$ be continuous, and define the weighted norm $\Vert\fFunc\Vert_{\gFunc}=\sup_{x\in X}\vert\fFunc(x)\vert/\gFunc(x)$. The claim is that if $\Vert\fFunc_{n}-\fFunc^{\star}\Vert_{\gFunc}\to0$ then $\fFunc_{n}\to\fFunc^{\star}$ uniformly on every compact $K\subseteq X$. It *assumes* only continuity (and positivity) of the weight $\gFunc$; the paper notes that the convexity and openness of $X$ are not strictly necessary for the argument.
+
+  The proof is short and turns entirely on compactness controlling the weight. On a compact $K$ the continuous, positive weight $\gFunc$ attains a finite maximum $M_{K}$, so $\sup_{x\in K}\vert\fFunc_{n}(x)-\fFunc^{\star}(x)\vert\leq M_{K}\sup_{x\in K}\vert\fFunc_{n}(x)-\fFunc^{\star}(x)\vert/\gFunc(x)\leq M_{K}\,\Vert\fFunc_{n}-\fFunc^{\star}\Vert_{\gFunc}$. The right-hand side vanishes by hypothesis, forcing the unweighted sup over $K$ to vanish too, which is exactly uniform convergence on $K$. Compactness is doing the work: it both bounds $\gFunc$ above (used here) and bounds it away from zero (the equivalent lower-bound view, $\bar{\gFunc}=\min_{K}\gFunc>0$, gives the same conclusion).
+
+  The fact *implies*, and is used precisely to obtain, the interchange of limit and expectation in the convergence half of the existence theorem [nondegenerate-solution-existence](#nondegenerate-solution-existence). There the value-function iterates $\vFunc_{t_{n}+1}$ are shown to converge in the model's $\boundFunc$-norm (the weighted norm with weight $\boundFunc(x)=\zeta+x^{1-\gamma}$ on $\Reals_{++}$ in which the Bellman operator is a contraction); this fact upgrades that to uniform convergence on compact subsets of $\Reals_{++}$, which then feeds the [moving-evaluation-point fact](#compactness-preserved) to deliver almost-sure pointwise convergence of $\vFunc_{t_{n}+1}(\mNrm_{t_{n}+1})$ along the sampled sequence. Without this step one could not pass the $\boundFunc$-norm limit through the expectation $\Ex\PermGroFacRnd^{1-\CRRA}\vFunc_{t_{n}+1}(\cdot)$, so the fact is a small but load-bearing link in establishing that the limiting consumption function solves the stationary Bellman equation.
+relations:
+  - kind: implies
+    target: compactness-preserved
+    note: 'Uniform convergence on compact sets (this fact) is the hypothesis of compactness-preserved (Fact fact-compactnt), which then yields convergence of $\fFunc_{n}(x_{n})$ along any convergent sequence $x_{n}\to x$; the two facts are applied in tandem at the convergence step of the existence proof (BufferStockTheory.md line near eq following the $\boundFunc$-norm argument).'
+  - kind: assumed-by
+    target: nondegenerate-solution-existence
+    note: 'The convergence half of thm-convgtobellman invokes this fact explicitly to turn $\boundFunc$-norm convergence of $\vFunc_{t_{n}+1}$ into uniform convergence on compact subsets of $\Reals_{++}$, enabling the limit to be passed through the expectation $\Ex\PermGroFacRnd^{1-\CRRA}\vFunc_{t_{n}+1}(\cdot)$.'
+  - kind: requires
+    target: boyd-weighted-contraction
+    note: 'The relevant instance uses the model $\boundFunc$-norm — the weighted supremum norm with weight $\boundFunc(x)=\zeta+x^{1-\gamma}$ — in which the Bellman operator is a Boyd-style weighted contraction; this fact is what makes contraction-derived $\boundFunc$-norm convergence usable as ordinary uniform convergence on compacta.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: fact-normimpliescompact
+  - file: BufferStockTheory.md
+    anchor: sec-realanalysis
+  - file: BufferStockTheory.md
+    anchor: thm-convgtobellman
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

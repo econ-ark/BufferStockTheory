@@ -1,0 +1,160 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+% !TEX program = pdflatex
+% !BIB program = none
+% !TEX root = ../BufferStockTheory.tex
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+
+\newcommand{\subname}{ApndxBalancedGrowthcNrmAndCov}
+\input{\econtexRoot/@local/dir-paths} % get directory macros
+\usepackage{econark-ifsubfile}        % allow conditional execution of code
+\usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
+\usepackage{pdforhtml}
+\xrsetup{\econtexRoot/\texname}
+
+%\renewcommand{\LtxDir}{}
+\notinsubfile{\renewcommand{\LtxDir}{}}
+
+% \headmath moved to @local/bst-macros.sty (plan §A1).
+\provideboolean{Web}
+\setboolean{Web}{false} % reset to true if running via dvi; search for \ifdvi below
+
+% html version of document must be constructed by running pdflatex in
+% dvi output mode; code below creates an ifdvi construct that detects
+% whether running in dvi mode and sets the options necessary to generate
+% html version of document using tex4ht
+
+\makeatletter
+\newif\ifdvi\dvitrue
+\@ifundefined{pdfoutput}{}{\ifnum\pdfoutput>0 \dvifalse\fi}
+\makeatother
+
+% dvi compilation only occurs if making the html version
+\ifdvi
+  \setboolean{Web}{true}   
+\fi
+\begin{document}
+
+\hypertarget{ApndxBalancedGrowthcNrmAndCov}{}
+
+\section{Appendix for Section 4}
+
+\subsection{Growth Impatience Implies Harmenberg Impatience}\label{sec:AppxHarmImpGIC}
+
+%% AS TO AS: TRIPLE CHECK THIS CLAIM IN FINAL PASS 
+
+We show here that \hyperlink{GICRaw}{growth impatience} implies the condition imposed by \cite{harmenbergAggregating} to guarantee 
+the existence of a permanent income weighted distribution of normalized market resources.
+Letting $f$ denote the density of the permanent income shock $\permShk$, the impatience condition imposed by \cite{harmenbergAggregating} is
+%
+%
+\begin{equation}
+  \label{eq:HarmImp}
+  \log \left( \APFac \right) < \int \log(\PermGroFac\permShk) \permShk f(\permShk)\,d\permShk .
+\end{equation}
+%
+%
+
+\begin{claim}\label{claim:gicimpliesharmimp}
+  If \hyperlink{GICRaw}{growth impatience} holds, then \eqref{eq:HarmImp} holds.
+\end{claim}
+%
+\begin{proof}
+Since $\permShk\mapsto \log(\PermGroFac\permShk) \permShk$ is convex, Jensen's inequality implies
+%
+\begin{equation}
+  \label{eq:Jensen}
+  \int \log(\PermGroFac\permShk) \permShk f(\permShk)\,d\permShk \geq \log(\PermGroFac\mathbb{E}\permShk) \mathbb{E}\permShk = \log(\PermGroFac)
+\end{equation}
+%
+Since \hyperlink{GICRaw}{growth impatience} implies $\PermGroFac > \APFac$ and $\log$ is strictly monotone increasing, the result follows.
+
+\end{proof}
+
+\begin{remark}
+The threshold in \eqref{eq:HarmImp} is sharp: subtracting $\log\PermGroFac = \log(\PermGroFac\,\Ex[\permShk])$ and using $\Ex[\permShk]=1$, \eqref{eq:HarmImp} is equivalent to
+\begin{equation*}
+  \log \GPFacRaw < \Ex[\permShk\log\permShk] = D_{\mathrm{KL}}(\permShk f \,\Vert\, f) \geq 0 ,
+\end{equation*}
+the Kullback--Leibler divergence between the permanent-income-weighted density $\permShk f$ and $f$. Since this divergence is nonnegative (strictly positive whenever $\permShk$ is nondegenerate), \hyperlink{GICRaw}{growth impatience} ($\log\GPFacRaw<0$) is sufficient but stronger than necessary; permanent-income risk relaxes the requirement.
+\end{remark}
+
+
+
+\BothVersions{
+    \subsection{Apparent Balanced Growth in \headmath{\cNrmAvg} and \headmath{\cov(\cNrm,\permLvl)}}
+  }{
+    \subsection{Apparent Balanced Growth in \texorpdfstring{$\cNrmAvg$}{c} and \texorpdfstring{$\cov(\cNrm,\permLvl)$}{cov(c,p)}}
+}
+
+%\subsection{Apparent Balanced Growth in \texorpdfstring{$\cNrmAvg$}{c} and \texorpdfstring{$\cov(\cNrm,\permLvl)$}{cov(c,p)}}
+%\subsection{Apparent Balanced Growth in \headmath{\log \cNrmAvg} and \headmath{\log \cov(c,p)}}
+\label{sec:ApndxBalancedGrowthcNrmAndCov}
+
+%\providecommand{\GroFac}{\Omega}\renewcommand{\GroFac}{\Omega}
+Section~\ref{subsec:Covariances} demonstrates some propositions under the assumption that, when an economy satisfies the {\GICRaw}, there will be constant growth factors $\GroFac_{\cNrmAvg}$ and $\GroFac_{\cov}$ respectively for $\cNrmAvg$ (the average value of the consumption ratio) and $\cov(\cNrm,\permLvl)$.  In the case of a Szeidl-invariant economy, the main text shows that these are $\GroFac_{\cNrmAvg}=1$ and $\GroFac_{\cov}=\PermGroFac$.  If the economy is Harmenberg- but not Szeidl-invariant, no proof is offered that these growth factors will be constant.
+
+\BothVersions{
+    \subsection{\headmath{\log \cNrm} and \headmath{\log \cov(\cNrm,\permLvl)} Grow Linearly}
+  }{
+\subsection{\texorpdfstring{$\log \cNrm$}{log c} and \texorpdfstring{$\log \cov(\cNrm,\permLvl)$}{log cov(c,p)} Grow Linearly}
+}
+
+%\subsection{\headmath{\log \cNrm} and \headmath{\log \cov(\cNrm,\permLvl)} Grow Linearly}
+Figures~\ref{fig:logcNrm} and~\ref{fig:logcov} plot the results of simulations of an economy that satisfies Harmenberg- but not Szeidl-invariance with a population of 4 million agents over the last 1000 periods (of a 2000 period simulation).\footnote{For an exposition of our implementation of Harmenberg's method, see \href{https://github.com/econ-ark/BufferStockTheory/blob/master/Appendices/ApndxHarKmenberg.pdf}{this supplemental appendix.}}  The first figure shows that $\log \cNrmAvg$ increases apparently linearly.  The second figure shows that $\log (-\cov(\cNrm,\permLvl))$ also increases apparently linearly.  (These results are produced by the notebook \href{https://github.com/econ-ark/BufferStockTheory/blob/master/Code/Python/ApndxBalancedGrowthcNrmAndCov.ipynb}{\texttt{ApndxBalancedGrowthcNrmAndCov.ipynb}}).
+
+\pagebreak
+\begin{figure}[!htb]
+  \centerline{
+    \includegraphics[width=0.9\textwidth]{\FigDir/logcNrm}
+  }
+  \caption{Appendix: $\log ~\mathfrak{c}$ Appears to Grow Linearly}
+  \label{fig:logcNrm}
+\end{figure}
+
+\begin{figure}[!htb]
+  \centerline{
+    \includegraphics[width=0.9\textwidth]{\FigDir/logcov}
+  }
+  \caption{Appendix: $\log ~(-\cov(\cNrm,\permLvl))$ Appears to Grow Linearly}
+  \label{fig:logcov}
+\end{figure}
+
+\clearpage
+
+(see \eqref{eq:DBCparts})
+  % \begin{equation}\label{eq:DBCparts} % Don't define it if already defined
+  %   \begin{aligned}
+  %     \aLvl_{t}     & = \mLvl_{t}-\cLvl_{t}  \\
+  %     \kLvl_{t+1}   & = \aLvl_{t} \notag \\
+  %     \permLvl_{t+1}  & = \permLvl_{t} \underbrace{\PermGroFac\permShk_{t+1}}_{:= \Rnd{\PermGroFac}_{t+1}} \notag \\
+  %     \mLvl_{t+1}  & =   \underbrace{\Rfree \kLvl_{t+1}}_{:= \bLvl_{t+1}}  +\underbrace{\permLvl_{t+1}\tranShkAll_{t+1}}_{:= \yLvl_{t+1}}. \notag
+  %   \end{aligned}
+  % \end{equation}
+
+\ifSubfilesClassLoaded{\bibfilesfind{\texname}\bibliography{\bibfilesfound}}{}
+
+\end{document}
+\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
+% eval: (setq TeX-command-list  (assq-delete-all (car (assoc "Biber"  TeX-command-list)) TeX-command-list))
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex.%s" TeX-run-BibTeX nil t                                                                              :help "Run BibTeX") t)
+% eval: (add-to-list 'TeX-command-list '("BibTeX" "bibtex.%s" TeX-run-BibTeX nil (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode context-mode) :help "Run BibTeX") t)
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage).%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:
+
+

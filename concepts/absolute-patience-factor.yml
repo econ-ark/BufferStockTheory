@@ -1,0 +1,31 @@
+id: absolute-patience-factor
+name: Absolute Patience Factor (APFac, "thorn")
+short: APFac
+defining_equation:
+  anchor: eq-APFac
+  latex: \APFac := (\Rfree\DiscFac)^{1/\CRRA}
+  english: 'The geometric blend of the gross interest factor and the time-discount factor, raised to the inverse of relative-risk-aversion.'
+gloss: |
+  The absolute patience factor $\APFac$ — typeset with the archaic letter "thorn" (Þ) — is the consumption-growth factor implied by the Euler equation of a perfect-foresight model: $\cLvl_{t+1}/\cLvl_{t} = (\Rfree\DiscFac)^{1/\CRRA} = \APFac$. Its centrality across the paper's analysis (every patience condition and every existence theorem references it) justifies the special symbol.
+
+  Operationally, $\APFac$ aggregates two countervailing forces — the consumer's willingness to substitute consumption across time (governed by $\Rfree\DiscFac$) and curvature of the utility function (governed by $\CRRA$). The various patience conditions are all comparisons of $\APFac$ to one of *four* fundamental rates: $1$ (gives AIC, $\APFac < 1$), $\Rfree$ (RIC, $\APFac/\Rfree < 1$), $\PermGroFac$ (GIC, $\APFac/\PermGroFac < 1$), and $\PermGroFacAdj := \PermGroFac/\Ex[1/\permShk]$ (GIC-Mod, $\APFac/\PermGroFacAdj < 1$). The first three are deterministic; the fourth is the harmonic-mean uncertainty-adjusted growth factor that is strictly smaller than $\PermGroFac$ whenever $\permShk$ has positive variance, making GIC-Mod the strictly-stronger sibling of GIC.
+
+  The macro file renders $\APFac$, $\Pat$, and $\Thorn$ as the bold uppercase thorn Þ — all the patience *factor*. Distinct from these is $\APRte$, the absolute patience *rate* (the "Rte" suffix marks it as a rate, in the factor-minus-one / log family), typeset as the lowercase thorn þ — a different quantity, not an alias of the factor. The "Raw" suffixed sibling $\APFacRaw$ writes out the factor's formula verbatim — same quantity as $\APFac$, different typographic intent.
+relations:
+  - kind: assumed-by
+    target: absolute-impatience-condition
+    note: 'AIC is the inequality $\APFac < 1$.'
+  - kind: assumed-by
+    target: return-impatience-condition
+    note: 'RIC is the inequality $\APFac/\Rfree < 1$.'
+  - kind: assumed-by
+    target: growth-impatience-condition
+    note: 'GIC is the inequality $\APFac/\PermGroFac < 1$.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: APFac
+  - file: BufferStockTheory.md
+    anchor: eq-APFac
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

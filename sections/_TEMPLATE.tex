@@ -1,0 +1,42 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+
+%%% Template for a section subfile of BufferStockTheory.
+%%% Copy this file to sections/<SectionName>.tex and:
+%%%   1. Replace SECTIONNAME below with the section's keyname
+%%%      (e.g. TheoreticalFoundations, IndividualBufferStockStability).
+%%%   2. Replace the placeholder \section line with the real section heading.
+%%%   3. Paste the section's content between \begin{document} and the
+%%%      \ifSubfilesClassLoaded{...} footer.
+%%%
+%%% This file mirrors the boilerplate already used by Introduction.tex and
+%%% Appendices/Apndx*.tex, so the same standalone-or-integrated compile
+%%% mechanism applies.
+
+\newcommand{\subname}{SECTIONNAME}    % keyname for generic bib resolution
+\input{\econtexRoot/@local/dir-paths} % path macros (\EqDir, \FigDir, ...)
+\usepackage{econark-ifsubfile}        % conditional compile (subfile vs main)
+\usepackage{econark-xrsetup}          % external cross-references
+\externaldocument{\LaTeXGenerated/BufferStockTheory}
+
+% identity of the external source of refs and bibs
+\xrsetup{\econtexRoot/\texname}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% \section{Section Title Here}\label{sec:SectionLabel}
+%
+% ... section content goes here ...
+% ---------------------------------------------------------------------
+
+% No standalone bibliography in section subfiles. Mirrors the HAFiscal
+% Subfiles/*.tex pattern: standalone PDF shows section content with
+% cross-refs (resolved via \externaldocument) but no References. The
+% paper-wide bibliography is emitted from BufferStockTheory.tex (when
+% the full doc compiles) or BufferStockTheory-NoAppendix.tex (when the
+% body-only doc compiles). Adding a bib invocation here would also fire
+% when this file is \subfile-included by NoAppendix (which uses subfiles
+% class), causing duplicate \bibdata writes that break bibtex.
+\end{document}\endinput

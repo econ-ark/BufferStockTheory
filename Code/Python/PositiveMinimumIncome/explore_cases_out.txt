@@ -1,0 +1,36 @@
+=== A. return impatience fails, G psi_min < R ===
+APF=0.9550 RPF=1.0052 (RIC FAILS) GPF=0.9272 GPF*E[1/psi]=0.9359 G/R=1.0842 (FHWC FAILS) VAF=0.9408 WRPF(P(worst))=0.0269 x=G psi_min/R=0.9220 h_min=0.5914
+iterations=79; c at resources-above-limit 0.5, 1, 2, 5, 20: [0.48369 0.9201  1.28404 1.72478 2.85163]
+max MPC at bottom=0.973134 vs 0.973134; c/m at 300=0.03923 (limit 0)
+target roots, decreasing: ([np.float64(0.5961899763514638)], True)  pseudo-target: ([np.float64(0.603324681920762)], True)
+HARK: mNrmMin=-0.59140; max|c-c_HARK|=1.33e-04
+
+=== B. G psi_min >= R, return impatience holds ===
+APF=0.9798 RPF=0.9798 (RIC holds) GPF=0.8165 GPF*E[1/psi]=0.8242 G/R=1.2000 (FHWC FAILS) VAF=0.8075 WRPF(P(worst))=0.0262 x=G psi_min/R=1.0205 APF/(G psi_min)=0.9601
+   n=  1: natural limit -      0.0510   c_n(m=1) = 0.95616
+   n=  5: natural limit -      0.2658   c_n(m=1) = 1.10847
+   n= 20: natural limit -      1.2462   c_n(m=1) = 1.64820
+   n= 50: natural limit -      4.3787   c_n(m=1) = 2.86705
+   n=100: natural limit -     16.4661   c_n(m=1) = 6.78501
+   n=200: natural limit -    141.9481   c_n(m=1) = 44.16880
+   n=400: natural limit -   8385.4099   c_n(m=1) = nan
+
+=== C. G psi_min >= R, return impatience fails, APF >= G psi_min ===
+APF=0.9439 RPF=1.0488 (RIC FAILS) GPF=0.8740 GPF*E[1/psi]=0.8822 G/R=1.2000 (FHWC FAILS) VAF=0.9253 WRPF(P(worst))=0.0280 x=G psi_min/R=1.0205 APF/(G psi_min)=1.0277
+   n=  1: natural limit -      0.0510   c_n(m=1) = 0.94275
+   n=  5: natural limit -      0.2658   c_n(m=1) = 1.06053
+   n= 20: natural limit -      1.2462   c_n(m=1) = 1.50985
+   n= 50: natural limit -      4.3787   c_n(m=1) = 2.48987
+   n=100: natural limit -     16.4661   c_n(m=1) = 5.57018
+   n=200: natural limit -    141.9481   c_n(m=1) = 34.64492
+   n=400: natural limit -   8385.4099   c_n(m=1) = nan
+
+=== D. G psi_min >= R, return impatience fails, APF < G psi_min ===
+APF=0.9439 RPF=1.0488 (RIC FAILS) GPF=0.8280 GPF*E[1/psi]=0.8358 G/R=1.2667 (FHWC FAILS) VAF=0.8766 WRPF(P(worst))=0.0280 x=G psi_min/R=1.0772 APF/(G psi_min)=0.9736
+   n=  1: natural limit -      0.0539   c_n(m=1) = 0.95153
+   n=  5: natural limit -      0.3142   c_n(m=1) = 1.12207
+   n= 20: natural limit -      2.3899   c_n(m=1) = 2.02503
+   n= 50: natural limit -     28.0525   c_n(m=1) = 8.81592
+   n=100: natural limit -   1184.2206   c_n(m=1) = nan
+   n=200: natural limit -2012740.5495   c_n(m=1) = nan
+   n=400: natural limit -5807471479297.1875   c_n(m=1) = nan

@@ -1,0 +1,211 @@
+1 Appendix for Section 4
+1.1 Apparent Balanced Growth in c̄ and cov(c, p)
+Section 4.2 demonstrates some propositions under the assumption that, when an economy satisfies the GIC, there will be constant growth factors Ωc̄ and Ωcov respectively for
+c̄ (the average value of the consumption ratio) and cov(c, p). In the case of a Szeidlinvariant economy, the main text shows that these are Ωc̄ = 1 and Ωcov = G. If the
+economy is Harmenberg- but not Szeidl-invariant, no proof is offered that these growth
+factors will be constant.
+
+1.2 log c and log (cov(c, p)) Grow Linearly
+Figures 1 and 2 plot the results of simulations of an economy that satisfies
+Harmenberg- but not Szeidl-invariance with a population of 4 million agents over
+the last 1000 periods (of a 2000 period simulation).1 The first figure shows that
+log c̄ increases apparently linearly. The second figure shows that log(− cov(c, p))
+also increases apparently linearly. (These results are produced by the notebook
+ApndxBalancedGrowthcNrmAndCov.ipynb).
+
+1
+
+For an exposition of our implementation of Harmenberg’s method, see this supplemental appendix.
+
+log of cNrm_avg
+5.5
+5.0
+4.5
+4.0
+3.5
+3.0
+0
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+Figure 1 Appendix: log c Appears to Grow Linearly
+
+log of (negative of) covariance between cNrm and pLvl
+45
+40
+35
+30
+25
+0
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+Figure 2 Appendix: log (− cov(c, p)) Appears to Grow Linearly
+(See (2))
+
+2
+
+Table 1 Model Characteristics Calculated from Parameters
+Approximate
+Calculated
+Description
+Finite Human Wealth Factor
+
+Symbol and Formula
+−1
+
+R̃
+
+≡
+
+Value
+
+G/R
+
+0.990
+
+1−γ
+
+PF Value of Autarky Factor
+
+ℶ
+
+≡
+
+βG
+
+0.932
+
+Growth Compensated Permanent Shock
+
+M−1 [ψ]
+
+≡
+
+(E[ψ −1 ])−1
+
+0.990
+
+Uncertainty-Adjusted Growth
+
+G
+
+≡
+
+GM−1 [ψ]
+
+1.020
+
+1−γ
+
+1/(1−γ)
+
+Utility Compensated Permanent Shock
+
+M1−γ [ψ]
+
+≡
+
+(E[ψ
+
+])
+
+0.990
+
+Utility Compensated Growth
+
+Gu
+
+≡
+
+GM1−γ [ψ]
+
+1.020
+
+Þ
+
+≡
+
+(Rβ)
+
+1/γ
+
+0.999
+
+ÞR
+
+≡
+
+Þ/R
+
+0.961
+
+ÞG
+
+≡
+
+Þ/G
+
+0.970
+
+ÞG E[ψ ] ≡
+
+Þ/G
+
+Absolute Patience Factor
+Return Patience Factor
+Growth Patience Factor
+Modified Growth Patience Factor
+
+−1
+
+Value of Autarky Factor
+
+ℶ
+
+Weak Return Impatience Factor
+
+1/γ
+
+℘
+
+3
+
+≡
+Þ
+
+≡
+
+1−γ
+
+βG
+
+0.980
+1−γ
+
+M1−γ [ψ]
+
+0.941
+
+1/γ
+
+0.071
+
+(℘βR)
+

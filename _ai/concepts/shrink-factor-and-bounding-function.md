@@ -1,0 +1,41 @@
+# Shrink Factor and Bounding Function (Contraction-Modulus Parametrization)
+
+## Defining equation
+
+Anchor: [`rem-shnkrdef`](../../BufferStockTheory.md#rem-shnkrdef)
+
+$$
+\Shrinker = \max\{\pZero \DiscFac {(\Rfree (1-\MPCmax_{k}))}^{1-\CRRA},\ \beta\Ex\PermGroFacRnd^{1-\CRRA}\}<1, \qquad \boundFunc(x) = \zeta + x^{1-\CRRA}
+$$
+
+*Under finite value of autarky and for a large-enough horizon index $k$, the shrink factor $\Shrinker$ is fixed as the larger of the maximal-MPC discounting term and the value-of-autarky factor (both below one), and it parametrizes the constant $\zeta$ and the bounding function $\boundFunc(x)=\zeta+x^{1-\CRRA}$ that define the weighted-norm space for the contraction argument.*
+
+## Gloss
+
+This remark fixes, in one place, the numerical ingredients on which the weighted-norm contraction machinery runs: the candidate contraction modulus $\Shrinker$ and the bounding (weight) function $\boundFunc$. The first argument of the max, $\pZero\DiscFac(\Rfree(1-\MPCmax_{k}))^{1-\CRRA}$, is the discounting term attached to the zero-income event when the consumption share is capped at the finite-horizon maximal MPC $\MPCmax_{k}$; Claim [maximal-mpc-at-most-one](#maximal-mpc-at-most-one) (where WRIC enters) puts it below one for $k$ large enough. The second argument, $\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}$, is exactly the [finite value of autarky](#finite-value-of-autarky) quantity, below one by Assumption [](#ass-FVAC) — hence the remark's opening "By the finite value of autarky ... and for $k$ large enough, fix $\Shrinker$". From $\Shrinker$ the remark records the strict-positivity condition $\Shrinker(1-\Shrinker^{-1}\DiscFac\Ex\PermGroFacRnd^{1-\CRRA})>0$ (Equation [](#eq-shrnkrCond)), defines the constant $\zeta$ as the ratio of $\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}\pNotZero^{\CRRA}\underline{\tranShkEmp}^{1-\CRRA}$ to that quantity (Equation [](#eq-Mbarddef)), and sets $\boundFunc(x)=\zeta+x^{1-\CRRA}$.
+
+These objects are consumed throughout the existence argument. The main text introduces $\zeta$ as "a constant derived from the model primitives and the upper and lower bound on the consumption share", deferring the parametrization to this remark, and uses $\boundFunc$ as the weight defining the space $\mathcal{C}_{\boundFunc}(\Reals_{++},\Reals)$ of $\boundFunc$-bounded continuous functions ([boundfunc-weighted-space](#boundfunc-weighted-space)); the self-map claim [hiraguchi-continuity](#hiraguchi-continuity) is stated relative to this $\boundFunc$. In the proof of the contraction theorem [contraction-mapping-consumption-bounds](#contraction-mapping-consumption-bounds), Boyd's condition (2) needs $\TMap^{\MPCminInf,\MPCmaxInf}\mathbf{0}=\uFunc(\MPCmaxInf\mNrm)$ to be $\boundFunc$-bounded — true for the additive form $\zeta+x^{1-\CRRA}$ — and condition (3), the discounting requirement, reduces to the key inequality $\zeta>\bar{\bar{M}}$ (Equation [](#eq-KeyCondition)), whose right-hand numerator is bounded above by precisely $\zeta$'s numerator; so the remark's $\zeta$ is calibrated to close the discounting verification with modulus $\Shrinker$. Economically, the shrink factor is the worse of the model's two discounting channels: the zero-income-event channel, where continuation scales with the return on the unconsumed share, and the value-of-autarky channel, the growth-adjusted discounting of continuation utility; the contraction must survive whichever is slacker.
+
+One strictness subtlety deserves flagging. Read literally, Equation [](#eq-shnkrdef) sets $\Shrinker$ *equal* to the max, and the remark asserts this "implies" Equation [](#eq-shrnkrCond), i.e. $\Shrinker>\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}$ strictly; but that strict inequality holds only when the first argument of the max strictly exceeds the value-of-autarky term — when the second argument attains the max, the difference is exactly zero and $\zeta$'s denominator vanishes. The binding case is the empirically relevant one: at the paper's baseline calibration the value-of-autarky factor is $0.941$ (the Symbols table's $\DiscAltuAdj$), while the first argument is below $0.073$ for every $k\geq1$ (it is infinite at $k=0$, then drops at once toward its WRIC limit near $0.068$), so the max is attained by the second argument at every admissible $k$. The construction is repaired with no downstream change by choosing $\Shrinker$ strictly inside $(\max\{\cdot,\cdot\},1)$ — a choice FVAC and Claim [](#claim-MPCMAXKleq1) make available — after which eq-shrnkrCond, $\zeta$, and the verification of Equation [](#eq-KeyCondition) go through verbatim; the proof of Theorem [](#thm-cmap) itself interposes a modulus with the first argument *strictly* below it, which is the needed strictness on that channel but still permits equality on the autarky channel. The gap is thus in the stated parametrization, not in the contraction theorem's conclusion.
+
+## Relations
+
+- **requires** [finite-value-of-autarky](finite-value-of-autarky.md) — The remark opens "By the finite value of autarky ... fix $\Shrinker$": FVAC is what puts the second argument $\DiscFac\Ex\PermGroFacRnd^{1-\CRRA}$ of the max strictly below one, so $\Shrinker<1$.
+- **implied-by** [maximal-mpc-at-most-one](maximal-mpc-at-most-one.md) — Mirror edge: claim-MPCMAXKleq1 (under WRIC) supplies the horizon $k$ for which the first argument $\pZero\DiscFac(\Rfree(1-\MPCmax_{k}))^{1-\CRRA}$ is below one, making the max well-behaved.
+- **assumed-by** [hiraguchi-continuity](hiraguchi-continuity.md) — Mirror edge: the self-map claim clm-hiraguchi_cont is stated relative to the bounding function $\boundFunc(x)=\zeta+x^{1-\CRRA}$ fixed here.
+- **assumed-by** [contraction-mapping-consumption-bounds](contraction-mapping-consumption-bounds.md) — The proof of thm-cmap defines $\Shrinker$ by eq-shnkrdef for Boyd's discounting condition (3) and uses $\zeta$ via the key inequality eq-KeyCondition; $\Shrinker$ is the contraction modulus obtained.
+- **assumed-by** [nondegenerate-solution-existence](nondegenerate-solution-existence.md) — The existence theorem thm-convgtobellman states its eventual-contraction conclusion with modulus $\Shrinker<1$, the quantity parametrized here.
+- **requires** [boundfunc-weighted-space](boundfunc-weighted-space.md) — The remark's $\boundFunc$ instantiates the generic weight in the $\boundFunc$-norm space definition (def-boundfuncspace / eq-phinorm); without that space the parametrization has nothing to act on.
+
+## Sources
+
+- [BufferStockTheory.md#rem-shnkrdef](../../BufferStockTheory.md#rem-shnkrdef)
+- [BufferStockTheory.md#eq-Mbarddef](../../BufferStockTheory.md#eq-Mbarddef)
+- [BufferStockTheory.md#sec-Tcontractionmapping](../../BufferStockTheory.md#sec-Tcontractionmapping)
+
+## bellman-ddsl correspondence
+
+> *Reserved field — the bellman-ddsl perch/stage mapping is **deferred** for every concept in this atlas; the cross-repo bridge has not been authored. This is not a delivered correspondence.*
+
+- perch: `(deferred)`
+- stage: `(deferred)`

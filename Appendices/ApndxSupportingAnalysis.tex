@@ -1,0 +1,115 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{@resources/tex-add-search-paths}  % allow latex to find custom stuff
+\input{./.econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
+
+\newcommand{\subname}{ApndxConcaveCFunc}
+\input{\econtexRoot/@local/dir-paths} % get directory macros
+\usepackage{econark-ifsubfile}        % allow conditional execution of code
+\usepackage{econark-xrsetup}          % Xternal crossReferences (from main document)
+
+\xrsetup{\econtexRoot/\texname}
+\begin{document}
+
+\section{Additional Standard Results}\label{sec:realanalysis}
+
+%\notinsubfile{\pagebreak\bibliographystyle{plainnat}\providecommand{\bibfiles}{}\renewcommand{\bibfiles}{\econarkcollectbibs{\econtexRoot/\texname}}\bibliography{\bibfiles}}
+
+\begin{proposition}\labelsafe{fact:xnconvgf}
+Let $K \subset \Reals_{++}$ be compact and let $\fFunc, \fFunc^{n}: K \to \Reals$ be continuous with $\fFunc^{n} \to \fFunc$ uniformly on $K$. Suppose $\fFunc$ is strictly concave on $K$ with unique maximizer $x = \arg\max_{K}\fFunc$, and $x^{n} \in \arg\max_{K}\fFunc^{n}$. Then $x^{n} \to x$ as $n \to \infty$.
+\end{proposition}
+\begin{proof}
+The sequence $\{x^{n}\}\subset K$ is bounded, so every subsequence has a further subsequence $x^{n_{j}}\to \bar{x}\in K$. Uniform convergence gives $\fFunc(\bar{x}) = \lim_{j}\fFunc^{n_{j}}(x^{n_{j}}) = \lim_{j}\max_{K}\fFunc^{n_{j}} = \max_{K}\fFunc = \fFunc(x)$, so by uniqueness of the maximizer $\bar{x}=x$. Every subsequence thus clusters only at $x$, hence $x^{n}\to x$.
+\end{proof}
+
+\begin{fact}\label{fact:normimpliescompact}
+Let $\gFunc: X \to \Reals_{++}$ be a continuous function, where $X \subseteq \Reals^{n}$ is an open convex set.
+Define the weighted supremum norm $\Vert\cdot \Vert_{\gFunc}$ of a real-valued function $\fFunc: X \to \Reals$ by
+\begin{equation}
+\Vert \fFunc \Vert_\gFunc := \sup_{x \in X} \frac{\vert \fFunc(x)\vert }{\gFunc(x)}.
+\end{equation}
+If $\lim_{n \to \infty} \Vert \fFunc_n - \fFunc^{\star} \Vert_\gFunc = 0$, $\fFunc_n$ converges to $\fFunc^{\star}$ uniformly on compact sets.
+\end{fact}
+\begin{proof}
+Let $K$ be a compact subset of $X$. Given the continuity of $\gFunc$, there is a positive maximum $M_K$ of $\gFunc$ on $K$. Then
+\begin{equation}
+\sup_{x \in K} \vert \fFunc_n(x) - \fFunc^{\star}(x)\vert  \leq M_K \sup_{x \in K} \frac{\vert \fFunc_n(x) - \fFunc^{\star}(x)\vert }{\gFunc(x)} \leq M_K \Vert \fFunc_n - \fFunc^{\star} \Vert_\gFunc.
+\end{equation}
+Thus $\lim_{n \to \infty} \Vert \fFunc_n - \fFunc^{\star} \Vert_\gFunc = 0$ implies $\fFunc_n\to\fFunc^{\star}$ uniformly on $K$.
+\end{proof}
+
+\begin{fact}\label{fact:compactnt}
+Let $\{\fFunc_n\}$ be a sequence of continuous functions defined on a subset of the real line and converging uniformly to a function$\fFunc$ on compact sets.
+If$\{x_n\}$ is a convergent sequence of real numbers with limit $x$, then $\fFunc_n(x_n)$ converges to $\fFunc(x)$.
+\end{fact}
+
+\begin{proof}
+Let $K=\{x\}\cup\{x_n:n\geq N_0\}$; since $x_n\to x$, $K$ is a compact subset of the common domain, and $\fFunc$ is continuous on $K$ as a uniform-on-compacts limit of continuous functions. For $n\geq N_0$,
+\[
+|\fFunc_n(x_n)-\fFunc(x)| \leq \underbrace{|\fFunc_n(x_n)-\fFunc(x_n)|}_{\leq\,\sup_{y\in K}|\fFunc_n(y)-\fFunc(y)|} + |\fFunc(x_n)-\fFunc(x)|.
+\]
+The first term $\to 0$ by uniform convergence on $K$; the second $\to 0$ by continuity of $\fFunc$ at $x$ with $x_n\to x$. Hence $\fFunc_n(x_n)\to\fFunc(x)$.
+\end{proof}
+
+
+\begin{claim}\label{claim:rationondec}
+If $\fFunc$ is convex and $\fFunc < 0$ on $(0, \lambda)$, then $\frac{\fFunc(s)}{s}$ is increasing on $(0, \lambda)$.
+\end{claim}
+
+\begin{proof}
+Let $\fFunc$ be convex on $(0, \lambda)$ and $\fFunc < 0$ on $(0, \lambda)$.
+Let $x_1$ and $x_2$ be two points in $(0, \lambda)$.
+Choose $0 < \alpha < x_1$.
+Then, any point (in particular, $x_1$) in $(\alpha, x_2)$ can be written as $x_1 = t \alpha + (1 - t) x_2$ for some $0 < t < 1$.
+
+Now, define a new function $F$ on $[\alpha, x_2]$ as:
+\[
+F(x) = \fFunc(x) - \fFunc(\alpha).
+\]
+Since $\fFunc$ is convex, $F(x)$ is also convex on $[\alpha, x_2]$.
+To see this, observe that:
+\[
+F(t\alpha + (1-t)x_2) = \fFunc(t\alpha + (1-t)x_2) - \fFunc(\alpha) \leq t \fFunc(\alpha) + (1-t) \fFunc(x_2) - \fFunc(\alpha) = t F(\alpha) + (1-t) F(x_2).
+\]
+Since $F(\alpha) = 0$, the inequality simplifies to $F(x_1) \leq (1-t) F(x_2)$.
+Because $x_1-\alpha=(1-t)(x_2-\alpha)$, this gives $\frac{F(x_1)}{x_1-\alpha}\leq\frac{F(x_2)}{x_2-\alpha}$, i.e. the chord slope of the convex $F$ from $\alpha$ is non-decreasing. Letting $\alpha\downarrow 0$ and writing $\fFunc(0^{+}):=\lim_{s\downarrow 0}\fFunc(s)\in[-\infty,0]$, the slope $\frac{\fFunc(s)-\fFunc(0^{+})}{s}$ is non-decreasing; since $\fFunc(0^{+})\leq 0$, so is $\frac{\fFunc(0^{+})}{s}$, hence for $y_1\leq y_2$,
+\[
+\frac{F(y_1)}{y_1} \leq \frac{F(y_2)}{y_2}.
+\]
+Now, using the definition of $F(x)$, we have:
+\[
+\frac{\fFunc(y_1)}{y_1} = \frac{F(y_1)}{y_1} + \frac{\fFunc(\alpha)}{y_1}.
+\]
+Similarly, for $y_2$:
+\[
+\frac{\fFunc(y_2)}{y_2} = \frac{F(y_2)}{y_2} + \frac{\fFunc(\alpha)}{y_2}.
+\]
+Since $\frac{F(y_1)}{y_1} \leq \frac{F(y_2)}{y_2}$ and $\fFunc(\alpha) < 0$, we conclude that:
+\[
+\frac{\fFunc(y_1)}{y_1} \leq  \frac{\fFunc(y_2)}{y_2}.
+\]
+
+Thus, $\frac{\fFunc(s)}{s}$ is increasing on $(0, \lambda)$, completing the proof.
+\end{proof}
+
+
+
+\end{document}
+\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  t  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex %s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% tex-bibtex-command: "bibtex.*"
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=. %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n %o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage).%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:

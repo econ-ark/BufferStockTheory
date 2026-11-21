@@ -1,0 +1,38 @@
+id: perfect-foresight-income-process
+name: Perfect Foresight Income Process
+defining_equation:
+  anchor: ass-pfincome
+  latex: '\pZero=0 \quad\text{and}\quad \tranShkEmpMin=\tranShkEmpMax=\bar{\tranShkEmp}=\permShkIndMin=\permShkIndMax=1'
+  english: 'The zero-income probability is switched off ($\pZero=0$) and every shock bound is pinned to one, so $\permShk\equiv1$ and $\tranShkAll\equiv1$ and income is known with certainty — the perfect-foresight benchmark.'
+gloss: |
+  This assumption fixes what the paper means, mathematically, by "perfect foresight": it is the degenerate case of the [Friedman-Muth income process](#friedman-muth-income-process) in which the zero-income probability is switched off ($\pZero=0$) and all four shock bounds are pinned to one, forcing the permanent and transitory shocks to be degenerate at their unit means ($\permShk\equiv1$, $\tranShkAll\equiv1$). Income then evolves deterministically: permanent income grows at the fixed factor $\PermGroFac$ each period and noncapital income equals permanent income exactly. The paper maintains this assumption "in force" throughout the Perfect Foresight Benchmarks subsection [](#subsec-PFBbenchmark), using the resulting closed forms as the reference point against which buffer-stock (precautionary) behavior under uncertainty is measured.
+
+  Degeneracy strips the expectation operators out of the model's conditions and yields analytic solutions. The finite-value-of-autarky condition loses its shock term and reduces to the [perfect-foresight finite value of autarky](#pf-finite-value-of-autarky) condition $\DiscFac\PermGroFac^{1-\CRRA}<1$ (Equation [](#eq-PFFVAC)). The consumption Euler equation holds with equality every period, giving the deterministic growth factor $\cLvl_{t+1}/\cLvl_{t}=(\Rfree\DiscFac)^{1/\CRRA}=\APFac$ (Equation [](#eq-cGroFac)). Human wealth becomes the geometric present discounted value of certain future income (Equation [](#eq-HDef)), finite exactly when [finite human wealth](#finite-human-wealth-condition) holds ($\RNrmByG^{-1}=\PermGroFac/\Rfree<1$). The unconstrained perfect-foresight consumption function is then linear in total wealth, $\bar{\cFunc}(\mNrm)=(\mNrm+\hNrm-1)\MPCmin$ with $\MPCmin=1-\RPFac$ (Equations [](#eq-cFuncPFUnc), [](#eq-MPCminDef)) — positive precisely when [return impatience](#return-impatience-condition) holds.
+
+  Several benchmark results are stated under this assumption. Proposition [](#prop-pfUCFHWC) shows the unconstrained perfect-foresight limit is non-degenerate if and only if finite human wealth and return impatience both hold — return impatience keeps $\MPCmin>0$ so the consumer does not save everything, while finite human wealth keeps the wealth intercept finite so the consumer does not borrow without bound against it. Proposition [](#prop-PFCExist) delivers the perfect-foresight constrained limiting consumption function, and the perfect-foresight patience chain (Claim [](#claim-PFConspC)) — under finite human wealth, growth impatience implies PF-FVAC implies return impatience — is derived entirely within this benchmark. Removing the zero-income event is precisely what removes the natural borrowing constraint that the [Friedman-Muth process](#friedman-muth-income-process) supplies, which is why studying a *constrained* perfect-foresight problem requires imposing a liquidity constraint by hand.
+relations:
+  - kind: special-case-of
+    target: friedman-muth-income-process
+    note: 'Perfect foresight is the degenerate boundary of the Friedman-Muth process — $\pZero$ set to $0$ and all shock bounds pinned to one ($\permShk\equiv1$, $\tranShkAll\equiv1$); it sits just outside the $\pZero>0$ interior the stochastic process maintains.'
+  - kind: assumed-by
+    target: pf-unconstrained-requires-fhwc
+    note: 'Proposition prop-pfUCFHWC (unconstrained perfect-foresight non-degeneracy iff finite human wealth and return impatience) is stated with this income process in force.'
+  - kind: assumed-by
+    target: pf-constrained-solution-exists
+    note: 'The perfect-foresight constrained limiting consumption function (prop-PFCExist) is derived under this assumption, with an imposed liquidity constraint replacing the natural one that the zero-income event would otherwise supply.'
+  - kind: assumed-by
+    target: pf-finite-value-of-autarky
+    note: 'Under this process the finite-value-of-autarky condition loses its expectation term and reduces to PF-FVAC, $\DiscFac\PermGroFac^{1-\CRRA}<1$ (eq-PFFVAC).'
+  - kind: assumed-by
+    target: pf-consumption-function-properties
+    note: 'The perfect-foresight patience chain GICRaw implies PF-FVAC implies RIC (claim-PFConspC, under finite human wealth) is a perfect-foresight benchmark result derived within this assumption.'
+sources:
+  - file: BufferStockTheory.md
+    anchor: ass-pfincome
+  - file: BufferStockTheory.md
+    anchor: subsec-PFBbenchmark
+  - file: BufferStockTheory.md
+    anchor: eq-cFuncPFUnc
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'

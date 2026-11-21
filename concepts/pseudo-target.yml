@@ -1,0 +1,39 @@
+id: pseudo-target
+name: Pseudo-Target
+short: m-bal
+defining_equation:
+  anchor: eq-mBalLvl
+  latex: \Ex_t [\permShk_{t+1}{\mNrm}_{t+1}/\mNrm_t] = 1 \text{ if } \mNrm_t = \mBalLvl
+  english: 'A normalised market-resource level at which the level of market resources grows in expectation at the permanent-income growth rate.'
+gloss: |
+  The pseudo-target $\mBalLvl$ is the second of the paper's two stability concepts (alongside the buffer-stock target $\mTrgNrm$). It addresses a different stability question from the individual target: whether the *level* of market resources $\mLvl_t$ grows in expectation at the permanent-income growth factor $\PermGroFac$ — i.e., whether the model has a balanced-growth path.
+
+  Specifically, $\mBalLvl$ is the value of normalised market resources at which $\Ex_t[\mLvl_{t+1}]/\mLvl_t = \PermGroFac$. Equivalently (after normalising), the implicit equation $\Ex_t[\permShk_{t+1} \mNrm_{t+1}/\mNrm_t] = 1$ holds at $\mNrm_t = \mBalLvl$. Below the pseudo-target, level growth exceeds $\PermGroFac$; above it, level growth falls short. Aggregate market resources thus drift toward $\mBalLvl$ even when individual sample paths do not converge to a target.
+
+  Existence of the pseudo-target requires WRIC, FVAC, and the ordinary GIC — the same first two conditions as the individual buffer-stock target, but with GIC instead of the stronger GIC-Mod. The two coincide when there are no permanent shocks ($\permShk \equiv 1$) and otherwise differ by a factor of $\Ex[\permShk^{-1}]$ in their implicit equations. When permanent-shock variance is large enough that GIC-Mod fails but GIC still holds, the pseudo-target exists but the individual target does not — the case illustrated by Figure `GICModFailsButGICRawHolds` in the paper.
+relations:
+  - kind: contrasts-with
+    target: buffer-stock-target
+    note: 'Pseudo-target is the level/aggregate counterpart; buffer-stock target is the normalised/individual counterpart.'
+  - kind: contrasts-with
+    target: buffer-stock-target-existence
+    note: 'Mirror of buffer-stock-target-existence contrasts-with pseudo-target: the individual-target theorem (thm-target) requires the stronger GIC-Mod, whereas this pseudo-target needs only GIC.'
+  - kind: requires
+    target: weak-return-impatience-condition
+    note: 'thm-MSSBalExists assumes WRIC.'
+  - kind: requires
+    target: finite-value-of-autarky
+    note: 'thm-MSSBalExists assumes FVAC.'
+  - kind: requires
+    target: growth-impatience-condition
+    note: 'thm-MSSBalExists assumes the ordinary GIC (weaker than the GIC-Mod the individual target needs).'
+sources:
+  - file: BufferStockTheory.md
+    anchor: thm-MSSBalExists
+  - file: BufferStockTheory.md
+    anchor: eq-mBalLvl
+  - file: BufferStockTheory.md
+    anchor: balgrostable
+bellman_ddsl:
+  perch: '(deferred)'
+  stage: '(deferred)'
